@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Completo · Filipe Burini</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore a galeria completa de sites institucionais e landing pages desenvolvidos por Filipe Burini. Projetos otimizados para SEO local e conversão de clientes.">
+  <meta name="keywords" content="criação de sites, portfólio, seo local, landing page, site profissional">
+  <meta name="author" content="Filipe Burini">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Portfólio Completo · Filipe Burini">
+  <meta property="og:description" content="Galeria de sites profissionais desenvolvidos com foco em SEO local e conversões no Google.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Outfit (display) & Plus Jakarta Sans (sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Phosphor Icons (CDN) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- GSAP & ScrollTrigger (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              emerald: '#10b981',
+              darkBg: '#050505',
+              cardBg: '#0c0c0c',
+              borderWhite: 'rgba(255, 255, 255, 0.08)',
+              borderWhiteSlight: 'rgba(255, 255, 255, 0.04)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      background-color: #050505;
+      color: #f4f4f5;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050505;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10b981;
+    }
+    
+    .transition-premium {
+      transition: all 700ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden font-sans select-none antialiased">
+
+  <!-- Header / Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-40 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto mt-6">
+      <nav class="h-16 px-6 rounded-full border border-brand-borderWhite bg-black/40 backdrop-blur-md flex items-center justify-between transition-premium">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 font-display text-lg md:text-xl font-extrabold tracking-tight text-white hover:opacity-90 transition-opacity">
+          BURINI<span class="text-brand-emerald">.PRO</span>
+        </a>
+        
+        <!-- Navigation Menu Links (Pointing back to landing page hashes) -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html#diferenciais" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Diferenciais</a>
+          <a href="#" class="text-sm font-medium text-white transition-colors">Projetos</a>
+          <a href="index.html#planos" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Planos</a>
+          <a href="index.html#sobre" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Sobre</a>
+          <a href="index.html#faq" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">FAQ</a>
+        </div>
+        
+        <!-- CTA Header Button (Desktop) -->
+        <div class="hidden md:block">
+          <a href="index.html#contato" class="group flex items-center gap-3 bg-white text-zinc-950 pl-5 pr-2 py-2 rounded-full font-semibold hover:bg-brand-emerald hover:text-zinc-950 transition-premium shadow-md shadow-white/5 active:scale-[0.98]">
+            <span class="text-sm">Solicitar Orçamento</span>
+            <div class="w-8 h-8 rounded-full bg-zinc-950/5 group-hover:bg-zinc-950/10 flex items-center justify-center transition-premium group-hover:translate-x-1 group-hover:-translate-y-[1px]">
+              <i class="ph ph-arrow-up-right text-sm"></i>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Hamburger Button (Mobile) -->
+        <button id="mobile-menu-btn" class="block md:hidden text-white focus:outline-none z-50 w-8 h-8 flex flex-col justify-center items-end gap-1.5" aria-label="Abrir Menu">
+          <span class="w-6 h-0.5 bg-white rounded-full transition-transform duration-300"></span>
+          <span class="w-4 h-0.5 bg-white rounded-full transition-transform duration-300"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Expanded Modal -->
+  <div id="mobile-menu-modal" class="fixed inset-0 bg-black/95 backdrop-blur-2xl z-30 hidden flex flex-col justify-center px-8 transition-premium">
+    <div class="flex flex-col gap-6 text-2xl font-display font-bold">
+      <a href="index.html#diferenciais" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">Diferenciais</a>
+      <a href="#" class="mobile-nav-link text-white transition-colors py-2">Projetos</a>
+      <a href="index.html#planos" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">Planos</a>
+      <a href="index.html#sobre" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">Sobre</a>
+      <a href="index.html#faq" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">FAQ</a>
+      <div class="h-[1px] bg-white/10 my-4"></div>
+      <a href="index.html#contato" class="mobile-nav-link group flex items-center justify-between bg-brand-emerald text-zinc-950 px-6 py-4 rounded-full font-semibold hover:bg-emerald-400 transition-premium shadow-lg shadow-emerald-500/10">
+        <span>Solicitar Orçamento</span>
+        <i class="ph ph-arrow-up-right text-lg"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-36 pb-16 overflow-hidden">
+    <!-- Glowing background lights -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-emerald/10 blur-[130px] pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 text-center relative z-10 space-y-6">
+      <div class="inline-flex items-center gap-2 rounded-full border border-brand-emerald/30 bg-brand-emerald/5 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-brand-emerald mx-auto">
+        Galeria de Projetos
+      </div>
+      <h1 class="text-4xl md:text-6xl font-display font-extrabold tracking-tighter text-white leading-none max-w-4xl mx-auto">
+        Sites de Alta Performance e <span class="text-brand-emerald">Conversão Local</span>
+      </h1>
+      <p class="text-base sm:text-lg text-zinc-400 max-w-[65ch] mx-auto leading-relaxed">
+        Navegue pelos projetos reais desenvolvidos para clínicas de estética, médicos, consultórios odontológicos e empresas que buscam vender no Google.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter & Projects Section -->
+  <section class="pb-24 md:pb-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <!-- Category Filters -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-16 select-none reveal-item">
+        <button data-filter="all" class="filter-btn text-xs font-semibold px-5 py-2.5 rounded-full border border-brand-emerald bg-brand-emerald text-zinc-950 transition-premium active:scale-[0.96]">
+          Todos
+        </button>
+        <button data-filter="clinica" class="filter-btn text-xs font-semibold px-5 py-2.5 rounded-full border border-brand-borderWhite bg-zinc-900/30 text-zinc-400 hover:text-white hover:border-brand-borderWhite/20 transition-premium active:scale-[0.96]">
+          Clínicas / Saúde
+        </button>
+        <button data-filter="landing" class="filter-btn text-xs font-semibold px-5 py-2.5 rounded-full border border-brand-borderWhite bg-zinc-900/30 text-zinc-400 hover:text-white hover:border-brand-borderWhite/20 transition-premium active:scale-[0.96]">
+          Landing Pages de Vendas
+        </button>
+        <button data-filter="institucional" class="filter-btn text-xs font-semibold px-5 py-2.5 rounded-full border border-brand-borderWhite bg-zinc-900/30 text-zinc-400 hover:text-white hover:border-brand-borderWhite/20 transition-premium active:scale-[0.96]">
+          Sites Institucionais
+        </button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Case 1: BioBeaux -->
+        <div data-category="clinica" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/biobeaux.webp" alt="Clínica de Estética BioBeaux" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Clínica de Estética</span>
+                <h3 class="text-lg font-bold text-white mt-2">BioBeaux | Estética Avançada</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Site profissional estruturado para clínica estética em Franca-SP, focado na captação local de palavras-chave como 'Ultraformer' e 'Tratamentos Faciais'. Conta com agendamento integrado e área de avaliações do Google.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 2: Group AEK -->
+        <div data-category="institucional" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/aek-principal.webp" alt="Agência Group AEK" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Site Institucional</span>
+                <h3 class="text-lg font-bold text-white mt-2">Group AEK | Branding & Marketing</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Site institucional para agência Group AEK, posicionando autoridade em branding, marketing digital e tráfego pago. Arquitetura voltada para a qualificação de clientes B2B.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 3: Método AEK 360° -->
+        <div data-category="landing" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/aek-metodo.webp" alt="Método AEK 360°" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Landing Page</span>
+                <h3 class="text-lg font-bold text-white mt-2">Método AEK 360°</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Landing page de alta conversão estruturada para captação de leads qualificados do infoproduto e consultoria comercial Método AEK 360°. Otimização completa de velocidade de carregamento.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 4: VDutra Odontologia -->
+        <div data-category="clinica" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/vdutra.webp" alt="VDutra Odontologia" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Dentista / Clínica</span>
+                <h3 class="text-lg font-bold text-white mt-2">VDutra Odontologia · Franca</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Website médico odontológico completo em Franca-SP, otimizado localmente para buscas estratégicas como 'dentista', 'implantes dentários' e 'clareamento'. Foco em conversão via agendamento WhatsApp.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 5: Alvis Odontologia -->
+        <div data-category="clinica" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/alvis.webp" alt="Alvis Odontologia" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Implantes / Clínica</span>
+                <h3 class="text-lg font-bold text-white mt-2">Alvis Odontologia · Paulínia</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Site profissional local desenvolvido para a Alvis Odontologia em Paulínia-SP, especializado no rankeamento e atração de clientes interessados em implantes dentários.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 1: Vivency Dra. Ana Neves -->
+        <div data-category="clinica" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site Conceitual Vivency Dra. Ana Neves.webp" alt="Site Conceitual Vivency Dra. Ana Neves" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">Vivency Bioestética | Dra. Ana Neves</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Design de ultra luxo focado em bioestética e dermatologia. Apresenta tratamentos de alto padrão com navegação fluida, perfeita para profissionais que buscam autoridade e agendamentos qualificados.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 2: Dra. Alessandra França -->
+        <div data-category="clinica" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site Conceitual Dra. Alessandra França.webp" alt="Site Conceitual Dra. Alessandra França" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">Dra. Alessandra França | Estética Avançada</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Estrutura cinematográfica ideal para harmonização facial e tratamentos corporais de alto nível. Foco total em SEO local e construção de posicionamento premium no Google.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 3: Clínica Dra. Michele Ludovino -->
+        <div data-category="clinica" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site Conceitual Clínica Dra. Michele Ludovino.webp" alt="Site Conceitual Clínica Dra. Michele Ludovino" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">Dra. Michele Ludovino | Biomédica Esteta</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Design moderno e magnético desenvolvido para destacar tratamentos como preenchimentos e harmonização. Otimizado para conversão de leads direto no WhatsApp do consultório.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 4: Ciça Cintra -->
+        <div data-category="landing" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site Conceitual Ciça Cintra.webp" alt="Site Conceitual Ciça Cintra" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">Ciça Cintra | Personal Branding</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Página voltada ao branding pessoal de profissionais de destaque, combinando tipografia elegante, paleta sofisticada e seções estruturadas para conversão de mentorias e consultorias.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 5: Premmia Engenharia -->
+        <div data-category="institucional" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site conceitual - Premmia Engenharia.webp" alt="Site conceitual - Premmia Engenharia" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">Premmia Engenharia | Soluções Corporativas</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Design institucional robusto e imponente para construtoras, engenharias ou indústrias. Sessões organizadas para demonstração de projetos, portfólio de obras e serviços B2B.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 6: A4 Arquitetura -->
+        <div data-category="institucional" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site conceitual A4 ARQUITETURA.webp" alt="Site conceitual A4 ARQUITETURA" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">A4 Arquitetura | Projetos de Luxo</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Conceito visual arrojado projetado para escritórios de arquitetura e design de interiores. Focado em grandes imagens, transições fluidas e apresentação impactante de portfólio.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 7: FastCorban -->
+        <div data-category="landing" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site conceitual FastCorban.webp" alt="Site conceitual FastCorban" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">FastCorban | Soluções de Crédito</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Landing page de alto impacto e ultra-rápida desenvolvida para correspondentes bancários ou fintechs. Estrutura otimizada para tráfego pago no Google Ads e geração de conversão.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 8: FranPiscinas -->
+        <div data-category="institucional" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site conceitual FranPiscinas.webp" alt="Site conceitual FranPiscinas" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">FranPiscinas | Aquecimento e Lazer</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Site profissional estruturado para comércios locais e prestadores de serviços de lazer/manutenção. Foco em SEO local de alta relevância com botões integrados para o WhatsApp.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 9: Lidiane Duppi -->
+        <div data-category="institucional" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site conceitual Lidiane Duppi.webp" alt="Site conceitual Lidiane Duppi" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">Lidiane Duppi | Estética Avançada</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Design conceitual super delicado e luxuoso para profissionais de micropigmentação e cílios. Foco em expor trabalhos anteriores em formato bento grid elegante e sofisticado.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 10: Sergio Machado Arquitetura -->
+        <div data-category="institucional" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site conceitual Sergio Machado Arquitetura.webp" alt="Site conceitual Sergio Machado Arquitetura" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">Sergio Machado | Arquitetura Comercial</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Página conceitual para arquitetos ou designers corporativos que buscam um layout limpo e direto, enfatizando a sofisticação técnica de plantas e entregas estruturadas.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Project 11: Clinica de Estetica Conceito -->
+        <div data-category="clinica" class="portfolio-item p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/Site conceitual para Clinica de Estetica.webp" alt="Site conceitual para Clinica de Estetica" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-brand-emerald/10 border border-brand-emerald/30 backdrop-blur-sm text-brand-emerald px-2.5 py-1 rounded">Projeto em aberto</span>
+                <h3 class="text-lg font-bold text-white mt-2">BioEsthetic | Estética Avançada</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Design conceitual focado em clínicas de emagrecimento ou rejuvenescimento facial. Apelo estético moderno e direto, ideal para atrair leads interessados em pacotes de tratamentos corporais.
+            </p>
+            <a href="index.html#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Adquirir este layout <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 6: Custom placeholder CTA -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.01] border border-dashed border-brand-borderWhite flex flex-col justify-center items-center text-center p-8 h-full min-h-[300px]">
+          <div class="w-12 h-12 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center mb-4 text-xl">
+            <i class="ph ph-plus-bold"></i>
+          </div>
+          <h3 class="text-lg font-display font-semibold text-white mb-2">Quer um Site Assim?</h3>
+          <p class="text-xs text-zinc-400 max-w-[25ch] mb-6">
+            Desenvolva a ferramenta ideal de conversão para colocar sua empresa na Posição #1 do Google.
+          </p>
+          <a href="index.html#contato" class="group flex items-center gap-2 text-xs font-bold bg-white text-zinc-950 px-4 py-2.5 rounded-full hover:bg-brand-emerald hover:text-zinc-950 transition-premium shadow-md shadow-white/5 active:scale-[0.98]">
+            Solicitar Orçamento
+            <i class="ph ph-arrow-up-right group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Call Section -->
+  <section class="py-24 border-t border-brand-borderWhite relative bg-[#070707]">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 text-center space-y-6 reveal-item">
+      <h2 class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter text-white">
+        Pronto para Dominar o Google?
+      </h2>
+      <p class="text-base text-zinc-400 max-w-[65ch] mx-auto">
+        Sua empresa não pode continuar invisível. Construa uma ferramenta de conversão ágil, estruturada sob as melhores práticas técnicas de SEO local.
+      </p>
+      <div class="pt-4">
+        <a href="index.html#contato" class="inline-flex group items-center justify-center gap-4 bg-brand-emerald text-zinc-950 pl-6 pr-2.5 py-2.5 rounded-full font-bold hover:bg-emerald-400 transition-premium shadow-lg shadow-emerald-500/10 active:scale-[0.98] mx-auto">
+          <span>Solicitar Orçamento Grátis</span>
+          <div class="w-10 h-10 rounded-full bg-zinc-950/5 group-hover:bg-zinc-950/10 flex items-center justify-center transition-premium group-hover:translate-x-1 group-hover:-translate-y-[1px]">
+            <i class="ph ph-arrow-up-right text-base"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-borderWhite py-12 bg-black/60 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <div class="font-display text-lg font-extrabold text-white">
+            BURINI<span class="text-brand-emerald">.PRO</span>
+          </div>
+          <p class="text-xs text-zinc-500 text-center md:text-left max-w-[45ch]">
+            Filipe Burini · Criação de sites profissionais com SEO para quem quer vender pelo Google.
+          </p>
+        </div>
+
+        <div class="text-xs text-zinc-500 text-center md:text-right">
+          <p>© 2026 · Todos os direitos reservados.</p>
+        </div>
+        
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Case Studies -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 overflow-y-auto opacity-0 pointer-events-none transition-all duration-300 flex justify-center py-12 px-4">
+    <button id="lightbox-close" class="fixed top-6 right-6 text-white hover:text-brand-emerald transition-colors text-3xl focus:outline-none z-50 bg-black/40 p-2.5 rounded-full backdrop-blur-md border border-white/10" aria-label="Fechar Visualização">
+      <i class="ph ph-x"></i>
+    </button>
+    <div class="w-[95%] md:w-[90%] max-w-4xl my-auto rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-zinc-950/60 backdrop-blur-sm relative">
+      <img id="lightbox-img" src="" alt="Visualização do Projeto" class="w-full h-auto block">
+    </div>
+  </div>
+
+  <!-- WhatsApp Floating Sticky Button -->
+  <a href="https://wa.me/5500000000000?text=Olá!%20Vi%20seu%20site%20no%20Google%20e%20quero%20um%20orçamento." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-zinc-950 flex items-center justify-center shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-premium" aria-label="Falar no WhatsApp">
+    <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+  </a>
+
+  <!-- GSAP Interactions Scripts -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Mobile Menu Morph and Modal Reveal
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuModal = document.getElementById('mobile-menu-modal');
+    const menuSpans = menuBtn.querySelectorAll('span');
+    const menuLinks = document.querySelectorAll('.mobile-nav-link');
+    let isMenuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        menuSpans[0].style.transform = 'translateY(4px) rotate(45deg)';
+        menuSpans[1].style.transform = 'translateY(-4px) rotate(-45deg)';
+        menuSpans[1].style.width = '24px';
+        
+        menuModal.classList.remove('hidden');
+        gsap.fromTo(menuModal, 
+          { opacity: 0, y: -20 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power4.out' }
+        );
+        gsap.fromTo('.mobile-nav-link', 
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, stagger: 0.1, delay: 0.2, duration: 0.4, ease: 'power4.out' }
+        );
+      } else {
+        menuSpans[0].style.transform = 'none';
+        menuSpans[1].style.transform = 'none';
+        menuSpans[1].style.width = '16px';
+        
+        gsap.to(menuModal, {
+          opacity: 0,
+          y: -20,
+          duration: 0.4,
+          ease: 'power4.in',
+          onComplete: () => menuModal.classList.add('hidden')
+        });
+      }
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) {
+          menuBtn.click();
+        }
+      });
+    });
+
+    // Lightbox / Modal for Case Studies
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const projectTriggers = document.querySelectorAll('.cursor-zoom-in');
+
+    projectTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const targetImg = trigger.querySelector('.project-thumbnail');
+        if (targetImg) {
+          lightboxImg.src = targetImg.getAttribute('src');
+          lightboxImg.alt = targetImg.getAttribute('alt');
+          lightboxModal.classList.remove('pointer-events-none', 'opacity-0');
+          lightboxModal.classList.add('opacity-100');
+          document.body.classList.add('overflow-hidden');
+          lightboxModal.scrollTop = 0;
+          
+          gsap.fromTo(lightboxImg, 
+            { scale: 0.95, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' }
+          );
+        }
+      });
+    });
+
+    const lightboxCloseAction = () => {
+      lightboxModal.classList.remove('opacity-100');
+      lightboxModal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    lightboxClose.addEventListener('click', lightboxCloseAction);
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal || e.target === lightboxClose || e.target.closest('#lightbox-close')) {
+        lightboxCloseAction();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightboxCloseAction();
+      }
+    });
+
+    // Dynamic Portfolio Filter System (Awwwards-Tier with GSAP animations)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle Active state style on buttons
+        filterButtons.forEach(otherBtn => {
+          otherBtn.classList.remove('bg-brand-emerald', 'text-zinc-950', 'border-brand-emerald');
+          otherBtn.classList.add('bg-zinc-900/30', 'text-zinc-400', 'border-brand-borderWhite');
+        });
+        btn.classList.remove('bg-zinc-900/30', 'text-zinc-400', 'border-brand-borderWhite');
+        btn.classList.add('bg-brand-emerald', 'text-zinc-950', 'border-brand-emerald');
+
+        const activeFilter = btn.getAttribute('data-filter');
+
+        // GSAP transition for items
+        gsap.to(portfolioItems, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.3,
+          ease: 'power2.in',
+          onComplete: () => {
+            portfolioItems.forEach(item => {
+              const category = item.getAttribute('data-category');
+              if (activeFilter === 'all' || category === activeFilter) {
+                item.style.display = 'flex';
+              } else {
+                item.style.display = 'none';
+              }
+            });
+            
+            // Fade in matching items
+            const visibleItems = Array.from(portfolioItems).filter(item => item.style.display !== 'none');
+            gsap.fromTo(visibleItems, 
+              { opacity: 0, scale: 0.95 },
+              { opacity: 1, scale: 1, duration: 0.5, stagger: 0.05, ease: 'power2.out' }
+            );
+          }
+        });
+      });
+    });
+
+    // GSAP Page Entrance Animations
+    window.addEventListener('DOMContentLoaded', () => {
+      gsap.set('h1', { opacity: 0, y: 30 });
+      gsap.set('nav', { opacity: 0, y: -20 });
+      gsap.set('.filter-btn', { opacity: 0, y: 15 });
+
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 }});
+      
+      tl.to('nav', { opacity: 1, y: 0, delay: 0.2 })
+        .to('h1', { opacity: 1, y: 0 }, '-=0.8')
+        .to('.filter-btn', { opacity: 1, y: 0, stagger: 0.08, duration: 0.6 }, '-=0.6');
+    });
+
+    // Scroll Reveal trigger
+    const revealTargets = gsap.utils.toArray('.reveal-item');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      revealTargets.forEach((target) => {
+        gsap.fromTo(target, 
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: target,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      gsap.fromTo('.portfolio-item',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#portfolio-grid',
+            start: 'top 80%',
+          }
+        }
+      );
+    } else {
+      gsap.set('.reveal-item', { opacity: 1, y: 0 });
+      gsap.set('.portfolio-item', { opacity: 1, y: 0 });
+    }
+  </script>
+</body>
+</html>

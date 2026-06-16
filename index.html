@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filipe Burini · Criação de Sites Profissionais e SEO Local</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Criação de sites profissionais e rápidos, otimizados para SEO e construídos para converter visitas em clientes no Google. Entrega em 14 dias para negócios locais.">
+  <meta name="keywords" content="criação de sites, seo local, landing page, site institucional, filipe burini, negócios locais">
+  <meta name="author" content="Filipe Burini">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Filipe Burini · Criação de Sites Profissionais e SEO Local">
+  <meta property="og:description" content="Criação de sites profissionais rápidos que vendem todos os dias no Google.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero_dashboard_analytics.png">
+  
+  <!-- Google Fonts: Outfit (display) & Plus Jakarta Sans (sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Phosphor Icons (CDN) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
+  <!-- GSAP & ScrollTrigger (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              emerald: '#10b981',
+              darkBg: '#050505',
+              cardBg: '#0c0c0c',
+              borderWhite: 'rgba(255, 255, 255, 0.08)',
+              borderWhiteSlight: 'rgba(255, 255, 255, 0.04)',
+            }
+          },
+          animation: {
+            'marquee': 'marquee 25s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Premium custom styles & noise overlay */
+    body {
+      background-color: #050505;
+      color: #f4f4f5;
+    }
+
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050505;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10b981;
+    }
+    
+    /* Easing definition matching principal directives */
+    .transition-premium {
+      transition: all 700ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden font-sans select-none antialiased">
+
+
+
+  <!-- Header / Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-40 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto mt-6">
+      <nav class="h-16 px-6 rounded-full border border-brand-borderWhite bg-black/40 backdrop-blur-md flex items-center justify-between transition-premium">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 font-display text-lg md:text-xl font-extrabold tracking-tight text-white hover:opacity-90 transition-opacity">
+          BURINI<span class="text-brand-emerald">.PRO</span>
+        </a>
+        
+        <!-- Navigation Menu Links (Desktop) -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#diferenciais" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Diferenciais</a>
+          <a href="#projetos" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Projetos</a>
+          <a href="#planos" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Planos</a>
+          <a href="#sobre" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Sobre</a>
+          <a href="#faq" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">FAQ</a>
+        </div>
+        
+        <!-- CTA Header Button (Desktop) -->
+        <div class="hidden md:block">
+          <a href="#contato" class="group flex items-center gap-3 bg-white text-zinc-950 pl-5 pr-2 py-2 rounded-full font-semibold hover:bg-brand-emerald hover:text-zinc-950 transition-premium shadow-md shadow-white/5 active:scale-[0.98]">
+            <span class="text-sm">Solicitar Orçamento</span>
+            <div class="w-8 h-8 rounded-full bg-zinc-950/5 group-hover:bg-zinc-950/10 flex items-center justify-center transition-premium group-hover:translate-x-1 group-hover:-translate-y-[1px]">
+              <i class="ph ph-arrow-up-right text-sm"></i>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Hamburger Button (Mobile) -->
+        <button id="mobile-menu-btn" class="block md:hidden text-white focus:outline-none z-50 w-8 h-8 flex flex-col justify-center items-end gap-1.5" aria-label="Abrir Menu">
+          <span class="w-6 h-0.5 bg-white rounded-full transition-transform duration-300"></span>
+          <span class="w-4 h-0.5 bg-white rounded-full transition-transform duration-300"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Expanded Modal -->
+  <div id="mobile-menu-modal" class="fixed inset-0 bg-black/95 backdrop-blur-2xl z-30 hidden flex flex-col justify-center px-8 transition-premium">
+    <div class="flex flex-col gap-6 text-2xl font-display font-bold">
+      <a href="#diferenciais" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">Diferenciais</a>
+      <a href="#projetos" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">Projetos</a>
+      <a href="#planos" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">Planos</a>
+      <a href="#sobre" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">Sobre</a>
+      <a href="#faq" class="mobile-nav-link text-zinc-400 hover:text-white transition-colors py-2">FAQ</a>
+      <div class="h-[1px] bg-white/10 my-4"></div>
+      <a href="#contato" class="mobile-nav-link group flex items-center justify-between bg-brand-emerald text-zinc-950 px-6 py-4 rounded-full font-semibold hover:bg-emerald-400 transition-premium shadow-lg shadow-emerald-500/10">
+        <span>Solicitar Orçamento</span>
+        <i class="ph ph-arrow-up-right text-lg"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[100dvh] flex items-center pt-28 md:pt-32 pb-16 overflow-hidden">
+    <!-- Background Image with Fade -->
+    <div class="absolute inset-0 z-0">
+      <img src="assets/Foto fundo hero.webp" alt="Filipe Burini" class="w-full h-full object-cover object-[25%_center] md:object-[20%_center] opacity-60 md:opacity-80 lg:opacity-90">
+      <!-- Dark gradient blending to the left where the text is -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 md:via-[#050505]/45 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/20"></div>
+    </div>
+
+    <!-- Ambient glowing backgrounds (emerald green) -->
+    <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-emerald/5 blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-emerald-950/15 blur-[100px] pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Hero Content (Left) -->
+        <div class="lg:col-span-7 space-y-6 text-left hero-text">
+          <!-- Restrained Eyebrow -->
+          <div class="inline-flex items-center gap-2 rounded-full border border-brand-emerald/30 bg-brand-emerald/5 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-brand-emerald">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-pulse"></span>
+            Landing Pages de Elite para Negócios
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tighter leading-[1.05] text-white">
+            Criamos sites de elite que te colocam no <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-brand-emerald">topo do Google.</span>
+          </h1>
+          
+          <p class="text-base sm:text-lg text-zinc-400 max-w-[65ch] leading-relaxed">
+            Sites rápidos, otimizados para SEO e construídos estrategicamente para converter visitas em orçamentos qualificados direto no WhatsApp do seu negócio.
+          </p>
+
+          <!-- Highlight Tags (Castrum Style) -->
+          <div class="flex flex-wrap gap-2.5 pt-2">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-brand-borderWhite bg-white/[0.02] px-3.5 py-1.5 text-[11px] font-semibold text-zinc-300">
+              <span class="text-brand-emerald font-bold">+200</span> Projetos entregues
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-brand-borderWhite bg-white/[0.02] px-3.5 py-1.5 text-[11px] font-semibold text-zinc-300">
+              <span class="text-brand-emerald font-bold">14 Dias</span> Entrega recorde
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-brand-borderWhite bg-white/[0.02] px-3.5 py-1.5 text-[11px] font-semibold text-zinc-300">
+              <span class="text-brand-emerald font-bold">100%</span> Foco em conversão
+            </span>
+          </div>
+          
+          <!-- Call to Actions -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <a href="#contato" class="group flex items-center justify-center gap-4 bg-brand-emerald text-zinc-950 pl-6 pr-2.5 py-2.5 rounded-full font-semibold hover:bg-emerald-400 transition-premium shadow-lg shadow-emerald-500/20 active:scale-[0.98]">
+              <span class="text-sm md:text-base">Solicitar Orçamento</span>
+              <div class="w-10 h-10 rounded-full bg-zinc-950/5 group-hover:bg-zinc-950/10 flex items-center justify-center transition-premium group-hover:translate-x-1 group-hover:-translate-y-[1px]">
+                <i class="ph ph-arrow-up-right text-base"></i>
+              </div>
+            </a>
+            
+            <a href="#planos" class="group flex items-center justify-center gap-2 text-zinc-300 hover:text-white transition-colors py-3 px-6 rounded-full border border-brand-borderWhite hover:border-brand-borderWhite/20 text-sm font-medium">
+              Ver Planos
+            </a>
+          </div>
+
+          <!-- Social Proof Avatars (Castrum Style) -->
+          <div class="flex items-center gap-3.5 pt-4 border-t border-brand-borderWhiteSlight">
+            <div class="flex -space-x-2.5">
+              <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-brand-emerald to-teal-400 border border-black flex items-center justify-center text-[9px] font-bold text-black font-display">A</div>
+              <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-zinc-700 to-zinc-500 border border-black flex items-center justify-center text-[9px] font-bold text-white font-display">B</div>
+              <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-emerald-500 to-emerald-300 border border-black flex items-center justify-center text-[9px] font-bold text-black font-display">C</div>
+              <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-zinc-800 to-zinc-600 border border-black flex items-center justify-center text-[9px] font-bold text-white font-display">D</div>
+            </div>
+            <div class="text-[11px] text-zinc-400">
+              Mais de <span class="text-white font-bold">+200 negócios locais</span> alavancados no Google.
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hero Visual / Floating Badges (Right) -->
+        <div class="lg:col-span-5 relative h-[250px] md:h-[350px] w-full flex items-center justify-center hero-visual mt-8 lg:mt-0">
+          <!-- Floating Badge 1: Performance Google -->
+          <div class="absolute top-8 right-0 lg:-right-6 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-brand-borderWhite flex items-center gap-3 shadow-2xl hover:scale-105 transition-premium select-none animate-bounce" style="animation-duration: 6s;">
+            <div class="w-9 h-9 rounded-xl bg-brand-emerald/10 flex items-center justify-center text-brand-emerald">
+              <i class="ph ph-check-circle text-lg"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-zinc-400 uppercase tracking-widest leading-none mb-1">Performance Google</div>
+              <div class="text-xs font-bold text-white leading-none">Speed: 100/100 Mobile ⚡</div>
+            </div>
+          </div>
+
+          <!-- Floating Badge 2: Lead WhatsApp -->
+          <div class="absolute bottom-8 left-0 lg:-left-10 p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-brand-borderWhite flex items-center gap-3 shadow-2xl hover:scale-105 transition-premium select-none animate-bounce" style="animation-duration: 8s;">
+            <div class="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+              <i class="ph ph-whatsapp-logo text-lg"></i>
+            </div>
+            <div>
+              <div class="text-[10px] text-zinc-400 uppercase tracking-widest leading-none mb-1">Novo Lead Recebido</div>
+              <div class="text-xs font-bold text-white leading-none">"Quero criar meu site!" 💬</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Authority / Stats Bar (Marquee) -->
+  <section class="border-y border-brand-borderWhite bg-[#080808]/90 py-6 overflow-hidden relative z-10">
+    <div class="flex whitespace-nowrap overflow-hidden select-none">
+      <!-- Original Panel -->
+      <div class="flex items-center gap-16 md:gap-24 shrink-0 animate-marquee pr-16 md:pr-24">
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">+200</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Sites entregues</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">98%</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Clientes satisfeitos</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">14</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Dias · Entrega média</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">5 ★</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Avaliação Google</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+      </div>
+      <!-- Duplicate Panel for Seamless Loop -->
+      <div class="flex items-center gap-16 md:gap-24 shrink-0 animate-marquee pr-16 md:pr-24" aria-hidden="true">
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">+200</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Sites entregues</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">98%</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Clientes satisfeitos</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">14</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Dias · Entrega média</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+        <div class="flex items-center gap-3.5">
+          <span class="text-2xl md:text-3xl font-display font-black text-white leading-none">5 ★</span>
+          <span class="text-[10px] md:text-xs text-zinc-400 uppercase tracking-widest font-semibold font-sans leading-none">Avaliação Google</span>
+        </div>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald shrink-0"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais Section (Bento Grid) -->
+  <section id="diferenciais" class="py-24 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <!-- Section Header (Stacked) -->
+      <div class="text-left md:text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-item">
+        <h2 class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter text-white">
+          Tudo o que seu site precisa para vender no Google
+        </h2>
+        <p class="text-base sm:text-lg text-zinc-400 max-w-[65ch] md:mx-auto">
+          Um site profissional não é só um layout bonito. É a engenharia que une SEO avançado, design de autoridade, conversão acelerada e processos claros.
+        </p>
+      </div>
+      
+      <!-- Bento Grid (Mathematically aligned) -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal-item">
+        
+        <!-- Card 1: SEO & Google (Col 8) -->
+        <div class="md:col-span-8 p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group">
+          <div class="p-6 md:p-8 space-y-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/10 flex items-center justify-center text-brand-emerald">
+              <i class="ph ph-magnifying-glass text-lg font-bold"></i>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2">Apareça quando procuram seu serviço</h3>
+              <p class="text-sm text-zinc-400 max-w-[55ch]">
+                Otimizado de ponta a ponta para Core Web Vitals e indexação imediata. Pare de depender apenas de indicações e seja encontrado no momento em que os clientes estão prontos para comprar.
+              </p>
+            </div>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm text-zinc-300 pt-2 font-medium">
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-emerald text-base"></i> SEO técnico estruturado (Schema, sitemaps)</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-emerald text-base"></i> Velocidade máxima aprovada no Google Pagespeed</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-emerald text-base"></i> Semântica HTML5 focada no algoritmo local</li>
+            </ul>
+          </div>
+          
+          <!-- Inside Graphic: Google Search Mockup -->
+          <div class="px-6 pb-6 pt-2">
+            <div class="rounded-2xl border border-brand-borderWhite bg-zinc-950/80 p-4 space-y-3 shadow-inner">
+              <div class="text-[10px] text-zinc-500 font-mono tracking-widest flex justify-between">
+                <span>google.com.br/search?q=servico-local</span>
+                <span class="text-brand-emerald">● Posição #1</span>
+              </div>
+              
+              <div class="space-y-4">
+                <!-- Result 1: seu-negocio.com.br -->
+                <div class="p-3.5 rounded-xl bg-brand-emerald/5 border border-brand-emerald/20">
+                  <div class="flex justify-between items-start">
+                    <span class="text-xs text-brand-emerald font-semibold">seu-negocio.com.br</span>
+                    <span class="text-[9px] bg-brand-emerald text-zinc-950 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider scale-90">Anúncio Estrela</span>
+                  </div>
+                  <h4 class="text-sm font-semibold text-white mt-1 hover:underline cursor-pointer flex items-center gap-1">
+                    Serviço Profissional Local · Atendimento Rápido e Orçamento Grátis
+                  </h4>
+                  <p class="text-xs text-zinc-400 mt-1">
+                    Fale com o especialista da sua região. Orçamento sem compromisso pelo WhatsApp em minutos.
+                  </p>
+                </div>
+                <!-- Result 2: concorrente-a -->
+                <div class="p-3.5 rounded-xl border border-brand-borderWhite bg-black/40 opacity-55">
+                  <span class="text-xs text-zinc-500">concorrente-a.com.br</span>
+                  <h4 class="text-sm font-semibold text-zinc-400 mt-1">Empresa de Serviços de Informação</h4>
+                  <p class="text-xs text-zinc-500 mt-1">Atendimento comercial, agende uma reunião para a próxima semana.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2: Relatório Q4 & Conversão (Col 4) -->
+        <div class="md:col-span-4 p-1.5 rounded-[2rem] bg-gradient-to-br from-emerald-950/20 via-zinc-950 to-zinc-950 border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group">
+          <div class="p-6 md:p-8 space-y-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/10 flex items-center justify-center text-brand-emerald">
+              <i class="ph ph-chart-bar text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2">Relatório de Conversão</h3>
+              <p class="text-sm text-zinc-400">
+                Performance real comprovada.
+              </p>
+            </div>
+          </div>
+          
+          <div class="px-6 pb-8 space-y-6">
+            <div class="flex justify-between items-baseline border-b border-brand-borderWhite pb-4">
+              <span class="text-zinc-400 text-sm">Crescimento de Tráfego</span>
+              <span class="text-2xl font-display font-bold text-brand-emerald">+248%</span>
+            </div>
+            <div class="flex justify-between items-baseline border-b border-brand-borderWhite pb-4">
+              <span class="text-zinc-400 text-sm">Taxa de Conversão</span>
+              <span class="text-2xl font-display font-bold text-white">3.2x Mais</span>
+            </div>
+            <div class="text-center bg-white/5 py-2.5 rounded-xl border border-brand-borderWhiteSlight text-xs text-zinc-300 font-medium tracking-wider">
+              RELATÓRIO Q4 ATIVADO
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Design & Autoridade (Col 4) -->
+        <div class="md:col-span-4 p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group">
+          <div class="p-6 md:p-8 space-y-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/10 flex items-center justify-center text-brand-emerald">
+              <i class="ph ph-sparkle text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2">Design & Autoridade</h3>
+              <p class="text-sm text-zinc-400">
+                Posicione sua marca acima dos concorrentes locais com um visual cinematográfico e responsivo de alta performance.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2">
+            <div class="p-4 rounded-2xl border border-brand-borderWhite bg-zinc-950/70 text-center space-y-3">
+              <div class="flex justify-center gap-1 text-amber-400">
+                <i class="ph-fill ph-star text-base"></i>
+                <i class="ph-fill ph-star text-base"></i>
+                <i class="ph-fill ph-star text-base"></i>
+                <i class="ph-fill ph-star text-base"></i>
+                <i class="ph-fill ph-star text-base"></i>
+              </div>
+              <div class="text-lg font-bold text-white">Marca Premium</div>
+              <p class="text-[11px] text-zinc-400">Confiança imediata construída logo nos primeiros 3 segundos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Conversão & WhatsApp (Col 4) -->
+        <div class="md:col-span-4 p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group">
+          <div class="p-6 md:p-8 space-y-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+              <i class="ph ph-whatsapp-logo text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2">Conversão Direta no WhatsApp</h3>
+              <p class="text-sm text-zinc-400">
+                Transforme visitas descompromissadas em pedidos de orçamento diretos no celular, mesmo fora do horário de atendimento.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Inside Graphic: Simulated Chat -->
+          <div class="px-6 pb-6 pt-2">
+            <div class="rounded-2xl border border-brand-borderWhite bg-[#090e11] p-4 space-y-3 font-sans shadow-md">
+              <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <span class="text-[10px] text-zinc-400 font-semibold uppercase tracking-wider">Novo Lead WhatsApp</span>
+                </div>
+                <span class="text-[9px] text-zinc-500 font-mono">há 12s</span>
+              </div>
+              
+              <!-- Chat Dialog -->
+              <div class="space-y-2.5 text-[11px] leading-relaxed">
+                <div class="bg-zinc-800 text-zinc-200 p-2.5 rounded-lg rounded-tl-none max-w-[85%]">
+                  Olá! Vi seu site profissional no Google e gostaria de um orçamento para o meu negócio.
+                </div>
+                <div class="bg-emerald-950/40 text-emerald-300 p-2.5 rounded-lg rounded-tr-none max-w-[85%] ml-auto text-right">
+                  Olá! Que excelente notícia. Me conta um pouco sobre o projeto e já te envio uma proposta.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Processo (Col 4) -->
+        <div class="md:col-span-4 p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group">
+          <div class="p-6 md:p-8 space-y-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/10 flex items-center justify-center text-brand-emerald">
+              <i class="ph ph-calendar-check text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-display font-bold text-white mb-2">Cronograma de 14 Dias</h3>
+              <p class="text-sm text-zinc-400">
+                Uma metodologia direta, sem ruídos e transparente, dividida em três fases consecutivas até a publicação.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Inside Graphic: Timeline Stages -->
+          <div class="px-6 pb-6 pt-2">
+            <div class="p-4 rounded-2xl border border-brand-borderWhite bg-zinc-950/70 space-y-3.5 text-xs text-left">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-[10px] text-brand-emerald flex items-center justify-center font-bold">01</span>
+                  <span class="text-zinc-200 font-semibold">Briefing Estratégico</span>
+                </div>
+                <span class="text-[10px] text-zinc-500">Dias 1-2</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-[10px] text-brand-emerald flex items-center justify-center font-bold">02</span>
+                  <span class="text-zinc-200 font-semibold">Desenvolvimento & SEO</span>
+                </div>
+                <span class="text-[10px] text-zinc-500">Dias 3-12</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-full bg-brand-emerald/10 border border-brand-emerald/30 text-[10px] text-brand-emerald flex items-center justify-center font-bold">03</span>
+                  <span class="text-zinc-200 font-semibold">Entrega & Publicação</span>
+                </div>
+                <span class="text-[10px] text-brand-emerald font-bold">Dia 14</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases de Sucesso Section -->
+  <section id="projetos" class="py-24 md:py-32 bg-zinc-950/40 relative">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <!-- Section Header with Restrained Eyebrow -->
+      <div class="text-left md:text-center max-w-3xl mx-auto mb-16 space-y-4 reveal-item">
+        <div class="inline-flex items-center gap-2 rounded-full border border-brand-borderWhite bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-zinc-400 md:mx-auto">
+          Resultados Reais
+        </div>
+        <h2 class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter text-white">
+          Trabalhos Recentes do Portfólio
+        </h2>
+        <p class="text-base sm:text-lg text-zinc-400 max-w-[65ch] md:mx-auto">
+          Veja como transformamos sites de clínicas locais, prestadores de serviço e agências em máquinas geradoras de leads no Google.
+        </p>
+      </div>
+
+      <!-- Projects Grid (3 columns on desktop) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-item">
+        
+        <!-- Case 1: BioBeaux -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/biobeaux.webp" alt="Clínica de Estética BioBeaux" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Clínica de Estética</span>
+                <h3 class="text-lg font-bold text-white mt-2">BioBeaux | Estética Avançada</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Site profissional para clínica estética em Franca-SP, otimizado para SEO local com foco em buscas estratégicas como 'Ultraformer' e 'Tratamentos Faciais'. Integra agendamento WhatsApp e avaliações.
+            </p>
+            <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 2: Group AEK -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/aek-principal.webp" alt="Agência Group AEK" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Agência de Marketing</span>
+                <h3 class="text-lg font-bold text-white mt-2">Group AEK | Branding & Anúncios</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Site institucional posicionando autoridade em marketing e branding B2B. Arquitetura orientada à conversão qualificada de empresas com carregamento de alta performance.
+            </p>
+            <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 3: Método AEK 360° -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/aek-metodo.webp" alt="Método AEK 360°" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Landing Page de Vendas</span>
+                <h3 class="text-lg font-bold text-white mt-2">Método AEK 360°</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Página de conversão de alta escala construída com copy persuasiva orientada à conversão e estrutura semântica para posicionamento orgânico e suporte de tráfego pago.
+            </p>
+            <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 4: VDutra Odontologia -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/vdutra.webp" alt="VDutra Odontologia" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Clínica Odontológica</span>
+                <h3 class="text-lg font-bold text-white mt-2">VDutra Odontologia · Franca</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Site institucional médico com SEO local direcionado para captação orgânica de implantes dentários e clareamento em Franca-SP. Inclui FAQ otimizado e agendamento prático.
+            </p>
+            <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 5: Alvis Odontologia -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[4/3] cursor-zoom-in">
+            <img src="assets/alvis.webp" alt="Alvis Odontologia" class="project-thumbnail w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold bg-white/15 backdrop-blur-sm text-white px-2.5 py-1 rounded">Clínica Odontológica</span>
+                <h3 class="text-lg font-bold text-white mt-2">Alvis Odontologia · Paulínia</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Especializado em captação local de implantes e reabilitações na cidade de Paulínia-SP, oferecendo conversão via avaliações em vídeo e depoimentos de autoridade.
+            </p>
+            <a href="#contato" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-emerald hover:text-white transition-colors pt-2">
+              Solicitar projeto semelhante <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 6: CTA placeholder box (Double Bezel) -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.01] border border-dashed border-brand-borderWhite flex flex-col justify-center items-center text-center p-8 h-full min-h-[300px]">
+          <div class="w-12 h-12 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center mb-4 text-xl">
+            <i class="ph ph-plus-bold"></i>
+          </div>
+          <h3 class="text-lg font-display font-semibold text-white mb-2">Seu Negócio Aqui</h3>
+          <p class="text-xs text-zinc-400 max-w-[25ch] mb-6">
+            Construa o canal digital perfeito para vender os seus serviços todos os dias no Google.
+          </p>
+          <div class="flex flex-col gap-3 w-full max-w-[200px]">
+            <a href="#contato" class="group flex items-center justify-center gap-2 text-xs font-bold bg-brand-emerald text-zinc-950 px-4 py-2.5 rounded-full hover:bg-emerald-400 transition-premium shadow-md shadow-emerald-500/10 active:scale-[0.98]">
+              Solicitar Orçamento
+              <i class="ph ph-arrow-up-right group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[10px]"></i>
+            </a>
+            <a href="projetos.html" target="_blank" class="group flex items-center justify-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white px-4 py-2.5 rounded-full border border-white/10 hover:border-white/20 transition-premium active:scale-[0.98]">
+              Ver Mais Projetos
+              <i class="ph ph-arrow-up-right group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Planos & Preços Section -->
+  <section id="planos" class="py-24 md:py-32 relative">
+    <!-- Background glows -->
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-emerald-950/10 blur-[130px] pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      
+      <!-- Section Header (Stacked) -->
+      <div class="text-left md:text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-item">
+        <h2 class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter text-white">
+          Planos de Criação de Sites
+        </h2>
+        <p class="text-base sm:text-lg text-zinc-400 max-w-[65ch] md:mx-auto">
+          Preços e escopos totalmente transparentes. Pague pelo desenvolvimento, tenha manutenção simples e sinta o retorno em faturamento no seu caixa.
+        </p>
+      </div>
+
+      <!-- Plans Cards (Double-Bezel Architecture) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch reveal-item">
+        
+        <!-- Plano 1: Site Start -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group relative">
+          <div class="p-8 space-y-6">
+            <div>
+              <span class="text-[10px] text-zinc-400 uppercase tracking-widest font-bold">Ideado para Início</span>
+              <h3 class="text-2xl font-display font-extrabold text-white mt-1">Site Start</h3>
+              <p class="text-xs text-zinc-400 mt-2 min-h-[36px]">
+                Perfeito para prestadores de serviço entrarem rápido no Google com uma página ultra-otimizada.
+              </p>
+            </div>
+            
+            <div class="flex items-baseline gap-1 py-2 border-y border-brand-borderWhiteSlight">
+              <span class="text-sm text-zinc-400">R$</span>
+              <span class="text-4xl md:text-5xl font-display font-extrabold text-white">699</span>
+              <span class="text-xs text-zinc-500 ml-2">+ R$ 0,00/mês (sem manutenção mandatória)</span>
+            </div>
+
+            <ul class="space-y-3.5 text-xs text-zinc-300">
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Landing Page de 1 página otimizada</li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> SEO técnico local configurado</li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Botão flutuante de WhatsApp direto</li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Entrega recorde em até 14 dias úteis</li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Suporte profissional via WhatsApp</li>
+            </ul>
+          </div>
+          
+          <div class="p-8 pt-0">
+            <a href="#contato" class="w-full justify-center group flex items-center gap-3 bg-zinc-900 text-white border border-white/10 py-3 rounded-full font-bold hover:bg-white hover:text-zinc-950 transition-premium active:scale-[0.98]">
+              <span>Solicitar Orçamento</span>
+              <i class="ph ph-arrow-up-right text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Plano 2: Site Pro (Mais Popular / Double-Bezel Highlight) -->
+        <div class="p-2 rounded-[2rem] bg-brand-emerald/20 border border-brand-emerald/30 transition-premium flex flex-col justify-between group relative lg:-translate-y-4 shadow-xl shadow-brand-emerald/5">
+          <!-- Popular Badge -->
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-emerald text-zinc-950 font-display text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
+            Mais Popular
+          </div>
+          
+          <!-- Inner Core -->
+          <div class="h-full p-8 rounded-[calc(2rem-0.5rem)] bg-zinc-950/90 border border-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col justify-between">
+            <div class="space-y-6">
+              <div>
+                <span class="text-[10px] text-brand-emerald uppercase tracking-widest font-bold">Autoridade Máxima</span>
+                <h3 class="text-2xl font-display font-extrabold text-white mt-1">Site Pro</h3>
+                <p class="text-xs text-zinc-400 mt-2 min-h-[36px]">
+                  Site institucional profissional completo para se destacar no Google local de forma definitiva.
+                </p>
+              </div>
+              
+              <div class="flex items-baseline gap-1 py-2 border-y border-brand-borderWhiteSlight">
+                <span class="text-sm text-zinc-400">R$</span>
+                <span class="text-4xl md:text-5xl font-display font-extrabold text-brand-emerald">999</span>
+                <span class="text-xs text-zinc-400 ml-2">+ R$ 69,99/mês (manutenção e domínio)</span>
+              </div>
+
+              <ul class="space-y-3.5 text-xs text-zinc-300">
+                <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> <strong>Tudo do plano Site Start incluído</strong></li>
+                <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Até 3 páginas institucionais responsivas</li>
+                <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> SEO on-page completo e avançado</li>
+                <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Integração com redes sociais e analytics</li>
+                <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> E-mail profissional personalizado corporativo</li>
+              </ul>
+            </div>
+            
+            <div class="pt-8">
+              <a href="#contato" class="w-full justify-center group flex items-center gap-3 bg-brand-emerald text-zinc-950 py-3 rounded-full font-bold hover:bg-emerald-400 transition-premium shadow-lg shadow-emerald-500/10 active:scale-[0.98]">
+                <span>Solicitar Orçamento</span>
+                <i class="ph ph-arrow-up-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plano 3: Site Pro + ADS -->
+        <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite hover:border-white/10 transition-premium flex flex-col justify-between group h-full">
+          <div class="p-8 space-y-6">
+            <div>
+              <span class="text-[10px] text-zinc-400 uppercase tracking-widest font-bold">Máximo Retorno</span>
+              <h3 class="text-2xl font-display font-extrabold text-white mt-1">Site Pro + ADS</h3>
+              <p class="text-xs text-zinc-400 mt-2 min-h-[36px]">
+                A união perfeita de site estratégico e campanhas ativas no Google Ads para faturar rápido.
+              </p>
+            </div>
+            
+            <div class="flex items-baseline gap-1 py-2 border-y border-brand-borderWhiteSlight">
+              <span class="text-sm text-zinc-400">R$</span>
+              <span class="text-4xl md:text-5xl font-display font-extrabold text-white">1.999</span>
+              <span class="text-xs text-zinc-500 ml-2">+ R$ 569,99/mês (manutenção + anúncios)</span>
+            </div>
+
+            <ul class="space-y-3.5 text-xs text-zinc-300">
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> <strong>Tudo do plano Site Pro incluído</strong></li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Landing page exclusiva focada em conversão (CRO)</li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Configuração de campanhas Google Ads (anúncios)</li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Relatórios mensais completos de desempenho</li>
+              <li class="flex items-center gap-3"><i class="ph ph-check text-brand-emerald text-base font-bold"></i> Estrutura escalável para captação contínua</li>
+            </ul>
+          </div>
+          
+          <div class="p-8 pt-0">
+            <a href="#contato" class="w-full justify-center group flex items-center gap-3 bg-zinc-900 text-white border border-white/10 py-3 rounded-full font-bold hover:bg-white hover:text-zinc-950 transition-premium active:scale-[0.98]">
+              <span>Solicitar Orçamento</span>
+              <i class="ph ph-arrow-up-right text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre / Filipe Burini Section -->
+  <section id="sobre" class="py-24 md:py-32 bg-zinc-950/40 relative">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Profile Image (Left) - Double Bezel -->
+        <div class="lg:col-span-5 reveal-item">
+          <div class="p-2 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite">
+            <div class="relative overflow-hidden rounded-[calc(2rem-0.5rem)] bg-zinc-900/30 border border-brand-borderWhiteSlight aspect-square">
+              <img src="assets/filipe-perfil.png" alt="Filipe Burini - Especialista em Desenvolvimento Web e SEO local" class="w-full h-full object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000">
+            </div>
+          </div>
+        </div>
+        
+        <!-- About Content (Right) -->
+        <div class="lg:col-span-7 space-y-6 text-left reveal-item">
+          <span class="text-xs text-brand-emerald uppercase tracking-widest font-semibold font-mono">Especialista no Google</span>
+          <h2 class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter text-white leading-none">
+            Sou Filipe Burini.
+          </h2>
+          <p class="text-base sm:text-lg text-zinc-200 font-semibold leading-relaxed">
+            Ajudo prestadores de serviços a sair do improviso digital com sites profissionais e de alta performance local.
+          </p>
+          <div class="text-sm sm:text-base text-zinc-400 space-y-4 leading-relaxed font-sans">
+            <p>
+              Há anos desenvolvo projetos voltados exclusivamente para resultados. Minha missão vai além de construir um design visualmente atraente; trata-se de estruturar a tecnologia ideal para que sua empresa conquiste o topo das pesquisas orgânicas e atraia contatos reais diariamente.
+            </p>
+            <p>
+              Com metodologias eficientes de SEO técnico, processos sem complicação e suporte próximo, simplifico a transição digital do seu negócio para que você tenha previsibilidade de vendas e autoridade consolidada no seu mercado.
+            </p>
+          </div>
+          
+          <!-- Key features badges -->
+          <div class="grid grid-cols-2 gap-4 pt-4 border-t border-brand-borderWhiteSlight">
+            <div class="flex items-center gap-3">
+              <i class="ph ph-clock text-brand-emerald text-xl"></i>
+              <span class="text-xs text-zinc-300 font-bold">Entrega recorde pós-briefing</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="ph ph-chat-centered-dots text-brand-emerald text-xl"></i>
+              <span class="text-xs text-zinc-300 font-bold">Suporte direto com especialista</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="ph ph-git-diff text-brand-emerald text-xl"></i>
+              <span class="text-xs text-zinc-300 font-bold">Alterações ilimitadas na entrega</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="ph ph-devices text-brand-emerald text-xl"></i>
+              <span class="text-xs text-zinc-300 font-bold">Layouts mobile 100% responsivos</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (Accordion) -->
+  <section id="faq" class="py-24 md:py-32 relative">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-left md:text-center mb-16 space-y-4 reveal-item">
+        <h2 class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter text-white">
+          Dúvidas Frequentes
+        </h2>
+        <p class="text-base text-zinc-400 max-w-[65ch] md:mx-auto">
+          Tudo o que você precisa saber sobre prazos, custos, infraestrutura e suporte para a criação do seu site.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion Wrapper -->
+      <div class="space-y-2 border-t border-brand-borderWhite reveal-item">
+        
+        <!-- Accordion Item 1 -->
+        <div class="faq-item border-b border-brand-borderWhite py-6 cursor-pointer group">
+          <div class="flex justify-between items-center text-left">
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-200 group-hover:text-brand-emerald transition-colors">Quanto custa criar um site profissional?</h3>
+            <span class="faq-icon text-zinc-400 group-hover:text-brand-emerald transition-transform duration-300"><i class="ph ph-plus text-lg font-bold"></i></span>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out">
+            <p class="pt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[80ch]">
+              O valor varia conforme a estrutura pretendida. Dispomos de planos transparentes como o Site Start a partir de R$ 699 até soluções corporativas integradas com Google Ads. Sem surpresas ou tarifas ocultas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Accordion Item 2 -->
+        <div class="faq-item border-b border-brand-borderWhite py-6 cursor-pointer group">
+          <div class="flex justify-between items-center text-left">
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-200 group-hover:text-brand-emerald transition-colors">Em quanto tempo meu site fica pronto?</h3>
+            <span class="faq-icon text-zinc-400 group-hover:text-brand-emerald transition-transform duration-300"><i class="ph ph-plus text-lg font-bold"></i></span>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out">
+            <p class="pt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[80ch]">
+              A nossa média contratual para entrega de projetos completos é de 14 dias úteis. Contudo, dependendo do envio de dados essenciais e após fecharmos o briefing, sites simplificados podem ser colocados no ar em prazos emergenciais recordes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Accordion Item 3 -->
+        <div class="faq-item border-b border-brand-borderWhite py-6 cursor-pointer group">
+          <div class="flex justify-between items-center text-left">
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-200 group-hover:text-brand-emerald transition-colors">Meu site vai realmente aparecer no Google?</h3>
+            <span class="faq-icon text-zinc-400 group-hover:text-brand-emerald transition-transform duration-300"><i class="ph ph-plus text-lg font-bold"></i></span>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out">
+            <p class="pt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[80ch]">
+              Sim. Realizamos uma otimização técnica meticulosa de sitemaps, dados estruturados (Schema local), indexadores e velocidade (Core Web Vitals) para que os robôs do Google indexem seu site rapidamente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Accordion Item 4 -->
+        <div class="faq-item border-b border-brand-borderWhite py-6 cursor-pointer group">
+          <div class="flex justify-between items-center text-left">
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-200 group-hover:text-brand-emerald transition-colors">Preciso entender de tecnologia para contratar?</h3>
+            <span class="faq-icon text-zinc-400 group-hover:text-brand-emerald transition-transform duration-300"><i class="ph ph-plus text-lg font-bold"></i></span>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out">
+            <p class="pt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[80ch]">
+              De forma alguma. Cuidamos de todo o processo burocrático técnico, abrangendo o registro de domínio, hospedagem, e-mails comerciais e a implementação do WhatsApp. Você apenas acompanha e valida o produto.
+            </p>
+          </div>
+        </div>
+
+        <!-- Accordion Item 5 -->
+        <div class="faq-item border-b border-brand-borderWhite py-6 cursor-pointer group">
+          <div class="flex justify-between items-center text-left">
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-200 group-hover:text-brand-emerald transition-colors">Funciona para o meu segmento?</h3>
+            <span class="faq-icon text-zinc-400 group-hover:text-brand-emerald transition-transform duration-300"><i class="ph ph-plus text-lg font-bold"></i></span>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out">
+            <p class="pt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[80ch]">
+              Sim. Nossas estruturas focam principalmente em profissionais liberais, prestadores de serviços locais e clínicas privadas que necessitam captar novos leads de forma orgânica e local qualificada.
+            </p>
+          </div>
+        </div>
+
+        <!-- Accordion Item 6 -->
+        <div class="faq-item border-b border-brand-borderWhite py-6 cursor-pointer group">
+          <div class="flex justify-between items-center text-left">
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-200 group-hover:text-brand-emerald transition-colors">Tem fidelidade ou taxa escondida?</h3>
+            <span class="faq-icon text-zinc-400 group-hover:text-brand-emerald transition-transform duration-300"><i class="ph ph-plus text-lg font-bold"></i></span>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out">
+            <p class="pt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[80ch]">
+              Não possuímos multas ou amarras de fidelidade de longo prazo. No Plano Start você paga apenas o desenvolvimento. Nos planos Pro, a taxa de manutenção mensal cobre hospedagem, backups semanais e eventuais alterações.
+            </p>
+          </div>
+        </div>
+
+        <!-- Accordion Item 7 -->
+        <div class="faq-item border-b border-brand-borderWhite py-6 cursor-pointer group">
+          <div class="flex justify-between items-center text-left">
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-200 group-hover:text-brand-emerald transition-colors">E se eu ainda não tiver textos ou fotos?</h3>
+            <span class="faq-icon text-zinc-400 group-hover:text-brand-emerald transition-transform duration-300"><i class="ph ph-plus text-lg font-bold"></i></span>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-out">
+            <p class="pt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[80ch]">
+              Não se preocupe, desenvolvemos todo o trabalho de redação persuasiva e curadoria/criação de imagens comerciais de alta qualidade com base no briefing estratégico inicial que faremos com você.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA / Contact Form Section -->
+  <section id="contato" class="py-24 md:py-32 relative bg-zinc-950/20">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-emerald/5 blur-[120px] pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left: Text & Info with Restrained Eyebrow -->
+        <div class="lg:col-span-5 space-y-6 text-left reveal-item">
+          <div class="inline-flex items-center gap-2 rounded-full border border-brand-borderWhite bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-zinc-400">
+            Fale Com o Especialista
+          </div>
+          <h2 class="text-3xl md:text-5xl font-display font-extrabold tracking-tighter text-white leading-none">
+            Coloque seu negócio no topo.
+          </h2>
+          <p class="text-base text-zinc-400 leading-relaxed">
+            Solicite um orçamento profissional de site sem qualquer compromisso. Retornamos o contato em até 24 horas úteis com o seu plano estratégico.
+          </p>
+          
+          <div class="space-y-4 pt-4 text-sm text-zinc-300 font-medium">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-brand-emerald/10 text-brand-emerald flex items-center justify-center">
+                <i class="ph ph-envelope-simple"></i>
+              </div>
+              <span>contato@burini.pro</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                <i class="ph ph-whatsapp-logo"></i>
+              </div>
+              <span>WhatsApp Comercial · Filipe Burini</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form - Double Bezel Architecture -->
+        <div class="lg:col-span-7 reveal-item">
+          <div class="p-2 rounded-[2rem] bg-white/[0.02] border border-brand-borderWhite">
+            <div class="h-full p-8 rounded-[calc(2rem-0.5rem)] bg-zinc-950/80 border border-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+              <form id="contact-form" class="space-y-6 text-left">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <!-- Name Input -->
+                  <div class="space-y-2">
+                    <label for="form-name" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wide">Nome Completo</label>
+                    <input type="text" id="form-name" required class="w-full bg-zinc-900/60 border border-brand-borderWhite rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald transition-all placeholder-zinc-600" placeholder="Ex: João Silva">
+                  </div>
+                  <!-- WhatsApp Input -->
+                  <div class="space-y-2">
+                    <label for="form-whatsapp" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wide">WhatsApp / Telefone</label>
+                    <input type="tel" id="form-whatsapp" required class="w-full bg-zinc-900/60 border border-brand-borderWhite rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald transition-all placeholder-zinc-600" placeholder="Ex: (11) 99999-9999">
+                  </div>
+                </div>
+
+                <!-- Business Segment -->
+                <div class="space-y-2">
+                  <label for="form-segment" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wide">Segmento do seu Negócio</label>
+                  <input type="text" id="form-segment" required class="w-full bg-zinc-900/60 border border-brand-borderWhite rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald transition-all placeholder-zinc-600" placeholder="Ex: Clínica de Estética, Dentista, Advogado...">
+                </div>
+
+                <!-- Plano Escolhido -->
+                <div class="space-y-2">
+                  <label for="form-plan" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wide">Plano Pretendido</label>
+                  <select id="form-plan" class="w-full bg-zinc-900/60 border border-brand-borderWhite rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald transition-all">
+                    <option value="site-start" class="bg-zinc-950">Plano Site Start (R$ 699)</option>
+                    <option value="site-pro" selected class="bg-zinc-950">Plano Site Pro (R$ 999)</option>
+                    <option value="site-ads" class="bg-zinc-950">Plano Site Pro + ADS (R$ 1.999)</option>
+                  </select>
+                </div>
+
+                <!-- Message Input -->
+                <div class="space-y-2">
+                  <label for="form-message" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wide">Mensagem (Opcional)</label>
+                  <textarea id="form-message" rows="4" class="w-full bg-zinc-900/60 border border-brand-borderWhite rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-emerald focus:ring-1 focus:ring-brand-emerald transition-all placeholder-zinc-600" placeholder="Conte brevemente as necessidades do seu projeto..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full group flex items-center justify-center gap-4 bg-brand-emerald text-zinc-950 py-3.5 rounded-full font-bold hover:bg-emerald-400 transition-premium shadow-lg shadow-emerald-500/10 active:scale-[0.98]">
+                  <span>Solicitar Orçamento</span>
+                  <div class="w-8 h-8 rounded-full bg-zinc-950/5 group-hover:bg-zinc-950/10 flex items-center justify-center transition-premium group-hover:translate-x-1 group-hover:-translate-y-[1px]">
+                    <i class="ph ph-arrow-up-right text-sm"></i>
+                  </div>
+                </button>
+
+                <!-- Feedback Toast -->
+                <div id="form-feedback" class="hidden text-center text-xs text-brand-emerald font-semibold pt-2">
+                  Orçamento solicitado com sucesso! Entraremos em contato em até 24h.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-brand-borderWhite py-12 bg-black/60 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Logo and Slogan -->
+        <div class="flex flex-col items-center md:items-start gap-2">
+          <div class="font-display text-lg font-extrabold text-white">
+            BURINI<span class="text-brand-emerald">.PRO</span>
+          </div>
+          <p class="text-xs text-zinc-500 text-center md:text-left max-w-[45ch]">
+            Filipe Burini · Criação de sites profissionais com SEO para quem quer vender pelo Google.
+          </p>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-xs text-zinc-500 text-center md:text-right">
+          <p>© 2026 · Todos os direitos reservados.</p>
+        </div>
+        
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Sticky Button -->
+  <a href="https://wa.me/5500000000000?text=Olá!%20Vi%20seu%20site%20no%20Google%20e%20quero%20um%20orçamento." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-zinc-950 flex items-center justify-center shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-premium" aria-label="Falar no WhatsApp">
+    <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+  </a>
+
+  <!-- Lightbox Modal for Case Studies -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 overflow-y-auto opacity-0 pointer-events-none transition-all duration-300 flex justify-center py-12 px-4">
+    <!-- Close button is fixed so it stays visible while scrolling -->
+    <button id="lightbox-close" class="fixed top-6 right-6 text-white hover:text-brand-emerald transition-colors text-3xl focus:outline-none z-50 bg-black/40 p-2.5 rounded-full backdrop-blur-md border border-white/10" aria-label="Fechar Visualização">
+      <i class="ph ph-x"></i>
+    </button>
+    <!-- Image Wrapper: 90% width on mobile, max-w-4xl on desktop -->
+    <div class="w-[95%] md:w-[90%] max-w-4xl my-auto rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-zinc-950/60 backdrop-blur-sm relative">
+      <img id="lightbox-img" src="" alt="Visualização do Projeto" class="w-full h-auto block">
+    </div>
+  </div>
+
+  <!-- GSAP Interactions Scripts -->
+  <script>
+    // Initialize ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Mobile Menu Morph and Modal Reveal
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuModal = document.getElementById('mobile-menu-modal');
+    const menuSpans = menuBtn.querySelectorAll('span');
+    const menuLinks = document.querySelectorAll('.mobile-nav-link');
+    let isMenuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        // Morph Hamburger to X
+        menuSpans[0].style.transform = 'translateY(4px) rotate(45deg)';
+        menuSpans[1].style.transform = 'translateY(-4px) rotate(-45deg)';
+        menuSpans[1].style.width = '24px';
+        
+        // Show Modal
+        menuModal.classList.remove('hidden');
+        gsap.fromTo(menuModal, 
+          { opacity: 0, y: -20 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power4.out' }
+        );
+        // Stagger nav links reveal
+        gsap.fromTo('.mobile-nav-link', 
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, stagger: 0.1, delay: 0.2, duration: 0.4, ease: 'power4.out' }
+        );
+      } else {
+        // Reverse Morph
+        menuSpans[0].style.transform = 'none';
+        menuSpans[1].style.transform = 'none';
+        menuSpans[1].style.width = '16px';
+        
+        // Hide Modal
+        gsap.to(menuModal, {
+          opacity: 0,
+          y: -20,
+          duration: 0.4,
+          ease: 'power4.in',
+          onComplete: () => menuModal.classList.add('hidden')
+        });
+      }
+    });
+
+    // Close menu when clicking link
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) {
+          menuBtn.click();
+        }
+      });
+    });
+
+    // Contact Form submission handling (Mock/Simulated)
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.6';
+      
+      // Simulate API submit delay
+      setTimeout(() => {
+        formFeedback.classList.remove('hidden');
+        contactForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        
+        // Hide toast after 5s
+        setTimeout(() => {
+          formFeedback.classList.add('hidden');
+        }, 5000);
+      }, 1200);
+    });
+
+    // FAQ Accordion Toggle (Vanilla animated)
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+          otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        });
+
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.style.transform = 'rotate(45deg)';
+        } else {
+          answer.style.maxHeight = '0px';
+          icon.style.transform = 'rotate(0deg)';
+        }
+      });
+    });
+
+    // Hero Entrance animations (GSAP)
+    window.addEventListener('DOMContentLoaded', () => {
+      // Set initial state
+      gsap.set('.hero-text', { opacity: 0, y: 40 });
+      gsap.set('.hero-visual', { opacity: 0, scale: 0.95 });
+      gsap.set('nav', { opacity: 0, y: -20 });
+
+      // Run entrance stagger
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 }});
+      
+      tl.to('nav', { opacity: 1, y: 0, delay: 0.2 })
+        .to('.hero-text', { opacity: 1, y: 0 }, '-=0.8')
+        .to('.hero-visual', { opacity: 1, scale: 1, duration: 1.4 }, '-=1.0');
+    });
+
+    // Scroll Reveal animations for sections/cards
+    const revealTargets = gsap.utils.toArray('.reveal-item');
+    
+    // Check if user has prefers-reduced-motion set to true
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+      revealTargets.forEach((target) => {
+        gsap.fromTo(target, 
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: target,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      // Bento grid items individual stagger reveal
+      gsap.fromTo('#diferenciais .grid > div',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#diferenciais .grid',
+            start: 'top 80%',
+          }
+        }
+      );
+
+      // Project cards individual stagger reveal
+      gsap.fromTo('#projetos .grid > div',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#projetos .grid',
+            start: 'top 80%',
+          }
+        }
+      );
+
+      // Pricing cards individual stagger reveal
+      gsap.fromTo('#planos .grid > div',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#planos .grid',
+            start: 'top 80%',
+          }
+        }
+      );
+    } else {
+      // Instantly make elements visible if prefers-reduced-motion is true
+      gsap.set('.reveal-item', { opacity: 1, y: 0 });
+      gsap.set('#diferenciais .grid > div', { opacity: 1, y: 0 });
+      gsap.set('#projetos .grid > div', { opacity: 1, y: 0 });
+      gsap.set('#planos .grid > div', { opacity: 1, y: 0 });
+    }
+
+    // Lightbox / Modal for Case Studies
+    const lightboxModal = document.getElementById('lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const projectTriggers = document.querySelectorAll('#projetos .cursor-zoom-in');
+
+    projectTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const targetImg = trigger.querySelector('.project-thumbnail');
+        if (targetImg) {
+          lightboxImg.src = targetImg.getAttribute('src');
+          lightboxImg.alt = targetImg.getAttribute('alt');
+          lightboxModal.classList.remove('pointer-events-none', 'opacity-0');
+          lightboxModal.classList.add('opacity-100');
+          document.body.classList.add('overflow-hidden');
+          lightboxModal.scrollTop = 0;
+          
+          gsap.fromTo(lightboxImg, 
+            { scale: 0.95, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' }
+          );
+        }
+      });
+    });
+
+    const closeLightbox = () => {
+      lightboxModal.classList.remove('opacity-100');
+      lightboxModal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal || e.target === lightboxClose || e.target.closest('#lightbox-close')) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+  </script>
+</body>
+</html>
