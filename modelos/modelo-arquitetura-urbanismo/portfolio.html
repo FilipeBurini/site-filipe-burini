@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Nome do Arquiteto Arquitetura | Portfólio de Obras</title>
+    <meta name="description" content="Explore o portfólio completo de obras de alto padrão desenvolvidas pelo arquiteto Nome do Arquiteto em Sua Cidade/UF e região.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (V3 Play CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#f9f9f6',
+                            card: '#ffffff',
+                            accent: '#0b3c2a',
+                            accentLight: '#1b5a41',
+                            accentBg: '#f0f4f1'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    },
+                    letterSpacing: {
+                        tightest: '-0.04em'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f9f9f6;
+            color: #1c1e1c;
+            overflow-x: hidden;
+        }
+        
+        .glass-header {
+            background: rgba(249, 249, 246, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
+            transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(11, 60, 42, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(11, 60, 42, 0.05);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        
+    </style>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-brand-bg">
+
+    
+
+    <!-- HEADER: Navegação minimalista -->
+    <header class="fixed top-0 left-0 w-full h-[72px] z-50 glass-header flex items-center transition-all duration-300">
+        <div class="max-w-[1400px] w-full mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex items-center" id="header-logo">
+                <img src="Logo arquiteto.png" alt="Nome do Arquiteto Arquitetura" class="h-10 md:h-12 w-auto object-contain">
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-12 text-sm font-semibold tracking-wide text-gray-600">
+                <a href="index.html#diferenciais" class="hover:text-brand-accent transition-colors duration-200">Diferenciais</a>
+                <a href="index.html#sobre" class="hover:text-brand-accent transition-colors duration-200">Trajetória</a>
+                <a href="index.html#portfolio" class="hover:text-brand-accent transition-colors duration-200">Portfólio</a>
+                <a href="index.html#depoimentos" class="hover:text-brand-accent transition-colors duration-200">Depoimentos</a>
+                <a href="index.html#contato" class="hover:text-brand-accent transition-colors duration-200">Contato</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20iniciar%20um%20projeto%20com%20o%20arquiteto%20Arquiteto%20Sobrenome." 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center px-5 py-2.5 bg-brand-accent text-white text-sm font-semibold rounded-full hover:bg-brand-accentLight transition-all duration-300 shadow-md shadow-brand-accent/5 active:scale-95 whitespace-nowrap"
+                   id="nav-cta">
+                    Iniciar Projeto
+                </a>
+                
+                <button class="md:hidden text-brand-accent focus:outline-none" id="mobile-menu-btn" aria-label="Abrir Menu">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE: Overlay com animação -->
+    <div class="fixed inset-0 bg-brand-bg z-40 flex flex-col justify-center items-center gap-8 text-2xl font-display font-bold text-gray-700 transition-all duration-500 transform translate-x-full md:hidden" id="mobile-menu">
+        <button class="absolute top-6 right-6 text-brand-accent focus:outline-none" id="mobile-close-btn" aria-label="Fechar Menu">
+            <i class="ph ph-x text-3xl"></i>
+        </button>
+        <a href="index.html#diferenciais" class="hover:text-brand-accent transition-colors duration-200">Diferenciais</a>
+        <a href="index.html#sobre" class="hover:text-brand-accent transition-colors duration-200">Trajetória</a>
+        <a href="index.html#portfolio" class="hover:text-brand-accent transition-colors duration-200">Portfólio</a>
+        <a href="index.html#depoimentos" class="hover:text-brand-accent transition-colors duration-200">Depoimentos</a>
+        <a href="index.html#contato" class="hover:text-brand-accent transition-colors duration-200">Contato</a>
+        <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20iniciar%20um%20projeto%20com%20o%20arquiteto%20Arquiteto%20Sobrenome." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="px-8 py-3 bg-brand-accent text-white text-base font-semibold rounded-full hover:bg-brand-accentLight transition-all duration-300 shadow-lg"
+           id="mobile-nav-cta">
+            Iniciar Projeto
+        </a>
+    </div>
+
+    <!-- HERO DE PORTFÓLIO -->
+    <section class="pt-32 pb-12 px-6 md:px-12 relative z-10">
+        <div class="max-w-[1400px] w-full mx-auto">
+            <!-- Voltar para Home -->
+            <a href="index.html" class="inline-flex items-center text-xs uppercase tracking-wider text-brand-accent hover:text-brand-accentLight font-semibold gap-2 mb-6 group transition-colors duration-200">
+                <i class="ph ph-arrow-left group-hover:-translate-x-1 transition-transform duration-200"></i>
+                <span>Voltar para a Home</span>
+            </a>
+            
+            <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold block mb-3 font-sans">Todos os Trabalhos</span>
+            <h1 class="font-display font-normal text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-brand-accent max-w-[850px]" id="portfolio-title">
+                Portfólio <span class="italic font-normal">completo.</span>
+            </h1>
+            <p class="text-gray-600 text-base md:text-lg font-sans leading-relaxed max-w-[650px] mt-4" id="portfolio-desc">
+                Conheça em detalhes a volumetria, os materiais autênticos, os projetos luminotécnicos e as especificações de todas as nossas principais residências construídas.
+            </p>
+        </div>
+    </section>
+
+    <!-- LISTA DE OBRAS (GRELHA COMPLETA) -->
+    <div class="space-y-16 pb-24">
+        
+        <!-- Projeto 1: Casa Minas (Imagem à Esquerda) -->
+        <section class="py-12 px-6 md:px-12 relative z-10" id="project-minas">
+            <div class="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                <!-- Coluna de Imagem -->
+                <div class="lg:col-span-7 flex flex-col gap-4 scroll-element">
+                    <div onclick="triggerProjectLightbox(0)" class="relative rounded-3xl overflow-hidden aspect-[16/10] border border-gray-100 group shadow-sm bg-gray-100 cursor-zoom-in">
+                        <img id="minas-main-image" 
+                             src="Casa Minas 1.jpg" 
+                             alt="Casa Minas" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102">
+                        <div class="absolute inset-0 bg-brand-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <div class="bg-white/90 text-brand-accent px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="ph ph-magnifying-glass-plus text-base font-bold"></i>
+                                <span>Ver Galeria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Miniaturas -->
+                    <div id="minas-thumbs-row" class="flex items-center gap-3 overflow-x-auto py-1 no-scrollbar shrink-0">
+                        <!-- Populadas via JS -->
+                    </div>
+                </div>
+                
+                <!-- Coluna de Texto -->
+                <div class="lg:col-span-5 flex flex-col items-start scroll-element">
+                    <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold mb-2 block font-sans">Residencial Alto Padrão</span>
+                    <h2 class="font-display font-normal text-3xl text-brand-accent mb-4">Casa Minas</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base font-sans">
+                        Um projeto autoral marcante em Minas Gerais, caracterizado pela fusão de materiais naturais e grandes vãos livres. Prioriza a integração visual com as montanhas e um estudo de iluminação acolhedor.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 w-full border-t border-gray-200 pt-6 mb-8 font-sans">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Área Construída</span>
+                            <span class="text-brand-accent font-medium text-base">480 m²</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Especialidade</span>
+                            <span class="text-brand-accent font-medium text-base">Light Design & Vãos Livres</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Casa%20Minas." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-brand-accentLight transition-colors duration-200 group font-sans">
+                        <span>Iniciar meu projeto semelhante</span>
+                        <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projeto 2: Casa Pórtico (Imagem à Direita) -->
+        <section class="py-20 px-6 md:px-12 relative z-10 bg-white border-y border-gray-100" id="project-portico">
+            <div class="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                <!-- Coluna de Texto (Desktop: esquerda) -->
+                <div class="lg:col-span-5 flex flex-col items-start lg:order-1 order-2 scroll-element">
+                    <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold mb-2 block font-sans">Arquitetura Contemporânea</span>
+                    <h2 class="font-display font-normal text-3xl text-brand-accent mb-4">Casa Pórtico</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base font-sans">
+                        Residência contemporânea que explora a volumetria através de um imponente pórtico de concreto. Integração interna e externa fluida com controle térmico e brises de ventilação.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 w-full border-t border-gray-200 pt-6 mb-8 font-sans">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Área Construída</span>
+                            <span class="text-brand-accent font-medium text-base">520 m²</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Especialidade</span>
+                            <span class="text-brand-accent font-medium text-base">Estrutura & Ventilação</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Casa%20Pórtico." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-brand-accentLight transition-colors duration-200 group font-sans">
+                        <span>Iniciar meu projeto semelhante</span>
+                        <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
+
+                <!-- Coluna de Imagem (Desktop: direita) -->
+                <div class="lg:col-span-7 flex flex-col gap-4 lg:order-2 order-1 scroll-element">
+                    <div onclick="triggerProjectLightbox(1)" class="relative rounded-3xl overflow-hidden aspect-[16/10] border border-gray-100 group shadow-sm bg-gray-100 cursor-zoom-in">
+                        <img id="portico-main-image" 
+                             src="Casa Pórtico 1.jpeg" 
+                             alt="Casa Pórtico" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102">
+                        <div class="absolute inset-0 bg-brand-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <div class="bg-white/90 text-brand-accent px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="ph ph-magnifying-glass-plus text-base font-bold"></i>
+                                <span>Ver Galeria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Miniaturas -->
+                    <div id="portico-thumbs-row" class="flex items-center gap-3 overflow-x-auto py-1 no-scrollbar shrink-0">
+                        <!-- Populadas via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projeto 3: Casa das Pedras (Imagem à Esquerda) -->
+        <section class="py-12 px-6 md:px-12 relative z-10" id="project-pedras">
+            <div class="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                <!-- Coluna de Imagem -->
+                <div class="lg:col-span-7 flex flex-col gap-4 scroll-element">
+                    <div onclick="triggerProjectLightbox(2)" class="relative rounded-3xl overflow-hidden aspect-[16/10] border border-gray-100 group shadow-sm bg-gray-100 cursor-zoom-in">
+                        <img id="pedras-main-image" 
+                             src="Casa das Pedras 1.jpeg" 
+                             alt="Casa das Pedras" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102">
+                        <div class="absolute inset-0 bg-brand-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <div class="bg-white/90 text-brand-accent px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="ph ph-magnifying-glass-plus text-base font-bold"></i>
+                                <span>Ver Galeria</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Miniaturas -->
+                    <div id="pedras-thumbs-row" class="flex items-center gap-3 overflow-x-auto py-1 no-scrollbar shrink-0">
+                        <!-- Populadas via JS -->
+                    </div>
+                </div>
+                
+                <!-- Coluna de Texto -->
+                <div class="lg:col-span-5 flex flex-col items-start scroll-element">
+                    <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold mb-2 block font-sans">Rústico Contemporâneo</span>
+                    <h2 class="font-display font-normal text-3xl text-brand-accent mb-4">Casa das Pedras</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base font-sans">
+                        Composição rústico-contemporânea onde a pedra moledo atua como elemento central da estrutura e da decoração, aliando solidez tradicional ao refinamento espacial.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 w-full border-t border-gray-200 pt-6 mb-8 font-sans">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Área Construída</span>
+                            <span class="text-brand-accent font-medium text-base">410 m²</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Especialidade</span>
+                            <span class="text-brand-accent font-medium text-base">Pedra Natural & Integração</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Casa%20das%20Pedras." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-brand-accentLight transition-colors duration-200 group font-sans">
+                        <span>Iniciar meu projeto semelhante</span>
+                        <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- LIGHTBOX MODAL: Visualizador de Fotos Premium -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[100] flex flex-col justify-center items-center bg-[#0b3c2a]/95 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true">
+        <!-- Botão Fechar no Topo Direito -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-brand-accentLight transition-colors duration-200 text-3xl focus:outline-none p-2" aria-label="Fechar galeria">
+            <i class="ph ph-x"></i>
+        </button>
+        
+        <!-- Conteúdo do Lightbox -->
+        <div id="lightbox-content" class="relative max-w-[90vw] w-full flex flex-col items-center gap-6 select-none transform scale-95 transition-transform duration-300">
+            <!-- Botão Imagem Anterior (Esquerda) -->
+            <button onclick="prevLightboxImage()" class="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full text-xl md:text-2xl transition-all hover:scale-105 active:scale-95 z-20" aria-label="Foto anterior">
+                <i class="ph ph-caret-left-bold"></i>
+            </button>
+
+            <!-- Foto Ampliada -->
+            <div class="relative max-h-[60vh] md:max-h-[68vh] flex items-center justify-center">
+                <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[60vh] md:max-h-[68vh] object-contain rounded-2xl border border-white/10 shadow-2xl">
+            </div>
+
+            <!-- Botão Próxima Imagem (Direita) -->
+            <button onclick="nextLightboxImage()" class="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full text-xl md:text-2xl transition-all hover:scale-105 active:scale-95 z-20" aria-label="Próxima foto">
+                <i class="ph ph-caret-right-bold"></i>
+            </button>
+
+            <!-- Título e legenda no Lightbox -->
+            <div class="text-center font-sans">
+                <h4 id="lightbox-title" class="text-white text-base md:text-lg font-medium"></h4>
+                <p class="text-white/60 text-xs mt-1">Use as setas do teclado ou clique nas miniaturas abaixo</p>
+            </div>
+
+            <!-- Carrossel de Miniaturas -->
+            <div id="lightbox-thumbs" class="flex items-center justify-center gap-3 overflow-x-auto py-2 max-w-full px-4 scrollbar-thin scrollbar-thumb-white/20">
+                <!-- Miniaturas populadas dinamicamente via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER: Rodapé minimalista -->
+    <footer class="py-12 bg-white border-t border-gray-100 px-6 md:px-12 relative z-10">
+        <div class="max-w-[1400px] w-full mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <img src="Logo arquiteto.png" alt="Nome do Arquiteto Arquitetura" class="h-10 w-auto object-contain mx-auto md:mx-0">
+                <span class="text-[9px] uppercase tracking-[0.25em] text-gray-400 font-sans mt-2 block">Arquitetura • Construção • Decoração</span>
+            </div>
+
+            <div class="flex items-center gap-6 text-gray-400 text-lg">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors duration-200" aria-label="Facebook">
+                    <i class="ph ph-facebook-logo"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors duration-200" aria-label="Instagram">
+                    <i class="ph ph-instagram-logo"></i>
+                </a>
+                <a href="https://wa.me/5500999999999" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors duration-200" aria-label="WhatsApp">
+                    <i class="ph ph-whatsapp-logo"></i>
+                </a>
+            </div>
+
+            <div class="text-xs text-gray-400 text-center md:text-right font-sans">
+                <p>© 2026 Nome do Arquiteto Arquitetura. Todos os direitos reservados.</p>
+                <p class="mt-1 text-[10px] text-gray-400/80">Soluções exclusivas em Sua Cidade/UF e região.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        mobileCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Configuração dos Projetos
+        const projects = [
+            {
+                title: "Casa Minas",
+                images: [
+                    "Casa Minas 1.jpg",
+                    "Casa Minas 2.jpg",
+                    "Casa Minas 3.jpg",
+                    "Casa Minas 4.jpg",
+                    "Casa Minas 5.jpg"
+                ],
+                mainImgId: "minas-main-image",
+                thumbsRowId: "minas-thumbs-row"
+            },
+            {
+                title: "Casa Pórtico",
+                images: [
+                    "Casa Pórtico 1.jpeg",
+                    "Casa Pórtico 2.jpeg",
+                    "Casa Pórtico 3.jpeg",
+                    "Casa Pórtico 4.jpeg",
+                    "Casa Pórtico 5.jpeg"
+                ],
+                mainImgId: "portico-main-image",
+                thumbsRowId: "portico-thumbs-row"
+            },
+            {
+                title: "Casa das Pedras",
+                images: [
+                    "Casa das Pedras 1.jpeg",
+                    "Casa das Pedras 2.jpeg",
+                    "Casa das Pedras 3.jpeg",
+                    "Casa das Pedras 4.jpeg",
+                    "Casa das Pedras 5.jpeg"
+                ],
+                mainImgId: "pedras-main-image",
+                thumbsRowId: "pedras-thumbs-row"
+            }
+        ];
+
+        let activeProjectPageIdxs = [0, 0, 0];
+        let activeProjectIdx = 0;
+        let activeImageIdx = 0;
+
+        // Renderizar miniaturas na página
+        function initPageThumbnails() {
+            projects.forEach((project, projectIdx) => {
+                const thumbsContainer = document.getElementById(project.thumbsRowId);
+                if (!thumbsContainer) return;
+                
+                thumbsContainer.innerHTML = '';
+                project.images.forEach((imgSrc, i) => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.alt = `Miniatura ${project.title} - Foto ${i + 1}`;
+                    img.className = `w-14 h-10 md:w-20 md:h-14 shrink-0 object-cover rounded-xl cursor-pointer border-2 transition-all duration-300 ${i === 0 ? 'border-brand-accent scale-105 opacity-100 shadow-sm' : 'border-transparent opacity-60 hover:opacity-100'}`;
+                    img.onclick = () => selectProjectPageImage(projectIdx, i);
+                    thumbsContainer.appendChild(img);
+                });
+            });
+        }
+
+        // Alterar imagem selecionada na página principal
+        function selectProjectPageImage(projectIdx, imgIdx) {
+            activeProjectPageIdxs[projectIdx] = imgIdx;
+            const project = projects[projectIdx];
+            const mainImgElement = document.getElementById(project.mainImgId);
+            
+            gsap.to(mainImgElement, {
+                opacity: 0,
+                duration: 0.15,
+                onComplete: () => {
+                    mainImgElement.src = project.images[imgIdx];
+                    
+                    // Atualizar miniaturas da página
+                    const thumbs = document.getElementById(project.thumbsRowId).getElementsByTagName('img');
+                    for (let i = 0; i < thumbs.length; i++) {
+                        if (i === imgIdx) {
+                            thumbs[i].className = 'w-14 h-10 md:w-20 md:h-14 shrink-0 object-cover rounded-xl cursor-pointer border-2 border-brand-accent scale-105 opacity-100 shadow-sm transition-all duration-300';
+                        } else {
+                            thumbs[i].className = 'w-14 h-10 md:w-20 md:h-14 shrink-0 object-cover rounded-xl cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-all duration-300';
+                        }
+                    }
+                    
+                    gsap.to(mainImgElement, { opacity: 1, duration: 0.25 });
+                }
+            });
+        }
+
+        function triggerProjectLightbox(projectIdx) {
+            openLightbox(projectIdx, activeProjectPageIdxs[projectIdx]);
+        }
+
+        // --- SISTEMA DE LIGHTBOX MODAL ---
+        function openLightbox(projectIdx, imgIdx) {
+            activeProjectIdx = projectIdx;
+            activeImageIdx = imgIdx;
+            
+            const project = projects[projectIdx];
+            
+            document.getElementById('lightbox-img').src = project.images[imgIdx];
+            document.getElementById('lightbox-img').alt = `Obra ${project.title} - Foto ${imgIdx + 1}`;
+            document.getElementById('lightbox-title').textContent = `${project.title} — Foto ${imgIdx + 1} de ${project.images.length}`;
+            
+            const thumbsContainer = document.getElementById('lightbox-thumbs');
+            thumbsContainer.innerHTML = '';
+            project.images.forEach((imgSrc, i) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `Miniatura ${i + 1}`;
+                img.className = `w-14 h-10 md:w-16 md:h-12 object-cover rounded-lg cursor-pointer border-2 transition-all duration-200 ${i === imgIdx ? 'border-white scale-105 opacity-100 shadow-md' : 'border-transparent opacity-50 hover:opacity-90'}`;
+                img.onclick = () => selectLightboxImage(i);
+                thumbsContainer.appendChild(img);
+            });
+            
+            const lightbox = document.getElementById('lightbox-modal');
+            lightbox.classList.remove('pointer-events-none');
+            
+            gsap.killTweensOf([lightbox, '#lightbox-content']);
+            gsap.timeline()
+                .to(lightbox, { opacity: 1, duration: 0.3, ease: "power2.out" })
+                .fromTo('#lightbox-content', { scale: 0.96, y: 10 }, { scale: 1, y: 0, duration: 0.4, ease: "power3.out" }, "-=0.2");
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox-modal');
+            gsap.to(lightbox, {
+                opacity: 0,
+                duration: 0.25,
+                ease: "power2.in",
+                onComplete: () => {
+                    lightbox.classList.add('pointer-events-none');
+                }
+            });
+        }
+
+        function selectLightboxImage(imgIdx) {
+            activeImageIdx = imgIdx;
+            const project = projects[activeProjectIdx];
+            
+            gsap.to('#lightbox-img', {
+                opacity: 0,
+                duration: 0.15,
+                onComplete: () => {
+                    document.getElementById('lightbox-img').src = project.images[imgIdx];
+                    document.getElementById('lightbox-title').textContent = `${project.title} — Foto ${imgIdx + 1} de ${project.images.length}`;
+                    
+                    const thumbs = document.getElementById('lightbox-thumbs').getElementsByTagName('img');
+                    for (let i = 0; i < thumbs.length; i++) {
+                        if (i === imgIdx) {
+                            thumbs[i].className = 'w-14 h-10 md:w-16 md:h-12 object-cover rounded-lg cursor-pointer border-2 border-white scale-105 opacity-100 shadow-md transition-all duration-200';
+                        } else {
+                            thumbs[i].className = 'w-14 h-10 md:w-16 md:h-12 object-cover rounded-lg cursor-pointer border-2 border-transparent opacity-50 hover:opacity-90 transition-all duration-200';
+                        }
+                    }
+                    
+                    gsap.to('#lightbox-img', { opacity: 1, duration: 0.25 });
+                }
+            });
+        }
+
+        function prevLightboxImage() {
+            const project = projects[activeProjectIdx];
+            let newIdx = activeImageIdx - 1;
+            if (newIdx < 0) newIdx = project.images.length - 1;
+            selectLightboxImage(newIdx);
+        }
+
+        function nextLightboxImage() {
+            const project = projects[activeProjectIdx];
+            let newIdx = activeImageIdx + 1;
+            if (newIdx >= project.images.length) newIdx = 0;
+            selectLightboxImage(newIdx);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox-modal');
+            if (lightbox && !lightbox.classList.contains('pointer-events-none')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevLightboxImage();
+                if (e.key === 'ArrowRight') nextLightboxImage();
+            }
+        });
+
+        initPageThumbnails();
+
+        // Animações GSAP Gerais
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            gsap.from("#portfolio-title", {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+            gsap.from("#portfolio-desc", {
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                delay: 0.2
+            });
+
+            const scrollElements = gsap.utils.toArray('.scroll-element');
+            scrollElements.forEach(element => {
+                gsap.from(element, {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

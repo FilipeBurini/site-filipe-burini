@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisio & Pilates | Fisioterapia, RPG & Pilates</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Clínica de fisioterapia em Sua Cidade/UF. Especializada em Fisioterapia Desportiva, RPG e Pilates. Atendimento humanizado, suave e personalizado para sua saúde e bem-estar.">
+    <meta name="keywords"
+        content="Fisioterapia Sua Cidade, Fisioterapeuta Sua Cidade, Pilates Sua Cidade, RPG Sua Cidade, Fisioterapia Desportiva, Recovery, Bota Compressiva, Bem-Estar, Fisio & Pilates">
+    <meta name="author" content="Fisio & Pilates Fisioterapia">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fisio & Pilates | Fisioterapia, RPG & Pilates">
+    <meta property="og:description"
+        content="Atendimento personalizado em fisioterapia e pilates em Sua Cidade/UF. Descubra nossos pacotes especiais focados no seu bem-estar.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1607962837359-5e7e89f866ad?q=80&w=1200&auto=format&fit=crop">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Alex+Brush&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        script: ['"Alex Brush"', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            lightBg: '#FAF9F5',      // Elegant off-white
+                            cardBg: '#ffffff',       // Solid white for containers
+                            darkBlue: '#283043',     // Secondary brand color (slate blue)
+                            steelBlue: '#5a6e7f',    // Tertiary brand color (steel blue) - calibrated for text readability on light
+                            cream: '#E8E7CB',        // Cream brand color
+                            textDark: '#283043',
+                            textMuted: '#5a6e7f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles to enhance visual aesthetics */
+        body {
+            background-color: #FAF9F5;
+            color: #283043;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FAF9F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #8193A1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #283043;
+        }
+
+        /* Ambient Glow Lights */
+        .glow-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.04;
+            /* Very subtle glow for a clean light look */
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Glassmorphism utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(40, 48, 67, 0.08);
+            /* Soft slate border */
+            box-shadow: 0 4px 30px rgba(40, 48, 67, 0.02);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            border-color: rgba(40, 48, 67, 0.18);
+            box-shadow: 0 10px 40px rgba(40, 48, 67, 0.06);
+            transform: translateY(-4px);
+        }
+
+        /* Infinite Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 28s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Custom Gradients */
+        .text-gradient-slate-steel {
+            background: linear-gradient(135deg, #283043 0%, #5a6e7f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #283043 0%, #3d4a67 100%);
+            color: #E8E7CB !important;
+            /* Cream text on dark button */
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            box-shadow: 0 4px 20px rgba(40, 48, 67, 0.25);
+            transform: scale(1.02);
+        }
+
+        
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-brand-cream selection:text-brand-darkBlue">
+
+    
+
+    <!-- Ambient Glow Spheres background -->
+    <div class="glow-sphere w-[500px] h-[500px] bg-brand-cream top-[-100px] left-[-100px]"></div>
+    <div class="glow-sphere w-[600px] h-[600px] bg-brand-steelBlue top-[800px] right-[-200px]"></div>
+    <div class="glow-sphere w-[500px] h-[500px] bg-brand-cream top-[1800px] left-[-200px]"></div>
+    <div class="glow-sphere w-[600px] h-[600px] bg-brand-steelBlue top-[2800px] right-[-100px]"></div>
+
+    <!-- HEADER -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-brand-darkBlue/5 backdrop-blur-md bg-brand-lightBg/60"
+        id="main-header">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="flex flex-col">
+                <span
+                    class="font-display font-extrabold text-lg sm:text-xl tracking-widest text-brand-darkBlue leading-none">FISIO
+                    PILATES</span>
+                <span
+                    class="text-[9px] uppercase tracking-[0.25em] text-brand-steelBlue font-semibold mt-1">FISIOTERAPIA
+                    & BEM-ESTAR</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#inicio"
+                    class="text-brand-steelBlue hover:text-brand-darkBlue transition-colors duration-200">Início</a>
+                <a href="#pacotes"
+                    class="text-brand-steelBlue hover:text-brand-darkBlue transition-colors duration-200">Pacotes
+                    Especiais</a>
+                <a href="#sobre" class="text-brand-steelBlue hover:text-brand-darkBlue transition-colors duration-200">A
+                    Clínica</a>
+                <a href="#servicos"
+                    class="text-brand-steelBlue hover:text-brand-darkBlue transition-colors duration-200">Especialidades</a>
+                <a href="#depoimentos"
+                    class="text-brand-steelBlue hover:text-brand-darkBlue transition-colors duration-200">Depoimentos</a>
+                <a href="#contato"
+                    class="text-brand-steelBlue hover:text-brand-darkBlue transition-colors duration-200">Contato</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <!-- WhatsApp CTA -->
+                <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20pacotes%20da%20clínica!"
+                    target="_blank"
+                    class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-xs font-semibold tracking-wider uppercase border border-brand-darkBlue/25 rounded-full bg-white/5 text-brand-darkBlue hover:bg-brand-darkBlue hover:text-brand-cream transition-all duration-300">
+                    Agendar Consulta
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-brand-darkBlue flex items-center justify-center" id="mobile-menu-btn"
+                    aria-label="Abrir Menu">
+                    <i class="ph ph-list text-[24px]"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div class="hidden md:hidden absolute top-full left-0 w-full bg-brand-lightBg/95 border-b border-brand-darkBlue/10 backdrop-blur-lg flex flex-col p-6 space-y-4 text-center font-medium"
+            id="mobile-menu">
+            <a href="#inicio" class="text-brand-steelBlue hover:text-brand-darkBlue py-2"
+                onclick="toggleMobileMenu()">Início</a>
+            <a href="#pacotes" class="text-brand-steelBlue hover:text-brand-darkBlue py-2"
+                onclick="toggleMobileMenu()">Pacotes Especiais</a>
+            <a href="#sobre" class="text-brand-steelBlue hover:text-brand-darkBlue py-2" onclick="toggleMobileMenu()">A
+                Clínica</a>
+            <a href="#servicos" class="text-brand-steelBlue hover:text-brand-darkBlue py-2"
+                onclick="toggleMobileMenu()">Especialidades</a>
+            <a href="#depoimentos" class="text-brand-steelBlue hover:text-brand-darkBlue py-2"
+                onclick="toggleMobileMenu()">Depoimentos</a>
+            <a href="#contato" class="text-brand-steelBlue hover:text-brand-darkBlue py-2"
+                onclick="toggleMobileMenu()">Contato</a>
+            <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20pacotes%20da%20clínica!"
+                target="_blank"
+                class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold tracking-wider uppercase bg-brand-darkBlue rounded-full text-brand-cream font-bold">
+                Agendar no WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Left Side desaturated clinic background image -->
+        <div
+            class="absolute left-0 top-0 w-full lg:w-[45%] h-full z-0 opacity-[0.06] pointer-events-none hidden md:block">
+            <img src="https://images.unsplash.com/photo-1519826314692-1c6d83965b2a?q=80&w=1200&auto=format&fit=crop"
+                alt="Clínica Fisioterapia e Pilates" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#FAF9F5]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <!-- Left Info Column -->
+            <div class="lg:col-span-6 flex flex-col items-start space-y-6 text-left" id="hero-left-content">
+
+                <!-- Logo styled like the model -->
+                <div class="flex items-center space-x-1 font-serif text-2xl text-brand-darkBlue tracking-tight mb-2"
+                    id="hero-logo-badge">
+                    <span>Fisio</span>
+                    <span class="font-bold relative flex items-center">Pilates<span
+                            class="inline-block w-2 h-2 rounded-full bg-brand-steelBlue ml-1"></span></span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] leading-[1.15] text-brand-darkBlue"
+                    id="hero-title">
+                    Fisioterapia e Pilates <br>
+                    <span class="italic underline decoration-brand-steelBlue/30 underline-offset-8">com equilíbrio e
+                        leveza</span>
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-sm sm:text-base text-brand-steelBlue leading-relaxed max-w-lg" id="hero-subtitle">
+                    Cuidado completo, acolhedor e individualizado para quem busca reabilitação, prevenção e consciência
+                    corporal. Nossos tratamentos são pensados para respeitar a individualidade do seu corpo, devolvendo
+                    a harmonia e a leveza aos seus movimentos.
+                </p>
+
+                <!-- Pill-Shaped CTA Button -->
+                <div class="pt-2 flex flex-col items-start space-y-3 w-full sm:w-auto" id="hero-ctas">
+                    <a href="https://wa.me/5500999999999?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação."
+                        target="_blank"
+                        class="inline-flex items-center justify-between px-6 py-3.5 bg-[#cba37b] hover:bg-brand-darkBlue text-white rounded-full font-sans text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-md group w-full sm:w-auto">
+                        <span>AGENDAR AVALIAÇÃO AGORA</span>
+                        <span
+                            class="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-4 text-brand-darkBlue group-hover:bg-[#E8E7CB] group-hover:text-brand-darkBlue transition-colors shadow-sm">
+                            <i class="ph ph-arrow-up-right text-[14px]"></i>
+                        </span>
+                    </a>
+                    <span class="text-xs text-brand-steelBlue font-medium pl-1">Atendimento em Sua Cidade e região</span>
+                </div>
+
+            </div>
+
+            <!-- Right Professional Column (mockup format) -->
+            <div class="lg:col-span-6 relative flex items-center justify-center min-h-[450px] lg:min-h-[550px] w-full"
+                id="hero-right-visual">
+
+                <!-- Giant script background name -->
+                <span
+                    class="absolute text-[8rem] sm:text-[10rem] lg:text-[14rem] font-script text-[#E8E7CB]/40 select-none z-0 pointer-events-none transform -translate-y-12 leading-none"
+                    id="hero-bg-signature">Fisio</span>
+
+                <!-- Double Portrait layered effect -->
+                <div class="relative w-[75%] sm:w-[60%] lg:w-[65%] aspect-[3/4] flex items-end justify-center z-10"
+                    id="hero-portraits">
+                    <!-- Ghost Background Image (desaturated and offset) -->
+                    <img src="hero_portrait.png" alt="Fisio & Pilates Fisioterapia"
+                        class="absolute right-[-10%] bottom-[8%] w-[90%] h-[90%] object-cover rounded-2xl opacity-20 filter grayscale pointer-events-none z-0 transform translate-x-6">
+
+                    <!-- Foreground sharp portrait cutout -->
+                    <img src="hero_portrait.png" alt="Dra. Fisio & Pilates"
+                        class="w-[95%] h-full object-cover z-10 relative rounded-2xl shadow-2xl border-2 border-brand-cream/60">
+
+                    <!-- Floating Badge 1 (Safety/Trust) -->
+                    <div class="absolute left-[-15%] top-[45%] bg-white border border-brand-steelBlue/10 shadow-lg px-4 py-2 rounded-full z-20 pointer-events-none flex items-center space-x-1 whitespace-nowrap"
+                        id="hero-floating-badge-1">
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-bold text-brand-darkBlue flex items-center">
+                            <span class="text-[#cba37b] mr-1">✦</span> SEGURANÇA & COMPROMISSO <span
+                                class="text-[#cba37b] ml-1">✦</span>
+                        </span>
+                    </div>
+
+                    <!-- Floating Badge 2 (Professional tag) -->
+                    <div class="absolute right-[-8%] bottom-[20%] bg-white border border-brand-steelBlue/10 shadow-lg px-3 py-1.5 rounded-full z-20 pointer-events-none flex items-center space-x-2 whitespace-nowrap"
+                        id="hero-floating-badge-2">
+                        <img src="hero_portrait.png" alt="Fisio & Pilates"
+                            class="w-6 h-6 rounded-full object-cover border border-brand-cream/60">
+                        <span class="text-[10px] font-bold text-brand-darkBlue tracking-tight">FISIO & PILATES ✦</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MARQUEE FAIXA DE AUTORIDADE -->
+    <div class="w-full bg-brand-darkBlue border-y border-brand-darkBlue/5 py-6 overflow-hidden relative z-20">
+        <div class="marquee-container">
+            <div
+                class="marquee-content text-sm sm:text-base font-display font-semibold uppercase tracking-[0.2em] text-brand-cream space-x-12 sm:space-x-16">
+                <!-- Set 1 -->
+                <span>Fisioterapia Clínica</span> <span class="text-brand-steelBlue">•</span>
+                <span>RPG Postural</span> <span class="text-brand-cream">•</span>
+                <span>Pilates Clínico</span> <span class="text-brand-steelBlue">•</span>
+                <span>Recovery & Bem-Estar</span> <span class="text-brand-cream">•</span>
+                <span>Liberação Miofascial</span> <span class="text-brand-steelBlue">•</span>
+                <span>Botas Compressivas</span> <span class="text-brand-cream">•</span>
+                <span>Acompanhamento Biomecânico</span> <span class="text-brand-steelBlue">•</span>
+                <span>5.0 Avaliação no Google</span> <span class="text-brand-cream">•</span>
+                <!-- Set 2 (duplicates for infinite effect) -->
+                <span>Fisioterapia Clínica</span> <span class="text-brand-steelBlue">•</span>
+                <span>RPG Postural</span> <span class="text-brand-cream">•</span>
+                <span>Pilates Clínico</span> <span class="text-brand-steelBlue">•</span>
+                <span>Recovery & Bem-Estar</span> <span class="text-brand-cream">•</span>
+                <span>Liberação Miofascial</span> <span class="text-brand-steelBlue">•</span>
+                <span>Botas Compressivas</span> <span class="text-brand-cream">•</span>
+                <span>Acompanhamento Biomecânico</span> <span class="text-brand-steelBlue">•</span>
+                <span>5.0 Avaliação no Google</span> <span class="text-brand-cream">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BENTO GRID SECTION (PACOTES & DIFERENCIAIS) -->
+    <section id="pacotes" class="relative py-24 z-20 max-w-7xl mx-auto px-6">
+        <div class="text-center space-y-4 mb-16">
+            <span class="text-xs uppercase tracking-[0.25em] text-brand-steelBlue font-bold">Presentes que Cuidam</span>
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-brand-darkBlue font-normal">
+                Pacotes especiais para o <br class="hidden sm:inline"><span class="italic text-gradient-slate-steel">seu
+                    bem-estar</span>
+            </h2>
+            <p class="max-w-2xl mx-auto text-sm sm:text-base text-brand-steelBlue">
+                Neste mês especial, preparamos pacotes que combinam cuidado, leveza e bem-estar. Você cuida de quem ama
+                — e a gente cuida de vocês duas. 💜
+            </p>
+        </div>
+
+        <!-- Bento Grid Structure -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6" id="bento-grid">
+
+            <!-- Bento Box 1: Pilates em Dupla (col-span-8) -->
+            <div
+                class="md:col-span-8 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group glass-card-hover min-h-[320px] md:min-h-[360px]">
+                <div class="absolute right-0 bottom-0 w-1/2 h-full opacity-25 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
+                    style="mask-image: linear-gradient(to right, transparent 0%, black 40%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=800&auto=format&fit=crop"
+                        alt="Pilates Studio"
+                        class="w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute -left-10 -top-10 w-48 h-48 bg-brand-cream/15 rounded-full blur-3xl"></div>
+
+                <div class="z-10 space-y-4 max-w-lg">
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-darkBlue text-brand-cream border border-brand-darkBlue/10 shadow-sm">
+                        Cuidado Compartilhado 💜
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-brand-darkBlue font-normal">Pilates em Dupla</h3>
+                    <p class="text-sm text-brand-steelBlue leading-relaxed">
+                        Pratique exercícios focados em alinhamento postural, fortalecimento suave e flexibilidade com
+                        quem você ama. Uma experiência de saúde e relaxamento compartilhada em um ambiente acolhedor.
+                    </p>
+                    <div class="flex items-center space-x-2 text-brand-darkBlue font-semibold text-sm">
+                        <i class="ph-fill ph-heart text-[16px] text-brand-darkBlue"></i>
+                        <span>Ambos recebem a Avaliação Biomecânica como cortesia especial.</span>
+                    </div>
+                </div>
+
+                <div
+                    class="z-10 mt-6 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-brand-darkBlue/10">
+                    <div>
+                        <span class="text-[10px] text-brand-steelBlue uppercase block">Benefício de Lançamento</span>
+                        <span class="text-lg font-bold text-brand-darkBlue">Avaliação Inicial Cortesia</span>
+                    </div>
+                    <a href="https://wa.me/5500999999999?text=Olá!%20Quero%20aproveitar%20a%20avaliação%20grátis%20do%20Pilates%20em%20Dupla."
+                        target="_blank"
+                        class="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-darkBlue text-brand-cream hover:bg-brand-steelBlue hover:text-white transition-all duration-300 text-center">
+                        Agendar Avaliação
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bento Box 2: 10 Sessões Fisioterapia (col-span-4) -->
+            <div
+                class="md:col-span-4 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group glass-card-hover">
+                <div class="absolute -right-20 -bottom-20 w-44 h-44 bg-brand-steelBlue/10 rounded-full blur-3xl"></div>
+
+                <div class="z-10 space-y-4">
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-steelBlue/20 text-brand-darkBlue border border-brand-steelBlue/30">
+                        Recuperação & Alívio
+                    </span>
+                    <h3 class="font-serif text-xl sm:text-2xl text-brand-darkBlue font-normal">Fisioterapia Clínica</h3>
+                    <p class="text-xs text-brand-steelBlue leading-relaxed">
+                        Sessões dedicadas ao alívio de dores, reabilitação física e alinhamento postural com técnicas
+                        especializadas.
+                    </p>
+
+                    <div class="space-y-2 pt-2">
+                        <div class="flex items-center space-x-2 text-xs text-brand-darkBlue">
+                            <i class="ph ph-tag text-[14px] text-brand-darkBlue"></i>
+                            <span class="font-bold text-brand-darkBlue">Pacote com 10 Sessões</span>
+                        </div>
+                        <div class="text-2xl font-extrabold text-brand-darkBlue flex items-baseline">
+                            20% <span class="text-xs font-medium text-brand-steelBlue ml-1">DE DESCONTO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/5500999999999?text=Olá!%20Quero%20fechar%20o%20pacote%20de%2010%20sessões%20de%20fisioterapia%20com%2020%25%20de%20desconto."
+                    target="_blank"
+                    class="z-10 mt-6 w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider border border-brand-darkBlue/20 text-brand-darkBlue hover:text-brand-cream hover:bg-brand-darkBlue transition-all duration-300 text-center">
+                    Resgatar Desconto
+                </a>
+            </div>
+
+            <!-- Bento Box 3: Fisioterapia + Recovery (col-span-4) -->
+            <div
+                class="md:col-span-4 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group glass-card-hover">
+                <div class="absolute -left-10 -bottom-10 w-44 h-44 bg-brand-cream/10 rounded-full blur-3xl"></div>
+
+                <div class="z-10 space-y-4">
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#E8E7CB] text-[#283043] border border-[#283043]/10">
+                        Cuidado Integrado
+                    </span>
+                    <h3 class="font-serif text-xl sm:text-2xl text-brand-darkBlue font-normal">Fisio + Recovery</h3>
+                    <p class="text-xs text-brand-steelBlue leading-relaxed">
+                        Fisioterapia clínica cuidadosa aliada a sessões de relaxamento e drenagem pós-sessão.
+                    </p>
+
+                    <div
+                        class="p-3 rounded-lg bg-brand-darkBlue/[0.03] border border-brand-darkBlue/10 text-xs text-brand-darkBlue space-y-1">
+                        <span class="block text-brand-darkBlue font-bold">Incluso no Combo:</span>
+                        <span class="block text-brand-steelBlue">• 5 Sessões de Fisioterapia Personalizada</span>
+                        <span class="block text-brand-darkBlue font-medium">• 1 Sessão de Recovery (Bota +
+                            Drenagem)</span>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/5500999999999?text=Olá!%20Tenho%20interesse%20no%20pacote%20de%20Fisioterapia%20(5%20sessões%20%2B%201%20Recovery)."
+                    target="_blank"
+                    class="z-10 mt-6 w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider border border-brand-darkBlue/20 text-brand-darkBlue hover:text-brand-cream hover:bg-brand-darkBlue transition-all duration-300 text-center">
+                    Solicitar Informações
+                </a>
+            </div>
+
+            <!-- Bento Box 4: Pilates Trimestral (col-span-8) -->
+            <div
+                class="md:col-span-8 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group glass-card-hover min-h-[320px] md:min-h-[360px]">
+                <div class="absolute right-0 top-0 w-1/2 h-full opacity-20 group-hover:opacity-35 transition-opacity duration-500 pointer-events-none"
+                    style="mask-image: linear-gradient(to right, transparent 0%, black 40%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+                        alt="Pilates Reformer"
+                        class="w-full h-full object-cover object-center scale-100 group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-brand-steelBlue/10 rounded-full blur-3xl"></div>
+
+                <div class="z-10 space-y-4 max-w-lg">
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-steelBlue/20 text-brand-darkBlue border border-brand-steelBlue/30">
+                        Equilíbrio & Conectividade
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-brand-darkBlue font-normal">Plano Pilates Trimestral
+                    </h3>
+                    <p class="text-sm text-brand-steelBlue leading-relaxed">
+                        Frequência ideal (2x na semana) para desenvolver estabilidade articular, flexibilidade e
+                        consciência corporal profunda com acompanhamento individualizado.
+                    </p>
+
+                    <div class="flex items-center space-x-2 text-brand-darkBlue font-semibold text-sm pt-2">
+                        <i class="ph ph-gift text-[16px]"></i>
+                        <span>Você recebe: Avaliação biomecânica + 2 sessões de bota compressiva cortesia.</span>
+                    </div>
+                </div>
+
+                <div
+                    class="z-10 mt-6 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-brand-darkBlue/10">
+                    <div>
+                        <span class="text-[10px] text-brand-steelBlue uppercase block">Bônus Especial Incluso</span>
+                        <span class="text-sm font-semibold text-brand-darkBlue">2x Sessões de Relaxamento com Botas
+                            Compressivas</span>
+                    </div>
+                    <a href="https://wa.me/5500999999999?text=Olá!%20Quero%20saber%20detalhes%20do%20Pacote%20Trimestral%20de%20Pilates%20que%20dá%20sessões%20de%20bota%20compressiva."
+                        target="_blank"
+                        class="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-darkBlue text-brand-cream hover:bg-brand-steelBlue hover:text-white transition-all duration-300 text-center">
+                        Garantir Benefícios
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bento Box 5: Recovery Completo (col-span-12) -->
+            <div
+                class="md:col-span-12 glass-card rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-stretch justify-between relative overflow-hidden group glass-card-hover gap-8">
+                <div
+                    class="absolute -right-20 -top-20 w-80 h-80 bg-brand-cream/10 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute -left-20 -bottom-20 w-80 h-80 bg-brand-steelBlue/10 rounded-full blur-3xl pointer-events-none">
+                </div>
+
+                <div class="z-10 space-y-4 max-w-2xl flex-1">
+                    <span
+                        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-darkBlue text-brand-cream border border-brand-darkBlue/10 shadow-sm">
+                        Recuperação & Bem-Estar
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-brand-darkBlue font-normal">Recovery Premium: <span
+                            class="italic font-normal">Feche 5, receba 6</span></h3>
+                    <p class="text-sm text-brand-steelBlue leading-relaxed">
+                        Desenvolvido para aliviar o cansaço muscular acumulado, restaurar a flexibilidade e promover um
+                        profundo relaxamento das tensões físicas pós-exercício ou rotina intensa.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-center space-x-3 text-xs text-brand-darkBlue">
+                            <span
+                                class="w-6 h-6 rounded-full bg-brand-darkBlue/10 flex items-center justify-center border border-brand-darkBlue/20">
+                                <i class="ph ph-activity text-[14px] text-brand-darkBlue"></i>
+                            </span>
+                            <span class="text-brand-steelBlue font-medium">Liberação Miofascial Manual Suave</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs text-brand-darkBlue">
+                            <span
+                                class="w-6 h-6 rounded-full bg-brand-steelBlue/15 flex items-center justify-center border border-brand-steelBlue/30">
+                                <i class="ph ph-wind text-[14px] text-brand-steelBlue"></i>
+                            </span>
+                            <span class="text-brand-steelBlue font-medium">30 Minutos de Botas Compressivas para
+                                Drenagem e Alívio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="z-10 flex flex-col justify-center items-start md:items-end gap-4 md:border-l border-brand-darkBlue/10 md:pl-8 min-w-[240px]">
+                    <div>
+                        <span class="text-[10px] text-brand-steelBlue uppercase block">Investimento no seu
+                            Bem-Estar</span>
+                        <div class="text-xl font-bold text-brand-darkBlue mt-1">Sessão Cortesia Adicional</div>
+                        <p class="text-xs text-brand-steelBlue mt-0.5">Ganhe a 6ª sessão ao fechar o pacote de 5.</p>
+                    </div>
+                    <a href="https://wa.me/5500999999999?text=Olá!%20Gostaria%20de%20adquirir%20o%20Recovery%20Premium%20(Feche%205%20ganhe%201)."
+                        target="_blank"
+                        class="w-full md:w-auto px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-darkBlue text-brand-cream hover:bg-brand-steelBlue hover:text-white transition-all duration-300 text-center">
+                        Agendar Sessão
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (SOBRE A CLÍNICA) -->
+    <section id="sobre" class="relative py-24 bg-white/40 border-y border-brand-darkBlue/5 z-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+            <!-- Left Text Column -->
+            <div class="lg:col-span-6 space-y-6 text-left">
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-steelBlue font-bold">Fisioterapeuta Fisio
+                    Pilates</span>
+                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-brand-darkBlue font-normal">
+                    Cuidado personalizado e <span class="italic text-gradient-slate-steel">excelência clínica</span>
+                </h2>
+
+                <p class="text-sm sm:text-base text-brand-steelBlue leading-relaxed">
+                    Na clínica <strong>Fisio & Pilates Fisioterapia | RPG | Pilates</strong>, cada paciente é acolhido com
+                    atenção integral. Nosso propósito é oferecer um ambiente dedicado à reabilitação segura, melhora da
+                    postura e alívio de tensões físicas.
+                </p>
+                <p class="text-sm sm:text-base text-brand-steelBlue leading-relaxed">
+                    Com avaliações biomecânicas detalhadas e sem pressa, desenvolvemos tratamentos que respeitam a
+                    individualidade e o ritmo do seu corpo. Integramos fisioterapia clínica e desportiva, RPG e Pilates
+                    para devolver a leveza aos movimentos e proporcionar qualidade de vida no seu dia a dia.
+                </p>
+
+                <!-- Core Pillars Icons Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                    <div
+                        class="flex items-start space-x-3 p-4 rounded-xl bg-brand-darkBlue/[0.02] border border-brand-darkBlue/5">
+                        <i class="ph ph-activity text-[20px] text-brand-darkBlue mt-0.5"></i>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-darkBlue">Avaliação Atenta</h4>
+                            <p class="text-xs text-brand-steelBlue mt-1">Estudo cuidadoso do seu movimento para
+                                identificar e tratar as reais causas do desconforto.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start space-x-3 p-4 rounded-xl bg-brand-darkBlue/[0.02] border border-brand-darkBlue/5">
+                        <i class="ph ph-heart text-[20px] text-brand-darkBlue mt-0.5"></i>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-darkBlue">Prevenção & Equilíbrio</h4>
+                            <p class="text-xs text-brand-steelBlue mt-1">Fortalecimento e conscientização corporal para
+                                manter sua saúde em dia a longo prazo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex items-center space-x-6">
+                    <a href="https://wa.me/5500999999999" target="_blank"
+                        class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-darkBlue hover:text-brand-steelBlue transition-colors duration-300">
+                        Fale diretamente com nossa Fisioterapeuta
+                        <i class="ph ph-chevron-right text-[16px] ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Image Showcase Column -->
+            <div class="lg:col-span-6 relative">
+                <!-- Stacked Image Layout -->
+                <div
+                    class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-brand-darkBlue/10 shadow-lg">
+                    <img src="clinic_interior.png" alt="Atendimento clínico fisioterapia"
+                        class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-lightBg/80 via-transparent to-transparent">
+                    </div>
+                </div>
+
+                <!-- Floating overlay card -->
+                <div
+                    class="absolute -bottom-6 -left-6 sm:bottom-6 sm:left-6 glass-card rounded-xl p-4 max-w-xs border border-brand-darkBlue/10 hidden sm:flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-darkBlue/10 flex items-center justify-center">
+                        <i class="ph ph-map-pin text-[20px] text-brand-darkBlue"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-brand-steelBlue uppercase block">Localização</span>
+                        <span class="text-xs font-bold text-brand-darkBlue block">Sua Cidade, São Paulo</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES / SERVIÇOS -->
+    <section id="servicos" class="relative py-24 z-20 max-w-7xl mx-auto px-6">
+        <div class="text-center space-y-4 mb-16">
+            <span class="text-xs uppercase tracking-[0.25em] text-brand-steelBlue font-bold">Nossas
+                Especialidades</span>
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-brand-darkBlue font-normal">
+                Métodos suaves para <span class="italic text-gradient-slate-steel">o seu equilíbrio</span>
+            </h2>
+            <p class="max-w-xl mx-auto text-sm text-brand-steelBlue">
+                Acompanhamento dedicado para reabilitar, fortalecer e proporcionar leveza a cada movimento.
+            </p>
+        </div>
+
+        <!-- Grid of Services -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="services-grid">
+
+            <!-- Service 1: Fisioterapia Desportiva -->
+            <div class="glass-card rounded-xl p-6 flex flex-col justify-between glass-card-hover group">
+                <div class="space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-brand-darkBlue/5 flex items-center justify-center border border-brand-darkBlue/10 group-hover:bg-brand-darkBlue group-hover:text-brand-cream transition-all duration-300 text-brand-darkBlue">
+                        <i class="ph ph-activity text-[24px]"></i>
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-darkBlue font-semibold">Fisioterapia Clínica</h3>
+                    <p class="text-xs text-brand-steelBlue leading-relaxed">
+                        Recuperação segura de lesões, alívio de quadros de dor e reabilitação voltada ao retorno gradual
+                        de suas atividades físicas com proteção.
+                    </p>
+                </div>
+                <div
+                    class="mt-6 pt-4 border-t border-brand-darkBlue/5 text-[11px] font-bold text-brand-steelBlue group-hover:text-brand-darkBlue uppercase flex items-center justify-between transition-colors">
+                    <span>Cuidado Ativo</span>
+                    <i class="ph ph-arrow-right text-[14px]"></i>
+                </div>
+            </div>
+
+            <!-- Service 2: RPG -->
+            <div class="glass-card rounded-xl p-6 flex flex-col justify-between glass-card-hover group">
+                <div class="space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-brand-steelBlue/10 flex items-center justify-center border border-brand-steelBlue/20 group-hover:bg-brand-darkBlue group-hover:text-brand-cream transition-all duration-300 text-brand-steelBlue">
+                        <i class="ph ph-align-center-horizontal text-[24px]"></i>
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-darkBlue font-semibold">RPG (Postural)</h3>
+                    <p class="text-xs text-brand-steelBlue leading-relaxed">
+                        Reeducação Postural Global para aliviar dores nas costas e tensões musculares crônicas por meio
+                        do alinhamento cuidadoso do corpo.
+                    </p>
+                </div>
+                <div
+                    class="mt-6 pt-4 border-t border-brand-darkBlue/5 text-[11px] font-bold text-brand-steelBlue group-hover:text-brand-darkBlue uppercase flex items-center justify-between transition-colors">
+                    <span>Harmonia Postural</span>
+                    <i class="ph ph-arrow-right text-[14px]"></i>
+                </div>
+            </div>
+
+            <!-- Service 3: Pilates Clínico -->
+            <div class="glass-card rounded-xl p-6 flex flex-col justify-between glass-card-hover group">
+                <div class="space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-brand-darkBlue/5 flex items-center justify-center border border-brand-darkBlue/10 group-hover:bg-brand-darkBlue group-hover:text-brand-cream transition-all duration-300 text-brand-darkBlue">
+                        <i class="ph ph-barbell text-[24px]"></i>
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-darkBlue font-semibold">Pilates Clínico</h3>
+                    <p class="text-xs text-brand-steelBlue leading-relaxed">
+                        Fortalecimento da musculatura profunda, melhora da postura, flexibilidade e consciência corporal
+                        com equipamentos especializados e foco individual.
+                    </p>
+                </div>
+                <div
+                    class="mt-6 pt-4 border-t border-brand-darkBlue/5 text-[11px] font-bold text-brand-steelBlue group-hover:text-brand-darkBlue uppercase flex items-center justify-between transition-colors">
+                    <span>Força & Consciência</span>
+                    <i class="ph ph-arrow-right text-[14px]"></i>
+                </div>
+            </div>
+
+            <!-- Service 4: Recovery Esportivo -->
+            <div class="glass-card rounded-xl p-6 flex flex-col justify-between glass-card-hover group">
+                <div class="space-y-4">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-brand-steelBlue/10 flex items-center justify-center border border-brand-steelBlue/20 group-hover:bg-brand-darkBlue group-hover:text-brand-cream transition-all duration-300 text-brand-steelBlue">
+                        <i class="ph ph-sparkle text-[24px]"></i>
+                    </div>
+                    <h3 class="font-serif text-lg text-brand-darkBlue font-semibold">Recovery Premium</h3>
+                    <p class="text-xs text-brand-steelBlue leading-relaxed">
+                        Drenagem corporal, liberação miofascial manual e bota de compressão pneumática para alívio de
+                        fadiga muscular e bem-estar profundo.
+                    </p>
+                </div>
+                <div
+                    class="mt-6 pt-4 border-t border-brand-darkBlue/5 text-[11px] font-bold text-brand-steelBlue group-hover:text-brand-darkBlue uppercase flex items-center justify-between transition-colors">
+                    <span>Relaxamento & Alívio</span>
+                    <i class="ph ph-arrow-right text-[14px]"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION (DEPOIMENTOS) -->
+    <section id="depoimentos" class="relative py-24 bg-white/40 border-t border-brand-darkBlue/5 z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="text-left space-y-4">
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-steelBlue font-bold">Prova Social</span>
+                    <h2
+                        class="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-brand-darkBlue font-normal">
+                        O que nossos <span class="italic text-gradient-slate-steel">pacientes sentem</span>
+                    </h2>
+                </div>
+                <div
+                    class="flex items-center space-x-2 bg-brand-darkBlue/[0.02] border border-brand-darkBlue/10 px-4 py-2 rounded-xl">
+                    <div class="flex text-yellow-600">
+                        <i class="ph-fill ph-star text-[16px] text-yellow-600"></i>
+                        <i class="ph-fill ph-star text-[16px] text-yellow-600"></i>
+                        <i class="ph-fill ph-star text-[16px] text-yellow-600"></i>
+                        <i class="ph-fill ph-star text-[16px] text-yellow-600"></i>
+                        <i class="ph-fill ph-star text-[16px] text-yellow-600"></i>
+                    </div>
+                    <span class="text-xs font-bold text-brand-darkBlue">5.0 no Google (Sua Cidade/UF)</span>
+                </div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="testimonials-grid">
+
+                <!-- Testimonial 1 -->
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between border border-brand-darkBlue/5">
+                    <div class="space-y-4">
+                        <div class="flex text-yellow-650">
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                        </div>
+                        <p class="text-sm text-brand-steelBlue italic leading-relaxed">
+                            "A clínica da Fisio & Pilates tem um atendimento excelente. O tratamento de RPG resolveu as
+                            minhas dores crônicas na coluna que me incomodavam há meses. O ambiente é super tranquilo e
+                            acolhedor."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 mt-6 pt-4 border-t border-brand-darkBlue/10">
+                        <div
+                            class="w-8 h-8 rounded-full bg-brand-darkBlue/10 flex items-center justify-center font-bold text-xs text-brand-darkBlue">
+                            AM
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-brand-darkBlue">Amanda Mendes</h4>
+                            <span class="text-[10px] text-brand-steelBlue uppercase">Paciente de RPG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between border border-brand-darkBlue/5">
+                    <div class="space-y-4">
+                        <div class="flex text-yellow-650">
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                        </div>
+                        <p class="text-sm text-brand-steelBlue italic leading-relaxed">
+                            "Pratico ciclismo e as sessões de recovery com bota compressiva e liberação miofascial
+                            manual foram fundamentais para aliviar a fadiga pós-treino intenso. Excelente profissional!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 mt-6 pt-4 border-t border-brand-darkBlue/10">
+                        <div
+                            class="w-8 h-8 rounded-full bg-brand-darkBlue/10 flex items-center justify-center font-bold text-xs text-brand-darkBlue">
+                            FB
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-brand-darkBlue">Felipe B. Santos</h4>
+                            <span class="text-[10px] text-brand-steelBlue uppercase">Paciente de Recovery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between border border-brand-darkBlue/5">
+                    <div class="space-y-4">
+                        <div class="flex text-yellow-650">
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                            <i class="ph-fill ph-star text-[16px] text-yellow-500"></i>
+                        </div>
+                        <p class="text-sm text-brand-steelBlue italic leading-relaxed">
+                            "Iniciei o Pilates em dupla com a minha irmã e estamos adorando a experiência. O
+                            acompanhamento da fisioterapeuta é individualizado, atencioso e muito profissional."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-3 mt-6 pt-4 border-t border-brand-darkBlue/10">
+                        <div
+                            class="w-8 h-8 rounded-full bg-brand-darkBlue/10 flex items-center justify-center font-bold text-xs text-brand-darkBlue">
+                            LA
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-brand-darkBlue">Larissa Alves</h4>
+                            <span class="text-[10px] text-brand-steelBlue uppercase">Paciente de Pilates</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & MAP SECTION -->
+    <section id="contato" class="relative py-24 z-20 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+            <!-- Left Info Block -->
+            <div class="lg:col-span-5 space-y-8 text-left">
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-steelBlue font-bold">Contato &
+                        Horários</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl leading-tight text-brand-darkBlue font-normal">
+                        Vamos cuidar do <span class="italic text-gradient-slate-steel">seu bem-estar?</span>
+                    </h2>
+                    <p class="text-sm text-brand-steelBlue leading-relaxed">
+                        Agende sua avaliação. Nosso espaço em Sua Cidade/UF foi planejado para acolher você com conforto,
+                        tranquilidade e atendimento humanizado.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Address Link -->
+                    <a href="https://maps.google.com/?q=R.+Homero+Pachêco+Alves,+1031+-+Jardim+Sao+Vicente+de+Paula,+Sua Cidade+-+SP"
+                        target="_blank"
+                        class="flex items-start space-x-4 group p-4 rounded-xl hover:bg-brand-darkBlue/[0.03] border border-transparent hover:border-brand-darkBlue/10 transition-all duration-300">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand-darkBlue/10 flex items-center justify-center text-brand-darkBlue shrink-0">
+                            <i class="ph ph-map-pin text-[20px]"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-darkBlue">Nosso Espaço</h4>
+                            <p
+                                class="text-xs text-brand-steelBlue mt-1 group-hover:text-brand-darkBlue transition-colors">
+                                R. Homero Pachêco Alves, 1031 - Jardim Sao Vicente de Paula<br>
+                                Sua Cidade - UF, 14400-010
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- Phone Link -->
+                    <a href="tel:+5500999999999"
+                        class="flex items-start space-x-4 group p-4 rounded-xl hover:bg-brand-darkBlue/[0.03] border border-transparent hover:border-brand-darkBlue/10 transition-all duration-300">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand-steelBlue/10 flex items-center justify-center text-brand-steelBlue shrink-0">
+                            <i class="ph ph-phone text-[20px]"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-darkBlue">Fale Conosco</h4>
+                            <p
+                                class="text-xs text-brand-steelBlue mt-1 group-hover:text-brand-darkBlue transition-colors">
+                                (00) 99999-9999
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- Instagram Link -->
+                    <a href="https://www.instagram.com/fisiofisioterapia/" target="_blank"
+                        class="flex items-start space-x-4 group p-4 rounded-xl hover:bg-brand-darkBlue/[0.03] border border-transparent hover:border-brand-darkBlue/10 transition-all duration-300">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand-darkBlue/10 flex items-center justify-center text-brand-darkBlue shrink-0">
+                            <i class="ph ph-instagram-logo text-[20px]"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-darkBlue">Instagram da Clínica</h4>
+                            <p
+                                class="text-xs text-brand-steelBlue mt-1 group-hover:text-brand-darkBlue transition-colors">
+                                @fisiofisioterapia
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- Horário -->
+                    <div
+                        class="flex items-start space-x-4 p-4 rounded-xl bg-brand-darkBlue/[0.01] border border-brand-darkBlue/5">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-brand-steelBlue/10 flex items-center justify-center text-brand-steelBlue shrink-0">
+                            <i class="ph ph-clock text-[20px]"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-brand-darkBlue">Horários de Atendimento</h4>
+                            <p class="text-xs text-brand-steelBlue mt-1">
+                                Segunda a Sexta: das 07:00 às 21:00 (com agendamento prévio)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Interactive Form / Map Block -->
+            <div class="lg:col-span-7 space-y-6">
+                <!-- Map Widget -->
+                <div
+                    class="glass-card rounded-2xl overflow-hidden border border-brand-darkBlue/10 w-full h-[320px] md:h-[400px] shadow-xl relative">
+                    <!-- Styled Google Maps iframe matching layout visually via overlay wrapper -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1932314545593!2d-47.408892123961175!3d-20.53934375788484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b0a7abdb32a4e9%3A0xe1030e463a5ba851!2zUi4gSG9tZXJvIFBhY2jDqWNvIEFsdmVzLCAxMDMxIC0gSmFyZGltIFNhbyBWaWNlbnRlIGRlIFBhdWxhLCBGcmFuY2EgLSBTUCwgMTQ0MDAtMDEw!5e0!3m2!1spt-BR!2sbr!4v1718567843423!5m2!1spt-BR!2sbr"
+                        class="w-full h-full border-0 opacity-90" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                    <!-- Light Mode Map Overlay Panel -->
+                    <div
+                        class="absolute bottom-4 left-4 right-4 glass-card p-4 rounded-xl flex items-center justify-between border border-brand-darkBlue/10 bg-brand-lightBg/90 backdrop-blur-md">
+                        <div class="text-left">
+                            <span
+                                class="text-[9px] uppercase tracking-wider text-brand-darkBlue font-bold">Localização</span>
+                            <span class="text-xs font-bold text-brand-darkBlue block">R. Homero Pachêco Alves,
+                                1031</span>
+                        </div>
+                        <a href="https://maps.google.com/?q=R.+Homero+Pachêco+Alves,+1031+-+Jardim+Sao+Vicente+de+Paula,+Sua Cidade+-+SP"
+                            target="_blank"
+                            class="px-4 py-2 bg-brand-darkBlue hover:bg-brand-steelBlue text-brand-cream text-[10px] font-bold uppercase tracking-wider rounded-lg transition-colors">
+                            Como Chegar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Direct WhatsApp Fast Appointment Builder -->
+                <div class="glass-card rounded-2xl p-6 border border-brand-darkBlue/10 text-left">
+                    <h3 class="font-serif text-base text-brand-darkBlue font-semibold mb-2">Mensagem rápida via WhatsApp
+                    </h3>
+                    <p class="text-xs text-brand-steelBlue mb-4">Escolha a especialidade do seu interesse para abrir a
+                        conversa no WhatsApp com uma mensagem personalizada.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://wa.me/5500999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20para%20Pilates%20em%20Dupla."
+                            target="_blank"
+                            class="p-3 rounded-lg border border-brand-darkBlue/10 bg-white hover:border-brand-darkBlue text-xs text-brand-steelBlue hover:text-brand-darkBlue transition-colors flex items-center justify-between shadow-sm">
+                            <span>Pilates em Dupla (Avaliação Cortesia)</span>
+                            <i class="ph ph-arrow-up-right text-[14px]"></i>
+                        </a>
+
+                        <a href="https://wa.me/5500999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Plano%20Pilates%20Trimestral."
+                            target="_blank"
+                            class="p-3 rounded-lg border border-brand-darkBlue/10 bg-white hover:border-brand-steelBlue text-xs text-brand-steelBlue hover:text-brand-darkBlue transition-colors flex items-center justify-between shadow-sm">
+                            <span>Pilates Trimestral (Cortesia Botas)</span>
+                            <i class="ph ph-arrow-up-right text-[14px]"></i>
+                        </a>
+
+                        <a href="https://wa.me/5500999999999?text=Olá!%20Gostaria%20de%20agendar%20o%20pacote%20de%2010%20sessões%20de%20Fisioterapia%20com%20Desconto."
+                            target="_blank"
+                            class="p-3 rounded-lg border border-brand-darkBlue/10 bg-white hover:border-brand-darkBlue text-xs text-brand-steelBlue hover:text-brand-darkBlue transition-colors flex items-center justify-between shadow-sm">
+                            <span>Fisioterapia (Pacote 10 Sessões)</span>
+                            <i class="ph ph-arrow-up-right text-[14px]"></i>
+                        </a>
+
+                        <a href="https://wa.me/5500999999999?text=Olá!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20Recovery%20Premium%20(Feche%205%20ganhe%201)."
+                            target="_blank"
+                            class="p-3 rounded-lg border border-brand-darkBlue/10 bg-white hover:border-brand-steelBlue text-xs text-brand-steelBlue hover:text-brand-darkBlue transition-colors flex items-center justify-between shadow-sm">
+                            <span>Recovery Premium (Bota + Drenagem)</span>
+                            <i class="ph ph-arrow-up-right text-[14px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER - Grounded Dark Slate Blue -->
+    <footer
+        class="relative z-20 border-t border-brand-darkBlue/10 bg-brand-darkBlue py-12 text-center text-xs text-brand-steelBlue/70">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <span class="font-display font-bold text-brand-cream text-base tracking-widest leading-none">FISIO
+                    PILATES</span>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-white/50 font-semibold mt-1">FISIOTERAPIA &
+                    BEM-ESTAR</span>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-6 text-brand-cream/80">
+                <a href="#inicio" class="hover:text-white transition-colors">Início</a>
+                <a href="#pacotes" class="hover:text-white transition-colors">Pacotes</a>
+                <a href="#sobre" class="hover:text-white transition-colors">Clínica</a>
+                <a href="#servicos" class="hover:text-white transition-colors">Especialidades</a>
+                <a href="https://www.instagram.com/fisiofisioterapia/" target="_blank"
+                    class="hover:text-white transition-colors">Instagram</a>
+            </div>
+
+            <div class="text-[10px] text-white/40">
+                <span>&copy; 2026 Fisio & Pilates. Todos os direitos reservados.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTION SCRIPTS (GSAP + PHOSPHOR) -->
+    <script>
+        // Mobile Menu toggling
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+            }
+        }
+        window.toggleMobileMenu = toggleMobileMenu;
+        if (menuBtn) {
+            menuBtn.addEventListener('click', toggleMobileMenu);
+        }
+
+        // Header scroll behavior (dynamic glass effect border)
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.remove('py-4');
+                    header.classList.add('py-3', 'shadow-md', 'bg-brand-lightBg/90');
+                } else {
+                    header.classList.remove('py-3', 'shadow-md', 'bg-brand-lightBg/90');
+                    header.classList.add('py-4');
+                }
+            }
+        });
+
+        // GSAP Animations Stack
+        if (typeof gsap !== 'undefined') {
+            window.addEventListener('load', () => {
+                // Register ScrollTrigger Plugin
+                if (typeof ScrollTrigger !== 'undefined') {
+                    gsap.registerPlugin(ScrollTrigger);
+                }
+
+                // 1. Hero entrance stagger (snappier transition)
+                const heroTl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.8 } });
+
+                heroTl.from('#hero-logo-badge', { opacity: 0, y: -10, duration: 0.6 }, 0.1)
+                    .from('#hero-title', { opacity: 0, y: 15, duration: 0.8 }, 0.2)
+                    .from('#hero-subtitle', { opacity: 0, y: 10, duration: 0.6 }, 0.3)
+                    .from('#hero-ctas', { opacity: 0, y: 10, duration: 0.6 }, 0.4)
+                    .from('#hero-bg-signature', { opacity: 0, scale: 0.98, duration: 1.0 }, 0.2)
+                    .from('#hero-portraits', { opacity: 0, scale: 0.99, y: 10, duration: 0.8 }, 0.4)
+                    .from('#hero-floating-badge-1', { opacity: 0, x: -15, duration: 0.5 }, 0.5)
+                    .from('#hero-floating-badge-2', { opacity: 0, x: 15, duration: 0.5 }, 0.6);
+
+                // 2. Bento Grid Items - Pure Fade-in with 50ms delay & 50ms stagger
+                gsap.from('#bento-grid > div', {
+                    scrollTrigger: {
+                        trigger: '#pacotes',
+                        start: 'top bottom-=50px',
+                        once: true
+                    },
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.05,
+                    stagger: 0.05,
+                    ease: 'power1.out',
+                    onComplete: function () {
+                        gsap.set(this.targets(), { clearProps: "all" });
+                    }
+                });
+
+                // 3. About Section Columns - Pure Fade-in with 50ms delay & 50ms stagger
+                gsap.from('#sobre .lg\\:col-span-6', {
+                    scrollTrigger: {
+                        trigger: '#sobre',
+                        start: 'top bottom-=50px',
+                        once: true
+                    },
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.05,
+                    stagger: 0.05,
+                    ease: 'power1.out',
+                    onComplete: function () {
+                        gsap.set(this.targets(), { clearProps: "all" });
+                    }
+                });
+
+                // 4. Services Cards - Pure Fade-in with 50ms delay & 50ms stagger
+                gsap.from('#services-grid > div', {
+                    scrollTrigger: {
+                        trigger: '#servicos',
+                        start: 'top bottom-=50px',
+                        once: true
+                    },
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.05,
+                    stagger: 0.05,
+                    ease: 'power1.out',
+                    onComplete: function () {
+                        gsap.set(this.targets(), { clearProps: "all" });
+                    }
+                });
+
+                // 5. Testimonials Cards - Pure Fade-in with 50ms delay & 50ms stagger
+                gsap.from('#testimonials-grid > div', {
+                    scrollTrigger: {
+                        trigger: '#depoimentos',
+                        start: 'top bottom-=50px',
+                        once: true
+                    },
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.05,
+                    stagger: 0.05,
+                    ease: 'power1.out',
+                    onComplete: function () {
+                        gsap.set(this.targets(), { clearProps: "all" });
+                    }
+                });
+
+                // 6. Contact & Map Elements - Pure Fade-in with 50ms delay & 50ms stagger
+                gsap.from('#contato > div', {
+                    scrollTrigger: {
+                        trigger: '#contato',
+                        start: 'top bottom-=50px',
+                        once: true
+                    },
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.05,
+                    stagger: 0.05,
+                    ease: 'power1.out',
+                    onComplete: function () {
+                        gsap.set(this.targets(), { clearProps: "all" });
+                    }
+                });
+
+                // Force layout calculation refresh for ScrollTrigger
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh();
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

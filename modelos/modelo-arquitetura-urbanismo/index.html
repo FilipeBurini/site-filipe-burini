@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Nome do Arquiteto Arquitetura | Projetos Autorais de Alto Padrão</title>
+    <meta name="description" content="Nome do Arquiteto é arquiteto com 35 anos de história em Sua Cidade/UF. Especialista em Light Design, construções sustentáveis e tecnologia 3D. Inicie seu projeto.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Fonts: Playfair Display (Serif Elegante da Foto) & Plus Jakarta Sans (Sans Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (V3 Play CDN para Configuração Customizada) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#f9f9f6',         // Luxury warm off-white background (Paper/Chalk vibe)
+                            card: '#ffffff',       // Pure white cards
+                            accent: '#0b3c2a',     // Deep luxury emerald/forest green accent
+                            accentLight: '#1b5a41',// Slightly lighter green for states
+                            accentBg: '#f0f4f1'    // Very soft green tint for light panels
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    },
+                    letterSpacing: {
+                        tightest: '-0.04em'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS para Reset e Efeitos Finos -->
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f9f9f6;
+            color: #1c1e1c; /* Deep near-black for body copy */
+            overflow-x: hidden;
+        }
+        
+        /* Smooth transitions for interactive elements */
+        .glass-header {
+            background: rgba(249, 249, 246, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
+            transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(11, 60, 42, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(11, 60, 42, 0.05);
+        }
+
+        /* Marquee horizontal scroll animation */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+        
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        
+    </style>
+    
+    <!-- Phosphor Icons (Biblioteca de Ícones Elegantes) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-brand-bg">
+
+    
+
+    <!-- HEADER: Navegação minimalista -->
+    <header class="fixed top-0 left-0 w-full h-[72px] z-50 glass-header flex items-center transition-all duration-300">
+        <div class="max-w-[1400px] w-full mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo em Imagem PNG do Cliente -->
+            <a href="#" class="flex items-center" id="header-logo">
+                <img src="Logo arquiteto.png" alt="Nome do Arquiteto Arquitetura" class="h-10 md:h-12 w-auto object-contain">
+            </a>
+            
+            <!-- Links de Navegação com Separação Ajustada (md:gap-12) e Posicionamento Correto -->
+            <nav class="hidden md:flex items-center gap-12 text-sm font-semibold tracking-wide text-gray-600">
+                <a href="#diferenciais" class="hover:text-brand-accent transition-colors duration-200">Diferenciais</a>
+                <a href="#sobre" class="hover:text-brand-accent transition-colors duration-200">Trajetória</a>
+                <a href="#portfolio" class="hover:text-brand-accent transition-colors duration-200">Portfólio</a>
+                <a href="#depoimentos" class="hover:text-brand-accent transition-colors duration-200">Depoimentos</a>
+                <a href="#contato" class="hover:text-brand-accent transition-colors duration-200">Contato</a>
+            </nav>
+            
+            <!-- CTA Único e Sem Duplicidade de Intentos -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20iniciar%20um%20projeto%20com%20o%20arquiteto%20Arquiteto%20Sobrenome." 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center px-5 py-2.5 bg-brand-accent text-white text-sm font-semibold rounded-full hover:bg-brand-accentLight transition-all duration-300 shadow-md shadow-brand-accent/5 active:scale-95 whitespace-nowrap"
+                   id="nav-cta">
+                    Iniciar Projeto
+                </a>
+                
+                <!-- Hamburguer para Mobile -->
+                <button class="md:hidden text-brand-accent focus:outline-none" id="mobile-menu-btn" aria-label="Abrir Menu">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU MOBILE: Overlay com animação -->
+    <div class="fixed inset-0 bg-brand-bg z-40 flex flex-col justify-center items-center gap-8 text-2xl font-display font-bold text-gray-700 transition-all duration-500 transform translate-x-full md:hidden" id="mobile-menu">
+        <button class="absolute top-6 right-6 text-brand-accent focus:outline-none" id="mobile-close-btn" aria-label="Fechar Menu">
+            <i class="ph ph-x text-3xl"></i>
+        </button>
+        <a href="#diferenciais" class="hover:text-brand-accent transition-colors duration-200">Diferenciais</a>
+        <a href="#sobre" class="hover:text-brand-accent transition-colors duration-200">Trajetória</a>
+        <a href="#portfolio" class="hover:text-brand-accent transition-colors duration-200">Portfólio</a>
+        <a href="#depoimentos" class="hover:text-brand-accent transition-colors duration-200">Depoimentos</a>
+        <a href="#contato" class="hover:text-brand-accent transition-colors duration-200">Contato</a>
+        <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20iniciar%20um%20projeto%20com%20o%20arquiteto%20Arquiteto%20Sobrenome." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="px-8 py-3 bg-brand-accent text-white text-base font-semibold rounded-full hover:bg-brand-accentLight transition-all duration-300 shadow-lg"
+           id="mobile-nav-cta">
+            Iniciar Projeto
+        </a>
+    </div>
+
+    <!-- HERO SECTION: Entrada dividida em Grid -->
+    <section class="relative min-h-[100dvh] flex items-center justify-center pt-28 pb-16 overflow-hidden px-6 md:px-12" id="hero-section">
+        <!-- Efeito de iluminação radial suave ao fundo -->
+        <div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_70%_30%,#eef3f0_0%,transparent_60%)]"></div>
+
+        <div class="max-w-[1400px] w-full mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Coluna Esquerda: Textos e Botões -->
+            <div class="lg:col-span-7 flex flex-col items-start gap-6">
+                <!-- Elemento 1: Eyebrow com ícone de medalha -->
+                <div class="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold" id="hero-eyebrow">
+                    <i class="ph ph-medal text-sm"></i>
+                    <span>35 ANOS PROJETANDO SONHOS EM SUA CIDADE-UF</span>
+                </div>
+                
+                <!-- Elemento 2: Headline Dramática Serifada -->
+                <h1 class="font-display font-normal text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight text-brand-accent max-w-[850px]" id="hero-title">
+                    Arquitetura autoral que molda o seu <span class="italic font-normal">legado.</span>
+                </h1>
+                
+                <!-- Elemento 3: Subheadline -->
+                <p class="text-gray-600 text-base md:text-lg lg:text-xl font-normal leading-relaxed max-w-[650px]" id="hero-subtext">
+                    Nome do Arquiteto une tecnologia de ponta, light design avançado e a segurança de projetos criteriosos para proporcionar uma obra planejada, viável e focada no seu bem-estar.
+                </p>
+                
+                <!-- Elemento 4: CTAs -->
+                <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-2" id="hero-ctas">
+                    <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20iniciar%20um%20projeto%20com%20o%20arquiteto%20Arquiteto%20Sobrenome." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-brand-accent text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-brand-accentLight transition-all duration-300 shadow-md active:scale-95">
+                        INICIAR PROJETO
+                    </a>
+                    <a href="#portfolio" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-brand-accent/20 hover:border-brand-accent text-brand-accent text-sm font-medium rounded-full bg-white/40 backdrop-blur-sm transition-all duration-300">
+                        Ver Portfólio
+                    </a>
+                </div>
+
+                <!-- Elemento 5: Bloco de Prova Social -->
+                <div class="flex items-center gap-3 mt-4 text-xs md:text-sm text-gray-500" id="hero-social-proof">
+                    <span class="flex items-center gap-0.5 text-yellow-600 text-base">
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                        <i class="ph ph-star-fill"></i>
+                    </span>
+                    <span><strong>5.0 ★ no Google</strong> (20+ avaliações de clientes em Sua Cidade)</span>
+                </div>
+            </div>
+            
+            <!-- Coluna Direita: Imagem com efeito ui-ux-pro-max -->
+            <div class="lg:col-span-5 relative w-full flex justify-center lg:justify-end" id="hero-image-wrapper">
+                <!-- Frame Container da Foto do Hero -->
+                <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] w-full max-w-[480px] shadow-[0_20px_50px_rgba(11,60,42,0.08)] border border-brand-accent/5 group">
+                    <img src="foto hero.jpg" 
+                         alt="Obra residencial Nome do Arquiteto Arquitetura" 
+                         class="w-full h-full object-cover scale-[1.02] transition-transform duration-[6000ms] ease-out group-hover:scale-105"
+                         id="hero-bg-img">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-accent/20 via-transparent to-transparent"></div>
+                    
+                    <!-- Elemento Flutuante Glassmorphic -->
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/80 backdrop-blur-md border border-white/40 p-4 rounded-2xl shadow-lg flex items-center gap-3 transform translate-y-0 group-hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accent flex items-center justify-center text-white text-xl">
+                            <i class="ph ph-vr-headset"></i>
+                        </div>
+                        <div>
+                            <span class="text-[9px] text-gray-500 uppercase tracking-wider block font-semibold">Tecnologia 3D</span>
+                            <span class="text-xs text-brand-accent font-bold block">Projetos em Realidade Virtual</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAIXA DE AUTORIDADE: Marquee contínuo minimalista -->
+    <section class="py-8 bg-white border-y border-gray-100 relative z-10 overflow-hidden select-none">
+        <div class="animate-marquee whitespace-nowrap flex items-center gap-12 md:gap-16">
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-seal-check text-brand-accent"></i> 35 Anos de Trajetória
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-google-logo text-brand-accent"></i> Nota 5.0 no Google (20+ Avaliações)
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-lightbulb text-brand-accent"></i> Especialista em Light Design
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-leaf text-brand-accent"></i> Construção Sustentável
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-projector-screen text-brand-accent"></i> Realidade Virtual (VR)
+            </span>
+            <!-- Repetição para criar loop contínuo perfeito -->
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-seal-check text-brand-accent"></i> 35 Anos de Trajetória
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-google-logo text-brand-accent"></i> Nota 5.0 no Google (20+ Avaliações)
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-lightbulb text-brand-accent"></i> Especialista em Light Design
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-leaf text-brand-accent"></i> Construção Sustentável
+            </span>
+            <span class="text-xs md:text-sm font-semibold tracking-[0.25em] text-gray-400 uppercase flex items-center gap-3 font-sans">
+                <i class="ph ph-projector-screen text-brand-accent"></i> Realidade Virtual (VR)
+            </span>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS: Bento Grid Assimétrico -->
+    <section class="py-24 md:py-32 px-6 md:px-12 relative z-10" id="diferenciais">
+        <div class="max-w-[1400px] w-full mx-auto">
+            <!-- Cabeçalho de Seção -->
+            <div class="mb-16 md:mb-20 max-w-[700px] scroll-element">
+                <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold block mb-3 font-sans">Diferenciais e Expertise</span>
+                <h2 class="font-display font-normal text-3xl md:text-5xl leading-tight tracking-tight text-brand-accent mb-6">
+                    A fusão perfeita entre a expressão artística e a precisão <span class="italic font-normal">técnica.</span>
+                </h2>
+                <p class="text-gray-600 leading-relaxed font-sans text-sm md:text-base">
+                    Mais de três décadas refinando processos e agregando tecnologias avançadas na busca por soluções viáveis, sustentáveis e encantadoras.
+                </p>
+            </div>
+
+            <!-- Bento Grid - 5 Células Exatas -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 font-sans">
+                
+                <!-- Card 1: Light Design -->
+                <div class="md:col-span-2 glass-card rounded-3xl p-8 md:p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden group scroll-element">
+                    <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-accent/5 rounded-full blur-[100px] transition-colors duration-500"></div>
+                    <div class="flex items-center justify-between z-10 mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-accentBg flex items-center justify-center text-brand-accent text-2xl">
+                            <i class="ph ph-sun"></i>
+                        </div>
+                        <span class="text-xs uppercase font-mono tracking-widest text-gray-400">Pós-Graduação</span>
+                    </div>
+                    <div class="z-10">
+                        <h3 class="font-display font-normal text-2xl md:text-3xl text-brand-accent mb-4">Especialidade em Light Design</h3>
+                        <p class="text-gray-600 max-w-[550px] leading-relaxed text-sm md:text-base">
+                            Projetos luminotécnicos de alta precisão. Entendemos a luz como elemento estrutural que define formas, destaca texturas, regula o ritmo biológico e proporciona conforto cênico aos ambientes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Gestão de Custos & Obras -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between min-h-[300px] group scroll-element">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-accentBg flex items-center justify-center text-brand-accent text-2xl">
+                            <i class="ph ph-calculator"></i>
+                        </div>
+                        <span class="text-xs uppercase font-mono tracking-widest text-gray-400">Rigor</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-normal text-xl md:text-2xl text-brand-accent mb-3">Controle e Orçamentação</h3>
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                            Planejamento criterioso com o valor do metro quadrado e escolha precisa de materiais para garantir viabilidade e evitar imprevistos financeiros.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sustentabilidade Ativa -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between min-h-[300px] bg-gradient-to-b from-white to-brand-accentBg/30 border border-brand-accent/5 group scroll-element">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-accentBg flex items-center justify-center text-brand-accent text-2xl">
+                            <i class="ph ph-leaf"></i>
+                        </div>
+                        <span class="text-xs uppercase font-mono tracking-widest text-brand-accent">Ecologia</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-normal text-xl md:text-2xl text-brand-accent mb-3">Construção Sustentável</h3>
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                            Soluções inteligentes voltadas para conforto térmico, aproveitamento da luz natural e conservação de recursos nas etapas construtivas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4: VR Realidade Virtual -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between min-h-[300px] group scroll-element">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-accentBg flex items-center justify-center text-brand-accent text-2xl">
+                            <i class="ph ph-headset"></i>
+                        </div>
+                        <span class="text-xs uppercase font-mono tracking-widest text-gray-400">Tecnologia</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-normal text-xl md:text-2xl text-brand-accent mb-3">Imersão em Realidade Virtual</h3>
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                            Caminhe e experimente os espaços em escala real antes de assentar o primeiro tijolo, garantindo clareza e ajustes finos na fase preliminar.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Elemento Visual de Destaque -->
+                <div class="rounded-3xl overflow-hidden min-h-[300px] relative group border border-gray-100 shadow-sm scroll-element">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
+                         alt="Cozinha contemporânea integrada com iluminação arquitetônica premium" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/20 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-1 block">Estética Minimalista</span>
+                        <p class="text-brand-accent font-medium text-sm font-sans">Design interior planejado para iluminar e dar fluidez à rotina.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAJETÓRIA / SOBRE: História e foto do fundador -->
+    <section class="py-24 md:py-32 bg-white border-y border-gray-100 relative z-10 px-6 md:px-12" id="sobre">
+        <div class="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            
+            <!-- Coluna 1: Imagem e Assinatura com foto real de Nome do Arquiteto -->
+            <div class="lg:col-span-5 relative scroll-element">
+                <div class="relative rounded-3xl overflow-hidden border border-gray-100 shadow-sm group aspect-[4/5] max-w-[450px] mx-auto lg:max-w-none">
+                    <img src="nome do arquiteto.jpg" 
+                         alt="Arquiteto Nome do Arquiteto" 
+                         class="w-full h-full object-cover hover:brightness-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-bg/40 via-transparent to-transparent"></div>
+                </div>
+                <!-- Box de Experiência flutuante -->
+                <div class="absolute -bottom-6 -right-4 bg-brand-accent text-white px-6 py-4 rounded-2xl shadow-lg z-20 font-display font-normal text-2xl tracking-tight">
+                    35 anos
+                    <span class="block text-xs uppercase tracking-widest font-sans font-semibold text-white/70 mt-1">de história ativa</span>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Biografia -->
+            <div class="lg:col-span-7 flex flex-col items-start justify-center scroll-element">
+                <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold block mb-3 font-sans">O Fundador</span>
+                <h2 class="font-display font-normal text-3xl md:text-5xl leading-tight tracking-tight text-brand-accent mb-6">
+                    Nome do Arquiteto
+                </h2>
+                
+                <div class="text-gray-600 space-y-6 leading-relaxed text-base md:text-lg font-sans">
+                    <p>
+                        Graduado em Arquitetura e Urbanismo em 1990, iniciei a trajetória profissional no ano seguinte com a abertura do meu escritório em Sua Cidade, São Paulo. Desde então, conduzi e administrei centenas de projetos e obras executados, sempre comprometido em alinhar técnica refinada à expressão artística.
+                    </p>
+                    <p>
+                        Nossa prática profissional envolve constante atualização e especializações em áreas estratégicas: pós-graduação em <strong>Light Design</strong>, decoração, engenharia civil, administração de obras e construções sustentáveis. 
+                    </p>
+                    <p class="border-l-2 border-brand-accent pl-6 text-brand-accent italic font-normal font-display text-lg md:text-xl">
+                        Acreditamos que planejar ou reformar sua residência ou empresa é um marco de vida único. Por isso, aliamos tecnologia e realidade virtual a processos rigorosos de controle financeiro, para transformar seus sonhos de espaço em construções reais de altíssimo nível.
+                    </p>
+                </div>
+
+                <div class="mt-8 flex items-center gap-6 font-sans">
+                    <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20iniciar%20um%20projeto%20com%20o%20arquiteto%20Arquiteto%20Sobrenome." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center justify-center px-6 py-3 bg-brand-accent text-white text-sm font-bold rounded-full hover:bg-brand-accentLight transition-all duration-300 active:scale-95 shadow-md">
+                        Entrar em Contato
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PORTFÓLIO: Galeria Interativa com fotos reais e Lightbox Modal -->
+    <section class="py-24 md:py-32 px-6 md:px-12 relative z-10" id="portfolio">
+        <div class="max-w-[1400px] w-full mx-auto">
+            
+            <!-- Cabeçalho -->
+            <div class="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 scroll-element">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold block mb-3 font-sans">Trabalhos Realizados</span>
+                    <h2 class="font-display font-normal text-3xl md:text-5xl leading-tight tracking-tight text-brand-accent mb-4">
+                        Portfólio <span class="italic font-normal">selecionado.</span>
+                    </h2>
+                    <p class="text-gray-600 max-w-[600px] font-sans">
+                        Projetos reais executados pelo nosso escritório. Clique na imagem de qualquer obra para visualizar todas as fotos do projeto.
+                    </p>
+                </div>
+                <div class="flex">
+                    <a href="portfolio.html" class="inline-flex items-center justify-center px-6 py-3.5 bg-brand-accent text-white text-sm font-semibold rounded-full hover:bg-brand-accentLight transition-all duration-300 shadow-md active:scale-95 whitespace-nowrap">
+                        <span>Ver Portfólio Completo</span>
+                        <i class="ph ph-arrow-up-right ml-2 text-base font-bold"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Controles das Abas -->
+            <div class="flex flex-wrap gap-3 md:gap-4 mb-8 md:mb-12 scroll-element font-sans" id="portfolio-tabs">
+                <button onclick="switchProject(0)" class="portfolio-tab-btn active px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 bg-brand-accent text-white border border-brand-accent" data-project-idx="0">
+                    Casa Minas
+                </button>
+                <button onclick="switchProject(1)" class="portfolio-tab-btn px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-white text-gray-600 hover:text-brand-accent border border-gray-200 hover:border-brand-accent/30" data-project-idx="1">
+                    Casa Pórtico
+                </button>
+                <button onclick="switchProject(2)" class="portfolio-tab-btn px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 bg-white text-gray-600 hover:text-brand-accent border border-gray-200 hover:border-brand-accent/30" data-project-idx="2">
+                    Casa das Pedras
+                </button>
+            </div>
+
+            <!-- Área Exibitória Asétrica de Projetos -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center" id="project-display-area">
+                
+                <!-- Coluna de Imagem (Com gatilho para Lightbox no clique e miniaturas na página) -->
+                <div class="lg:col-span-7 flex flex-col gap-4">
+                    <div onclick="triggerLightbox()" class="relative scroll-element rounded-3xl overflow-hidden aspect-[16/10] border border-gray-100 group shadow-sm bg-gray-100 cursor-zoom-in">
+                        <img id="project-main-image" 
+                             src="Casa Minas 1.jpg" 
+                             alt="Obra Casa Minas de Nome do Arquiteto" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102">
+                        <!-- Overlay indicador visual no hover -->
+                        <div class="absolute inset-0 bg-brand-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <div class="bg-white/90 text-brand-accent px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                <i class="ph ph-magnifying-glass-plus text-base font-bold"></i>
+                                <span>Ver Todas as Fotos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Miniaturas na Página Principal -->
+                    <div id="page-project-thumbs" class="flex items-center gap-3 overflow-x-auto py-1 no-scrollbar scroll-element">
+                        <!-- Populado via Javascript -->
+                    </div>
+                </div>
+
+                <!-- Coluna de Texto e Detalhes -->
+                <div class="lg:col-span-5 flex flex-col items-start scroll-element" id="project-content">
+                    <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold mb-2 block font-sans" id="project-category">Residencial Alto Padrão</span>
+                    <h3 class="font-display font-normal text-2xl md:text-3xl text-brand-accent mb-4" id="project-title">Casa Minas</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-sm md:text-base font-sans" id="project-desc">
+                        Um projeto autoral marcante em Minas Gerais, caracterizado pela fusão de materiais naturais e grandes vãos livres. Prioriza a integração visual com as montanhas e um estudo de iluminação acolhedor.
+                    </p>
+                    
+                    <!-- Ficha Técnica Rápida -->
+                    <div class="grid grid-cols-2 gap-6 w-full border-t border-gray-200 pt-6 mb-8 font-sans">
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Área Construída</span>
+                            <span class="text-brand-accent font-medium text-base" id="project-spec-area">480 m²</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Especialidade</span>
+                            <span class="text-brand-accent font-medium text-base" id="project-spec-detail">Light Design & Vãos Livres</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Casa%20Minas." 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-brand-accentLight transition-colors duration-200 group font-sans">
+                        <span>Iniciar meu projeto semelhante</span>
+                        <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL: Visualizador de Fotos Premium (Efeito ui-ux-pro-max) -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[100] flex flex-col justify-center items-center bg-[#0b3c2a]/95 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true">
+        <!-- Botão Fechar no Topo Direito -->
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-brand-accentLight transition-colors duration-200 text-3xl focus:outline-none p-2" aria-label="Fechar galeria">
+            <i class="ph ph-x"></i>
+        </button>
+        
+        <!-- Conteúdo do Lightbox -->
+        <div id="lightbox-content" class="relative max-w-[90vw] w-full flex flex-col items-center gap-6 select-none transform scale-95 transition-transform duration-300">
+            <!-- Botão Imagem Anterior (Esquerda) -->
+            <button onclick="prevLightboxImage()" class="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full text-xl md:text-2xl transition-all hover:scale-105 active:scale-95 z-20" aria-label="Foto anterior">
+                <i class="ph ph-caret-left-bold"></i>
+            </button>
+
+            <!-- Foto Ampliada -->
+            <div class="relative max-h-[60vh] md:max-h-[68vh] flex items-center justify-center">
+                <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[60vh] md:max-h-[68vh] object-contain rounded-2xl border border-white/10 shadow-2xl">
+            </div>
+
+            <!-- Botão Próxima Imagem (Direita) -->
+            <button onclick="nextLightboxImage()" class="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full text-xl md:text-2xl transition-all hover:scale-105 active:scale-95 z-20" aria-label="Próxima foto">
+                <i class="ph ph-caret-right-bold"></i>
+            </button>
+
+            <!-- Título e legenda da foto no Lightbox -->
+            <div class="text-center font-sans">
+                <h4 id="lightbox-title" class="text-white text-base md:text-lg font-medium"></h4>
+                <p class="text-white/60 text-xs mt-1">Use as setas do teclado ou clique nas miniaturas abaixo</p>
+            </div>
+
+            <!-- Carrossel de Miniaturas (Thumbnails) para escolha direta -->
+            <div id="lightbox-thumbs" class="flex items-center justify-center gap-3 overflow-x-auto py-2 max-w-full px-4 scrollbar-thin scrollbar-thumb-white/20">
+                <!-- Miniaturas populadas dinamicamente via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- DEPOIMENTOS: Prova Social -->
+    <section class="py-24 md:py-32 bg-white border-y border-gray-100 relative z-10 px-6 md:px-12" id="depoimentos">
+        <div class="max-w-[1400px] w-full mx-auto">
+            
+            <!-- Cabeçalho da Seção -->
+            <div class="mb-16 md:mb-20 text-center max-w-[650px] mx-auto scroll-element">
+                <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold block mb-3 font-sans">Opiniões Reais</span>
+                <h2 class="font-display font-normal text-3xl md:text-5xl leading-tight tracking-tight text-brand-accent mb-4">
+                    O que dizem os <span class="italic font-normal">clientes.</span>
+                </h2>
+                <p class="text-gray-600 font-sans">
+                    A satisfação de quem confiou em nosso trabalho técnico e administrativo ao longo de 35 anos.
+                </p>
+            </div>
+
+            <!-- Cards de Depoimento -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 font-sans">
+                
+                <!-- Depoimento 1 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative scroll-element">
+                    <div class="text-brand-accent text-3xl mb-6">
+                        <i class="ph ph-quotes"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed italic mb-8">
+                        “Super recomendo, ótimo profissional que superou todas as expectativas.”
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-accentBg flex items-center justify-center text-brand-accent font-semibold text-sm">
+                            EF
+                        </div>
+                        <div>
+                            <h4 class="text-brand-accent font-semibold text-sm">Elaine Ferreira</h4>
+                            <span class="text-xs text-gray-400">Proprietária em Sua Cidade/UF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative scroll-element">
+                    <div class="text-brand-accent text-3xl mb-6">
+                        <i class="ph ph-quotes"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed italic mb-8">
+                        "Ótimo serviço, gente muito boa."
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-accentBg flex items-center justify-center text-brand-accent font-semibold text-sm">
+                            RS
+                        </div>
+                        <div>
+                            <h4 class="text-brand-accent font-semibold text-sm">Rafael Saturi</h4>
+                            <span class="text-xs text-gray-400">Cliente de Residência</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between relative scroll-element">
+                    <div class="text-brand-accent text-3xl mb-6">
+                        <i class="ph ph-quotes"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed italic mb-8">
+                        “Um excelente arquiteto e administrador da construção civil.”
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-accentBg flex items-center justify-center text-brand-accent font-semibold text-sm">
+                            MB
+                        </div>
+                        <div>
+                            <h4 class="text-brand-accent font-semibold text-sm">Miguel Santana Bacaro</h4>
+                            <span class="text-xs text-gray-400">Diretor de Obras</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CONTATO -->
+    <section class="py-24 md:py-32 px-6 md:px-12 relative z-10" id="contato">
+        <div class="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            
+            <!-- Coluna de Informações -->
+            <div class="lg:col-span-5 flex flex-col justify-between scroll-element">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold block mb-3 font-sans">Atendimento</span>
+                    <h2 class="font-display font-normal text-3xl md:text-5xl leading-tight tracking-tight text-brand-accent mb-6">
+                        Agende uma conversa <span class="italic font-normal">estratégica.</span>
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-8 font-sans">
+                        Seja para planejar a casa da sua família ou otimizar o espaço da sua empresa, oferecemos soluções personalizadas e alta precisão orçamentária.
+                    </p>
+                </div>
+
+                <div class="space-y-6 font-sans">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accentBg flex items-center justify-center text-brand-accent text-xl mt-1">
+                            <i class="ph ph-map-pin"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block tracking-wider font-semibold">Escritório Sua Cidade</span>
+                            <p class="text-brand-accent text-sm md:text-base">Av. Maj. Nicácio, 1197 - Cidade Nova, Sua Cidade - UF, 14401-135</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accentBg flex items-center justify-center text-brand-accent text-xl mt-1">
+                            <i class="ph ph-phone"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block tracking-wider font-semibold">Telefone e WhatsApp</span>
+                            <a href="https://wa.me/5500999999999" class="text-brand-accent hover:text-brand-accentLight text-sm md:text-base font-semibold transition-colors duration-200">00 99999-9999</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-brand-accentBg flex items-center justify-center text-brand-accent text-xl mt-1">
+                            <i class="ph ph-clock"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-400 uppercase block tracking-wider font-semibold">Horário de Funcionamento</span>
+                            <p class="text-brand-accent text-sm md:text-base">Segunda a Sexta: 08:00 às 18:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna do Formulário Técnico -->
+            <div class="lg:col-span-7 scroll-element font-sans">
+                <form class="glass-card rounded-3xl p-8 md:p-10 space-y-6" id="contact-form">
+                    
+                    <div class="flex flex-col gap-2">
+                        <label for="form-name" class="text-sm font-semibold text-brand-accent tracking-wide">Nome Completo</label>
+                        <input type="text" id="form-name" name="name" required placeholder="Digite seu nome"
+                               class="w-full px-4 py-3 bg-[#f3f3f0] border border-gray-200 rounded-xl text-brand-accent placeholder-gray-400 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col gap-2">
+                            <label for="form-email" class="text-sm font-semibold text-brand-accent tracking-wide">E-mail</label>
+                            <input type="email" id="form-email" name="email" required placeholder="Ex: seuemail@dominio.com"
+                                   class="w-full px-4 py-3 bg-[#f3f3f0] border border-gray-200 rounded-xl text-brand-accent placeholder-gray-400 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label for="form-phone" class="text-sm font-semibold text-brand-accent tracking-wide">Celular / WhatsApp</label>
+                            <input type="tel" id="form-phone" name="phone" required placeholder="Ex: (00) 99999-9999"
+                                   class="w-full px-4 py-3 bg-[#f3f3f0] border border-gray-200 rounded-xl text-brand-accent placeholder-gray-400 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="form-project-type" class="text-sm font-semibold text-brand-accent tracking-wide">Tipo de Serviço Desejado</label>
+                        <select id="form-project-type" name="project_type" required
+                                class="w-full px-4 py-3 bg-[#f3f3f0] border border-gray-200 rounded-xl text-brand-accent focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300">
+                            <option value="residencial-luxo" class="bg-white">Arquitetura Residencial de Alto Padrão</option>
+                            <option value="reforma-interiores" class="bg-white">Reforma & Design de Interiores</option>
+                            <option value="corporativo-comercial" class="bg-white">Projeto Corporativo & Comercial</option>
+                            <option value="light-design" class="bg-white">Consultoria Especializada em Light Design</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="form-message" class="text-sm font-semibold text-brand-accent tracking-wide">Mensagem ou Ideias Preliminares</label>
+                        <textarea id="form-message" name="message" rows="4" placeholder="Nos dê detalhes sobre sua obra ou ideias iniciais."
+                                  class="w-full px-4 py-3 bg-[#f3f3f0] border border-gray-200 rounded-xl text-brand-accent placeholder-gray-400 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full inline-flex items-center justify-center px-8 py-4 bg-brand-accent text-white text-sm font-bold uppercase tracking-wider rounded-full hover:bg-brand-accentLight transition-all duration-300 shadow-md shadow-brand-accent/10 active:scale-98">
+                        INICIAR PROJETO
+                    </button>
+                    
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER: Rodapé minimalista -->
+    <footer class="py-12 bg-white border-t border-gray-100 px-6 md:px-12 relative z-10">
+        <div class="max-w-[1400px] w-full mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <!-- Logo Imagem PNG do Cliente -->
+            <div class="text-center md:text-left">
+                <img src="Logo arquiteto.png" alt="Nome do Arquiteto Arquitetura" class="h-10 w-auto object-contain mx-auto md:mx-0">
+                <span class="text-[9px] uppercase tracking-[0.25em] text-gray-400 font-sans mt-2 block">Arquitetura • Construção • Decoração</span>
+            </div>
+
+            <!-- Links de Mídias Sociais -->
+            <div class="flex items-center gap-6 text-gray-400 text-lg">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors duration-200" aria-label="Facebook">
+                    <i class="ph ph-facebook-logo"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors duration-200" aria-label="Instagram">
+                    <i class="ph ph-instagram-logo"></i>
+                </a>
+                <a href="https://wa.me/5500999999999" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors duration-200" aria-label="WhatsApp">
+                    <i class="ph ph-whatsapp-logo"></i>
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-xs text-gray-400 text-center md:text-right font-sans">
+                <p>© 2026 Nome do Arquiteto Arquitetura. Todos os direitos reservados.</p>
+                <p class="mt-1 text-[10px] text-gray-400/80">Soluções exclusivas em Sua Cidade/UF e região.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Script de Interações Customizado -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Controle do Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        mobileCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Envio do Formulário para WhatsApp
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('form-name').value.trim();
+                const email = document.getElementById('form-email').value.trim();
+                const phone = document.getElementById('form-phone').value.trim();
+                const projectTypeSelect = document.getElementById('form-project-type');
+                const projectTypeText = projectTypeSelect.options[projectTypeSelect.selectedIndex].text;
+                const message = document.getElementById('form-message').value.trim();
+                
+                // Formatar a mensagem do WhatsApp de forma premium
+                let wsText = `Olá Nome do Arquiteto, gostaria de iniciar um projeto!\n\n`;
+                wsText += `*Dados do Contato:*\n`;
+                wsText += `• *Nome:* ${name}\n`;
+                wsText += `• *E-mail:* ${email}\n`;
+                wsText += `• *WhatsApp:* ${phone}\n`;
+                wsText += `• *Serviço:* ${projectTypeText}\n`;
+                
+                if (message) {
+                    wsText += `\n*Ideias ou Informações Preliminares:*\n${message}`;
+                }
+                
+                // Codificar para URL
+                const encodedText = encodeURIComponent(wsText);
+                const whatsappUrl = `https://wa.me/5500999999999?text=${encodedText}`;
+                
+                // Abrir link em nova aba
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+
+        // Dados do Portfólio atualizados com as fotos reais dos projetos de Nome do Arquiteto (5 fotos por projeto)
+        const projects = [
+            {
+                title: "Casa Minas",
+                category: "Residencial Alto Padrão",
+                desc: "Um projeto autoral marcante em Minas Gerais, caracterizado pela fusão de materiais naturais e grandes vãos livres. Prioriza a integração visual com as montanhas e um estudo de iluminação acolhedor.",
+                img: "Casa Minas 1.jpg",
+                images: [
+                    "Casa Minas 1.jpg",
+                    "Casa Minas 2.jpg",
+                    "Casa Minas 3.jpg",
+                    "Casa Minas 4.jpg",
+                    "Casa Minas 5.jpg"
+                ],
+                specArea: "480 m²",
+                specDetail: "Light Design & Vãos Livres",
+                link: "https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Casa%20Minas."
+            },
+            {
+                title: "Casa Pórtico",
+                category: "Arquitetura Contemporânea",
+                desc: "Residência contemporânea que explora a volumetria através de um imponente pórtico de concreto. Integração interna e externa fluida com controle térmico e brises de ventilação.",
+                img: "Casa Pórtico 1.jpeg",
+                images: [
+                    "Casa Pórtico 1.jpeg",
+                    "Casa Pórtico 2.jpeg",
+                    "Casa Pórtico 3.jpeg",
+                    "Casa Pórtico 4.jpeg",
+                    "Casa Pórtico 5.jpeg"
+                ],
+                specArea: "520 m²",
+                specDetail: "Estrutura & Ventilação",
+                link: "https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Casa%20Pórtico."
+            },
+            {
+                title: "Casa das Pedras",
+                category: "Rústico Contemporâneo",
+                desc: "Composição rústico-contemporânea onde a pedra moledo atua como elemento central da estrutura e da decoração, aliando solidez tradicional ao refinamento espacial.",
+                img: "Casa das Pedras 1.jpeg",
+                images: [
+                    "Casa das Pedras 1.jpeg",
+                    "Casa das Pedras 2.jpeg",
+                    "Casa das Pedras 3.jpeg",
+                    "Casa das Pedras 4.jpeg",
+                    "Casa das Pedras 5.jpeg"
+                ],
+                specArea: "410 m²",
+                specDetail: "Pedra Natural & Integração",
+                link: "https://wa.me/5500999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Casa%20das%20Pedras."
+            }
+        ];
+
+        let activeProjectIdx = 0;
+        let activePageImageIdx = 0;
+        let activeImageIdx = 0;
+
+        function renderPageThumbnails(projectIdx) {
+            const project = projects[projectIdx];
+            const thumbsContainer = document.getElementById('page-project-thumbs');
+            if (!thumbsContainer) return;
+            
+            thumbsContainer.innerHTML = '';
+            project.images.forEach((imgSrc, i) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `Miniatura Obra ${project.title} - Foto ${i + 1}`;
+                img.className = `w-14 h-10 md:w-20 md:h-14 shrink-0 object-cover rounded-xl cursor-pointer border-2 transition-all duration-300 ${i === activePageImageIdx ? 'border-brand-accent scale-105 opacity-100 shadow-sm' : 'border-transparent opacity-60 hover:opacity-100'}`;
+                img.onclick = () => selectPageImage(i);
+                thumbsContainer.appendChild(img);
+            });
+        }
+
+        function selectPageImage(imgIdx) {
+            activePageImageIdx = imgIdx;
+            const project = projects[activeProjectIdx];
+            
+            gsap.to('#project-main-image', {
+                opacity: 0,
+                duration: 0.15,
+                onComplete: () => {
+                    document.getElementById('project-main-image').src = project.images[imgIdx];
+                    
+                    // Update highlighted page thumbnail
+                    const thumbs = document.getElementById('page-project-thumbs').getElementsByTagName('img');
+                    for (let i = 0; i < thumbs.length; i++) {
+                        if (i === imgIdx) {
+                            thumbs[i].className = 'w-14 h-10 md:w-20 md:h-14 shrink-0 object-cover rounded-xl cursor-pointer border-2 border-brand-accent scale-105 opacity-100 shadow-sm transition-all duration-300';
+                        } else {
+                            thumbs[i].className = 'w-14 h-10 md:w-20 md:h-14 shrink-0 object-cover rounded-xl cursor-pointer border-2 border-transparent opacity-60 hover:opacity-100 transition-all duration-300';
+                        }
+                    }
+                    
+                    gsap.to('#project-main-image', { opacity: 1, duration: 0.25 });
+                }
+            });
+        }
+
+        function switchProject(idx) {
+            activeProjectIdx = idx;
+            activePageImageIdx = 0; // reset active image on page
+            
+            const buttons = document.querySelectorAll('.portfolio-tab-btn');
+            buttons.forEach(btn => {
+                const btnIdx = parseInt(btn.getAttribute('data-project-idx'));
+                if (btnIdx === idx) {
+                    btn.classList.add('active', 'bg-brand-accent', 'text-white', 'border-brand-accent');
+                    btn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+                } else {
+                    btn.classList.remove('active', 'bg-brand-accent', 'text-white', 'border-brand-accent');
+                    btn.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+                }
+            });
+
+            const timeline = gsap.timeline();
+            timeline.to(["#project-main-image", "#project-content", "#page-project-thumbs"], {
+                opacity: 0,
+                y: 15,
+                duration: 0.25,
+                onComplete: () => {
+                    const data = projects[idx];
+                    document.getElementById('project-main-image').src = data.img;
+                    document.getElementById('project-main-image').alt = "Obra " + data.title + " de Nome do Arquiteto";
+                    document.getElementById('project-category').textContent = data.category;
+                    document.getElementById('project-title').textContent = data.title;
+                    document.getElementById('project-desc').textContent = data.desc;
+                    document.getElementById('project-spec-area').textContent = data.specArea;
+                    document.getElementById('project-spec-detail').textContent = data.specDetail;
+                    document.getElementById('project-content').querySelector('a').href = data.link;
+                    
+                    // Render page thumbnails
+                    renderPageThumbnails(idx);
+                }
+            });
+            
+            timeline.to(["#project-main-image", "#project-content", "#page-project-thumbs"], {
+                opacity: 1,
+                y: 0,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        }
+
+        // Initialize thumbnails on main page load
+        renderPageThumbnails(0);
+
+        // --- SISTEMA DE LIGHTBOX MODAL ---
+        function triggerLightbox() {
+            openLightbox(activeProjectIdx, activePageImageIdx);
+        }
+
+        function openLightbox(projectIdx, imgIdx) {
+            activeProjectIdx = projectIdx;
+            activeImageIdx = imgIdx;
+            
+            const project = projects[projectIdx];
+            
+            // Set image and title details
+            document.getElementById('lightbox-img').src = project.images[imgIdx];
+            document.getElementById('lightbox-img').alt = `Obra ${project.title} - Foto ${imgIdx + 1}`;
+            document.getElementById('lightbox-title').textContent = `${project.title} — Foto ${imgIdx + 1} de ${project.images.length}`;
+            
+            // Populate thumbnails
+            const thumbsContainer = document.getElementById('lightbox-thumbs');
+            thumbsContainer.innerHTML = '';
+            project.images.forEach((imgSrc, i) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `Miniatura ${i + 1}`;
+                img.className = `w-14 h-10 md:w-16 md:h-12 object-cover rounded-lg cursor-pointer border-2 transition-all duration-200 ${i === imgIdx ? 'border-white scale-105 opacity-100 shadow-md' : 'border-transparent opacity-50 hover:opacity-90'}`;
+                img.onclick = () => selectLightboxImage(i);
+                thumbsContainer.appendChild(img);
+            });
+            
+            // Exibir Lightbox com animação GSAP
+            const lightbox = document.getElementById('lightbox-modal');
+            lightbox.classList.remove('pointer-events-none');
+            
+            gsap.killTweensOf([lightbox, '#lightbox-content']);
+            gsap.timeline()
+                .to(lightbox, { opacity: 1, duration: 0.3, ease: "power2.out" })
+                .fromTo('#lightbox-content', { scale: 0.96, y: 10 }, { scale: 1, y: 0, duration: 0.4, ease: "power3.out" }, "-=0.2");
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox-modal');
+            gsap.to(lightbox, {
+                opacity: 0,
+                duration: 0.25,
+                ease: "power2.in",
+                onComplete: () => {
+                    lightbox.classList.add('pointer-events-none');
+                }
+            });
+        }
+
+        function selectLightboxImage(imgIdx) {
+            activeImageIdx = imgIdx;
+            const project = projects[activeProjectIdx];
+            
+            gsap.to('#lightbox-img', {
+                opacity: 0,
+                duration: 0.15,
+                onComplete: () => {
+                    document.getElementById('lightbox-img').src = project.images[imgIdx];
+                    document.getElementById('lightbox-title').textContent = `${project.title} — Foto ${imgIdx + 1} de ${project.images.length}`;
+                    
+                    // Atualizar visual das miniaturas
+                    const thumbs = document.getElementById('lightbox-thumbs').getElementsByTagName('img');
+                    for (let i = 0; i < thumbs.length; i++) {
+                        if (i === imgIdx) {
+                            thumbs[i].className = 'w-14 h-10 md:w-16 md:h-12 object-cover rounded-lg cursor-pointer border-2 border-white scale-105 opacity-100 shadow-md transition-all duration-200';
+                        } else {
+                            thumbs[i].className = 'w-14 h-10 md:w-16 md:h-12 object-cover rounded-lg cursor-pointer border-2 border-transparent opacity-50 hover:opacity-90 transition-all duration-200';
+                        }
+                    }
+                    
+                    gsap.to('#lightbox-img', { opacity: 1, duration: 0.25 });
+                }
+            });
+        }
+
+        function prevLightboxImage() {
+            const project = projects[activeProjectIdx];
+            let newIdx = activeImageIdx - 1;
+            if (newIdx < 0) newIdx = project.images.length - 1;
+            selectLightboxImage(newIdx);
+        }
+
+        function nextLightboxImage() {
+            const project = projects[activeProjectIdx];
+            let newIdx = activeImageIdx + 1;
+            if (newIdx >= project.images.length) newIdx = 0;
+            selectLightboxImage(newIdx);
+        }
+
+        // Navegação de teclado para acessibilidade (Seta esquerda, Seta direita, ESC)
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox-modal');
+            if (lightbox && !lightbox.classList.contains('pointer-events-none')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevLightboxImage();
+                if (e.key === 'ArrowRight') nextLightboxImage();
+            }
+        });
+
+        // Animações GSAP Gerais
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            const heroTl = gsap.timeline();
+            heroTl.from("#hero-image-wrapper", {
+                x: 40,
+                opacity: 0,
+                duration: 1.5,
+                ease: "power3.out"
+            });
+            heroTl.from("#hero-eyebrow", {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=1.2");
+            heroTl.from("#hero-title", {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            }, "-=0.9");
+            heroTl.from("#hero-subtext", {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=0.7");
+            heroTl.from("#hero-ctas", {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=0.5");
+            heroTl.from("#hero-social-proof", {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=0.3");
+
+            const scrollElements = gsap.utils.toArray('.scroll-element');
+            scrollElements.forEach(element => {
+                gsap.from(element, {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        } else {
+            document.getElementById('hero-bg-img').style.transform = 'scale(1)';
+            document.getElementById('hero-bg-img').style.opacity = '0.20';
+        }
+    </script>
+</body>
+</html>

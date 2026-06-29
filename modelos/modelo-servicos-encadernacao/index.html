@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráfica & Encadernadora | Gráfica Rápida e Encadernação em Sua Cidade, UF</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Gráfica & Encadernadora em Sua Cidade, UF. Impressões de alta qualidade, encadernação capa dura, TCCs, folders, cartões de visita, banners e locação de impressoras.">
+  <meta name="keywords" content="encadernação, gráfica rápida, Sua Cidade SP, capa dura, TCC, xerox, cópias, banner, adesivos, locação de impressoras, copiadora">
+  <meta name="author" content="Gráfica & Encadernadora">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gráfica & Encadernadora | Impressão e Encadernação Profissional">
+  <meta property="og:description" content="Desde 1996 oferecendo agilidade e qualidade em encadernações capa dura, comunicação visual e locação de copiadoras em Sua Cidade, UF.">
+  <meta property="og:image" content="assets/hero_print_craft.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Gráfica & Encadernadora | Gráfica Rápida e Encadernação">
+  <meta property="twitter:description" content="Serviços gráficos e encadernações de alta qualidade com agilidade. Fale conosco pelo WhatsApp.">
+  <meta property="twitter:image" content="assets/hero_print_craft.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  
+  <!-- Main Script -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Skip Link for Accessibility -->
+  <a href="#conteudo-principal" class="skip-link">Ir para o conteúdo principal</a>
+
+  <!-- CMYK Header Accent Bar (Design Heritage concept) -->
+  <div class="cmyk-bar" aria-hidden="true">
+    <div class="cmyk-strip cyan"></div>
+    <div class="cmyk-strip magenta"></div>
+    <div class="cmyk-strip yellow"></div>
+    <div class="cmyk-strip key"></div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="#" class="logo" id="logo-link" aria-label="Gráfica & Encadernadora Home">
+        <span class="logo-icon" aria-hidden="true">M</span>
+        <div class="logo-text">
+          <span class="logo-title">GRÁFICA</span>
+          <span class="logo-subtitle">ENCADERNAÇÕES</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Navegação Principal">
+        <ul class="nav-links">
+          <li><a href="#servicos" class="nav-link" id="nav-link-servicos">Serviços</a></li>
+          <li><a href="#calculadora" class="nav-link" id="nav-link-calculadora">Locação</a></li>
+          <li><a href="#depoimentos" class="nav-link" id="nav-link-depoimentos">Avaliações</a></li>
+          <li><a href="#contato" class="nav-link" id="nav-link-contato">Orçamento</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:0000000000" class="phone-link" id="header-phone" aria-label="Ligar para a loja">
+          <i data-lucide="phone" aria-hidden="true"></i>
+          <span>(00) 0000-0000</span>
+        </a>
+        <a href="https://wa.me/5500999999999?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20servi%C3%A7o%20gr%C3%A1fico." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-primary btn-nav" 
+           id="nav-cta-whatsapp">
+          <i data-lucide="message-square" aria-hidden="true"></i>
+          <span>WhatsApp</span>
+        </a>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu de navegação">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile" id="mobile-nav" aria-label="Navegação Mobile" aria-hidden="true">
+      <ul class="nav-mobile-links">
+        <li><a href="#servicos" class="nav-mobile-link" id="mobile-link-servicos">Serviços</a></li>
+        <li><a href="#calculadora" class="nav-mobile-link" id="mobile-link-calculadora">Locação de Impressoras</a></li>
+        <li><a href="#depoimentos" class="nav-mobile-link" id="mobile-link-depoimentos">Avaliações dos Clientes</a></li>
+        <li><a href="#contato" class="nav-mobile-link" id="mobile-link-contato">Solicitar Orçamento</a></li>
+        <li class="mobile-nav-cta-wrapper">
+          <a href="https://wa.me/5500999999999" class="btn btn-primary w-full text-center" id="mobile-cta-whatsapp">
+            <i data-lucide="message-square" aria-hidden="true"></i>
+            <span>Falar pelo WhatsApp</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Landmark -->
+  <main id="conteudo-principal">
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-container grid grid-2-col">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Tradição e Tecnologia desde 1996</span>
+          <h1 class="hero-title">Impressão Digital de Alta Precisão e Encadernação Profissional</h1>
+          <p class="hero-description">Transformamos seus projetos acadêmicos e corporativos em materiais de altíssima qualidade. De encadernações capa dura com gravação hot-stamping a comunicação visual e locação de copiadoras em Sua Cidade, UF.</p>
+          <div class="hero-ctas">
+            <a href="https://wa.me/5500999999999?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20impress%C3%A3o%20ou%20encaderna%C3%A7%C3%A3o." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn btn-primary" 
+               id="hero-cta-primary">
+              <i data-lucide="message-circle" aria-hidden="true"></i>
+              <span>Orçamento via WhatsApp</span>
+            </a>
+            <a href="#servicos" class="btn btn-secondary" id="hero-cta-secondary">
+              <span>Conhecer Nossos Serviços</span>
+              <i data-lucide="arrow-down" aria-hidden="true"></i>
+            </a>
+          </div>
+          <!-- Trust Indicators -->
+          <div class="hero-trust">
+            <div class="trust-item">
+              <div class="trust-stars" aria-label="Avaliação 4.7 estrelas de 5 no Google">
+                <span class="star-rating">4.7</span>
+                <span class="star-icon">★</span>
+              </div>
+              <span class="trust-text">196+ avaliações no Google</span>
+            </div>
+            <div class="divider-vertical" aria-hidden="true"></div>
+            <div class="trust-item">
+              <i data-lucide="clock" class="trust-icon" aria-hidden="true"></i>
+              <span class="trust-text">Agilidade e Pontualidade</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrapper">
+          <div class="image-border-refraction">
+            <img src="assets/hero_print_craft.png" alt="Close-up detalhado de encadernação artesanal em capa dura azul com relevo dourado sobre mesa de trabalho, representando qualidade gráfica e precisão" class="hero-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicos">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">O que fazemos com excelência</h2>
+          <p class="section-subtitle">Soluções gráficas rápidas, acabamento premium e outsourcing de impressão para todas as necessidades.</p>
+        </div>
+
+        <div class="bento-services-grid" id="bento-services-container">
+          
+          <!-- Card 1: Encadernações Especiais (Cyan theme) -->
+          <div class="bento-card cyan-glow" id="bento-card-encadernacao">
+            <div class="card-content">
+              <span class="card-num">01</span>
+              <h3 class="card-title">Encadernações Especiais</h3>
+              <p class="card-desc">Acabamento premium para projetos acadêmicos e fiscais, com gravação artística.</p>
+              <ul class="card-bullets">
+                <li><strong>Capa Dura:</strong> Hot-stamping dourado ou prateado para TCCs e monografias.</li>
+                <li><strong>Garra Dupla (Wire-O):</strong> Praticidade e resistência para agendas e relatórios.</li>
+              </ul>
+              <a href="https://wa.me/5500999999999?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20encaderna%C3%a7%C3%a3o%20de%20TCC%20ou%20Capa%20Dura." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="card-action-btn"
+                 aria-label="Solicitar Encadernação Especial">
+                Solicitar Encadernação <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="card-image-wrap">
+              <img src="assets/hero_print_craft.png" alt="Close-up detalhado de encadernação artesanal em capa dura azul com relevo dourado" class="parallax-img">
+            </div>
+            <div class="card-accent-border"></div>
+          </div>
+ 
+          <!-- Card 2: Comunicação Visual & Gráfica Rápida (Magenta theme) -->
+          <div class="bento-card magenta-glow" id="bento-card-grafica">
+            <div class="card-content">
+              <span class="card-num">02</span>
+              <h3 class="card-title">Comunicação Visual</h3>
+              <p class="card-desc">Materiais de marketing de alta nitidez e conversão para destacar sua marca.</p>
+              <ul class="card-bullets">
+                <li><strong>Papelaria:</strong> Cartões de visita e timbrados.</li>
+                <li><strong>Grandes Formatos:</strong> Banners, adesivos e tags.</li>
+              </ul>
+              <a href="https://wa.me/5500999999999?text=Ol%C3%a1%2C%20gostaria%20de%20um%20or%C3%a7amento%20de%20cart%C3%b5es%20de%20visita%2C%20banners%20ou%20adesivos." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="card-action-btn"
+                 aria-label="Solicitar Orçamento Gráfico">
+                Orçamento Rápido <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="card-image-wrap">
+              <img src="assets/service_grafica.png" alt="Exibição de cartões de visita premium e panfletos coloridos" class="parallax-img">
+            </div>
+            <div class="card-accent-border"></div>
+          </div>
+ 
+          <!-- Card 3: Impressões Digitais & Cópias (Yellow theme) -->
+          <div class="bento-card yellow-glow" id="bento-card-impressao">
+            <div class="card-content">
+              <span class="card-num">03</span>
+              <h3 class="card-title">Impressões & Xerox</h3>
+              <p class="card-desc">Alta velocidade e fidelidade em preto e branco ou coloridos até tamanho A3.</p>
+              <ul class="card-bullets">
+                <li><strong>Papéis Especiais:</strong> Couché 300g e plastificação.</li>
+                <li><strong>Produção Ágil:</strong> Cópias de apostilas e digitalizações.</li>
+              </ul>
+              <a href="https://wa.me/5500999999999?text=Ol%C3%a1%2C%20gostaria%20de%20fazer%20uma%20impress%C3%a3o%20de%20documentos%20ou%20apostila." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="card-action-btn"
+                 aria-label="Enviar arquivos para impressão">
+                Enviar Arquivos <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="card-image-wrap">
+              <img src="assets/service_impressao.png" alt="Copiadora profissional imprimindo folhas coloridas de alta definição" class="parallax-img">
+            </div>
+            <div class="card-accent-border"></div>
+          </div>
+ 
+          <!-- Card 4: Locação de Impressoras (Cobalt theme) -->
+          <div class="bento-card cobalt-glow" id="bento-card-locacao">
+            <div class="card-content">
+              <span class="card-num">04</span>
+              <h3 class="card-title">Locação de Impressoras</h3>
+              <p class="card-desc">Reduza custos operacionais de TI terceirizando suas copiadoras com suporte técnico completo.</p>
+              <ul class="card-bullets">
+                <li><strong>Suporte Total:</strong> Insumos, reposição de toners e manutenção inclusos no contrato.</li>
+                <li><strong>Economia Real:</strong> Elimine investimentos em maquinário de alto custo.</li>
+              </ul>
+              <a href="#calculadora" 
+                 class="card-action-btn"
+                 aria-label="Simular locação de impressoras">
+                Simular Economia <i data-lucide="calculator" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="card-image-wrap">
+              <img src="assets/service_locacao.png" alt="Impressora corporativa multifuncional de grande porte pronta para escritório" class="parallax-img">
+            </div>
+            <div class="card-accent-border"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Cost Savings Calculator (Outsourcing Printer focus) -->
+    <section class="calculator-section" id="calculadora">
+      <div class="container grid grid-2-col calc-grid-container">
+        
+        <div class="calc-text">
+          <span class="section-eyebrow">Outsourcing de Impressão</span>
+          <h2 class="section-title text-white">Quanto sua empresa economiza alugando impressoras?</h2>
+          <p class="calc-description text-gray-300">A compra de impressoras, somada aos custos de suprimentos (toner, cilindro) e chamados técnicos de manutenção, consome uma parcela significativa do orçamento. Ao alugar, você paga apenas pelo que imprime e o suporte é 100% nosso.</p>
+          
+          <div class="benefits-mini-grid">
+            <div class="benefit-item">
+              <i data-lucide="shield-check" class="benefit-icon" aria-hidden="true"></i>
+              <div>
+                <h4 class="text-white">Manutenção Inclusa</h4>
+                <p class="text-gray-400 text-sm">Qualquer problema técnico é solucionado rapidamente pela nossa equipe, sem taxas extras.</p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i data-lucide="package-check" class="benefit-icon" aria-hidden="true"></i>
+              <div>
+                <h4 class="text-white">Reposição de Suprimentos</h4>
+                <p class="text-gray-400 text-sm">Entregamos os toners antes mesmo que os atuais terminem, sem parar sua operação.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-card-container">
+          <div class="calc-box">
+            <h3 class="calc-title">Simulador de Economia</h3>
+            <p class="calc-subtitle">Selecione o volume médio estimado da sua empresa:</p>
+            
+            <!-- Monthly Volume Slider -->
+            <div class="calc-slider-group">
+              <div class="slider-label-row">
+                <label for="volume-range">Volume de Páginas / Mês:</label>
+                <span class="slider-value" id="volume-val">2.500 páginas</span>
+              </div>
+              <input type="range" id="volume-range" min="500" max="15000" step="500" value="2500" class="styled-slider" aria-valuemin="500" aria-valuemax="15000" aria-valuenow="2500">
+            </div>
+
+            <!-- Number of Printers Slider -->
+            <div class="calc-slider-group">
+              <div class="slider-label-row">
+                <label for="printers-range">Quantidade de Máquinas:</label>
+                <span class="slider-value" id="printers-val">2 impressoras</span>
+              </div>
+              <input type="range" id="printers-range" min="1" max="10" step="1" value="2" class="styled-slider" aria-valuemin="1" aria-valuemax="10" aria-valuenow="2">
+            </div>
+
+            <!-- Calculation Results View -->
+            <div class="calc-results">
+              <div class="result-row">
+                <span class="result-label">Custo Estimado Próprio:</span>
+                <span class="result-amount own-cost" id="own-cost-val">R$ 550,00</span>
+              </div>
+              <div class="result-row">
+                <span class="result-label">Custo com a Locação Gráfica:</span>
+                <span class="result-amount gráfica-cost" id="gráfica-cost-val">R$ 310,00</span>
+              </div>
+              <div class="result-divider" aria-hidden="true"></div>
+              <div class="result-savings-highlight">
+                <div class="savings-text-wrapper">
+                  <span class="savings-label">Economia Mensal Estimada:</span>
+                  <span class="savings-percent" id="savings-percent-val">43% de Redução</span>
+                </div>
+                <span class="savings-amount" id="savings-amount-val">R$ 240,00</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/5500999999999?text=Ol%C3%A1%2C%20simulei%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20loca%C3%A7%C3%A3o%20de%20impressoras." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn btn-primary w-full text-center calc-cta" 
+               id="calc-cta-btn">
+              <i data-lucide="file-check" aria-hidden="true"></i>
+              <span>Solicitar Orçamento de Locação</span>
+            </a>
+            <p class="calc-disclaimer text-center">*Os valores são estimativos baseados em custos médios de mercado de suprimentos, depreciação e manutenção.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials (Google Reviews) Section -->
+    <section class="testimonials-section" id="depoimentos">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-eyebrow">Depoimentos dos Clientes</span>
+          <h2 class="section-title">O que dizem os nossos clientes no Google</h2>
+          <p class="section-subtitle">Satisfeito é pouco. Veja por que somos classificados com 4.7 estrelas.</p>
+        </div>
+
+        <!-- Stacked Card Testimonials Carousel (21st.dev inspired, image-free) -->
+        <div class="reviews-stack-wrapper">
+          <div class="reviews-deck" id="reviews-deck">
+            
+            <!-- Card 0 -->
+            <div class="review-stack-card active-card" data-index="0" id="review-card-0">
+              <div class="card-glow-line cyan"></div>
+              <div class="review-card-header">
+                <div class="reviewer-meta">
+                  <h4 class="reviewer-name">Junior Silva</h4>
+                  <span class="review-date">Avaliação no Google</span>
+                </div>
+                <div class="google-logo-badge">G</div>
+              </div>
+              <div class="stars-rating-badge">★★★★★</div>
+              <blockquote class="review-body">
+                "A melhor de Sua Cidade SP no segmento de impressos, encadernações e cópias em geral."
+              </blockquote>
+              <span class="review-tag">Cliente Gráfica Rápida & Impressos</span>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="review-stack-card" data-index="1" id="review-card-1">
+              <div class="card-glow-line magenta"></div>
+              <div class="review-card-header">
+                <div class="reviewer-meta">
+                  <h4 class="reviewer-name">Eduardo Eduardo</h4>
+                  <span class="review-date">Avaliação no Google</span>
+                </div>
+                <div class="google-logo-badge">G</div>
+              </div>
+              <div class="stars-rating-badge">★★★★★</div>
+              <blockquote class="review-body">
+                "Ótimo lugar para tirar xerox manda email o q vc precisar e bom atendimento"
+              </blockquote>
+              <span class="review-tag">Cliente Cópias & Impressões Digitais</span>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="review-stack-card" data-index="2" id="review-card-2">
+              <div class="card-glow-line yellow"></div>
+              <div class="review-card-header">
+                <div class="reviewer-meta">
+                  <h4 class="reviewer-name">Rogerio De Paula</h4>
+                  <span class="review-date">Avaliação no Google</span>
+                </div>
+                <div class="google-logo-badge">G</div>
+              </div>
+              <div class="stars-rating-badge">★★★★★</div>
+              <blockquote class="review-body">
+                "Nota 10 atendimentos e não explora as pessoas preço acessível"
+              </blockquote>
+              <span class="review-tag">Cliente Serviços Gerais & Papelaria</span>
+            </div>
+
+          </div>
+
+          <!-- Controls under the deck -->
+          <div class="reviews-deck-controls">
+            <button class="deck-btn prev-btn" id="deck-btn-prev" aria-label="Avaliação anterior">
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+            </button>
+            <span class="deck-counter" id="deck-counter">01 / 03</span>
+            <button class="deck-btn next-btn" id="deck-btn-next" aria-label="Próxima avaliação">
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center google-badge-wrapper">
+          <a href="https://www.google.com/maps/place/Gráfica+Encaderna%C3%A7%C3%B5es/@-20.5283431,-47.4116518,17z/data=!4m8!3m7!1s0x94b0a1a5b8a5316f:0xd08fe40cc0f56a5e!8m2!3d-20.5283431!4d-47.4094631!9m1!1b1!16s%2Fg%2F11b7ck5l_t" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="google-link" 
+             id="read-all-reviews-link">
+            <i data-lucide="external-link" aria-hidden="true"></i>
+            <span>Ver todos os comentários no Google</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Form / Contact Section -->
+    <section class="contact-section" id="contato">
+      <div class="container grid grid-2-col contact-grid-container">
+        
+        <div class="contact-info-block">
+          <span class="section-eyebrow">Solicite um Orçamento</span>
+          <h2 class="section-title">Estamos prontos para atender sua demanda</h2>
+          <p class="contact-desc">Preencha o formulário rápido com os detalhes do seu projeto de impressão ou encadernação. Nosso sistema irá direcionar você para o WhatsApp com todos os dados preenchidos, agilizando seu atendimento.</p>
+          
+          <div class="info-details">
+            <div class="info-item">
+              <div class="info-icon-wrapper">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4>Endereço da Loja</h4>
+                <p>Av. Frei Germano, 2078 - Estação<br>Sua Cidade - UF, CEP 14405-215</p>
+                <a href="https://maps.google.com/?q=Av.+Frei+Germano,+2078+-+Estacao,+Sua Cidade+-+SP" target="_blank" rel="noopener noreferrer" class="text-link" id="map-address-link">Como chegar pelo Google Maps</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-wrapper">
+                <i data-lucide="clock" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4>Horário de Funcionamento</h4>
+                <p>Segunda a Sexta-feira: 08:00 às 18:00<br>Sábado e Domingo: Fechado</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon-wrapper">
+                <i data-lucide="phone-call" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4>Fale Conosco</h4>
+                <p>WhatsApp: (00) 99999-9999<br>Telefone Fixo: (00) 0000-0000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-block">
+          <form class="quote-form" id="quote-request-form">
+            <h3 class="form-title">Envie seu Projeto</h3>
+            
+            <div class="form-group">
+              <label for="form-name">Nome Completo <span class="required">*</span></label>
+              <input type="text" id="form-name" required placeholder="Ex: João Silva" aria-required="true">
+            </div>
+
+            <div class="grid grid-2-col gap-4 form-grid-sub">
+              <div class="form-group">
+                <label for="form-phone">WhatsApp / Telefone <span class="required">*</span></label>
+                <input type="tel" id="form-phone" required placeholder="Ex: (00) 99999-9999" aria-required="true">
+              </div>
+              <div class="form-group">
+                <label for="form-service">Tipo de Serviço <span class="required">*</span></label>
+                <select id="form-service" required aria-required="true">
+                  <option value="" disabled selected>Selecione uma opção...</option>
+                  <option value="Encadernação Capa Dura (TCC)">Encadernação Capa Dura (TCC/Monografia)</option>
+                  <option value="Encadernação Espiral ou Wire-O">Encadernação Espiral / Wire-O</option>
+                  <option value="Impressões Digitais / Xerox">Impressão Digital ou Cópias</option>
+                  <option value="Serviços Gráficos (Cartão/Banner/Adesivo)">Cartões de Visita, Banners ou Adesivos</option>
+                  <option value="Locação de Impressoras para Empresas">Locação de Impressoras (Outsourcing)</option>
+                  <option value="Outros Serviços">Outro Serviço Especializado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="form-quantity">Quantidade Estimada</label>
+              <input type="text" id="form-quantity" placeholder="Ex: 3 vias, 50 páginas, 500 unidades">
+            </div>
+
+            <div class="form-group">
+              <label for="form-message">Detalhes do Projeto <span class="required">*</span></label>
+              <textarea id="form-message" rows="4" required placeholder="Ex: Preciso de encadernação capa dura azul escura para TCC com gravação em dourado. Tenho o PDF pronto para envio." aria-required="true"></textarea>
+            </div>
+
+            <!-- Form Validation Status Area -->
+            <div class="form-status" id="form-status-msg" role="alert" aria-live="polite"></div>
+
+            <button type="submit" class="btn btn-primary w-full justify-center" id="form-submit-btn">
+              <i data-lucide="message-square" aria-hidden="true"></i>
+              <span>Gerar Orçamento no WhatsApp</span>
+            </button>
+            <p class="form-note">Ao enviar, o site irá gerar um link com todos os seus dados estruturados para finalizarmos o atendimento pelo WhatsApp.</p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">M</span>
+        <h3 class="footer-title">Gráfica & Encadernadora</h3>
+        <p class="footer-desc text-gray-400">Qualidade de impressão, acabamento primoroso e terceirização inteligente de cópias. Atendendo Sua Cidade e região desde 1996 com agilidade e compromisso.</p>
+      </div>
+
+      <div class="footer-nav">
+        <h4 class="footer-section-title">Links Úteis</h4>
+        <ul class="footer-links">
+          <li><a href="#servicos" id="footer-link-servicos">Serviços</a></li>
+          <li><a href="#calculadora" id="footer-link-calculadora">Locação</a></li>
+          <li><a href="#depoimentos" id="footer-link-depoimentos">Avaliações</a></li>
+          <li><a href="#contato" id="footer-link-contato">Contato & Localização</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-section-title">Fale Conosco</h4>
+        <p class="text-gray-400"><i data-lucide="phone" class="inline-icon" aria-hidden="true"></i> (00) 0000-0000</p>
+        <p class="text-gray-400"><i data-lucide="message-square" class="inline-icon" aria-hidden="true"></i> (00) 99999-9999</p>
+        <p class="text-gray-400"><i data-lucide="mail" class="inline-icon" aria-hidden="true"></i> contato@seusite.com.br</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p class="copyright">&copy; 2026 Gráfica & Encadernadora. Todos os direitos reservados. CNPJ: 01.353.974/0001-38</p>
+        <p class="developer">Desenvolvido com excelência gráfica</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

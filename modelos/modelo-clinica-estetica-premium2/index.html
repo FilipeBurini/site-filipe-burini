@@ -1,0 +1,2771 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Estética | Estética Avançada e Bem-Estar</title>
+    <meta name="description" content="Oferecemos uma estética inteligente que acolhe, ativa o seu potencial natural e resgata a sua autoestima de dentro para fora. Conheça a nossa Clínica Estética.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles -->
+    <style>
+        /* CSS Reset & Variable Design Tokens */
+        :root {
+            --color-dark: #12100e;
+            --color-dark-rgb: 18, 16, 14;
+            --color-dark-surface: #1a1714;
+            --color-gold: #c69c59;
+            --color-gold-rgb: 198, 156, 89;
+            --color-gold-hover: #b38848;
+            --color-text-white: #ffffff;
+            --color-text-muted: #a89f95;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --navbar-scrolled-bg: rgba(18, 16, 14, 0.85);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: initial; /* Lenis handles smooth scrolling */
+            background-color: var(--color-dark);
+            color: var(--color-text-white);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: var(--color-dark);
+            line-height: 1.6;
+        }
+
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-gold);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-gold-hover);
+        }
+
+        /* Custom Fluid Mouse Cursor */
+        .custom-cursor {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-gold);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 99999;
+            will-change: transform;
+        }
+        
+        .custom-cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(var(--color-gold-rgb), 0.4);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 99998;
+            will-change: transform;
+        }
+
+        /* Hide default cursor on desktop when customization active */
+        @media (min-width: 1024px) {
+            body {
+                cursor: none;
+            }
+            a, button, .clickable {
+                cursor: none;
+            }
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100dvh;
+            background-color: var(--color-dark);
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .preloader-logo {
+            font-size: 2.5rem;
+            font-family: var(--font-serif);
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .preloader-logo span.white {
+            color: var(--color-text-white);
+        }
+
+        .preloader-logo span.gold {
+            color: var(--color-gold);
+        }
+
+        .preloader-bar-bg {
+            width: 180px;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preloader-bar {
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        /* Header / Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 6%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(var(--color-dark-rgb), 0.8) 0%, rgba(var(--color-dark-rgb), 0) 100%);
+            backdrop-filter: blur(0px); /* Transitions to blur on scroll */
+            border-bottom: 1px solid rgba(255, 255, 255, 0);
+            transition: padding 0.4s ease, background 0.4s ease, border 0.4s ease, backdrop-filter 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 16px 6%;
+            background: var(--navbar-scrolled-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(var(--color-gold-rgb), 0.1);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--color-text-white);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            will-change: transform;
+        }
+
+        .logo span.gold {
+            color: var(--color-gold);
+        }
+
+        .logo-bio {
+            color: var(--color-text-white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-gold) !important;
+        }
+
+        /* Animated underline on hover */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Buttons Styling */
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-gold {
+            background-color: var(--color-gold);
+            color: var(--color-text-white);
+            border-color: var(--color-gold);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--color-gold-hover);
+            border-color: var(--color-gold-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-text-white);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-text-white);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: hidden;
+            padding: 140px 8% 60px 23%;
+        }
+
+        /* Parallax Background */
+        .hero-bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%; /* Taller for parallax room */
+            z-index: -2;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/clinic_bg.png');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1); /* Animate to 1.0 */
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(18, 16, 14, 0.45) 0%,
+                rgba(26, 23, 20, 0.55) 50%,
+                rgba(18, 16, 14, 0.75) 100%
+            );
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 600px; /* Aligned like a left container of a 2-column layout */
+            z-index: 2;
+            margin-top: auto;
+            margin-bottom: auto;
+            will-change: transform;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Masked Text Reveal styling */
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--color-text-white);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .mask-line {
+            overflow: hidden;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .mask-line span {
+            display: inline-block;
+            transform: translateY(110%);
+            will-change: transform;
+        }
+
+        .hero-title span.italic {
+            font-style: italic;
+            font-family: var(--font-serif);
+            color: var(--color-gold);
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            margin-bottom: 36px;
+            max-width: 520px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+            opacity: 0;
+            transform: translateY(20px);
+            justify-content: flex-start;
+        }
+
+        .hero-cta-group .btn {
+            padding: 14px 30px;
+            font-size: 0.88rem;
+        }
+
+        /* Stats Section */
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 40px;
+            z-index: 2;
+            justify-content: flex-start;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            opacity: 0;
+            transform: translateY(20px);
+            align-items: flex-start;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+            font-weight: 500;
+            color: var(--color-gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            color: var(--color-text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 0%, rgba(var(--color-gold-rgb), 0.3) 50%, rgba(255, 255, 255, 0.02) 100%);
+            transform: scaleY(0);
+            transform-origin: bottom center;
+            will-change: transform;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator-container {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .scroll-mouse {
+            width: 20px;
+            height: 34px;
+            border: 1px solid rgba(var(--color-gold-rgb), 0.5);
+            border-radius: 99px;
+            position: relative;
+        }
+
+        .scroll-wheel {
+            width: 4px;
+            height: 8px;
+            background-color: var(--color-gold);
+            border-radius: 99px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll-wheel-anim 1.8s infinite ease-in-out;
+        }
+
+        @keyframes scroll-wheel-anim {
+            0% {
+                opacity: 0;
+                top: 6px;
+            }
+            30% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 0;
+                top: 18px;
+            }
+            100% {
+                opacity: 0;
+                top: 6px;
+            }
+        }
+
+        /* Mobile Responsive adjustments */
+        @media (max-width: 991px) {
+            .navbar {
+                padding: 20px 4%;
+            }
+            .nav-links {
+                display: none; /* In a real project, implement a drawer. Keeping clean hero focus */
+            }
+            .hero {
+                padding: 120px 4% 40px 4%;
+            }
+            .hero-stats {
+                gap: 24px;
+            }
+            .stat-divider {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-cta-group {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+            .hero-cta-group .btn {
+                width: 100%;
+            }
+            .hero-stats {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .scroll-indicator-container {
+                display: none; /* Hide scroll mouse on tiny screens to save space */
+            }
+        }
+
+        /* About Section Style */
+        .about-section {
+            padding: 140px 6%;
+            background-color: transparent;
+            position: relative;
+            z-index: 10;
+        }
+
+        .about-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: visible;
+        }
+
+        .about-image-container {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(var(--color-gold-rgb), 0.15);
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transform: scale(1.05);
+            transition: var(--transition-smooth);
+            will-change: transform;
+        }
+
+        .about-image-wrapper:hover .about-image {
+            transform: scale(1);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            background-color: var(--color-gold);
+            color: var(--color-text-white);
+            padding: 24px 28px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-width: 140px;
+            z-index: 2;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-badge-number {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-badge-text {
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 6px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-tag {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .about-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-text-white);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-title span.italic {
+            font-style: italic;
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+        }
+
+        .about-paragraph {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .about-paragraph strong {
+            font-weight: 600;
+            color: var(--color-text-white);
+        }
+
+        /* Responsive for About Section */
+        @media (max-width: 991px) {
+            .about-section {
+                padding: 100px 4%;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 70px;
+            }
+            .about-image-wrapper {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .about-badge {
+                bottom: -15px;
+                right: -15px;
+                padding: 20px 24px;
+                min-width: 120px;
+            }
+            .about-badge-number {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Treatments Section Style */
+        .treatments-section {
+            padding: 100px 6% 140px 6%;
+            background-color: transparent;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .treatments-header {
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+        }
+
+        .treatments-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: #12100e;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .treatments-title span.italic {
+            font-style: italic;
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+        }
+
+        .treatments-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #44403c;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .treatments-grid {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .treatment-card {
+            background-color: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(198, 156, 89, 0.12);
+            box-shadow: 0 10px 30px rgba(18, 16, 14, 0.04);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            transition: var(--transition-smooth);
+            opacity: 0;
+            transform: translateY(50px);
+            will-change: transform, box-shadow, border-color;
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(198, 156, 89, 0.12);
+            border-color: rgba(198, 156, 89, 0.5);
+        }
+
+        .treatment-image-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .treatment-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .treatment-card:hover .treatment-image {
+            transform: scale(1.08);
+        }
+
+        .treatment-info {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .treatment-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #12100e;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .treatment-card-desc {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #44403c;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .treatment-link {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .treatment-link:hover {
+            color: var(--color-gold-hover);
+        }
+
+        .treatment-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .treatment-card:hover .treatment-link i {
+            transform: translateX(4px);
+        }
+
+        .treatments-footer {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Responsive for Treatments */
+        @media (max-width: 991px) {
+            .treatments-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .treatments-section {
+                padding: 80px 4% 100px 4%;
+            }
+            .treatments-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                max-width: 450px;
+            }
+            .treatment-image-container {
+                height: 200px;
+            }
+        }
+
+        /* Testimonials Section Style */
+        .testimonials-section {
+            padding: 100px 6% 140px 6%;
+            background-color: transparent;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .testimonials-header {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        .testimonials-tag {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .testimonials-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: #12100e;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .testimonials-title span.italic {
+            font-style: italic;
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+        }
+
+        .testimonials-rating-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .testimonials-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .testimonials-stars i {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-gold);
+            color: var(--color-gold);
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .testimonials-rating-text {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: #44403c;
+            font-weight: 400;
+        }
+
+        .testimonials-rating-text strong {
+            font-weight: 600;
+            color: #12100e;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            perspective: 1000px; /* For 3D entry reveal */
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(198, 156, 89, 0.12);
+            box-shadow: 0 10px 30px rgba(18, 16, 14, 0.03);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+            opacity: 0;
+            transform: translateY(50px) rotateX(10deg);
+            will-change: transform, box-shadow, border-color;
+            --mouse-x: 0px;
+            --mouse-y: 0px;
+        }
+
+        /* Reveal Glow Hover Effect using Radial Gradient */
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                350px circle at var(--mouse-x) var(--mouse-y),
+                rgba(198, 156, 89, 0.06),
+                transparent 80%
+            );
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 15px 40px rgba(198, 156, 89, 0.1);
+            border-color: rgba(198, 156, 89, 0.4);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 2px;
+            color: var(--color-gold);
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .testimonial-stars i {
+            width: 14px;
+            height: 14px;
+            fill: var(--color-gold);
+            color: var(--color-gold);
+        }
+
+        .testimonial-quote-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: rgba(198, 156, 89, 0.12);
+            z-index: 1;
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .testimonial-card:hover .testimonial-quote-icon {
+            transform: scale(1.15) rotate(-10deg);
+            color: rgba(198, 156, 89, 0.25);
+        }
+
+        .testimonial-text {
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: #44403c;
+            line-height: 1.6;
+            z-index: 2;
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid rgba(198, 156, 89, 0.08);
+            padding-top: 20px;
+            z-index: 2;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(var(--color-gold-rgb), 0.7) 0%, rgba(var(--color-gold-rgb), 1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-white);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(var(--color-gold-rgb), 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .testimonial-name {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #12100e;
+        }
+
+        .testimonial-source {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            font-weight: 400;
+        }
+
+        /* Responsive for Testimonials */
+        @media (max-width: 991px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 80px 4% 100px 4%;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .testimonial-card {
+                padding: 28px;
+            }
+        }
+
+        /* Biography Section Style */
+        .bio-section {
+            padding: 100px 6% 140px 6%;
+            background-color: transparent;
+            position: relative;
+            z-index: 10;
+        }
+
+        .bio-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .bio-content {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .bio-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: #12100e;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .bio-title span.italic {
+            font-style: italic;
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+        }
+
+        .bio-paragraph {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #44403c;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .bio-paragraph strong {
+            font-weight: 600;
+            color: #12100e;
+        }
+
+        .bio-paragraph span.gold {
+            color: var(--color-gold);
+            font-weight: 600;
+        }
+
+        .bio-ornament {
+            color: var(--color-gold);
+            margin: 15px 0 30px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .bio-paragraph.highlight {
+            font-style: italic;
+            font-weight: 600;
+            color: #12100e;
+            margin-bottom: 0;
+        }
+
+        .bio-image-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .bio-image-container {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(var(--color-gold-rgb), 0.15);
+            opacity: 0;
+            transform: scale(0.95) rotateY(10deg);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            will-change: transform, opacity;
+        }
+
+        .bio-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bio-image-wrapper:hover .bio-image {
+            transform: scale(1.04);
+        }
+
+        /* Responsive for Bio Section */
+        @media (max-width: 991px) {
+            .bio-section {
+                padding: 80px 4% 100px 4%;
+            }
+            .bio-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .bio-image-wrapper {
+                max-width: 450px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Contact Section Style */
+        .contact-section {
+            padding: 100px 6% 140px 6%;
+            background-color: transparent;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .contact-header {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        .contact-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: #12100e;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .contact-title span.italic {
+            font-style: italic;
+            color: var(--color-gold);
+            font-family: var(--font-serif);
+        }
+
+        .contact-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #44403c;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: stretch;
+            text-align: left;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(18, 16, 14, 0.06);
+            border: 1px solid rgba(198, 156, 89, 0.15);
+            opacity: 0;
+            transform: translateX(-50px);
+            will-change: transform, opacity;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .info-cards-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 24px 30px;
+            border: 1px solid rgba(198, 156, 89, 0.12);
+            box-shadow: 0 8px 25px rgba(18, 16, 14, 0.02);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transition: var(--transition-smooth);
+            opacity: 0;
+            transform: translateX(50px);
+            will-change: transform, opacity;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a.info-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(198, 156, 89, 0.4);
+            box-shadow: 0 15px 35px rgba(198, 156, 89, 0.08);
+        }
+
+        .info-card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(198, 156, 89, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            flex-shrink: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .info-card:hover .info-card-icon {
+            background-color: var(--color-gold);
+            color: var(--color-text-white);
+            transform: scale(1.05);
+        }
+
+        .info-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-card-title {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #12100e;
+        }
+
+        .info-card-text {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #44403c;
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+
+        .social-buttons-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            opacity: 0;
+            transform: scale(0.9);
+            will-change: transform, opacity;
+        }
+
+        .social-btn {
+            flex: 1;
+            min-width: 140px;
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            color: var(--color-text-white);
+            border: 1px solid transparent;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-btn-whatsapp {
+            background-color: #25D366;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.15);
+        }
+
+        .social-btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.25);
+        }
+
+        .social-btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            box-shadow: 0 8px 20px rgba(220, 39, 67, 0.15);
+        }
+
+        .social-btn-instagram:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(220, 39, 67, 0.25);
+        }
+
+        /* Responsive for Contact Section */
+        @media (max-width: 991px) {
+            .contact-section {
+                padding: 80px 4% 100px 4%;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .map-wrapper {
+                min-height: 350px;
+                order: 2; /* Map displays below cards on mobile */
+            }
+            .contact-info {
+                order: 1;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .social-buttons-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            .social-btn {
+                width: 100%;
+            }
+        }
+
+        /* Footer Style */
+        .footer {
+            background-color: var(--color-dark);
+            padding: 80px 6% 30px 6%;
+            position: relative;
+            z-index: 10;
+            color: var(--color-text-muted);
+            font-family: var(--font-sans);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+            gap: 60px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-text-white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-logo span.gold {
+            color: var(--color-gold);
+        }
+
+        .footer-desc {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--color-text-muted);
+            font-weight: 300;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--color-text-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+        }
+
+        .footer-social-btn:hover {
+            background-color: var(--color-gold);
+            border-color: var(--color-gold);
+            color: var(--color-text-white);
+            transform: scale(1.1) rotate(8deg);
+        }
+
+        .footer-col-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-text-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 300;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold);
+            transform: translateX(4px);
+        }
+
+        .footer-contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--color-text-muted);
+        }
+
+        .footer-contact-item i {
+            color: var(--color-gold);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .footer-contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--color-gold);
+        }
+
+        .footer-divider {
+            max-width: 1200px;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.08);
+            margin: 60px auto 24px auto;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.4);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--color-gold);
+        }
+
+        .footer-bottom strong {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive for Footer */
+        @media (max-width: 991px) {
+            .footer {
+                padding: 60px 4% 30px 4%;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            .footer-divider {
+                margin: 40px auto 20px auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body id="inicio">
+
+    <!-- Fluid Mouse Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Preloader Screen -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <h1 class="preloader-logo"><span class="white">Clínica</span> <span class="gold">Estética</span></h1>
+            <div class="preloader-bar-bg">
+                <div class="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Header Navigation -->
+    <header class="navbar">
+        <a href="#" class="logo clickable">
+            <span class="logo-bio">Clínica</span> <span class="gold">Estética</span>
+        </a>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio" class="active clickable">Início</a></li>
+                <li><a href="#sobre" class="clickable">Sobre</a></li>
+                <li><a href="#tratamento" class="clickable">Tratamento</a></li>
+                <li><a href="#depoimentos" class="clickable">Depoimentos</a></li>
+                <li><a href="#contato" class="clickable">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="#contato" class="btn btn-gold clickable">
+                <i data-lucide="phone" style="width: 14px; height: 14px;"></i>
+                Agendar
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main>
+        <section id="hero" class="hero">
+            <!-- Parallax Background Elements -->
+            <div class="hero-bg-container">
+                <div class="hero-bg"></div>
+                <div class="hero-overlay"></div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="hero-content">
+                <div class="hero-subtitle">Estética Avançada em Sua Cidade-UF</div>
+                
+                <h1 class="hero-title">
+                    <span class="mask-line"><span>A estética avançada</span></span>
+                    <span class="mask-line"><span>que entende a sua</span></span>
+                    <span class="mask-line">
+                        <span class="italic">essência</span><span>, e respeita a</span>
+                    </span>
+                    <span class="mask-line"><span>sua biologia.</span></span>
+                </h1>
+
+                <p class="hero-description">
+                    Mais do que transformar aparências, nosso propósito é cuidar de você. Oferecemos uma estética inteligente que acolhe, ativa o seu potencial natural e resgata a sua autoestima de dentro para fora.
+                </p>
+
+                <!-- Call to Action Buttons -->
+                <div class="hero-cta-group">
+                    <a href="#agendar" class="btn btn-gold clickable">
+                        Agendar minha avaliação
+                        <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    </a>
+                    <a href="#tratamentos" class="btn btn-outline clickable">
+                        Nossos Tratamentos
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Showcase -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number rating-val">0.0</span>
+                    <span class="stat-label">★ Google</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number exp-val">0+</span>
+                    <span class="stat-label">Anos de Experiência</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number clients-val">0+</span>
+                    <span class="stat-label">Clientes Satisfeitos</span>
+                </div>
+            </div>
+
+            <!-- Interactive Scroll Indicator -->
+            <div class="scroll-indicator-container">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre" class="about-section">
+            <div class="about-grid">
+                <!-- Left column: Image and Experience Badge -->
+                <div class="about-image-wrapper">
+                    <div class="about-image-container">
+                        <img src="assets/about_clinic.png" alt="Recepção da Clínica Estética" class="about-image">
+                    </div>
+                    <div class="about-badge">
+                        <span class="about-badge-number">10+</span>
+                        <span class="about-badge-text">Anos de<br>Experiência</span>
+                    </div>
+                </div>
+
+                <!-- Right column: Texts -->
+                <div class="about-content">
+                    <span class="about-tag">Sobre a Clínica Estética</span>
+                    <h2 class="about-title">
+                        Tratamos as causas.<br>
+                        <span class="italic">Transformamos</span> de dentro para fora.
+                    </h2>
+                    <p class="about-paragraph">
+                        Acreditamos que não adianta tratar a gordura e esquecer a flacidez, ou esticar a pele sem estimular o colágeno. E não adianta harmonizar o rosto sem antes preparar o terreno biológico da pele. Por isso, unimos tecnologia, ciência e propósito em cada protocolo.
+                    </p>
+                    <p class="about-paragraph">
+                        <strong>Nossa Metodologia:</strong> Cada paciente passa por uma avaliação personalizada, analisando tecidos, hábitos e metas. Criamos um plano de tratamento sob medida, combinando tecnologias e ativos com o objetivo de regenerar, remodelar e revelar a sua melhor versão. O resultado é um corpo harmônico e uma pele rejuvenescida, com naturalidade e durabilidade.
+                    </p>
+                </div>
+        </section>
+
+        <!-- Biography Section -->
+        <section id="biografia" class="bio-section">
+            <div class="bio-grid">
+                <!-- Left column: Biography content -->
+                <div class="bio-content">
+                    <h2 class="bio-title">
+                        Muito prazer, eu sou<br>
+                        <span class="italic">Dra. Carolina Silva</span>.
+                    </h2>
+                    <p class="bio-paragraph">
+                        Em mais de <strong>15 anos</strong> de atuação clínica, aprendi algo inegociável: o seu corpo conta a sua história e merece <strong>absoluto respeito</strong>.
+                    </p>
+                    <p class="bio-paragraph">
+                        Enquanto o mercado foca em padronizar aparências, a <span class="gold">Clínica Estética</span> nasceu com uma visão oposta. Unimos a tecnologia mais avançada à estética de alta performance para cuidar de você de forma integral, respeitando a sua biologia única.
+                    </p>
+                    
+                    <!-- Gold star ornament -->
+                    <div class="bio-ornament">
+                        <i data-lucide="sparkles" style="width: 20px; height: 20px;"></i>
+                    </div>
+
+                    <p class="bio-paragraph">
+                        Aqui, não olhamos apenas para a queixa superficial. Nós investigamos a causa, preparamos o seu terreno biológico e ativamos o seu potencial celular. O objetivo é entregar resultados harmônicos, verdadeiros e duradouros.
+                    </p>
+                    <p class="bio-paragraph">
+                        Meu compromisso não é apagar os seus traços ou mudar a sua essência. É traçar um plano de tratamento personalizado que resgate a sua autoconfiança de dentro para fora. A <span class="gold">beleza inteligente</span> não é sobre ser outra pessoa, mas revelar a sua melhor versão.
+                    </p>
+                    <p class="bio-paragraph highlight">
+                        E eu estou aqui para guiar você nessa jornada.
+                    </p>
+                </div>
+
+                <!-- Right column: Photo Portrait -->
+                <div class="bio-image-wrapper">
+                    <div class="bio-image-container">
+                        <img src="assets/founder_portrait.png" alt="Dra. Carolina Silva" class="bio-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treatments Section -->
+        <section id="tratamento" class="treatments-section">
+            <div class="treatments-header">
+                <h2 class="treatments-title">
+                    Tratamentos pensados para<br>
+                    <span class="italic">valorizar</span> sua beleza
+                </h2>
+                <p class="treatments-subtitle">
+                    Conheça nossos tratamentos exclusivos e descubra como podemos ajudar você a alcançar os resultados que sempre sonhou.
+                </p>
+            </div>
+
+            <div class="treatments-grid">
+                <!-- Card 1: Facial -->
+                <div class="treatment-card">
+                    <div class="treatment-image-container">
+                        <img src="assets/treatment_facial.png" alt="Rejuvenescimento & Harmonização Facial" class="treatment-image">
+                    </div>
+                    <div class="treatment-info">
+                        <h3 class="treatment-card-title">Rejuvenescimento & Harmonização Facial</h3>
+                        <p class="treatment-card-desc">
+                            O seu rosto conta a sua história e merece ser tratado com sutileza. Nossos protocolos regenerativos cuidam da sua pele de forma inteligente, devolvendo a firmeza, o viço e a juventude com extrema naturalidade, sem exageros.
+                        </p>
+                        <a href="#agendar" class="treatment-link clickable">
+                            Ver tratamentos faciais
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Body -->
+                <div class="treatment-card">
+                    <div class="treatment-image-container">
+                        <img src="assets/treatment_body.png" alt="Tratamentos Corporais Multifuncionais" class="treatment-image">
+                    </div>
+                    <div class="treatment-info">
+                        <h3 class="treatment-card-title">Tratamentos Corporais Multifuncionais</h3>
+                        <p class="treatment-card-desc">
+                            Seu corpo é único e tratamos ele como um sistema integrado. Combinamos alta tecnologia e protocolos multifuncionais para reduzir medidas, tratar a flacidez e remodelar seus contornos, priorizando a sua saúde e o seu bem-estar.
+                        </p>
+                        <a href="#agendar" class="treatment-link clickable">
+                            Ver tratamentos corporais
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Laser -->
+                <div class="treatment-card">
+                    <div class="treatment-image-container">
+                        <img src="assets/treatment_laser.png" alt="Depilação Definitiva Holonyak LED" class="treatment-image">
+                    </div>
+                    <div class="treatment-info">
+                        <h3 class="treatment-card-title">Depilação Definitiva Holonyak LED</h3>
+                        <p class="treatment-card-desc">
+                            Liberdade, segurança e conforto absoluto para a sua pele. A tecnologia Holonyak oferece uma depilação definitiva praticamente indolor, cuidando da saúde do seu tecido enquanto elimina os pelos de forma rápida e segura.
+                        </p>
+                        <a href="#agendar" class="treatment-link clickable">
+                            Ver depilação a LED
+                            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centralized Footer Button -->
+            <div class="treatments-footer">
+                <a href="#agendar" class="btn btn-gold clickable">
+                    Agende sua Avaliação
+                    <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="depoimentos" class="testimonials-section">
+            <div class="testimonials-header">
+                <span class="testimonials-tag">Depoimentos</span>
+                <h2 class="testimonials-title">
+                    Histórias de <span class="italic">transformação</span><br>
+                    que nos inspiram todos os dias.
+                </h2>
+                <div class="testimonials-rating-container">
+                    <div class="testimonials-stars">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <span class="testimonials-rating-text">
+                        <strong>4.9</strong> de 5 estrelas baseada em 32 avaliações no Google
+                    </span>
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Card 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <i data-lucide="quote" class="testimonial-quote-icon" style="width: 40px; height: 40px;"></i>
+                    <p class="testimonial-text">
+                        "Ótima clínica, excelente atendimento e profissionais atenciosos. O melhor espaço de estética da região!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-name">Maria Zago</span>
+                            <span class="testimonial-source">Avaliação Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <i data-lucide="quote" class="testimonial-quote-icon" style="width: 40px; height: 40px;"></i>
+                    <p class="testimonial-text">
+                        "Lugar top demais! Atendimento nota mil, espaço limpo e cheio de energias boas!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-name">Jéssica Teixeira Aragão</span>
+                            <span class="testimonial-source">Avaliação Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <i data-lucide="quote" class="testimonial-quote-icon" style="width: 40px; height: 40px;"></i>
+                    <p class="testimonial-text">
+                        "Excelente experiência, a Dra. Carolina é uma ótima profissional, vocês estão de parabéns! 👏"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">J</div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-name">José Mendes</span>
+                            <span class="testimonial-source">Avaliação Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <i data-lucide="quote" class="testimonial-quote-icon" style="width: 40px; height: 40px;"></i>
+                    <p class="testimonial-text">
+                        "Melhor clínica de estética e o melhor treino da vida!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">L</div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-name">Lívia Benedeti</span>
+                            <span class="testimonial-source">Avaliação Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <i data-lucide="quote" class="testimonial-quote-icon" style="width: 40px; height: 40px;"></i>
+                    <p class="testimonial-text">
+                        "Melhor clínica! Resultados incríveis e atendimento impecável. Recomendo a todas! 😍"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">L</div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-name">Lívia Zanetti</span>
+                            <span class="testimonial-source">Avaliação Google</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                        <i data-lucide="star"></i>
+                    </div>
+                    <i data-lucide="quote" class="testimonial-quote-icon" style="width: 40px; height: 40px;"></i>
+                    <p class="testimonial-text">
+                        "Ótima clínica. Profissionais qualificados e ambiente acolhedor."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">G</div>
+                        <div class="testimonial-meta">
+                            <span class="testimonial-name">Gustavo Caldas</span>
+                            <span class="testimonial-source">Avaliação Google</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Location Section -->
+        <section id="contato" class="contact-section">
+            <div class="contact-header">
+                <h2 class="contact-title">
+                    Venha nos <span class="italic">conhecer</span>.
+                </h2>
+                <p class="contact-subtitle">
+                    Estamos prontos para atender você com toda a atenção e carinho que você merece.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Left Column: Google Maps Iframe -->
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975765942475!2d-46.65464952467144!3d-23.561349684680004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431797cd77e!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-000!5e0!3m2!1spt-BR!2sbr!4v1717960000000!5m2!1spt-BR!2sbr" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Right Column: Info Cards & Social Links -->
+                <div class="contact-info">
+                    <div class="info-cards-group">
+                        <!-- Address Card -->
+                        <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP,+01311-000" target="_blank" class="info-card clickable">
+                            <div class="info-card-icon">
+                                <i data-lucide="map-pin" style="width: 22px; height: 22px;"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <h3 class="info-card-title">Endereço</h3>
+                                <p class="info-card-text">Av. Paulista, 1000 - Bela Vista
+São Paulo - SP, 01311-000</p>
+                            </div>
+                        </a>
+
+                        <!-- Phone Card -->
+                        <a href="tel:+5511999999999" class="info-card clickable">
+                            <div class="info-card-icon">
+                                <i data-lucide="phone" style="width: 22px; height: 22px;"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <h3 class="info-card-title">Telefone</h3>
+                                <p class="info-card-text">(11) 99999-9999</p>
+                            </div>
+                        </a>
+
+                        <!-- Hours Card -->
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i data-lucide="clock" style="width: 22px; height: 22px;"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <h3 class="info-card-title">Horário</h3>
+                                <p class="info-card-text">Segunda a Sexta: 8h às 21h
+Sábado: 8h às 13h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Buttons -->
+                    <div class="social-buttons-group">
+                        <a href="https://wa.me/5511999999999" target="_blank" class="social-btn social-btn-whatsapp clickable">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 2px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.94 0c3.202.001 6.212 1.248 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.618-5.33 11.94-11.943 11.94-.2.2-2.128-.001-4.116-.575L0 24zm6.59-18.286c-.116-.259-.239-.264-.35-.269-.092-.004-.199-.004-.306-.004-.107 0-.282.04-.429.2-.147.16-.563.55-.563 1.34s.575 1.554.655 1.66c.08.107 1.13 1.727 2.738 2.423.383.166.682.265.914.339.385.122.735.105 1.012.064.31-.046.953-.39 1.087-.768.135-.378.135-.702.095-.768-.04-.066-.147-.107-.306-.188-.16-.08-.953-.47-1.1-.52-.147-.05-.254-.08-.361.08-.107.16-.416.52-.51.626-.093.107-.188.12-.347.04-.16-.08-.675-.249-1.286-.795-.476-.425-.797-.949-.89-1.107-.094-.16-.01-.246.07-.325.073-.072.16-.188.24-.282.081-.094.108-.16.162-.267.054-.107.027-.2-.013-.282-.04-.082-.361-.87-.495-1.19z"/></svg>
+                            WhatsApp
+                        </a>
+                        <a href="https://instagram.com/seu.perfil" target="_blank" class="social-btn social-btn-instagram clickable">
+                            <i data-lucide="instagram" style="width: 18px; height: 18px;"></i>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <!-- Column 1: Brand Info -->
+            <div class="footer-col">
+                <a href="#" class="footer-logo logo clickable">
+                    Clínica<span class="gold">Estética</span>
+                </a>
+                <p class="footer-desc">
+                    Estética avançada com tecnologia de ponta, ciência e cuidado personalizado.
+                </p>
+                <div class="footer-social-links">
+                    <a href="https://instagram.com/seu.perfil" target="_blank" class="footer-social-btn clickable">
+                        <i data-lucide="instagram" style="width: 18px; height: 18px;"></i>
+                    </a>
+                    <a href="https://wa.me/5511999999999" target="_blank" class="footer-social-btn clickable">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.324 5.328 0 11.94 0c3.202.001 6.212 1.248 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.618-5.33 11.94-11.943 11.94-.2.2-2.128-.001-4.116-.575L0 24zm6.59-18.286c-.116-.259-.239-.264-.35-.269-.092-.004-.199-.004-.306-.004-.107 0-.282.04-.429.2-.147.16-.563.55-.563 1.34s.575 1.554.655 1.66c.08.107 1.13 1.727 2.738 2.423.383.166.682.265.914.339.385.122.735.105 1.012.064.31-.046.953-.39 1.087-.768.135-.378.135-.702.095-.768-.04-.066-.147-.107-.306-.188-.16-.08-.953-.47-1.1-.52-.147-.05-.254-.08-.361.08-.107.16-.416.52-.51.626-.093.107-.188.12-.347.04-.16-.08-.675-.249-1.286-.795-.476-.425-.797-.949-.89-1.107-.094-.16-.01-.246.07-.325.073-.072.16-.188.24-.282.081-.094.108-.16.162-.267.054-.107.027-.2-.013-.282-.04-.082-.361-.87-.495-1.19z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col">
+                <h3 class="footer-col-title">Navegação</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio" class="clickable">Início</a></li>
+                    <li><a href="#sobre" class="clickable">Sobre</a></li>
+                    <li><a href="#tratamento" class="clickable">Tratamento</a></li>
+                    <li><a href="#depoimentos" class="clickable">Depoimentos</a></li>
+                    <li><a href="#contato" class="clickable">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Treatments Links -->
+            <div class="footer-col">
+                <h3 class="footer-col-title">Tratamentos</h3>
+                <ul class="footer-links">
+                    <li><a href="#tratamento" class="clickable">Tratamentos Faciais</a></li>
+                    <li><a href="#tratamento" class="clickable">Tratamentos Corporais</a></li>
+                    <li><a href="#tratamento" class="clickable">Depilação a Led</a></li>
+                    <li><a href="#tratamento" class="clickable">Emagrecimento</a></li>
+                    <li><a href="#tratamento" class="clickable">Fitness e Pilates</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact Details -->
+            <div class="footer-col">
+                <h3 class="footer-col-title">Contato</h3>
+                <div class="footer-contact-items">
+                    <div class="footer-contact-item">
+                        <i data-lucide="map-pin" style="width: 16px; height: 16px;"></i>
+                        <span>Av. Paulista, 1000<br>Bela Vista, São Paulo - SP</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i data-lucide="phone" style="width: 16px; height: 16px;"></i>
+                        <a href="tel:+5511999999999" class="clickable">(11) 99999-9999</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="footer-divider"></div>
+
+        <!-- Bottom Copyright & Credit -->
+        <div class="footer-bottom">
+            <span>&copy; 2026 Clínica Estética - Estética Avançada. Todos os direitos reservados.</span>
+            
+        </div>
+    </footer>
+
+    <!-- GSAP, ScrollTrigger & Lenis Smooth Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Smooth Scrolling with Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Integrate Lenis with ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time)=>{
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        // 2. Custom Fluid Mouse Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.custom-cursor-follower');
+        
+        let mouseX = 0, mouseY = 0;
+        let posX = 0, posY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Instantly position the dot
+            gsap.set(cursor, { x: mouseX, y: mouseY });
+        });
+
+        // Fluid follow effect using GSAP ticker
+        gsap.ticker.add(() => {
+            posX += (mouseX - posX) * 0.12;
+            posY += (mouseY - posY) * 0.12;
+            gsap.set(follower, { x: posX, y: posY });
+        });
+
+        // Hover expansions for clickable items
+        const clickables = document.querySelectorAll('.clickable');
+        clickables.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { scale: 1.5, backgroundColor: '#ffffff', duration: 0.2 });
+                gsap.to(follower, { 
+                    scale: 1.6, 
+                    borderColor: '#ffffff', 
+                    backgroundColor: 'rgba(255, 255, 255, 0.08)', 
+                    duration: 0.2 
+                });
+            });
+            item.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { scale: 1, backgroundColor: 'var(--color-gold)', duration: 0.2 });
+                gsap.to(follower, { 
+                    scale: 1, 
+                    borderColor: 'rgba(var(--color-gold-rgb), 0.4)', 
+                    backgroundColor: 'transparent', 
+                    duration: 0.2 
+                });
+            });
+        });
+
+        // 3. Navbar shrink and blur on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 4. Preloader and Hero Entrance Timeline
+        const preloaderTimeline = gsap.timeline({
+            onComplete: () => {
+                // Destroy preloader element from DOM after completion
+                document.querySelector('.preloader').style.display = 'none';
+            }
+        });
+
+        // Preloader Animation Sequence
+        preloaderTimeline
+            .to('.preloader-logo', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' })
+            .to('.preloader-bar', { scaleX: 1, duration: 1.2, ease: 'power1.inOut' }, '-=0.2')
+            .to('.preloader-logo', { opacity: 0, y: -20, duration: 0.4, ease: 'power2.in' }, '+=0.2')
+            .to('.preloader', { 
+                yPercent: -100, 
+                duration: 1, 
+                ease: 'power4.inOut',
+                onStart: () => {
+                    // Trigger Hero entry animations slightly before preloader is completely gone
+                    initHeroAnimations();
+                }
+            });
+
+        // Hero Entrance Animation
+        function initHeroAnimations() {
+            const heroTL = gsap.timeline();
+
+            heroTL
+                // Slow background reveal & zoom out
+                .fromTo('.hero-bg', { scale: 1.2 }, { scale: 1, duration: 2.5, ease: 'power2.out' }, 0)
+                
+                // Navbar entry
+                .from('.navbar', { y: -60, opacity: 0, duration: 1.2, ease: 'power3.out' }, 0.5)
+                
+                // Subtitle slide up & fade in
+                .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, 0.6)
+                
+                // Title lines text mask reveal
+                .to('.mask-line span', {
+                    y: 0,
+                    duration: 1.3,
+                    stagger: 0.15,
+                    ease: 'power4.out'
+                }, 0.7)
+                
+                // Paragraph description fade in
+                .to('.hero-description', { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, 1.1)
+                
+                // Action Buttons
+                .to('.hero-cta-group', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, 1.3)
+                
+                // Divider lines expansion
+                .to('.stat-divider', { scaleY: 1, duration: 1.2, ease: 'power3.out', stagger: 0.1 }, 1.4)
+                
+                // Stats numbers and labels slide up
+                .to('.stat-item', { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    ease: 'power3.out', 
+                    stagger: 0.1,
+                    onComplete: () => {
+                        // Trigger numerical counting
+                        animateStatsCounter();
+                    }
+                }, 1.5)
+                
+                // Scroll mouse indicator fade in
+                .to('.scroll-indicator-container', { opacity: 1, duration: 0.8 }, 1.8);
+        }
+
+        // 5. Numerical Counter Animation
+        function animateStatsCounter() {
+            // Google Rating
+            const ratingVal = document.querySelector('.rating-val');
+            const ratingObj = { value: 0 };
+            gsap.to(ratingObj, {
+                value: 4.9,
+                duration: 1.8,
+                ease: 'power2.out',
+                onUpdate: () => {
+                    ratingVal.innerText = ratingObj.value.toFixed(1);
+                }
+            });
+
+            // Experience Years
+            const expVal = document.querySelector('.exp-val');
+            const expObj = { value: 0 };
+            gsap.to(expObj, {
+                value: 10,
+                duration: 1.8,
+                ease: 'power2.out',
+                onUpdate: () => {
+                    expVal.innerText = Math.floor(expObj.value) + '+';
+                }
+            });
+
+            // Clients count
+            const clientsVal = document.querySelector('.clients-val');
+            const clientsObj = { value: 0 };
+            gsap.to(clientsObj, {
+                value: 1000,
+                duration: 2.2,
+                ease: 'power3.out',
+                onUpdate: () => {
+                    clientsVal.innerText = Math.floor(clientsObj.value) + '+';
+                }
+            });
+        }
+
+        // 6. Parallax Effect on Scroll (Background and Content)
+        gsap.to('.hero-bg-container', {
+            yPercent: 15,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        gsap.to('.hero-content', {
+            yPercent: -12,
+            opacity: 0.8,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        gsap.to('.hero-stats', {
+            yPercent: -5,
+            opacity: 0.5,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        // 7. About Section scroll animations
+        gsap.from('.about-image-wrapper', {
+            opacity: 0,
+            x: -60,
+            duration: 1.5,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.about-section',
+                start: 'top 75%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.from('.about-content > *', {
+            opacity: 0,
+            y: 40,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.about-section',
+                start: 'top 75%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // 7.5. Biography Section scroll animations
+        gsap.to('.bio-title', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.bio-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.bio-paragraph', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.bio-section',
+                start: 'top 75%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+
+
+        gsap.to('.bio-image-container', {
+            opacity: 1,
+            scale: 1,
+            rotateY: 0,
+            duration: 1.6,
+            ease: 'power4.out',
+            scrollTrigger: {
+                trigger: '.bio-section',
+                start: 'top 70%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // 8. Dynamic background theme transition (dark to light) on scroll
+        const themeTransitionTL = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#sobre',
+                start: 'top 85%',
+                end: 'top 35%',
+                scrub: true
+            }
+        });
+
+        themeTransitionTL
+            // Animate body background to white
+            .to('body', { backgroundColor: '#fcfbf7', duration: 1 })
+            // Animate navbar scrolled variables to white glass
+            .to(':root', { 
+                '--navbar-scrolled-bg': 'rgba(252, 251, 247, 0.85)',
+                duration: 1 
+            }, 0)
+            // Animate navbar text and logo elements to dark colors
+            .to('.logo-bio', { color: '#12100e', duration: 1 }, 0)
+            .to('.nav-links a', { color: 'rgba(18, 16, 14, 0.7)', duration: 1 }, 0)
+            // Animate about texts to dark colors
+            .to('.about-title', { color: '#12100e', duration: 1 }, 0)
+            .to('.about-paragraph', { color: '#44403c', duration: 1 }, 0)
+            .to('.about-paragraph strong', { color: '#12100e', duration: 1 }, 0)
+            // Animate custom cursor elements to dark colors for better contrast
+            .to('.custom-cursor-follower', { borderColor: 'rgba(198, 156, 89, 0.8)', duration: 1 }, 0);
+
+        // 9. Treatments Section scroll animations
+        gsap.to('.treatments-title', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.treatments-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.treatments-subtitle', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.treatments-section',
+                start: 'top 78%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.treatment-card', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.treatments-grid',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.treatments-footer', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.treatments-footer',
+                start: 'top 90%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // 10. Testimonials Mouse-Reveal Glow Effect
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        testimonialCards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // 11. Testimonials Section Scroll Animations
+        gsap.to('.testimonials-title', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.testimonials-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.testimonials-rating-container', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.testimonials-section',
+                start: 'top 78%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // Animate Google stars in header
+        gsap.to('.testimonials-stars i', {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+                trigger: '.testimonials-rating-container',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // Staggered 3D entry for testimonial cards
+        gsap.to('.testimonial-card', {
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            duration: 1.5,
+            stagger: 0.15,
+            ease: 'power4.out',
+            scrollTrigger: {
+                trigger: '.testimonials-grid',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // 12. Contact & Location Section scroll animations
+        gsap.to('.contact-title', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.contact-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.contact-subtitle', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.contact-section',
+                start: 'top 78%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.map-wrapper', {
+            opacity: 1,
+            x: 0,
+            duration: 1.5,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.contact-grid',
+                start: 'top 75%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.info-card', {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.contact-grid',
+                start: 'top 75%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        gsap.to('.social-buttons-group', {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: 'back.out(1.5)',
+            scrollTrigger: {
+                trigger: '.social-buttons-group',
+                start: 'top 90%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // 13. Footer Section scroll animations
+        gsap.to('.footer-col', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.footer',
+                start: 'top 92%',
+                toggleActions: 'play none none none'
+            }
+        });
+
+        // 14. Copyright Bar scroll animations
+        gsap.fromTo('.footer-bottom', 
+            { opacity: 0 },
+            {
+                opacity: 1,
+                duration: 1.5,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.footer',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    </script>
+</body>
+</html>

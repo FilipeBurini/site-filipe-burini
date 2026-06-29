@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dra. Letícia Costa | Endodontia, Implantes e Sedação em Sua Cidade-UF</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Consultório odontológico premium em Sua Cidade-UF. Dra. Letícia Costa oferece tratamento de canal microscópico, implantes e sedação consciente sem dor ou medo.">
+  <meta name="keywords" content="dentista sua cidade, endodontia sua cidade, implantes sua cidade, sedação consciente sua cidade, tratamento de canal sua cidade, dra dra. letícia costa">
+  <meta name="author" content="Dra. Letícia Costa">
+  <link rel="canonical" href="https://letíciadentista.com.br">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            offwhite: {
+              DEFAULT: '#F8F9FA',
+              darker: '#F1F3F5',
+            },
+            navy: {
+              50: '#F0F6FA',
+              100: '#DDEAF4',
+              200: '#C2D9EB',
+              300: '#9BC0DE',
+              400: '#6AA0CE',
+              500: '#10446B', /* Base rgb(16, 68, 107) */
+              600: '#165C91', /* Hover state */
+              700: '#0E3B5D', /* Active state */
+              800: '#0A304C',
+              900: '#062034',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons Library CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Core Styles -->
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8F9FA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DDEAF4;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10446B;
+    }
+
+    /* Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 35s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Custom Shadow System */
+    .shadow-premium {
+      box-shadow: 0 10px 30px -10px rgba(16, 68, 107, 0.06);
+    }
+    .shadow-premium-hover {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .shadow-premium-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -15px rgba(16, 68, 107, 0.12);
+    }
+    
+    /* Tactile active press */
+    .btn-active:active {
+      transform: scale(0.97);
+    }
+
+    
+  </style>
+</head>
+<body class="bg-offwhite text-slate-800 font-sans selection:bg-navy-500 selection:text-white overflow-x-hidden">
+
+  
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full h-[72px] bg-white/75 backdrop-blur-lg border-b border-navy-500/5 z-50 flex items-center transition-all duration-300">
+    <div class="max-w-7xl mx-auto w-full px-6 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="flex flex-col select-none group">
+        <span class="font-serif text-lg md:text-xl font-bold tracking-tight text-slate-900 group-hover:text-navy-500 transition-colors duration-300">
+          Dra. Letícia Costa
+        </span>
+        <span class="text-[9px] uppercase tracking-[0.2em] text-navy-500 font-semibold">
+          Endodontia • Implantes • Sedação
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#diferenciais" class="hover:text-navy-500 transition-colors">Diferenciais</a>
+        <a href="#tratamentos" class="hover:text-navy-500 transition-colors">Tratamentos</a>
+        <a href="#sobre" class="hover:text-navy-500 transition-colors">Sobre mim</a>
+        <a href="#depoimentos" class="hover:text-navy-500 transition-colors">Depoimentos</a>
+      </nav>
+
+      <!-- Nav CTA -->
+      <div class="hidden md:block">
+        <a href="https://api.whatsapp.com/send?phone=5516999874000&text=Ol%C3%A1%2C%20Dra.%20Letícia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+           target="_blank"
+           class="btn-active inline-flex items-center justify-center bg-transparent border border-navy-500/20 hover:border-navy-500 hover:bg-navy-500/5 text-navy-500 px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300">
+          Agendar Consulta
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-600 hover:text-navy-500 focus:outline-none" aria-label="Abrir Menu">
+        <span class="menu-open"><i class="fa-solid fa-bars text-xl"></i></span>
+        <span class="menu-close hidden"><i class="fa-solid fa-xmark text-xl"></i></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 top-[72px] bg-white/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-8 gap-6 border-t border-navy-500/5">
+      <a href="#diferenciais" class="mobile-nav-link text-xl font-serif text-slate-900 hover:text-navy-500 transition-colors">Diferenciais</a>
+      <a href="#tratamentos" class="mobile-nav-link text-xl font-serif text-slate-900 hover:text-navy-500 transition-colors">Tratamentos</a>
+      <a href="#sobre" class="mobile-nav-link text-xl font-serif text-slate-900 hover:text-navy-500 transition-colors">Sobre mim</a>
+      <a href="#depoimentos" class="mobile-nav-link text-xl font-serif text-slate-900 hover:text-navy-500 transition-colors">Depoimentos</a>
+      
+      <div class="h-[1px] bg-navy-500/10 my-4"></div>
+      
+      <a href="https://api.whatsapp.com/send?phone=5516999874000&text=Ol%C3%A1%2C%20Dra.%20Letícia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+         target="_blank"
+         class="inline-flex items-center justify-center bg-navy-500 hover:bg-navy-600 text-white font-bold px-6 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[100dvh] pt-[72px] flex items-center overflow-hidden bg-white">
+    <!-- Decorative subtle gradient blobs -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-navy-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-navy-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Background image overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1600&auto=format&fit=crop" 
+           alt="Luxurious clinic space" 
+           class="w-full h-full object-cover opacity-10">
+      <div class="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full px-6 relative z-10 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Hero Column -->
+      <div class="lg:col-span-7 flex flex-col text-left">
+        <span class="hero-sub inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-navy-500 uppercase mb-4">
+          <i class="fa-solid fa-award"></i> 14 anos transformando sorrisos em Sua Cidade-UF
+        </span>
+        
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl font-serif text-slate-900 tracking-tight leading-[1.1] mb-6">
+          O fim do medo em <br class="hidden sm:inline">
+          <span class="text-navy-500 font-semibold italic bg-gradient-to-r from-navy-500 to-navy-600 bg-clip-text text-transparent">canal e implantes</span>.
+        </h1>
+
+        <p class="hero-sub text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-[55ch]">
+          Dra. Letícia Costa une tecnologia de ponta, microscopia avançada e a segurança da sedação consciente para proporcionar um tratamento indolor, confortável e focado no seu bem-estar.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta flex flex-col sm:flex-row gap-4">
+          <a href="https://api.whatsapp.com/send?phone=5516999874000&text=Ol%C3%A1%2C%20Dra.%20Letícia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+             target="_blank"
+             class="btn-active inline-flex items-center justify-center bg-gradient-to-r from-navy-500 to-navy-600 hover:from-navy-600 hover:to-navy-700 text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 shadow-premium hover:shadow-lg">
+            Agendar Consulta
+          </a>
+          <a href="#tratamentos"
+             class="btn-active inline-flex items-center justify-center bg-transparent border border-navy-500/20 hover:border-navy-500/40 text-navy-500 font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300">
+            Conhecer Tratamentos
+          </a>
+        </div>
+
+        <!-- Trust Indicator -->
+        <div class="hero-cta mt-12 flex items-center gap-4">
+          <div class="flex items-center gap-1 text-amber-500">
+            <i class="fa-solid fa-star text-amber-500"></i>
+            <i class="fa-solid fa-star text-amber-500"></i>
+            <i class="fa-solid fa-star text-amber-500"></i>
+            <i class="fa-solid fa-star text-amber-500"></i>
+            <i class="fa-solid fa-star text-amber-500"></i>
+          </div>
+          <p class="text-xs text-slate-500">
+            <strong class="text-slate-800">5.0 ★ no Google</strong> (111 avaliações de pacientes em Sua Cidade)
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Hero Column -->
+      <div class="hero-cta lg:col-span-5 hidden lg:block relative">
+        <div class="w-full aspect-[4/5] rounded-3xl overflow-hidden border border-navy-500/10 relative group shadow-premium">
+          <img src="assets/consultorio.png" 
+               alt="Consultório Odontológico de Alto Padrão" 
+               class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-900/40 via-transparent to-transparent"></div>
+          <!-- Tiny floating card -->
+          <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md border border-navy-500/10 p-4 rounded-xl flex items-center gap-3 shadow-lg">
+            <div class="w-10 h-10 rounded-lg bg-navy-500/10 flex items-center justify-center text-navy-500">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Padrão Ouro de Segurança</p>
+              <p class="text-sm text-slate-900 font-semibold">Ambiente Cirúrgico Confiável</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHORITY BAR (MARQUEE) -->
+  <section class="bg-gradient-to-r from-navy-500 to-navy-600 border-y border-navy-700 py-6 overflow-hidden select-none">
+    <div class="flex">
+      <div class="animate-marquee whitespace-nowrap flex items-center gap-16 text-xs font-semibold uppercase tracking-[0.18em] text-white/95">
+        <!-- Sequence -->
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Canal em Sessão Única</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Sedação Consciente</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Microscopia Clínica</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Implantes Guiados 3D</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Sem Dor ou Ansiedade</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> 14 Anos de Dedicação</span>
+
+        <!-- Duplicated Sequence for loop -->
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Canal em Sessão Única</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Sedação Consciente</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Microscopia Clínica</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Implantes Guiados 3D</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> Sem Dor ou Ansiedade</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-navy-200"></i> 14 Anos de Dedicação</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS (BENTO GRID) -->
+  <section id="diferenciais" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-[65ch] mx-auto mb-16 scroll-reveal">
+      <h2 class="text-3xl md:text-4xl font-serif text-slate-900 tracking-tight mb-4">
+        O que nos torna únicos
+      </h2>
+      <p class="text-slate-600 text-sm md:text-base">
+        A combinação de infraestrutura hospitalar com atendimento atencioso e ferramentas de última geração.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-grid">
+      <!-- Card 1: 14 Anos de Dedicação -->
+      <div class="md:col-span-2 bg-gradient-to-br from-white to-navy-50/20 border border-slate-200/80 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-navy-500/20 shadow-premium transition-[border-color,box-shadow] duration-300">
+        <div class="absolute -right-16 -top-16 w-48 h-48 bg-navy-500/5 rounded-full blur-3xl group-hover:bg-navy-500/10 transition-all duration-500"></div>
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-navy-500/10 flex items-center justify-center text-navy-500 mb-6">
+            <i class="fa-solid fa-heart-pulse text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-serif text-slate-900 mb-3">14 Anos de Cuidado Real</h3>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-prose">
+            Uma trajetória construída com amor. Dra. Letícia Costa une excelência acadêmica ao acolhimento familiar (esposa e mãe de 4 filhos). O tratamento é planejado especificamente para sua rotina, necessidades de saúde e sensibilidades individuais.
+          </p>
+        </div>
+        <div class="mt-8 text-xs text-navy-500 font-bold tracking-wider uppercase flex items-center gap-2">
+          Atendimento Humano de Verdade <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+
+      <!-- Card 2: Sedação Consciente -->
+      <div class="bg-gradient-to-br from-navy-500/10 to-navy-500/5 border border-navy-500/15 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-navy-500/30 shadow-premium transition-[border-color,box-shadow] duration-300">
+        <div class="absolute -right-16 -top-16 w-36 h-36 bg-navy-500/10 rounded-full blur-3xl group-hover:bg-navy-500/20 transition-all duration-500"></div>
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-navy-500/20 flex items-center justify-center text-navy-500 mb-6">
+            <i class="fa-solid fa-syringe text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-serif text-slate-900 mb-3">Sedação Consciente</h3>
+          <p class="text-slate-700 leading-relaxed text-sm">
+            Tratamentos cirúrgicos ou de canal sem dor ou ansiedade. Indicado especialmente para quem tem aversão a agulhas, barulho de motor ou dor.
+          </p>
+        </div>
+        <div class="mt-6 text-xs text-navy-500 font-bold uppercase flex items-center gap-2">
+          Conforto absoluto <i class="fa-solid fa-sparkles"></i>
+        </div>
+      </div>
+
+      <!-- Card 3: Tecnologia (Imagem) -->
+      <div class="min-h-[320px] md:h-full rounded-2xl overflow-hidden relative group border border-slate-200 shadow-premium">
+        <img src="assets/microscopio.png" 
+             alt="Equipamentos tecnológicos do consultório" 
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-transparent p-8 flex flex-col justify-end">
+          <span class="text-xs text-navy-300 font-bold uppercase tracking-wider mb-1">Tecnologia</span>
+          <h4 class="text-lg font-serif text-white">Precisão Microscópica</h4>
+        </div>
+      </div>
+
+      <!-- Card 4: Tecnologia de Ponta -->
+      <div class="md:col-span-2 bg-gradient-to-br from-white to-navy-50/10 border border-slate-200/80 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-navy-500/20 shadow-premium transition-[border-color,box-shadow] duration-300">
+        <div class="absolute -right-16 -top-16 w-48 h-48 bg-navy-500/5 rounded-full blur-3xl group-hover:bg-navy-500/10 transition-all duration-500"></div>
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-navy-500/10 flex items-center justify-center text-navy-500 mb-6">
+            <i class="fa-solid fa-laptop-medical text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-serif text-slate-900 mb-3">Infraestrutura Tecnológica</h3>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-prose">
+            O consultório utiliza microscopia clínica avançada, scanners intraorais 3D e softwares de planejamento cirúrgico guiado. Isso possibilita diagnósticos muito mais nítidos e tratamentos complexos realizados na metade do tempo convencional.
+          </p>
+        </div>
+        <div class="mt-8 text-xs text-navy-500 font-bold tracking-wider uppercase flex items-center gap-2">
+          Diagnósticos Rápidos e Seguros <i class="fa-solid fa-circle-check"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRATAMENTOS E SERVIÇOS -->
+  <section id="tratamentos" class="py-24 bg-white border-y border-navy-500/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-[65ch] mx-auto mb-20 scroll-reveal">
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 tracking-tight mb-4">
+          Nossas Especialidades
+        </h2>
+        <p class="text-slate-600 text-sm md:text-base">
+          Soluções completas com máxima precisão e foco na preservação do seu sorriso original.
+        </p>
+      </div>
+
+      <!-- Grid of Treatments -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 reveal-grid">
+        <!-- Treatment 1 -->
+        <div class="bg-gradient-to-b from-white to-navy-50/10 border border-slate-200 p-8 rounded-2xl hover:border-navy-500/30 hover:shadow-premium transition-[border-color,box-shadow] duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-navy-500/10 flex items-center justify-center text-navy-500 mb-6">
+              <i class="fa-solid fa-microscope text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-serif text-slate-900 mb-4">Endodontia Avançada</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              O tratamento de canal moderno evoluiu. Com o suporte da microscopia óptica, realizamos limpezas microscópicas de canais calcificados e complexos, eliminando bactérias de forma definitiva e salvando dentes comprometidos em sessão única com total segurança.
+            </p>
+          </div>
+          <ul class="space-y-3 text-xs text-navy-600 font-bold tracking-wider uppercase border-t border-slate-100 pt-6">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Microscopia de alta resolução</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Sessão única na maioria dos casos</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Pós-operatório rápido</li>
+          </ul>
+        </div>
+
+        <!-- Treatment 2 -->
+        <div class="bg-gradient-to-b from-white to-navy-50/10 border border-slate-200 p-8 rounded-2xl hover:border-navy-500/30 hover:shadow-premium transition-[border-color,box-shadow] duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-navy-500/10 flex items-center justify-center text-navy-500 mb-6">
+              <i class="fa-solid fa-tooth text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-serif text-slate-900 mb-4">Implantes Dentários</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Recupere a estabilidade da sua mastigação e a segurança da sua fala. Nossos implantes são executados através de planejamento digital guiado, o que descarta a necessidade de cortes amplos ou suturas agressivas, promovendo uma integração rápida e indolor.
+            </p>
+          </div>
+          <ul class="space-y-3 text-xs text-navy-600 font-bold tracking-wider uppercase border-t border-slate-100 pt-6">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Planejamento 3D Guiado</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Cicatrização Acelerada</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Materiais Biocompatíveis</li>
+          </ul>
+        </div>
+
+        <!-- Treatment 3 -->
+        <div class="bg-gradient-to-b from-white to-navy-50/10 border border-slate-200 p-8 rounded-2xl hover:border-navy-500/30 hover:shadow-premium transition-[border-color,box-shadow] duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-navy-500/10 flex items-center justify-center text-navy-500 mb-6">
+              <i class="fa-solid fa-syringe text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-serif text-slate-900 mb-4">Sedação Consciente</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              A solução definitiva para pacientes com ansiedade, odontofobia (medo de dentista) ou reflexos nauseantes agudos. Com acompanhamento farmacológico seguro, você passa pelo procedimento clínico ou cirúrgico dormindo ou em relaxamento pleno, sem estresse.
+            </p>
+          </div>
+          <ul class="space-y-3 text-xs text-navy-600 font-bold tracking-wider uppercase border-t border-slate-100 pt-6">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Monitoramento contínuo</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Zero dor e zero ansiedade</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-navy-500"></i> Ideal para cirurgias complexas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE DRA. LETÍCIA (BIO) -->
+  <section id="sobre" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-grid">
+      <!-- Left Column: Portrait -->
+      <div class="lg:col-span-5 relative">
+        <div class="w-full aspect-[4/5] rounded-3xl overflow-hidden border border-slate-200 relative shadow-premium">
+          <img src="assets/dra_letícia.png" 
+               alt="Dra. Letícia Costa sorrindo no consultório" 
+               class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-900/10 to-transparent"></div>
+        </div>
+      </div>
+
+      <!-- Right Column: Story & Bio -->
+      <div class="lg:col-span-7 flex flex-col">
+        <span class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-navy-500 uppercase mb-4">
+          Dra. Letícia Costa
+        </span>
+        <h2 class="text-3xl md:text-5xl font-serif text-slate-900 tracking-tight leading-tight mb-6">
+          Ciência avançada unida a um acolhimento de mãe.
+        </h2>
+        <div class="text-slate-600 space-y-6 text-base leading-relaxed">
+          <p>
+            Com mais de uma década dedicada à odontologia especializada em Sua Cidade-UF, a <strong class="text-slate-900 font-semibold">Dra. Letícia Costa</strong> desenvolveu um consultório conceitual voltado para a tranquilidade absoluta dos pacientes.
+          </p>
+          <p>
+            Mãe de 4 filhos e esposa, ela compreende que a ida ao dentista exige sensibilidade, acolhimento e escuta atenta. Por isso, aliou sua especialização científica em <strong class="text-navy-500 font-semibold">Endodontia e Implantodontia</strong> ao uso da <strong class="text-navy-500 font-semibold">Sedação Consciente</strong>, desmistificando o medo de agulhas e dor.
+          </p>
+          <p>
+            Aqui, cada tratamento é conduzido sob microscopia óptica para precisão absoluta, assegurando diagnósticos corretos e resultados seguros no menor tempo possível.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+          <a href="https://api.whatsapp.com/send?phone=5516999874000&text=Ol%C3%A1%2C%20Dra.%20Letícia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+             target="_blank"
+             class="btn-active inline-flex items-center justify-center bg-gradient-to-r from-navy-500 to-navy-600 hover:from-navy-600 hover:to-navy-700 text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 shadow-premium hover:shadow-lg">
+            Agendar com a Dra. Letícia
+          </a>
+          <a href="https://www.instagram.com/letícia_dentista" 
+             target="_blank"
+             class="inline-flex items-center gap-2 text-slate-600 hover:text-navy-500 transition-colors text-sm font-semibold">
+            <i class="fa-brands fa-instagram text-navy-500 text-lg"></i> @letícia_dentista
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (SOCIAL PROOF) -->
+  <section id="depoimentos" class="py-24 bg-white border-y border-navy-500/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-[65ch] mx-auto mb-16 scroll-reveal">
+        <h2 class="text-3xl md:text-4xl font-serif text-slate-900 tracking-tight mb-4">
+          O Sorriso de Quem Confia
+        </h2>
+        <p class="text-slate-600 text-sm md:text-base">
+          Opiniões reais deixadas espontaneamente por nossos pacientes no Google.
+        </p>
+      </div>
+
+      <!-- Testimonial Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-grid mb-12">
+        <!-- Testimonial 1 -->
+        <div class="bg-gradient-to-b from-white to-navy-50/10 border border-slate-200 p-8 rounded-2xl relative flex flex-col justify-between shadow-premium">
+          <div>
+            <div class="text-amber-500 flex gap-1 mb-6">
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+            </div>
+            <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">
+              "Super profissional, segura no procedimento técnico e atenciosa."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-slate-100 pt-6">
+            <div class="w-10 h-10 rounded-full bg-navy-500/10 flex items-center justify-center text-navy-500 font-bold text-sm">
+              R
+            </div>
+            <div>
+              <h4 class="text-slate-900 text-sm font-semibold">Ronaldo Sua Cidade</h4>
+              <p class="text-slate-400 text-xs">Avaliação no Google</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-gradient-to-b from-white to-navy-50/10 border border-slate-200 p-8 rounded-2xl relative flex flex-col justify-between shadow-premium">
+          <div>
+            <div class="text-amber-500 flex gap-1 mb-6">
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+            </div>
+            <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">
+              "Parabéns a toda equipe pelo ótimo trabalho!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-slate-100 pt-6">
+            <div class="w-10 h-10 rounded-full bg-navy-500/10 flex items-center justify-center text-navy-500 font-bold text-sm">
+              L
+            </div>
+            <div>
+              <h4 class="text-slate-900 text-sm font-semibold">Lucia Borges</h4>
+              <p class="text-slate-400 text-xs">Avaliação no Google</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-gradient-to-b from-white to-navy-50/10 border border-slate-200 p-8 rounded-2xl relative flex flex-col justify-between shadow-premium">
+          <div>
+            <div class="text-amber-500 flex gap-1 mb-6">
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+              <i class="fa-solid fa-star text-amber-500"></i>
+            </div>
+            <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">
+              "Drª Letícia cuida das minhas duas filhas, ótima profissional!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-slate-100 pt-6">
+            <div class="w-10 h-10 rounded-full bg-navy-500/10 flex items-center justify-center text-navy-500 font-bold text-sm">
+              S
+            </div>
+            <div>
+              <h4 class="text-slate-900 text-sm font-semibold">Sabrina Vaz</h4>
+              <p class="text-slate-400 text-xs">Avaliação no Google</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Metrics -->
+      <div class="text-center">
+        <a href="https://api.whatsapp.com/send?phone=5516999874000&text=Ol%C3%A1%2C%20Dra.%20Letícia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+           target="_blank"
+           class="inline-flex items-center gap-2 bg-transparent border border-slate-200 hover:border-navy-500 hover:text-navy-500 text-slate-700 font-semibold px-6 py-3 rounded-full text-xs uppercase tracking-wider transition-all duration-300">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Fale com Nossa Equipe
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / LOCATION MAP -->
+  <section class="py-24 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-grid">
+      <!-- Contact details -->
+      <div class="lg:col-span-5 flex flex-col">
+        <span class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-navy-500 uppercase mb-4">
+          Localização e Contato
+        </span>
+        <h2 class="text-3xl font-serif text-slate-900 tracking-tight leading-tight mb-8">
+          Próximo a você, em Sua Cidade-UF.
+        </h2>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-navy-500/10 flex items-center justify-center text-navy-500 shrink-0 mt-1">
+              <i class="fa-solid fa-map-location-dot text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-semibold mb-1">Endereço</h4>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                R. Dr. Júlio Cardoso, 1547 - Sala 1 - Centro<br>Sua Cidade - UF, 14000-730
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-navy-500/10 flex items-center justify-center text-navy-500 shrink-0 mt-1">
+              <i class="fa-solid fa-phone text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-semibold mb-1">Telefone</h4>
+              <p class="text-slate-600 text-sm font-semibold">
+                (00) 99999-9999
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-navy-500/10 flex items-center justify-center text-navy-500 shrink-0 mt-1">
+              <i class="fa-solid fa-clock text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-semibold mb-1">Horário de Funcionamento</h4>
+              <p class="text-slate-600 text-sm">
+                Segunda a Sexta: 08:00 às 19:00
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a href="https://api.whatsapp.com/send?phone=5516999874000&text=Ol%C3%A1%2C%20Dra.%20Letícia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+             target="_blank"
+             class="btn-active inline-flex items-center justify-center bg-gradient-to-r from-navy-500 to-navy-600 hover:from-navy-600 hover:to-navy-700 text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 shadow-premium hover:shadow-lg">
+            Tratamento Sem Medo
+          </a>
+        </div>
+      </div>
+
+      <!-- Google Maps embed -->
+      <div class="lg:col-span-7">
+        <div class="w-full aspect-video rounded-3xl overflow-hidden border border-slate-200 relative shadow-premium">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.1352467389147!2d-47.40428588507204!3d-20.531478186273766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b0a1d4715f5d6f%3A0xe5a3cfa4d9ff96!2sR.%20Dr.%20J%C3%BAlio%20Cardoso%2C%201547%20-%20Centro%2C%20Sua Cidade%20-%20SP%2C%2014400-730!5e0!3m2!1spt-BR!2sbr!4v1655000000000!5m2!1spt-BR!2sbr" 
+            class="w-full h-full border-0 grayscale opacity-85 hover:opacity-100 transition-opacity duration-300" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-12 text-xs">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+        <p class="font-semibold text-white">
+          Dra. Letícia Costa — Especialista em Endodontia | Implantes | Sedação
+        </p>
+        <p>
+          R. Dr. Júlio Cardoso, 1547 - Sala 1 - Centro, Sua Cidade - UF, 14000-730
+        </p>
+        <p class="text-[10px] text-slate-500">
+          Inscrição CRO-SP sob responsabilidade técnica.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="https://www.instagram.com/letícia_dentista" target="_blank" class="hover:text-navy-400 transition-colors">Instagram</a>
+        <a href="https://api.whatsapp.com/send?phone=5516999874000&text=Ol%C3%A1%2C%20Dra.%20Letícia!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" class="hover:text-navy-400 transition-colors">WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-slate-800 text-center text-slate-500 text-[10px]">
+      Copyright 2026 Dentista Especialista em Endodontia | Implantes | Sedação. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- GSAP & Animations Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    // Font Awesome loaded via CSS, no JS initialization needed
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpenIcon = mobileMenuBtn.querySelector('.menu-open');
+    const menuCloseIcon = mobileMenuBtn.querySelector('.menu-close');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('translate-x-full');
+      if (isOpen) {
+        mobileMenu.classList.add('translate-x-full');
+        menuOpenIcon.classList.remove('hidden');
+        menuCloseIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('translate-x-full');
+        menuOpenIcon.classList.add('hidden');
+        menuCloseIcon.classList.remove('hidden');
+      }
+    });
+
+    // Close mobile menu on clicking links
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+        menuOpenIcon.classList.remove('hidden');
+        menuCloseIcon.classList.add('hidden');
+      });
+    });
+
+    // GSAP ScrollAnimations (Skip if user prefers reduced motion)
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isReducedMotion) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Elements Staggered Fade Up
+      const tl = gsap.timeline();
+      tl.from(".hero-title", { opacity: 0, y: 60, duration: 1.2, ease: "power4.out" })
+        .from(".hero-sub", { opacity: 0, y: 30, duration: 1, ease: "power3.out", stagger: 0.15 }, "-=0.9")
+        .from(".hero-cta", { opacity: 0, y: 20, duration: 0.8, ease: "power2.out", stagger: 0.1 }, "-=0.7");
+
+      // Scroll reveal generic
+      gsap.utils.toArray('.scroll-reveal').forEach((section) => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 40,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        });
+      });
+
+      // Grid items reveal stagger
+      gsap.utils.toArray('.reveal-grid').forEach((grid) => {
+        gsap.fromTo(grid.children, 
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: grid,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      });
+    }
+  </script>
+</body>
+</html>

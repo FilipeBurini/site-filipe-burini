@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clínica Dra. Maria Oliveira | Referência em harmonização facial, glútea e tratamentos estéticos avançados em Sua Cidade - UF. Resultados naturais e segurança clínica.">
+    <title>Dra. Maria Oliveira | Clínica de Estética em Sua Cidade SP</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#050505',
+                            surface: '#0c0c0c',
+                            card: '#121212',
+                            gold: '#D4AF37',
+                            champagne: '#E5C38E',
+                            rose: '#E5B8B0',
+                            muted: '#a3a3a3',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-header {
+            background: rgba(5, 5, 5, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(229, 195, 142, 0.3);
+            box-shadow: 0 10px 30px -15px rgba(229, 195, 142, 0.15);
+        }
+
+        /* Continuous Horizontal Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+
+        /* Subtle pulse glow effect for primary CTA */
+        .cta-pulse {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .cta-pulse::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #D4AF37, #E5C38E, #E5B8B0);
+            z-index: -1;
+            border-radius: 9999px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .cta-pulse:hover::after {
+            opacity: 1;
+        }
+
+        /* Fade-in animation class used before GSAP mounts */
+        .gsap-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
+
+    
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-header">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex flex-col">
+                <span class="font-serif text-xl tracking-[0.25em] font-light text-brand-champagne uppercase leading-none">Dra. Maria Oliveira</span>
+                <span class="font-sans text-[9px] tracking-[0.4em] uppercase text-brand-muted mt-1">Biomédica Esteta</span>
+            </a>
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="#tratamentos" class="text-xs uppercase tracking-widest text-brand-muted hover:text-brand-champagne transition-colors duration-300">Tratamentos</a>
+                <a href="#diferenciais" class="text-xs uppercase tracking-widest text-brand-muted hover:text-brand-champagne transition-colors duration-300">Diferenciais</a>
+                <a href="#sobre" class="text-xs uppercase tracking-widest text-brand-muted hover:text-brand-champagne transition-colors duration-300">A Clínica</a>
+                <a href="#depoimentos" class="text-xs uppercase tracking-widest text-brand-muted hover:text-brand-champagne transition-colors duration-300">Depoimentos</a>
+                <a href="#contato" class="text-xs uppercase tracking-widest text-brand-muted hover:text-brand-champagne transition-colors duration-300">Contato</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden md:block">
+                <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Gostaria%20de%20agendar%20uma%20avaliação%20personalizada." 
+                   target="_blank" 
+                   class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-medium uppercase tracking-widest border border-brand-champagne text-brand-champagne hover:bg-brand-champagne hover:text-brand-dark transition-all duration-300 rounded-full">
+                    Agendar Avaliação
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-champagne p-2 focus:outline-none" aria-label="Menu Principal">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobile-drawer" class="fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-xl translate-x-full transition-transform duration-500 flex flex-col justify-center items-center">
+        <!-- Close Button -->
+        <button id="close-drawer-btn" class="absolute top-6 right-6 text-brand-champagne p-2" aria-label="Fechar Menu">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+
+        <nav class="flex flex-col items-center space-y-8 text-center">
+            <a href="#tratamentos" class="mobile-nav-link font-serif text-2xl text-brand-muted hover:text-brand-champagne transition-colors duration-300">Tratamentos</a>
+            <a href="#diferenciais" class="mobile-nav-link font-serif text-2xl text-brand-muted hover:text-brand-champagne transition-colors duration-300">Diferenciais</a>
+            <a href="#sobre" class="mobile-nav-link font-serif text-2xl text-brand-muted hover:text-brand-champagne transition-colors duration-300">A Clínica</a>
+            <a href="#depoimentos" class="mobile-nav-link font-serif text-2xl text-brand-muted hover:text-brand-champagne transition-colors duration-300">Depoimentos</a>
+            <a href="#contato" class="mobile-nav-link font-serif text-2xl text-brand-muted hover:text-brand-champagne transition-colors duration-300">Contato</a>
+            
+            <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Gostaria%20de%20agendar%20uma%20avaliação%20personalizada." 
+               target="_blank" 
+               class="mt-6 inline-flex items-center justify-center px-8 py-3 text-sm font-medium uppercase tracking-widest bg-brand-champagne text-brand-dark hover:bg-white transition-all duration-300 rounded-full">
+                Agendar Avaliação
+            </a>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with Premium Dark Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=2070" 
+                 alt="Clínica de Estética de Luxo" 
+                 class="w-full h-full object-cover object-center scale-105"
+                 id="hero-bg-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/85 to-transparent"></div>
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-12">
+            <!-- Subtle Tag -->
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-surface/80 border border-brand-champagne/20 text-[10px] uppercase tracking-[0.3em] text-brand-champagne mb-6 gsap-hero-reveal">
+                <i class="fa-solid fa-sparkles text-[8px] animate-pulse"></i> Harmonização Facial & Glútea
+            </span>
+
+            <!-- Main Headline -->
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] font-light mb-8 gsap-hero-reveal">
+                A ARTE DE REALÇAR <br>
+                <span class="italic font-normal text-brand-champagne">sua beleza natural</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-brand-muted tracking-wide font-light leading-relaxed mb-10 gsap-hero-reveal">
+                Procedimentos estéticos de alta performance em Sua Cidade-UF. Resgatamos sua autoestima com técnicas avançadas, insumos premium e foco exclusivo na naturalidade e na sua segurança.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 gsap-hero-reveal">
+                <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Gostaria%20de%20agendar%20uma%20avaliação%20personalizada." 
+                   target="_blank" 
+                   class="cta-pulse w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-brand-champagne text-brand-dark text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(229,195,142,0.2)]">
+                    <i class="fa-brands fa-whatsapp text-sm mr-2"></i> Agendar sua Avaliação
+                </a>
+                <a href="#tratamentos" 
+                   class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-white/10 hover:border-brand-champagne text-xs uppercase tracking-widest font-medium rounded-full bg-brand-surface/20 backdrop-blur-sm transition-all duration-300">
+                    Conhecer Tratamentos
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-10 opacity-70 hover:opacity-100 transition-opacity">
+            <span class="text-[9px] uppercase tracking-[0.4em] text-brand-muted">Descubra</span>
+            <div class="w-[1px] h-10 bg-brand-champagne/30 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-brand-champagne animate-[bounce_2s_infinite]"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHORITY MARQUEE -->
+    <section class="py-6 bg-brand-surface border-y border-white/5 overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap flex items-center">
+            <!-- Block 1 -->
+            <div class="flex items-center space-x-12 px-6">
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-star text-brand-gold text-[10px]"></i> 17 AVALIAÇÕES NO GOOGLE
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-circle text-brand-champagne text-[6px]"></i> BELEZA COM SEGURANÇA E CUIDADO
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-star text-brand-gold text-[10px]"></i> HARMONIZAÇÃO GLÚTEA DE ELITE
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-circle text-brand-champagne text-[6px]"></i> LOCALIZAÇÃO HIGH BUSINESS SUA CIDADE
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-star text-brand-gold text-[10px]"></i> BIOESTIMULADORES PREMIUM
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-circle text-brand-champagne text-[6px]"></i> RESULTADOS COMPLETAMENTE NATURAIS
+                </span>
+            </div>
+            <!-- Block 2 (Duplicate for seamless loop) -->
+            <div class="flex items-center space-x-12 px-6">
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-star text-brand-gold text-[10px]"></i> 17 AVALIAÇÕES NO GOOGLE
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-circle text-brand-champagne text-[6px]"></i> BELEZA COM SEGURANÇA E CUIDADO
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-star text-brand-gold text-[10px]"></i> HARMONIZAÇÃO GLÚTEA DE ELITE
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-circle text-brand-champagne text-[6px]"></i> LOCALIZAÇÃO HIGH BUSINESS SUA CIDADE
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-star text-brand-gold text-[10px]"></i> BIOESTIMULADORES PREMIUM
+                </span>
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-muted font-light flex items-center gap-4">
+                    <i class="fa-solid fa-circle text-brand-champagne text-[6px]"></i> RESULTADOS COMPLETAMENTE NATURAIS
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENTO GRID: DIFERENCIAIS -->
+    <section id="diferenciais" class="py-24 sm:py-32 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="text-xs uppercase tracking-[0.3em] text-brand-champagne font-semibold mb-3 block">Excelência</span>
+            <h2 class="font-serif text-3xl sm:text-5xl tracking-tight leading-tight gsap-reveal">
+                O que nos torna <span class="italic text-brand-champagne font-light">únicos</span>
+            </h2>
+            <div class="w-12 h-[1px] bg-brand-champagne/40 mx-auto mt-6"></div>
+        </div>
+
+        <!-- Bento Grid Wrapper -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Card 1: Google Reviews (Wide on Desktop) -->
+            <div class="md:col-span-2 glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group gsap-reveal">
+                <!-- Soft Glow behind -->
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-champagne/5 rounded-full blur-3xl group-hover:bg-brand-champagne/10 transition-colors duration-500"></div>
+                
+                <div>
+                    <div class="flex items-center gap-1.5 mb-6 text-brand-gold text-sm sm:text-base">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span class="text-white text-xs font-semibold uppercase tracking-widest ml-2">Nota Máxima</span>
+                    </div>
+                    <h3 class="font-serif text-3xl sm:text-4xl tracking-tight font-light mb-4 text-brand-champagne leading-none">
+                        17 Avaliações no Google
+                    </h3>
+                    <p class="text-brand-muted text-sm tracking-wide font-light leading-relaxed max-w-lg">
+                        O carinho, a confiança e a satisfação de cada paciente atendida em Sua Cidade e região. A marca do nosso trabalho é o cuidado personalizado e a obtenção de resultados refinados que respeitam a sua individualidade.
+                    </p>
+                </div>
+                
+                <div class="mt-8 flex items-baseline gap-2">
+                    <span class="font-serif text-5xl sm:text-6xl font-light text-white leading-none">5.0</span>
+                    <span class="text-xs text-brand-muted uppercase tracking-[0.2em] font-medium">Estrelas no Google</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Professional Biomédica (Small) -->
+            <div class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between gsap-reveal">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 rounded-full border border-brand-champagne/20 flex items-center justify-center text-brand-champagne text-lg">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/5">Profissionalismo</span>
+                </div>
+                
+                <div>
+                    <h3 class="font-serif text-2xl tracking-tight font-light mb-3 text-brand-champagne">
+                        Dra. Maria Oliveira
+                    </h3>
+                    <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                        Biomédica Esteta altamente qualificada e dedicada ao desenvolvimento de protocolos individualizados e seguros.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3: Location (Tall) -->
+            <div class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group gsap-reveal">
+                <div class="absolute inset-0 z-0 opacity-10 group-hover:opacity-15 transition-opacity duration-500">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2070" 
+                         alt="High Business Sua Cidade" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-full border border-brand-champagne/20 flex items-center justify-center text-brand-champagne text-lg mb-8">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <span class="text-[9px] uppercase tracking-[0.2em] text-brand-muted font-semibold bg-white/5 px-3 py-1 rounded-full border border-white/5 block w-max mb-4">Localização</span>
+                    <h3 class="font-serif text-2xl tracking-tight font-light mb-3 text-brand-champagne">
+                        High Business
+                    </h3>
+                    <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                        Infraestrutura moderna, com o conforto e a privacidade que você merece no centro médico/comercial mais prestigiado de Sua Cidade - UF.
+                    </p>
+                </div>
+
+                <div class="mt-8 relative z-10 pt-4 border-t border-white/5">
+                    <a href="https://maps.google.com/?q=Rua+Olimpio+Rodrigues+da+Silva+1209+Vila+Industrial+Sua Cidade+SP" 
+                       target="_blank" 
+                       class="inline-flex items-center text-xs tracking-widest uppercase text-brand-champagne hover:text-white transition-colors">
+                        Ver Rotas <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4: Safety & Premium Insumos (Wide on Desktop) -->
+            <div class="md:col-span-2 glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group gsap-reveal">
+                <!-- Abstract Design Layer -->
+                <div class="absolute -left-10 -bottom-10 w-64 h-64 bg-brand-champagne/5 rounded-full blur-2xl group-hover:bg-brand-champagne/10 transition-colors duration-500"></div>
+
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+                    <div>
+                        <div class="w-12 h-12 rounded-full border border-brand-champagne/20 flex items-center justify-center text-brand-champagne text-lg mb-6">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl tracking-tight font-light mb-4 text-brand-champagne">
+                            Segurança & Rigor Técnico
+                        </h3>
+                        <p class="text-brand-muted text-sm tracking-wide font-light leading-relaxed max-w-xl">
+                            Utilizamos apenas os melhores insumos do mercado global (marcas consagradas de preenchedores e bioestimuladores de colágeno), seguindo estritos padrões de biossegurança clínica. Cada procedimento é precedido por uma análise anatômica detalhada.
+                        </p>
+                    </div>
+
+                    <div class="hidden sm:block shrink-0">
+                        <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&q=80&w=2070" 
+                             alt="Premium Cosmetics" 
+                             class="w-24 h-24 object-cover rounded-2xl border border-white/5">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- SECTION: SERVICES / TRATAMENTOS -->
+    <section id="tratamentos" class="py-24 sm:py-32 bg-brand-surface border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24">
+                <div class="max-w-xl">
+                    <span class="text-xs uppercase tracking-[0.3em] text-brand-champagne font-semibold mb-3 block">Procedimentos Avançados</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl tracking-tight leading-tight gsap-reveal">
+                        Tratamentos de <span class="italic text-brand-champagne font-light">Elite</span>
+                    </h2>
+                </div>
+                <div class="mt-4 md:mt-0 max-w-md">
+                    <p class="text-brand-muted text-xs sm:text-sm tracking-wide font-light leading-relaxed">
+                        Protocolos desenhados sob medida para jovens exigentes que priorizam a harmonia das formas e a preservação de suas características naturais.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Treatments Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Treatment 1: Harmonização Glútea -->
+                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between min-h-[420px] gsap-reveal">
+                    <div>
+                        <!-- Image Container with Hover Zoom -->
+                        <div class="h-48 overflow-hidden relative border-b border-white/5">
+                            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2020" 
+                                 alt="Harmonização Glútea" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent opacity-80"></div>
+                            <!-- Category Badge -->
+                            <span class="absolute top-4 left-4 text-[9px] uppercase tracking-[0.2em] font-semibold bg-brand-champagne text-brand-dark px-3 py-1 rounded-full">
+                                Destaque
+                            </span>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl tracking-tight text-white mb-3 group-hover:text-brand-champagne transition-colors">
+                                Harmonização Glútea
+                            </h3>
+                            <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                                Redefinição de contorno, volumização e preenchimento de depressões trocantéricas. Combinamos bioestimuladores de colágeno de última geração e ácido hialurônico corporal para alcançar firmeza, sustentação e projeção natural.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Quero%20saber%20mais%20sobre%20Harmonização%20Glútea." 
+                           target="_blank" 
+                           class="w-full inline-flex items-center justify-between text-xs tracking-widest uppercase text-brand-champagne hover:text-white transition-colors duration-300">
+                            Consultar Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment 2: Harmonização Facial -->
+                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between min-h-[420px] gsap-reveal">
+                    <div>
+                        <div class="h-48 overflow-hidden relative border-b border-white/5">
+                            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=2070" 
+                                 alt="Harmonização Facial" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent opacity-80"></div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl tracking-tight text-white mb-3 group-hover:text-brand-champagne transition-colors">
+                                Harmonização Facial
+                            </h3>
+                            <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                                Conjunto de técnicas integradas para suavizar assimetrias, definir a linha da mandíbula, projetar o mento e restaurar volumes perdidos. Foco em rejuvenescer de forma autêntica e harmônica.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Quero%20saber%20mais%20sobre%20Harmonização%20Facial." 
+                           target="_blank" 
+                           class="w-full inline-flex items-center justify-between text-xs tracking-widest uppercase text-brand-champagne hover:text-white transition-colors duration-300">
+                            Consultar Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment 3: Preenchimento Labial -->
+                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between min-h-[420px] gsap-reveal">
+                    <div>
+                        <div class="h-48 overflow-hidden relative border-b border-white/5">
+                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=2069" 
+                                 alt="Preenchimento Labial" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent opacity-80"></div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl tracking-tight text-white mb-3 group-hover:text-brand-champagne transition-colors">
+                                Preenchimento Labial
+                            </h3>
+                            <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                                Definição de arco do cupido, hidratação profunda (efeito gloss) e ganho de volume sob medida. Técnica focada na anatomia dos seus lábios para garantir maciez e proporcionalidade com a face.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Quero%20saber%20mais%20sobre%20Preenchimento%20Labial." 
+                           target="_blank" 
+                           class="w-full inline-flex items-center justify-between text-xs tracking-widest uppercase text-brand-champagne hover:text-white transition-colors duration-300">
+                            Consultar Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment 4: Toxina Botulínica (Botox) -->
+                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between min-h-[420px] gsap-reveal">
+                    <div>
+                        <div class="h-48 overflow-hidden relative border-b border-white/5">
+                            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2070" 
+                                 alt="Aplicação de Botox" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent opacity-80"></div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl tracking-tight text-white mb-3 group-hover:text-brand-champagne transition-colors">
+                                Botox & Rugas de Expressão
+                            </h3>
+                            <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                                Suavização de linhas na testa, ao redor dos olhos ("pés de galinha") e na região glabelar. Prevenção ideal do envelhecimento precoce com aspecto leve, sem congelar expressões.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Quero%20saber%20mais%20sobre%20Botox." 
+                           target="_blank" 
+                           class="w-full inline-flex items-center justify-between text-xs tracking-widest uppercase text-brand-champagne hover:text-white transition-colors duration-300">
+                            Consultar Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment 5: Skinbooster -->
+                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between min-h-[420px] gsap-reveal">
+                    <div>
+                        <div class="h-48 overflow-hidden relative border-b border-white/5">
+                            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2053" 
+                                 alt="Skinbooster" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent opacity-80"></div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl tracking-tight text-white mb-3 group-hover:text-brand-champagne transition-colors">
+                                Skinbooster & Enzimas
+                            </h3>
+                            <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                                Hidratação profunda injetável com ácido hialurônico de baixa densidade associado à aplicação de enzimas lipolíticas para gordura localizada facial (papada) ou corporal.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Quero%20saber%20mais%20sobre%20Skinbooster%20e%20Enzimas." 
+                           target="_blank" 
+                           class="w-full inline-flex items-center justify-between text-xs tracking-widest uppercase text-brand-champagne hover:text-white transition-colors duration-300">
+                            Consultar Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Treatment 6: Secagem de Vasinhos (PEIM) -->
+                <div class="glass-card rounded-3xl overflow-hidden group flex flex-col justify-between min-h-[420px] gsap-reveal">
+                    <div>
+                        <div class="h-48 overflow-hidden relative border-b border-white/5">
+                            <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&q=80&w=2070" 
+                                 alt="Secagem de Vasinhos" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card to-transparent opacity-80"></div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="font-serif text-2xl tracking-tight text-white mb-3 group-hover:text-brand-champagne transition-colors">
+                                Secagem de Vasinhos (PEIM)
+                            </h3>
+                            <p class="text-brand-muted text-xs tracking-wide font-light leading-relaxed">
+                                Procedimento Estético Injetável para Microvasos. Tratamento seguro focado na eliminação das imperfeições causadas pelos pequenos vasinhos nas pernas, devolvendo a autoestima.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
+                        <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Quero%20saber%20mais%20sobre%20PEIM%20ou%20Secagem%20de%20Vasinhos." 
+                           target="_blank" 
+                           class="w-full inline-flex items-center justify-between text-xs tracking-widest uppercase text-brand-champagne hover:text-white transition-colors duration-300">
+                            Consultar Detalhes <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ABOUT / SOBRE -->
+    <section id="sobre" class="py-24 sm:py-32 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
+            
+            <!-- Left Side: Image Profile -->
+            <div class="relative gsap-reveal">
+                <!-- Golden Frame effect -->
+                <div class="absolute -top-4 -left-4 w-12 h-12 border-t border-l border-brand-champagne/45"></div>
+                <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b border-r border-brand-champagne/45"></div>
+                
+                <div class="overflow-hidden rounded-3xl border border-white/5 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=2070" 
+                         alt="Dra. Maria Oliveira" 
+                         class="w-full h-[500px] object-cover object-top hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+
+            <!-- Right Side: Content -->
+            <div class="flex flex-col justify-center gsap-reveal">
+                <span class="text-xs uppercase tracking-[0.3em] text-brand-champagne font-semibold mb-3">A Profissional por Trás da Marca</span>
+                <h2 class="font-serif text-3xl sm:text-5xl tracking-tight leading-tight mb-8">
+                    Ciência, Técnica e <br>
+                    <span class="italic text-brand-champagne font-light">Cuidado Individualizado</span>
+                </h2>
+                
+                <div class="w-12 h-[1px] bg-brand-champagne/40 mb-8"></div>
+                
+                <p class="text-brand-muted text-sm tracking-wide font-light leading-relaxed mb-6">
+                    A Clínica Dra. Maria Oliveira Biomédica Esteta é referência absoluta em Sua Cidade - UF. Nossa missão principal é valorizar a beleza e a autoestima feminina através da harmonia facial e corporal. 
+                </p>
+                <p class="text-brand-muted text-sm tracking-wide font-light leading-relaxed mb-8">
+                    Atuamos de forma ética e com foco em resultados elegantes e naturais. Cada avaliação é um processo aprofundado onde analisamos as proporções individuais para indicar a dosagem e o procedimento mais seguro e eficaz para a sua anatomia.
+                </p>
+
+                <!-- Professional Qualifications -->
+                <div class="grid grid-cols-2 gap-6 pt-6 border-t border-white/5">
+                    <div>
+                        <span class="font-serif text-3xl font-light text-brand-champagne leading-none">Biomédica</span>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-brand-muted mt-2">Esteta e Especialista</p>
+                    </div>
+                    <div>
+                        <span class="font-serif text-3xl font-light text-brand-champagne leading-none">Segurança</span>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-brand-muted mt-2">Protocolos Autorizados</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: DEPOIMENTOS (TESTIMONIALS) -->
+    <section id="depoimentos" class="py-24 sm:py-32 bg-brand-surface border-y border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 sm:mb-24">
+                <span class="text-xs uppercase tracking-[0.3em] text-brand-champagne font-semibold mb-3 block">Experiência Real</span>
+                <h2 class="font-serif text-3xl sm:text-5xl tracking-tight leading-tight gsap-reveal">
+                    O que dizem as <span class="italic text-brand-champagne font-light">nossas pacientes</span>
+                </h2>
+                <div class="w-12 h-[1px] bg-brand-champagne/40 mx-auto mt-6"></div>
+            </div>
+
+            <!-- Testimonial Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between min-h-[260px] relative gsap-reveal">
+                    <!-- Google Quote Icon -->
+                    <i class="fa-solid fa-quote-left absolute top-8 right-8 text-brand-champagne/10 text-4xl"></i>
+                    
+                    <div>
+                        <div class="flex items-center gap-1 mb-6 text-brand-gold text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-brand-muted italic text-sm tracking-wide font-light leading-relaxed mb-6">
+                            "Procedimento maravilhoso super recomendo ótimo atendimento"
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-brand-champagne/10 flex items-center justify-center text-brand-champagne font-serif text-sm font-semibold">
+                            AA
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Aline Almeida</h4>
+                            <p class="text-[10px] text-brand-muted uppercase tracking-widest mt-0.5">Avaliação Google</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between min-h-[260px] relative gsap-reveal">
+                    <i class="fa-solid fa-quote-left absolute top-8 right-8 text-brand-champagne/10 text-4xl"></i>
+                    
+                    <div>
+                        <div class="flex items-center gap-1 mb-6 text-brand-gold text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-brand-muted italic text-sm tracking-wide font-light leading-relaxed mb-6">
+                            "Ótima profissional, amo realizar procedimentos com a Dra."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-brand-champagne/10 flex items-center justify-center text-brand-champagne font-serif text-sm font-semibold">
+                            EA
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Elaine Cristina Almeida</h4>
+                            <p class="text-[10px] text-brand-muted uppercase tracking-widest mt-0.5">Avaliação Google</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between min-h-[260px] relative gsap-reveal">
+                    <i class="fa-solid fa-quote-left absolute top-8 right-8 text-brand-champagne/10 text-4xl"></i>
+                    
+                    <div>
+                        <div class="flex items-center gap-1 mb-6 text-brand-gold text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-brand-muted italic text-sm tracking-wide font-light leading-relaxed mb-6">
+                            "Amei a harmonização facial que fiz com ela, me trouxe tanta auto estima ."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-brand-champagne/10 flex items-center justify-center text-brand-champagne font-serif text-sm font-semibold">
+                            AM
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Angelica Martins de Souza</h4>
+                            <p class="text-[10px] text-brand-muted uppercase tracking-widest mt-0.5">Avaliação Google</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: LOCATION, CONTACT & INFO -->
+    <section id="contato" class="py-24 sm:py-32 max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-20 items-stretch">
+            
+            <!-- Left: Info & Contact (5 cols) -->
+            <div class="lg:col-span-5 flex flex-col justify-between gsap-reveal">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-brand-champagne font-semibold mb-3 block">Venha nos Visitar</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl tracking-tight leading-tight mb-8">
+                        Contato e <br>
+                        <span class="italic text-brand-champagne font-light">Localização</span>
+                    </h2>
+                    
+                    <div class="w-12 h-[1px] bg-brand-champagne/40 mb-10"></div>
+
+                    <!-- Info Items List -->
+                    <div class="space-y-8">
+                        
+                        <!-- Address -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-brand-champagne shrink-0">
+                                <i class="fa-solid fa-map-location-dot text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase tracking-widest text-brand-muted mb-1 font-semibold">Endereço</h4>
+                                <p class="text-xs sm:text-sm tracking-wide font-light leading-relaxed">
+                                    High Business Sua Cidade<br>
+                                    Rua Olímpio Rodrigues da Silva, 1209 - Vila Industrial<br>
+                                    Sua Cidade - UF, 14403-356
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-brand-champagne shrink-0">
+                                <i class="fa-solid fa-phone text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase tracking-widest text-brand-muted mb-1 font-semibold">Telefone & WhatsApp</h4>
+                                <a href="tel:00999999999" class="text-xs sm:text-sm tracking-wide font-light leading-relaxed hover:text-brand-champagne transition-colors">
+                                    (00) 99999-9999
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Hours -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-brand-champagne shrink-0">
+                                <i class="fa-solid fa-clock text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase tracking-widest text-brand-muted mb-1 font-semibold">Horário de Funcionamento</h4>
+                                <p class="text-xs sm:text-sm tracking-wide font-light leading-relaxed">
+                                    Segunda a Sexta · Aberto até às 20:00
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Instagram -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 border border-white/5 flex items-center justify-center text-brand-champagne shrink-0">
+                                <i class="fa-brands fa-instagram text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase tracking-widest text-brand-muted mb-1 font-semibold">Siga-nos no Instagram</h4>
+                                <a href="https://www.instagram.com/dradra. nomesobrenome" target="_blank" class="text-xs sm:text-sm tracking-wide font-light leading-relaxed hover:text-brand-champagne transition-colors">
+                                    @dradra. nomesobrenome
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="mt-12 pt-8 border-t border-white/5">
+                    <a href="https://wa.me/5500999999999?text=Olá,%20Dra.%20Dra. Nome.%20Quero%20solicitar%20informações%20sobre%20a%20localização%20e%20agendamentos." 
+                       target="_blank" 
+                       class="cta-pulse w-full inline-flex items-center justify-center px-8 py-4 bg-brand-champagne text-brand-dark text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(229,195,142,0.2)]">
+                        <i class="fa-brands fa-whatsapp text-sm mr-2"></i> Chamar no WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Simulated Luxury Map / Embed Map (7 cols) -->
+            <div class="lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[400px] border border-white/5 gsap-reveal">
+                <!-- Premium Dark Styled Google Maps iframe -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.339665518424!2d-47.38287512497672!3d-20.512760680998822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b0a70183b0f513%3A0xe54e60155a5b512c!2sR.%20Ol%C3%ADmpio%20Rodrigues%20da%20Silva%2C%201209%20-%20Vila%20Industrial%2C%20Sua Cidade%20-%20SP%2C%2014403-356!5e0!3m2!1spt-BR!2sbr!4v1718568412345!5m2!1spt-BR!2sbr" 
+                        class="w-full h-full border-0 absolute inset-0 opacity-90" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <!-- Subtle Gradient Covering map edges -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-brand-dark/20 pointer-events-none"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-[#030303] border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <span class="font-serif text-lg tracking-[0.2em] font-light text-brand-champagne uppercase leading-none">Dra. Maria Oliveira</span>
+                <span class="text-[9px] tracking-[0.3em] uppercase text-brand-muted mt-2">Biomédica Esteta · Sua Cidade / SP</span>
+            </div>
+            
+            <p class="text-[10px] text-brand-muted uppercase tracking-[0.15em] text-center md:text-right">
+                &copy; 2026 Clínica Dra. Maria Oliveira. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- GSAP Animations CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Interaction Script -->
+    <script>
+        // Register ScrollTrigger Plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const closeDrawerBtn = document.getElementById('close-drawer-btn');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        // Mobile Drawer Toggle
+        function openDrawer() {
+            mobileDrawer.classList.remove('translate-x-full');
+            // Stagger animation for links in mobile drawer
+            gsap.fromTo('.mobile-nav-link', 
+                { opacity: 0, y: 20 }, 
+                { opacity: 1, y: 0, stagger: 0.1, duration: 0.5, ease: 'power3.out', delay: 0.2 }
+            );
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.add('translate-x-full');
+        }
+
+        mobileMenuBtn.addEventListener('click', openDrawer);
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+        // GSAP Hero Entrance Animations
+        window.addEventListener('load', () => {
+            // Animate background image zoom out slightly
+            gsap.to('#hero-bg-img', {
+                scale: 1,
+                duration: 2.5,
+                ease: 'power2.out'
+            });
+
+            // Animate elements inside hero
+            gsap.fromTo('.gsap-hero-reveal', 
+                { opacity: 0, y: 40 },
+                { opacity: 1, y: 0, duration: 1.2, stagger: 0.2, ease: 'power4.out', delay: 0.3 }
+            );
+
+            // GSAP Scroll Reveal for other sections
+            const reveals = document.querySelectorAll('.gsap-reveal');
+            
+            reveals.forEach((element) => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 50 }, 
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1.2,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 85%', // reveals when top of element reaches 85% of viewport
+                            toggleActions: 'play none none none', // play once, don't reverse
+                        }
+                    }
+                );
+            });
+
+            // Specific grid cards stagger reveal
+            const bentoCards = document.querySelectorAll('.glass-card');
+            bentoCards.forEach((card) => {
+                if (!card.closest('#tratamentos') && !card.closest('#depoimentos')) {
+                    gsap.fromTo(card, 
+                        { opacity: 0, y: 30 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            ease: 'power2.out',
+                            scrollTrigger: {
+                                trigger: card,
+                                start: 'top 88%',
+                            }
+                        }
+                    );
+                }
+            });
+
+            // Treatments Grid staggered entrance
+            gsap.fromTo('#tratamentos .glass-card', 
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '#tratamentos',
+                        start: 'top 75%',
+                    }
+                }
+            );
+
+            // Testimonials staggered entrance
+            gsap.fromTo('#depoimentos .glass-card', 
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '#depoimentos',
+                        start: 'top 75%',
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>

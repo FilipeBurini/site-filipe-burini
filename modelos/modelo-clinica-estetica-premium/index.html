@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Bioestética Premium | Dra. Juliana Silva • Sua Cidade-UF</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Vivencie a transformação na Clínica Bioestética Premium com a Dra. Juliana Silva. Tratamentos avançados de Modulação Intestinal, Harmonização Facial de Alta Performance e Escultura Corporal em Sua Cidade-UF.">
+  <meta name="keywords" content="clinica estetica sua cidade, dra dra. nome completo, bioestetica sua cidade, modulacao intestinal sua cidade, harmonizacao facial sua cidade, escultura corporal sua cidade, emagrecimento sua cidade, anna pegova sua cidade">
+  <meta name="author" content="Clínica Premium">
+  <link rel="canonical" href="https://clinicabioesteticapremium.com.br">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syne:wght@500..800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lightBg: '#FAFAFA',
+            sectionBg: '#F5F5F5',
+            lightCard: '#FFFFFF',
+            borderLight: '#E5E5EA',
+            champagne: {
+              DEFAULT: '#8E6F60', /* Deeper champagne/bronze for light mode contrast */
+              light: '#F5EAE4',
+              dark: '#5C4438',
+              gold: '#B58E2A'
+            },
+            sage: {
+              DEFAULT: '#5A6E55', /* Deeper sage for light mode contrast */
+              light: '#E6EFE4',
+              dark: '#3E4D3A',
+            }
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons Library CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Core Styles -->
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAFAFA;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #E5E5EA;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8E6F60;
+    }
+
+    /* Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 40s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    
+
+    /* Glow effect on hover */
+    .glow-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .glow-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(142, 111, 96, 0.05), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .glow-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Tactile active button */
+    .btn-active:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body class="bg-lightBg text-zinc-700 font-sans selection:bg-champagne-light selection:text-champagne-dark overflow-x-hidden">
+
+  
+
+  <!-- FIXED GLASSMOPHISM HEADER -->
+  <header class="fixed top-0 left-0 w-full h-[80px] bg-lightBg/80 backdrop-blur-md border-b border-borderLight/60 z-50 flex items-center transition-all duration-300">
+    <div class="max-w-7xl mx-auto w-full px-6 flex justify-between items-center">
+      <!-- Logo Tipográfico -->
+      <a href="#" class="flex flex-col group select-none">
+        <span class="font-display text-xl md:text-2xl font-bold tracking-tight text-zinc-900 group-hover:text-champagne transition-colors duration-300">
+          PREMIUM
+        </span>
+        <span class="text-[9px] uppercase tracking-[0.25em] text-sage font-semibold -mt-1">
+          Dra. Juliana Silva
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-zinc-600">
+        <a href="#diferenciais" class="hover:text-champagne transition-colors duration-300">Diferenciais</a>
+        <a href="#servicos" class="hover:text-champagne transition-colors duration-300">Especialidades</a>
+        <a href="#sobre" class="hover:text-champagne transition-colors duration-300">A Clínica</a>
+        <a href="#depoimentos" class="hover:text-champagne transition-colors duration-300">Depoimentos</a>
+      </nav>
+
+      <!-- CTA Appointment Button -->
+      <div class="hidden md:block">
+        <a href="https://api.whatsapp.com/send?phone=5516994396886&text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Ana%20Neves."
+           target="_blank"
+           class="btn-active inline-flex items-center justify-center border border-champagne/30 hover:border-champagne bg-transparent hover:bg-champagne/5 text-champagne px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300">
+          Agendar Transformação
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-zinc-500 hover:text-champagne focus:outline-none" aria-label="Abrir Menu">
+        <span class="menu-open"><i class="fa-solid fa-bars-staggered text-2xl"></i></span>
+        <span class="menu-close hidden"><i class="fa-solid fa-xmark text-2xl"></i></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 top-[80px] bg-lightBg/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-8 gap-6 border-t border-borderLight/30">
+      <a href="#diferenciais" class="mobile-nav-link text-2xl font-display text-zinc-900 hover:text-champagne transition-colors">Diferenciais</a>
+      <a href="#servicos" class="mobile-nav-link text-2xl font-display text-zinc-900 hover:text-champagne transition-colors">Especialidades</a>
+      <a href="#sobre" class="mobile-nav-link text-2xl font-display text-zinc-900 hover:text-champagne transition-colors">A Clínica</a>
+      <a href="#depoimentos" class="mobile-nav-link text-2xl font-display text-zinc-900 hover:text-champagne transition-colors">Depoimentos</a>
+      
+      <div class="h-[1px] bg-borderLight/60 my-4"></div>
+      
+      <a href="https://api.whatsapp.com/send?phone=5516994396886&text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Ana%20Neves."
+         target="_blank"
+         class="inline-flex items-center justify-center bg-[#8E6F60] hover:bg-[#5C4438] text-white font-bold px-6 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300">
+        Falar no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[100dvh] pt-[80px] flex items-center overflow-hidden">
+    <!-- Glowing background blurred blobs -->
+    <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-champagne/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-1/4 -left-20 w-[400px] h-[400px] bg-sage/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <!-- Background Cinematic Image Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1600&auto=format&fit=crop" 
+           alt="Clínica Premium Bioestética" 
+           class="w-full h-full object-cover opacity-[0.05] mix-blend-overlay">
+      <div class="absolute inset-0 bg-gradient-to-t from-lightBg via-lightBg/80 to-transparent"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full px-6 relative z-10 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Content Column -->
+      <div class="lg:col-span-7 flex flex-col text-left">
+        <span class="hero-el inline-flex items-center gap-2 text-[10px] md:text-xs font-semibold tracking-[0.25em] text-sage uppercase mb-4">
+          <i class="fa-solid fa-dna text-champagne"></i> Saúde Integrativa & Estética de Alta Performance
+        </span>
+        
+        <h1 class="hero-title text-4xl sm:text-6xl font-display font-bold text-zinc-900 tracking-tight leading-[1.05] mb-6">
+          A ciência por trás <br>da sua <span class="text-champagne italic font-medium">melhor versão</span>.
+        </h1>
+
+        <p class="hero-el text-base sm:text-lg text-zinc-600 leading-relaxed mb-8 max-w-[55ch]">
+          Na Clínica Premium, unimos a precisão da estética avançada à saúde integrativa. Tratamentos personalizados de Modulação Intestinal, Escultura Corporal e Harmonização sob a responsabilidade da Dra. Juliana Silva.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-el flex flex-col sm:flex-row gap-4">
+          <a href="https://api.whatsapp.com/send?phone=5516994396886&text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Ana%20Neves."
+             target="_blank"
+             class="btn-active inline-flex items-center justify-center bg-gradient-to-r from-champagne to-[#c3a697] hover:from-[#c3a697] hover:to-champagne text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 shadow-[0_10px_30px_rgba(142,111,96,0.15)] animate-pulse">
+            Agendar Transformação
+          </a>
+          <a href="#servicos"
+             class="btn-active inline-flex items-center justify-center bg-transparent border border-zinc-300 hover:border-champagne hover:text-champagne text-zinc-700 font-semibold px-8 py-4 rounded-full text-sm transition-all duration-300">
+            Conhecer Especialidades
+          </a>
+        </div>
+
+        <!-- Google Trust Metric -->
+        <div class="hero-el mt-12 flex items-center gap-4">
+          <div class="flex items-center gap-1 text-[#F39C12]">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-zinc-600 tracking-wide">
+            <strong class="text-zinc-950">5.0 ★ no Google</strong> (5.016 avaliações de pacientes satisfeitos em Sua Cidade)
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Visual Component -->
+      <div class="hero-el lg:col-span-5 hidden lg:block relative">
+        <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-borderLight/60 relative group shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800&auto=format&fit=crop" 
+               alt="Procedimento estético e bem-estar" 
+               class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-out">
+          <div class="absolute inset-0 bg-gradient-to-t from-lightBg/50 via-transparent to-transparent"></div>
+          
+          <!-- Floating Interactive Card -->
+          <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md border border-borderLight/80 p-5 rounded-2xl flex items-center gap-4 shadow-xl">
+            <div class="w-11 h-11 rounded-xl bg-champagne/10 flex items-center justify-center text-champagne shrink-0">
+              <i class="fa-solid fa-certificate text-lg animate-pulse"></i>
+            </div>
+            <div>
+              <p class="text-[9px] text-sage font-bold uppercase tracking-wider">Anna Pegova Paris</p>
+              <p class="text-sm text-zinc-900 font-bold tracking-tight">Representante Oficial em Sua Cidade</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHORITY MARQUEE BAR -->
+  <section class="bg-sectionBg border-y border-borderLight py-6 overflow-hidden select-none">
+    <div class="flex">
+      <div class="animate-marquee whitespace-nowrap flex items-center gap-12 text-[10px] md:text-xs font-semibold uppercase tracking-[0.22em] text-zinc-600">
+        <!-- Sequence -->
+        <span class="flex items-center gap-2"><i class="fa-solid fa-dna text-champagne"></i> Modulação Intestinal</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-sage"></i> Estética Avançada</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-heart text-champagne"></i> Saúde Integrativa</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-star text-champagne-gold"></i> +5.000 Avaliações no Google</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-leaf text-sage"></i> Representante Anna Pegova</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-child-reaching text-champagne"></i> Pilates e Fisioterapia</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-sage"></i> Escultura Corporal</span>
+
+        <!-- Duplicated Sequence for loop -->
+        <span class="flex items-center gap-2"><i class="fa-solid fa-dna text-champagne"></i> Modulação Intestinal</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-sage"></i> Estética Avançada</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-shield-heart text-champagne"></i> Saúde Integrativa</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-star text-champagne-gold"></i> +5.000 Avaliações no Google</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-leaf text-sage"></i> Representante Anna Pegova</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-child-reaching text-champagne"></i> Pilates e Fisioterapia</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-sage"></i> Escultura Corporal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS (BENTO GRID) -->
+  <section id="diferenciais" class="py-32 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-[65ch] mx-auto mb-20 scroll-reveal">
+      <span class="text-xs font-bold tracking-[0.25em] text-champagne uppercase mb-3 block">Por Que nos Escolher</span>
+      <h2 class="text-3xl md:text-5xl font-display font-bold text-zinc-900 tracking-tight leading-tight">
+        Diferenciais que definem nossa assinatura
+      </h2>
+    </div>
+
+    <!-- Bento Grid Structure -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-grid">
+      
+      <!-- Card 1: Saúde Integrativa (Large Card) -->
+      <div class="glow-card md:col-span-2 bg-lightCard border border-borderLight rounded-3xl p-8 flex flex-col justify-between group hover:border-champagne/30 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.01)]">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-sage/10 flex items-center justify-center text-sage mb-8">
+            <i class="fa-solid fa-hand-holding-medical text-2xl"></i>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-display font-semibold text-zinc-900 mb-4">Saúde de Dentro para Fora</h3>
+          <p class="text-zinc-600 text-sm md:text-base leading-relaxed max-w-[65ch]">
+            Acreditamos na estética aliada à saúde integrativa. Nosso diferencial único é focar no equilíbrio biológico interno, como a Modulação Intestinal, garantindo que os procedimentos estéticos corporais e faciais tenham resultados muito mais profundos, duradouros e seguros.
+          </p>
+        </div>
+        <div class="mt-8 pt-6 border-t border-borderLight flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-champagne">
+          <i class="fa-solid fa-circle-check text-sage text-sm"></i> Tratamento Médico-Fisioterápico Integrado
+        </div>
+      </div>
+
+      <!-- Card 2: Acreditação Google (Medium/Small Card) -->
+      <div class="glow-card bg-lightCard border border-borderLight rounded-3xl p-8 flex flex-col justify-between group hover:border-champagne/30 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.01)]">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center text-champagne mb-8">
+            <i class="fa-solid fa-ranking-star text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-display font-semibold text-zinc-900 mb-3">Reconhecimento Máximo</h3>
+          <p class="text-zinc-600 text-sm leading-relaxed">
+            Mais de 5.000 pessoas avaliaram nossa clínica com a nota máxima de 5.0 estrelas. Um reflexo de nossa busca implacável por atendimento humano de excelência e resultados visíveis.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 text-xs font-bold uppercase tracking-wider text-sage flex items-center gap-2">
+          <span>5.016 Avaliações no Google</span> <i class="fa-solid fa-check"></i>
+        </div>
+      </div>
+
+      <!-- Card 3: Cosmetics representation (Image layout) -->
+      <div class="min-h-[300px] md:h-full rounded-3xl overflow-hidden relative group border border-borderLight shadow-md">
+        <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?q=80&w=800&auto=format&fit=crop" 
+             alt="Cosméticos Anna Pegova" 
+             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-lightBg via-lightBg/30 to-transparent p-8 flex flex-col justify-end">
+          <span class="text-xs text-sage font-bold uppercase tracking-wider mb-2">Exclusividade Cosmética</span>
+          <h4 class="text-lg md:text-xl font-display font-semibold text-zinc-900">Anna Pegova Paris em Sua Cidade</h4>
+        </div>
+      </div>
+
+      <!-- Card 4: Alta Performance Estética (Large Card) -->
+      <div class="glow-card md:col-span-2 bg-lightCard border border-borderLight rounded-3xl p-8 flex flex-col justify-between group hover:border-champagne/30 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.01)]">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center text-champagne mb-8">
+            <i class="fa-solid fa-network-wired text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-display font-semibold text-zinc-900 mb-4">Equipamentos e Técnicas de Alta Performance</h3>
+          <p class="text-zinc-600 text-sm md:text-base leading-relaxed max-w-[65ch]">
+            Nossos procedimentos de escultura corporal e harmonização facial contam com biotecnologia inovadora e dermocosméticos consagrados internacionalmente. Menos invasivo, com recuperação rápida e máxima expressividade natural do seu corpo.
+          </p>
+        </div>
+        <div class="mt-8 pt-6 border-t border-borderLight flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-sage">
+          <i class="fa-solid fa-wand-magic-sparkles text-champagne"></i> Resultados Visíveis Desde a Primeira Sessão
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES / SERVIÇOS -->
+  <section id="servicos" class="py-32 bg-sectionBg border-y border-borderLight">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-[65ch] mx-auto mb-24 scroll-reveal">
+        <span class="text-xs font-bold tracking-[0.25em] text-sage uppercase mb-3 block">Nossos Pilares</span>
+        <h2 class="text-3xl md:text-5xl font-display font-bold text-zinc-900 tracking-tight leading-tight">
+          Especialidades Premium
+        </h2>
+        <p class="text-zinc-600 text-sm mt-4">
+          Protocolos científicos avançados para equilibrar sua saúde interna e revelar sua melhor versão estética.
+        </p>
+      </div>
+
+      <!-- Services List Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-grid">
+        
+        <!-- Service 1 -->
+        <div class="glow-card bg-lightCard border border-borderLight p-8 md:p-10 rounded-3xl hover:border-champagne/20 transition-all duration-300 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex justify-between items-start mb-8">
+              <div class="w-12 h-12 rounded-2xl bg-sage/10 flex items-center justify-center text-sage">
+                <i class="fa-solid fa-dna text-2xl"></i>
+              </div>
+              <span class="text-[10px] font-bold tracking-widest text-sage bg-sage/10 px-3 py-1 rounded-full uppercase">Saúde Integrativa</span>
+            </div>
+            <h3 class="text-2xl font-display font-semibold text-zinc-900 mb-4">Modulação Intestinal & Emagrecimento</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed mb-8">
+              A base da nossa metodologia estética. Restauramos o equilíbrio da microbiota intestinal para regular a absorção de nutrientes, combater inflamações sistêmicas e otimizar o metabolismo. Ideal para quem busca um emagrecimento saudável e duradouro.
+            </p>
+          </div>
+          <ul class="space-y-3 text-xs text-sage font-bold tracking-wider uppercase border-t border-borderLight pt-6">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-champagne"></i> Regulação da Microbiota</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-champagne"></i> Protocolos de Emagrecimento Científico</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-champagne"></i> Melhora na Absorção Celular</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="glow-card bg-lightCard border border-borderLight p-8 md:p-10 rounded-3xl hover:border-champagne/20 transition-all duration-300 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex justify-between items-start mb-8">
+              <div class="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center text-champagne">
+                <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+              </div>
+              <span class="text-[10px] font-bold tracking-widest text-champagne bg-champagne/10 px-3 py-1 rounded-full uppercase">Estética Facial</span>
+            </div>
+            <h3 class="text-2xl font-display font-semibold text-zinc-900 mb-4">Harmonização Facial de Alta Performance</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed mb-8">
+              Procedimentos de contorno, preenchimento e rejuvenescimento minuciosamente desenhados. Focamos em restaurar volumes perdidos e valorizar seus traços com naturalidade, distanciando-se de resultados artificiais e priorizando sua expressão pessoal.
+            </p>
+          </div>
+          <ul class="space-y-3 text-xs text-champagne font-bold tracking-wider uppercase border-t border-borderLight pt-6">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i> Biostimuladores de Colágeno</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i> Preenchimentos Avançados</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i> Harmonização Naturalizada</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="glow-card bg-lightCard border border-borderLight p-8 md:p-10 rounded-3xl hover:border-champagne/20 transition-all duration-300 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex justify-between items-start mb-8">
+              <div class="w-12 h-12 rounded-2xl bg-champagne/10 flex items-center justify-center text-champagne">
+                <i class="fa-solid fa-person text-2xl"></i>
+              </div>
+              <span class="text-[10px] font-bold tracking-widest text-champagne bg-champagne/10 px-3 py-1 rounded-full uppercase">Estética Corporal</span>
+            </div>
+            <h3 class="text-2xl font-display font-semibold text-zinc-900 mb-4">Escultura Corporal Avançada</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed mb-8">
+              Tratamentos inovadores focados na redução de gordura localizada, flacidez e celulite. Combinamos tecnologias estéticas avançadas a formulações dermatológicas exclusivas para tonificar, modelar e redefinir os contornos do seu corpo.
+            </p>
+          </div>
+          <ul class="space-y-3 text-xs text-champagne font-bold tracking-wider uppercase border-t border-borderLight pt-6">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i> Redução de Gordura Localizada</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i> Lipo Sem Cortes & Definição</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sage"></i> Tratamento Avançado de Flacidez</li>
+          </ul>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="glow-card bg-lightCard border border-borderLight p-8 md:p-10 rounded-3xl hover:border-champagne/20 transition-all duration-300 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="flex justify-between items-start mb-8">
+              <div class="w-12 h-12 rounded-2xl bg-sage/10 flex items-center justify-center text-sage">
+                <i class="fa-solid fa-child-reaching text-2xl"></i>
+              </div>
+              <span class="text-[10px] font-bold tracking-widest text-sage bg-sage/10 px-3 py-1 rounded-full uppercase">Bem-Estar Físico</span>
+            </div>
+            <h3 class="text-2xl font-display font-semibold text-zinc-900 mb-4">Pilates & Fisioterapia Integrativa</h3>
+            <p class="text-zinc-600 text-sm leading-relaxed mb-8">
+              Equilíbrio físico e melhora postural. Oferecemos aulas de pilates personalizadas e sessões de fisioterapia clínica, promovendo fortalecimento muscular profundo, alívio de tensões e reabilitação integrados à sua rotina estética de cuidados.
+            </p>
+          </div>
+          <ul class="space-y-3 text-xs text-sage font-bold tracking-wider uppercase border-t border-borderLight pt-6">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-champagne"></i> Aulas de Pilates Personalizadas</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-champagne"></i> Fisioterapia Clínica e Postural</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-champagne"></i> Fortalecimento do Core e Articulações</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE DRA. DRA. NOME COMPLETO -->
+  <section id="sobre" class="py-32 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-grid">
+      <!-- Image portrait -->
+      <div class="lg:col-span-5 relative">
+        <div class="w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-borderLight/60 relative shadow-xl">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop" 
+               alt="Dra. Juliana Silva" 
+               class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-lightBg via-transparent to-transparent"></div>
+        </div>
+      </div>
+
+      <!-- Narrative Text -->
+      <div class="lg:col-span-7 flex flex-col">
+        <span class="text-xs font-bold tracking-[0.25em] text-champagne uppercase mb-4">A Ciência e o Acolhimento</span>
+        <h2 class="text-3xl md:text-5xl font-display font-bold text-zinc-900 tracking-tight leading-tight mb-6">
+          Dra. Juliana Silva
+        </h2>
+        <div class="text-zinc-600 space-y-6 text-sm md:text-base leading-relaxed">
+          <p>
+            À frente da <strong class="text-zinc-900">Clínica Bioestética Premium</strong>, a <strong class="text-champagne">Dra. Juliana Silva</strong> desenvolveu uma visão inovadora no cenário estético de Sua Cidade, São Paulo. Sua abordagem une as mais consolidadas técnicas da estética facial e corporal a um olhar aprofundado na saúde integrativa.
+          </p>
+          <p>
+            Acreditando que a pele e o contorno corporal são o espelho do equilíbrio interno, Dra. Juliana Silva foca na causa biológica das queixas dos pacientes. Ao associar a <strong class="text-zinc-900">Modulação Intestinal</strong> aos procedimentos, ela garante que cada tratamento de alta performance proporcione resultados reais e duradouros.
+          </p>
+          <p>
+            Sua missão é conduzir cada jovem e adulto a expressar sua melhor versão estética sem abrir mão da saúde de suas células, promovendo bem-estar contínuo em um ambiente moderno e extremamente acolhedor.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+          <a href="https://api.whatsapp.com/send?phone=5516994396886&text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Ana%20Neves."
+             target="_blank"
+             class="btn-active inline-flex items-center justify-center bg-gradient-to-r from-champagne to-[#c3a697] hover:from-[#c3a697] hover:to-champagne text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 shadow-md">
+            Agendar Consulta
+          </a>
+          <a href="https://www.instagram.com/clinicabioesteticapremium/" 
+             target="_blank"
+             class="inline-flex items-center gap-2 text-zinc-700 hover:text-champagne transition-colors text-sm font-semibold">
+            <i class="fa-brands fa-instagram text-champagne text-lg"></i> @clinicabioesteticapremium
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (SOCIAL PROOF) -->
+  <section id="depoimentos" class="py-32 bg-sectionBg border-y border-borderLight">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-[65ch] mx-auto mb-20 scroll-reveal">
+        <span class="text-xs font-bold tracking-[0.25em] text-sage uppercase mb-3 block">Depoimentos</span>
+        <h2 class="text-3xl md:text-5xl font-display font-bold text-zinc-900 tracking-tight leading-tight">
+          A Vivência de Nossos Pacientes
+        </h2>
+        <p class="text-zinc-600 text-sm mt-4">
+          Comentários reais registrados espontaneamente no Google sobre a nossa excelência profissional.
+        </p>
+      </div>
+
+      <!-- Testimonial Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-grid mb-12">
+        
+        <!-- Renata Viana -->
+        <div class="glow-card bg-lightCard border border-borderLight p-8 rounded-3xl relative flex flex-col justify-between hover:border-champagne/20 transition-all duration-300 shadow-sm">
+          <div>
+            <div class="text-[#F39C12] flex gap-1 mb-6">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-zinc-700 italic mb-8 leading-relaxed text-sm">
+              "Excelente espaço, de fácil localização e acesso."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-borderLight pt-6">
+            <div class="w-10 h-10 rounded-full bg-champagne/10 flex items-center justify-center text-champagne font-bold text-sm">
+              RV
+            </div>
+            <div>
+              <h4 class="text-[#1C1C1E] text-sm font-semibold">Renata Viana</h4>
+              <p class="text-zinc-500 text-xs">Paciente Google Reviews</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wender Henrique -->
+        <div class="glow-card bg-lightCard border border-borderLight p-8 rounded-3xl relative flex flex-col justify-between hover:border-champagne/20 transition-all duration-300 shadow-sm">
+          <div>
+            <div class="text-[#F39C12] flex gap-1 mb-6">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-zinc-700 italic mb-8 leading-relaxed text-sm">
+              "Atendimento maravilhoso, equipe super atenciosa e os procedimentos são top!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-borderLight pt-6">
+            <div class="w-10 h-10 rounded-full bg-champagne/10 flex items-center justify-center text-champagne font-bold text-sm">
+              WH
+            </div>
+            <div>
+              <h4 class="text-[#1C1C1E] text-sm font-semibold">Wender Henrique</h4>
+              <p class="text-zinc-500 text-xs">Paciente Google Reviews</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Marcia Alves -->
+        <div class="glow-card bg-lightCard border border-borderLight p-8 rounded-3xl relative flex flex-col justify-between hover:border-champagne/20 transition-all duration-300 shadow-sm">
+          <div>
+            <div class="text-[#F39C12] flex gap-1 mb-6">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-zinc-700 italic mb-8 leading-relaxed text-sm">
+              "Tem sido maravilhosa, tanto quanto aos serviços, como às formas de pagamento."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-borderLight pt-6">
+            <div class="w-10 h-10 rounded-full bg-champagne/10 flex items-center justify-center text-champagne font-bold text-sm">
+              MA
+            </div>
+            <div>
+              <h4 class="text-[#1C1C1E] text-sm font-semibold">Marcia Alves Silva de Paula</h4>
+              <p class="text-zinc-500 text-xs">Paciente Google Reviews</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer CTA for social proof -->
+      <div class="text-center">
+        <a href="https://api.whatsapp.com/send?phone=5516994396886&text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Ana%20Neves."
+           target="_blank"
+           class="inline-flex items-center gap-3 bg-transparent border border-borderLight hover:border-champagne hover:text-champagne text-zinc-700 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors duration-300">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Falar com Equipe de Atendimento
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO & LOCALIZAÇÃO -->
+  <section class="py-32 max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-grid">
+      <!-- Contact Info Details -->
+      <div class="lg:col-span-5 flex flex-col">
+        <span class="text-xs font-bold tracking-[0.25em] text-champagne uppercase mb-4">Visite-nos</span>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-zinc-900 tracking-tight leading-tight mb-8">
+          Conheça o nosso espaço em Sua Cidade-UF
+        </h2>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-champagne/10 flex items-center justify-center text-champagne shrink-0 mt-1">
+              <i class="fa-solid fa-map-location-dot text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-zinc-900 font-semibold mb-1">Endereço</h4>
+              <p class="text-zinc-600 text-sm leading-relaxed">
+                R. Nabi Haber, 400 - São José<br>Sua Cidade - UF, 14401-289
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-champagne/10 flex items-center justify-center text-champagne shrink-0 mt-1">
+              <i class="fa-solid fa-phone text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-zinc-900 font-semibold mb-1">Telefone / WhatsApp</h4>
+              <p class="text-zinc-600 text-sm font-semibold tracking-wide">
+                (00) 99999-9999
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-champagne/10 flex items-center justify-center text-champagne shrink-0 mt-1">
+              <i class="fa-solid fa-clock text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-zinc-900 font-semibold mb-1">Horário de Funcionamento</h4>
+              <p class="text-zinc-600 text-sm">
+                Segunda a Sexta: 08:00 às 20:00
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <a href="https://api.whatsapp.com/send?phone=5516994396886&text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Ana%20Neves."
+             target="_blank"
+             class="btn-active inline-flex items-center justify-center bg-gradient-to-r from-champagne to-[#c3a697] hover:from-[#c3a697] hover:to-champagne text-white font-bold px-8 py-4 rounded-full text-sm uppercase tracking-wider transition-all duration-300 shadow-md">
+            Agendar sua Visita
+          </a>
+        </div>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <div class="lg:col-span-7">
+        <div class="w-full aspect-video rounded-[2rem] overflow-hidden border border-borderLight/60 relative shadow-xl">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.382218446261!2d-47.387979685072225!3d-20.510955986287955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b0a7019f6a73c1%3A0xbccf06a13d6a695e!2sR.%20Nabi%20Haber%2C%20400%20-%20S%C3%A3o%20Jos%C3%A9%2C%20Sua Cidade%20-%20SP%2C%2014401-289!5e0!3m2!1spt-BR!2sbr!4v1655000000000!5m2!1spt-BR!2sbr" 
+            class="w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#F0F0F3] border-t border-borderLight/80 py-16 text-xs text-zinc-600">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+      <!-- Legal info -->
+      <div class="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+        <p class="font-semibold text-zinc-900 text-sm">
+          Clínica Bioestética Premium — Dra. Juliana Silva
+        </p>
+        <p class="text-zinc-600">
+          R. Nabi Haber, 400 - São José, Sua Cidade - UF, 14401-289
+        </p>
+        <p class="text-[10px] text-zinc-500">
+          CRO-SP/Inscrição sob responsabilidade técnica da Dra. Juliana Silva. Estética Integrativa Avançada.
+        </p>
+      </div>
+
+      <!-- Links / Media -->
+      <div class="flex items-center gap-6 text-zinc-700">
+        <a href="https://www.instagram.com/clinicabioesteticapremium/" target="_blank" class="hover:text-champagne transition-colors duration-300">Instagram</a>
+        <a href="https://api.whatsapp.com/send?phone=5516994396886&text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Ana%20Neves." target="_blank" class="hover:text-champagne transition-colors duration-300">WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-borderLight/50 text-center text-[10px] text-zinc-500">
+      Copyright 2026 Clínica Bioestética Premium. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- GSAP ANIMATIONS & INTERACTIVE SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    // Interactive mouse movement for Card Glows
+    const cards = document.querySelectorAll('.glow-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // Mobile Navigation Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOpenIcon = mobileMenuBtn.querySelector('.menu-open');
+    const menuCloseIcon = mobileMenuBtn.querySelector('.menu-close');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('translate-x-full');
+      if (isOpen) {
+        mobileMenu.classList.add('translate-x-full');
+        menuOpenIcon.classList.remove('hidden');
+        menuCloseIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('translate-x-full');
+        menuOpenIcon.classList.add('hidden');
+        menuCloseIcon.classList.remove('hidden');
+      }
+    });
+
+    // Close Mobile Drawer on Navigation selection
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+        menuOpenIcon.classList.remove('hidden');
+        menuCloseIcon.classList.add('hidden');
+      });
+    });
+
+    // GSAP ScrollTrigger animation logic
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!isReducedMotion) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Elements Staggered Entrance
+      const tl = gsap.timeline();
+      tl.from(".hero-title", { opacity: 0, y: 70, duration: 1.2, ease: "power4.out" })
+        .from(".hero-el", { opacity: 0, y: 30, duration: 1, ease: "power3.out", stagger: 0.15 }, "-=0.9");
+
+      // General scroll triggered reveal for titles
+      gsap.utils.toArray('.scroll-reveal').forEach((section) => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 40,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        });
+      });
+
+      // Grid dynamic item reveal stagger
+      gsap.utils.toArray('.reveal-grid').forEach((grid) => {
+        gsap.fromTo(grid.children, 
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: grid,
+              start: "top 90%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      });
+    }
+  </script>
+</body>
+</html>
