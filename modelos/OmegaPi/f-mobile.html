@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://omegapi.com.br/wp-content/uploads/2019/06/Logo-OmegaPi-certo_transparent-1024x777.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmegaPi | Aplicativo F/Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-secondary">
+    
+    <div id="header-placeholder"></div>
+
+    <section class="section-padding text-left">
+      <div class="container">
+        <a href="index.html" class="btn btn-outline" style="padding: 6px 12px; font-size: 12px; margin-bottom: 32px;"><i class="fa-solid fa-arrow-left"></i> Voltar para Home</a>
+        
+        <div class="grid grid-2" style="align-items: center; margin-bottom: 64px;">
+          <div>
+            <span style="font-size: 12px; font-weight: 700; color: var(--brand-primary-dark); text-transform: uppercase; background-color: rgba(0, 193, 145, 0.1); padding: 6px 12px; border-radius: 50px;">Aplicativo F/Mobile</span>
+            <h1 style="font-size: 2.75rem; margin-top: 24px; margin-bottom: 24px; line-height: 1.2;">Seu veículo na palma da mão, onde quer que você esteja</h1>
+            <p style="margin-bottom: 32px; font-size: 1.1rem;">O F/Mobile é o aplicativo oficial que conecta você ao rastreador do seu veículo. Disponível gratuitamente para Android e iOS, oferece acesso rápido ao mapa de rastreio, telemetria básica e comandos de bloqueio.</p>
+            <div style="display: flex; gap: 16px;">
+              <a href="https://play.google.com/store/apps/details?id=br.com.fulltrack.fmobile" target="_blank" class="btn btn-primary">Google Play</a>
+              <a href="https://apps.apple.com/br/app/f-mobile/id1188371302" target="_blank" class="btn btn-outline">App Store</a>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: center;">
+            <!-- Phone Mockup -->
+            <div style="width: 280px; height: 560px; background-color: #020617; border: 8px solid #1e293b; border-radius: 40px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); padding: 12px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative;">
+              <div style="width: 128px; height: 20px; background-color: #1e293b; border-radius: 50px; margin: 0 auto 8px auto; position: relative;">
+                <span style="position: absolute; top: 6px; left: 16px; width: 8px; height: 8px; border-radius: 50px; background-color: #0f172a;"></span>
+                <span style="position: absolute; top: 8px; right: 32px; width: 32px; height: 4px; border-radius: 5px; background-color: #0f172a;"></span>
+              </div>
+              
+              <div style="background-color: #f8fafc; flex-grow: 1; border-radius: 28px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; position: relative; background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1.5px); background-size: 12px 12px;">
+                <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+                  <i class="fa-solid fa-mobile-screen-button" style="color: var(--brand-primary); font-size: 14px;"></i>
+                  <span style="font-size: 9px; font-weight: 700; color: var(--text-primary);">F/Mobile Conectado</span>
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background-color: #10b981;"></span>
+                </div>
+
+                <div style="margin: auto; position: relative; height: 128px; display: flex; align-items: center; justify-content: center; width: 100%;">
+                  <svg style="width: 100%; height: 100%;">
+                    <circle cx="120" cy="64" r="32" fill="none" stroke="rgba(0, 193, 145, 0.15)" stroke-width="8" style="animation: pulse 2s infinite;" />
+                    <circle cx="120" cy="64" r="8" fill="#00c191" />
+                  </svg>
+                  <div style="position: absolute; top: 48px; left: 68px; text-align: center; background-color: rgba(15, 23, 42, 0.9); color: #ffffff; border-radius: 4px; padding: 4px; font-size: 8px; font-weight: 700; width: 104px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    Veículo Estacionado
+                  </div>
+                </div>
+
+                <div style="background-color: #0f172a; color: #ffffff; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); text-align: left;">
+                  <div style="font-size: 10px; font-weight: 700;">Último Evento</div>
+                  <div style="font-size: 8px; color: #94a3b8;">Ignição Desligada às 15:32</div>
+                  <div style="width: 100%; background-color: var(--brand-primary); text-align: center; font-size: 9px; font-weight: 700; padding: 6px; border-radius: 4px; margin-top: 6px; cursor: pointer; color: #ffffff;">Bloquear Veículo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-4" style="margin-bottom: 64px;">
+          <div class="support-tool-card">
+            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-map"></i></div>
+            <h3>Visualização no Mapa</h3>
+            <p>Acompanhe a posição exata do seu veículo com o suporte a visualização de satélite e trânsito.</p>
+          </div>
+          <div class="support-tool-card">
+            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Alerta Antifurto</h3>
+            <p>Seja notificado caso seu veículo saia de uma área de estacionamento pré-determinada.</p>
+          </div>
+          <div class="support-tool-card">
+            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-bell"></i></div>
+            <h3>Push Notification</h3>
+            <p>Receba alertas instantâneos diretamente na barra de status do seu celular, sem custos adicionais.</p>
+          </div>
+          <div class="support-tool-card">
+            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-share-nodes"></i></div>
+            <h3>Compartilhar Rota</h3>
+            <p>Envie links temporários para que seus amigos ou familiares acompanhem sua viagem em tempo real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/shared.js"></script>
+  </body>
+</html>

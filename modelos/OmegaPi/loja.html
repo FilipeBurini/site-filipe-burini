@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://omegapi.com.br/wp-content/uploads/2019/06/Logo-OmegaPi-certo_transparent-1024x777.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmegaPi | Nossos Planos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-secondary">
+    
+    <div id="header-placeholder"></div>
+
+    <section class="section-padding text-center">
+      <div class="container">
+        <div class="section-title">
+          <h2>Conheça nossos planos</h2>
+          <p>Escolha a solução que melhor atende o seu veículo ou a frota da sua empresa.</p>
+          
+          <div class="toggle-cycle">
+            <button class="cycle-btn active" id="btn-mensal">Mensal</button>
+            <button class="cycle-btn" id="btn-anual">Anual <span style="font-size: 8px; font-weight: 700; color: var(--brand-primary-dark); background-color: rgba(0, 193, 145, 0.15); padding: 1px 4px; border-radius: 4px; margin-left: 2px;">20% Off</span></button>
+          </div>
+        </div>
+
+        <div class="grid grid-3 pricing-grid">
+          <!-- Plan 1 -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <div class="pricing-icon-wrapper"><i class="fa-solid fa-user"></i></div>
+              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Light</span>
+            </div>
+            <h3>Rastreamento Light</h3>
+            <p class="desc">Ideal para carros e motos de passeio.</p>
+            <div class="pricing-price">
+              <span>R$</span> <span id="price-light">49</span> <span>,90/mês</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-circle-check"></i> Localização em tempo real 24h</li>
+              <li><i class="fa-solid fa-circle-check"></i> Aplicativo F/Mobile (iOS/Android)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Alertas de ignição ligada/desligada</li>
+              <li><i class="fa-solid fa-circle-check"></i> Histórico de rotas por 30 dias</li>
+              <li><i class="fa-solid fa-circle-check"></i> Suporte técnico em horário comercial</li>
+            </ul>
+            <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20assinar%20o%20plano%20Rastreamento%20Light" target="_blank" class="btn btn-outline">Assinar Plano</a>
+          </div>
+
+          <!-- Plan 2 -->
+          <div class="pricing-card popular">
+            <span class="popular-badge"><i class="fa-solid fa-star"></i> Mais Vendido</span>
+            <div class="pricing-card-header">
+              <div class="pricing-icon-wrapper"><i class="fa-solid fa-shield-halved"></i></div>
+              <span style="font-size: 10px; font-weight: 700; color: var(--brand-primary-dark); text-transform: uppercase;">Premium</span>
+            </div>
+            <h3>Rastreamento Premium</h3>
+            <p class="desc">Mais segurança com bloqueio e relatórios completos.</p>
+            <div class="pricing-price">
+              <span>R$</span> <span id="price-premium">79</span> <span>,90/mês</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-circle-check"></i> Tudo do Rastreamento Light</li>
+              <li><i class="fa-solid fa-circle-check"></i> Bloqueio veicular via aplicativo</li>
+              <li><i class="fa-solid fa-circle-check"></i> Alertas de excesso de velocidade</li>
+              <li><i class="fa-solid fa-circle-check"></i> Cerca virtual integrada</li>
+              <li><i class="fa-solid fa-circle-check"></i> Suporte operacional de emergência 24h</li>
+              <li><i class="fa-solid fa-circle-check"></i> Histórico de rotas por 90 dias</li>
+            </ul>
+            <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20assinar%20o%20plano%20Rastreamento%20Premium" target="_blank" class="btn btn-primary">Assinar Plano</a>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <div class="pricing-icon-wrapper"><i class="fa-solid fa-award"></i></div>
+              <span style="font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Pro</span>
+            </div>
+            <h3>Gestão de Frotas Pro</h3>
+            <p class="desc">Foco corporativo para empresas e delivery.</p>
+            <div class="pricing-price">
+              <span>R$</span> <span id="price-pro">119</span> <span>,90/mês</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-circle-check"></i> Tudo do Rastreamento Premium</li>
+              <li><i class="fa-solid fa-circle-check"></i> Telemetria e controle de combustível</li>
+              <li><i class="fa-solid fa-circle-check"></i> Integração com sistema F/Dispatch</li>
+              <li><i class="fa-solid fa-circle-check"></i> Relatório de comportamento do motorista</li>
+              <li><i class="fa-solid fa-circle-check"></i> Gerenciamento de manutenção preventiva</li>
+              <li><i class="fa-solid fa-circle-check"></i> Exportação de dados em Excel/PDF</li>
+            </ul>
+            <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Gestão%20de%20Frotas%20Pro" target="_blank" class="btn btn-outline">Falar com Consultor</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/shared.js"></script>
+    <script>
+      const btnMensal = document.getElementById('btn-mensal');
+      const btnAnual = document.getElementById('btn-anual');
+      
+      const priceLight = document.getElementById('price-light');
+      const pricePremium = document.getElementById('price-premium');
+      const pricePro = document.getElementById('price-pro');
+      
+      btnMensal.addEventListener('click', () => {
+          btnMensal.classList.add('active');
+          btnAnual.classList.remove('active');
+          priceLight.textContent = '49';
+          pricePremium.textContent = '79';
+          pricePro.textContent = '119';
+      });
+      
+      btnAnual.addEventListener('click', () => {
+          btnAnual.classList.add('active');
+          btnMensal.classList.remove('active');
+          priceLight.textContent = '39';
+          pricePremium.textContent = '64';
+          pricePro.textContent = '99';
+      });
+    </script>
+  </body>
+</html>

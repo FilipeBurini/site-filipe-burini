@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://omegapi.com.br/wp-content/uploads/2019/06/Logo-OmegaPi-certo_transparent-1024x777.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmegaPi | Acesso ao Rastreamento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body class="bg-secondary">
+    
+    <div id="header-placeholder"></div>
+
+    <section class="section-padding" style="display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 160px);">
+      <div class="container" style="display: flex; justify-content: center;">
+        <div class="login-panel">
+          <div class="login-header">
+            <a href="index.html" style="font-size: 11px; color: var(--text-muted);"><i class="fa-solid fa-arrow-left"></i> Voltar para Home</a>
+            <div class="pricing-icon-wrapper" style="margin: 20px auto 12px auto;"><i class="fa-solid fa-truck"></i></div>
+            <h1>Acesso ao Rastreamento</h1>
+            <p style="font-size: 0.875rem; color: var(--text-secondary);">Insira suas credenciais da plataforma OmegaPi.</p>
+          </div>
+          
+          <form class="contact-form" id="login-form" style="border: none; padding: 0; box-shadow: none; display: flex; flex-direction: column; gap: 16px;">
+            <div class="form-group">
+              <label>Usuário / E-mail</label>
+              <div class="input-icon-wrapper">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" class="form-control" name="username" placeholder="Seu usuário" required />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Senha</label>
+              <div class="input-icon-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" class="form-control" name="password" placeholder="Sua senha" required />
+              </div>
+            </div>
+
+            <div class="alert-danger" id="login-error" style="display: none;"></div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Entrar no Sistema</button>
+            
+            <div style="text-align: center; margin-top: 12px;">
+              <a href="https://wa.me/551637205384?text=Esqueci%20minha%20senha%20de%20rastreamento" target="_blank" style="font-size: 11px; font-weight: 600; color: var(--brand-primary-dark);">Esqueceu sua senha?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/shared.js"></script>
+    <script>
+      document.getElementById('login-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const user = this.username.value.trim();
+          const pass = this.password.value.trim();
+          const errBox = document.getElementById('login-error');
+          
+          if (!user || !pass) {
+              errBox.textContent = 'Por favor, preencha todos os campos.';
+              errBox.style.display = 'block';
+              return;
+          }
+          
+          errBox.style.display = 'none';
+          window.location.href = 'https://track.omegapi.com.br/';
+      });
+    </script>
+  </body>
+</html>
