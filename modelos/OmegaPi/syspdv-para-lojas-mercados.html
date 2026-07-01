@@ -4,93 +4,525 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="https://omegapi.com.br/wp-content/uploads/2019/06/Logo-OmegaPi-certo_transparent-1024x777.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OmegaPi | SysPDV Lojas & Mercados</title>
+    
+    <!-- SEO Optimization -->
+    <title>OmegaPi | SysPDV Lojas & Mercados - Frente de Caixa de Alta Performance</title>
+    <meta name="description" content="Mais rapidez no atendimento do seu frente de loja com o SysPDV. Sistema robusto para lojas, minimercados, padarias e açougues da retaguarda ao PDV." />
+    
+    <!-- Font Awesome & Style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    
+    <style>
+      /* Page Specific Styles & Tab System */
+      .tab-navigation {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 16px;
+      }
+      
+      .tab-btn {
+        background: transparent;
+        border: none;
+        padding: 12px 24px;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        border-radius: 8px;
+        transition: var(--transition-normal);
+      }
+      
+      .tab-btn:hover {
+        color: var(--brand-primary);
+        background-color: rgba(0, 193, 145, 0.05);
+      }
+      
+      .tab-btn.active {
+        color: #ffffff;
+        background-color: var(--brand-primary-dark);
+        box-shadow: 0 4px 12px rgba(0, 125, 92, 0.2);
+      }
+      
+      .tab-content {
+        display: none;
+        animation: fadeIn 0.4s ease-out;
+      }
+      
+      .tab-content.active {
+        display: block;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .pain-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 32px 24px;
+        transition: var(--transition-normal);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .pain-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03);
+        border-color: #fca5a5; /* light red highlight for challenges */
+      }
+      
+      .pain-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        background-color: #fee2e2;
+        color: #ef4444;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        font-size: 20px;
+      }
+      
+      .diferencial-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 36px 32px;
+        transition: var(--transition-normal);
+      }
+      
+      .diferencial-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 193, 145, 0.04);
+        border-color: var(--brand-primary);
+      }
+      
+      .diferencial-icon-wrapper {
+        width: 56px;
+        height: 56px;
+        background-color: rgba(0, 193, 145, 0.1);
+        color: var(--brand-primary-dark);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        font-size: 24px;
+      }
+
+      .step-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(180deg, var(--brand-primary) 0%, rgba(0, 193, 145, 0.15) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 12px;
+      }
+      
+      .mockup-check-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      }
+    </style>
   </head>
   <body class="bg-secondary">
     
+    <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
     <section class="section-padding text-left">
       <div class="container">
-        <a href="index.html" class="btn btn-outline" style="padding: 6px 12px; font-size: 12px; margin-bottom: 32px;"><i class="fa-solid fa-arrow-left"></i> Voltar para Home</a>
         
-        <div class="grid grid-2" style="align-items: center; margin-bottom: 64px;">
+        <!-- Back Button -->
+        <a href="index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 13px; margin-bottom: 40px; border-radius: 50px;">
+          <i class="fa-solid fa-arrow-left"></i> Voltar para Home
+        </a>
+        
+        <!-- Hero Section -->
+        <div class="grid grid-2" style="align-items: center; margin-bottom: 80px;">
           <div>
-            <span style="font-size: 12px; font-weight: 700; color: var(--brand-primary-dark); text-transform: uppercase; background-color: rgba(0, 193, 145, 0.1); padding: 6px 12px; border-radius: 50px;">SysPDV Lojas & Mercados</span>
-            <h1 style="font-size: 2.75rem; margin-top: 24px; margin-bottom: 24px; line-height: 1.2;">A força do seu varejo com frente de caixa de alta performance</h1>
-            <p style="margin-bottom: 32px; font-size: 1.1rem;">O SysPDV é uma das ferramentas de frente de caixa e retaguarda mais robustas do mercado nacional. Ideal para padarias, minimercados, açougues e comércios que precisam de agilidade e controle.</p>
-            <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20um%20demonstrativo%20do%20SysPDV" target="_blank" class="btn btn-primary">Solicitar Orçamento</a>
+            <span style="font-size: 12px; font-weight: 700; color: var(--brand-primary-dark); text-transform: uppercase; background-color: rgba(0, 193, 145, 0.1); padding: 6px 12px; border-radius: 50px; letter-spacing: 0.5px;">SysPDV Lojas & Mercados</span>
+            <h1 style="font-size: 2.85rem; margin-top: 24px; margin-bottom: 24px; line-height: 1.2; font-weight: 800; color: var(--text-primary);">Mais rapidez no atendimento do seu frente de loja</h1>
+            <p style="margin-bottom: 32px; font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6;">O <strong>SysPDV</strong> é o sistema completo para lojas, minimercados e supermercados que conecta tudo o que o seu ponto de venda precisa: da emissão de notas fiscais rápidas à gestão financeira e de estoque integrada e de alta performance.</p>
+            <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20um%20demonstrativo%20do%20SysPDV" target="_blank" class="btn btn-primary" style="padding: 14px 28px;">
+              Solicitar Orçamento <i class="fa-solid fa-chevron-right" style="font-size: 11px;"></i>
+            </a>
           </div>
           <div>
-            <div class="mockup-window" style="box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
-              <div class="mockup-header">
+            <!-- Visual Mockup Window -->
+            <div class="mockup-window" style="box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color);">
+              <div class="mockup-header" style="background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; height: 36px; padding: 0 16px;">
                 <span class="mockup-dot active"></span>
                 <span class="mockup-dot"></span>
                 <span class="mockup-dot"></span>
-                <span style="font-size: 8px; color: var(--text-muted); margin-left: auto; font-weight: 600;">Frente de Caixa SysPDV</span>
+                <span style="font-size: 10px; color: var(--text-muted); margin-left: auto; font-weight: 600;">Frente de Caixa SysPDV</span>
               </div>
-              <div class="mockup-body" style="background-color: #f8fafc; height: 280px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-store" style="color: var(--brand-primary); font-size: 18px;"></i>
-                    <div style="text-align: left; line-height: 1.2;">
-                      <div style="font-size: 10px; font-weight: 700; color: var(--text-primary);">SysPDV Retaguarda</div>
-                      <div style="font-size: 8px; color: var(--text-muted);">Cadastro de Produtos e Gestão de Estoque</div>
-                    </div>
+              <div class="mockup-body" style="background-color: #f8fafc; height: 280px; display: flex; flex-direction: column; justify-content: space-between; padding: 24px;">
+                
+                <div class="mockup-check-item">
+                  <i class="fa-solid fa-store" style="color: var(--brand-primary); font-size: 18px;"></i>
+                  <div style="text-align: left; line-height: 1.2;">
+                    <div style="font-size: 10px; font-weight: 700; color: var(--text-primary);">SysPDV Retaguarda</div>
+                    <div style="font-size: 8px; color: var(--text-muted);">Cadastro de Produtos e Gestão de Estoque</div>
                   </div>
+                  <span style="font-size: 8px; font-weight: 700; color: var(--brand-primary-dark); background-color: rgba(0, 193, 145, 0.1); padding: 2px 8px; border-radius: 4px; margin-left: auto;">ATIVO</span>
                 </div>
                 
-                <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-scale-balanced" style="color: var(--brand-primary); font-size: 18px;"></i>
-                    <div style="text-align: left; line-height: 1.2;">
-                      <div style="font-size: 10px; font-weight: 700; color: var(--text-primary);">Integração com Balanças</div>
-                      <div style="font-size: 8px; color: var(--text-muted);">Leitura automática de etiquetas de peso</div>
-                    </div>
+                <div class="mockup-check-item">
+                  <i class="fa-solid fa-scale-balanced" style="color: var(--brand-primary); font-size: 18px;"></i>
+                  <div style="text-align: left; line-height: 1.2;">
+                    <div style="font-size: 10px; font-weight: 700; color: var(--text-primary);">Integração com Balanças</div>
+                    <div style="font-size: 8px; color: var(--text-muted);">Leitura automática de etiquetas de peso</div>
                   </div>
-                  <span style="font-size: 8px; font-weight: 700; color: #10b981; background-color: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 4px;">100% OK</span>
+                  <span style="font-size: 8px; font-weight: 700; color: #10b981; background-color: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 4px; margin-left: auto;">100% OK</span>
                 </div>
 
-                <div style="background-color: rgba(0, 193, 145, 0.1); border: 1px solid rgba(0, 193, 145, 0.2); border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-receipt" style="color: var(--brand-primary-dark); font-size: 18px;"></i>
-                    <span style="font-size: 10px; font-weight: 700; color: var(--brand-primary-dark);">Nota Fiscal de Consumidor (NFC-e)</span>
+                <div class="mockup-check-item" style="background-color: rgba(0, 193, 145, 0.05); border-color: rgba(0, 193, 145, 0.2);">
+                  <i class="fa-solid fa-receipt" style="color: var(--brand-primary-dark); font-size: 18px;"></i>
+                  <div style="text-align: left; line-height: 1.2;">
+                    <div style="font-size: 10px; font-weight: 700; color: var(--brand-primary-dark);">Nota Fiscal de Consumidor (NFC-e & SAT)</div>
+                    <div style="font-size: 8px; color: var(--brand-primary-dark);">Conexão rápida com a SEFAZ-SP</div>
                   </div>
+                  <i class="fa-solid fa-circle-check" style="color: var(--brand-primary-dark); margin-left: auto; font-size: 14px;"></i>
                 </div>
+                
               </div>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-4" style="margin-bottom: 64px;">
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-box-open"></i></div>
-            <h3>Estoque Avançado</h3>
-            <p>Controle de entrada e saída de mercadorias com relatórios de ruptura e sugestão de compras.</p>
-          </div>
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-scale-unbalanced"></i></div>
-            <h3>Balança Integrada</h3>
-            <p>Integração direta com balanças e leitores de código de barras para vendas ágeis por peso.</p>
-          </div>
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-file-shield"></i></div>
-            <h3>Homologação Fiscal</h3>
-            <p>Sempre atualizado com a legislação do estado de São Paulo, emitindo cupom fiscal de forma segura.</p>
-          </div>
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-chart-line"></i></div>
-            <h3>Curva ABC</h3>
-            <p>Saiba quais são seus produtos mais rentáveis e planeje promoções de forma assertiva.</p>
+        <!-- Specialized Section -->
+        <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: 24px; padding: 56px 48px; margin-bottom: 80px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);">
+          <div class="grid grid-2" style="align-items: center; gap: 48px;">
+            <div>
+              <h2 style="font-size: 2rem; margin-bottom: 24px; line-height: 1.3; font-weight: 700; color: var(--text-primary);">Um sistema de frente de loja especializado em varejo</h2>
+              <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">As operações no PDV (ponto de venda, frente de loja, caixa) são intensas e complexas, e precisam de um conjunto de recursos de software e hardware que devem trabalhar em harmonia para gerar os resultados de um bom atendimento.</p>
+              <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6;">Ciente dessa complexidade e a necessidade de um software robusto, estável, eficiente e de alto desempenho, o <strong>SysPDV</strong> chega preenchendo estes requisitos, atendendo de forma eficiente as rotinas complexas do PDV, contando ainda com um conjunto acentuado de hardwares homologados.</p>
+            </div>
+            <div style="background-color: var(--bg-secondary); border-radius: 16px; padding: 32px; border: 1px solid var(--border-color);">
+              <h3 style="font-size: 1.25rem; margin-bottom: 20px; color: var(--text-primary); font-weight: 700;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary); margin-right: 8px;"></i> Vantagens que fazem a diferença:</h3>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px;">
+                <li style="display: flex; gap: 12px; font-size: 0.95rem; line-height: 1.4;">
+                  <i class="fa-solid fa-check" style="color: var(--brand-primary); margin-top: 3px;"></i>
+                  <span>Alta estabilidade mesmo em horários de pico e grande fluxo de clientes.</span>
+                </li>
+                <li style="display: flex; gap: 12px; font-size: 0.95rem; line-height: 1.4;">
+                  <i class="fa-solid fa-check" style="color: var(--brand-primary); margin-top: 3px;"></i>
+                  <span>Compatível com as principais marcas de impressoras, balanças e SAT do mercado.</span>
+                </li>
+                <li style="display: flex; gap: 12px; font-size: 0.95rem; line-height: 1.4;">
+                  <i class="fa-solid fa-check" style="color: var(--brand-primary); margin-top: 3px;"></i>
+                  <span>Interface intuitiva que reduz o tempo de treinamento dos operadores.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+
+        <!-- Challenges / Problems Section -->
+        <div style="margin-bottom: 80px;">
+          <div class="text-center" style="margin-bottom: 48px;">
+            <span style="font-size: 12px; font-weight: 700; color: #ef4444; text-transform: uppercase; background-color: #fee2e2; padding: 6px 12px; border-radius: 50px; letter-spacing: 0.5px;">Solução de Gargalos</span>
+            <h2 style="font-size: 2.25rem; margin-top: 16px; margin-bottom: 12px; color: var(--text-primary);">Sua empresa enfrenta algum destes desafios?</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Muitos comércios sofrem com falhas operacionais e perdas de tempo. Veja como o SysPDV resolve cada um desses gargalos:</p>
+          </div>
+          
+          <div class="grid grid-3">
+            
+            <!-- Card 1 -->
+            <div class="pain-card">
+              <div class="pain-icon-wrapper">
+                <i class="fa-solid fa-gauge-simple-high"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">Lentidão no PDV</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Filas no caixa geram perda de clientes. O SysPDV é otimizado para registrar e encerrar vendas em milissegundos.</p>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="pain-card">
+              <div class="pain-icon-wrapper">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">Divergência de Caixa</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Batimento do movimento do operador não fecha? Tenha um fechamento cego e conciliações detalhadas.</p>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="pain-card">
+              <div class="pain-icon-wrapper">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">Falhas Constantes</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Problemas em rede ou internet interrompendo as vendas? O sistema é estável e conta com banco de dados local.</p>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="pain-card">
+              <div class="pain-icon-wrapper">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">Legislação Fiscal Complexa</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Dificuldade em emitir cupons ou transmitir dados fiscais? Emita NFC-e e SAT automaticamente sem dores de cabeça.</p>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="pain-card">
+              <div class="pain-icon-wrapper">
+                <i class="fa-solid fa-tags"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">Campanhas Engessadas</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Impossibilidade de montar promoções flexíveis? Configure combos e descontos dinâmicos diretamente no caixa.</p>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="pain-card">
+              <div class="pain-icon-wrapper">
+                <i class="fa-solid fa-circle-user"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px;">Problemas de Usabilidade</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Treinamento demorado e erros operacionais constantes? O SysPDV é projetado com foco na facilidade e clareza.</p>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Diferenciais Section -->
+        <div style="margin-bottom: 80px;">
+          <div class="text-center" style="margin-bottom: 48px;">
+            <span style="font-size: 12px; font-weight: 700; color: var(--brand-primary-dark); text-transform: uppercase; background-color: rgba(0, 193, 145, 0.1); padding: 6px 12px; border-radius: 50px; letter-spacing: 0.5px;">Benefícios Exclusivos</span>
+            <h2 style="font-size: 2.25rem; margin-top: 16px; margin-bottom: 12px; color: var(--text-primary);">Conheça nossos diferenciais</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Três pilares de sustentação projetados para trazer segurança jurídica, alta disponibilidade e flexibilidade comercial para o seu negócio.</p>
+          </div>
+          
+          <div class="grid grid-3">
+            <!-- Diferencial 1 -->
+            <div class="diferencial-card">
+              <div class="diferencial-icon-wrapper">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 style="font-size: 1.3rem; margin-bottom: 16px; font-weight: 700; color: var(--text-primary);">Segurança</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Contando com recursos de validação das autorizações na frente de loja e de leitura biométrica, o PDV garante que as ações de cancelamentos, estornos, liberação de limites entre outros, sejam autorizados por quem realmente tem autonomia para realizar.</p>
+            </div>
+            <!-- Diferencial 2 -->
+            <div class="diferencial-card">
+              <div class="diferencial-icon-wrapper">
+                <i class="fa-solid fa-power-off"></i>
+              </div>
+              <h3 style="font-size: 1.3rem; margin-bottom: 16px; font-weight: 700; color: var(--text-primary);">Autonomia</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">O PDV não depende de qualquer meio como internet, rede interna da empresa, servidor ou fonte de dados externa para funcionar. Cada PDV é autônomo, tendo o seu próprio banco de dados local em cada computador, garantindo desta forma a operation de venda.</p>
+            </div>
+            <!-- Diferencial 3 -->
+            <div class="diferencial-card">
+              <div class="diferencial-icon-wrapper">
+                <i class="fa-solid fa-sliders"></i>
+              </div>
+              <h3 style="font-size: 1.3rem; margin-bottom: 16px; font-weight: 700; color: var(--text-primary);">Flexibilidade</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">Realizar configurações de promoções em diversos formatos, trabalhar com diversas formas de pagamento, compatível com variados programas de fidelidade do mercado, automação de descontos, entre outros. São alguns recursos que mostram o quanto o sistema busca se adequar à necessidade da empresa usuária.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recursos & Módulos Section (Interactive Tabs) -->
+        <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: 24px; padding: 56px 48px; margin-bottom: 80px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);">
+          <div class="text-center" style="margin-bottom: 48px;">
+            <h2 style="font-size: 2rem; color: var(--text-primary); font-weight: 700;">Recursos & Módulos</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 12px auto 0; font-size: 1.05rem;">Descubra as ferramentas completas disponíveis no SysPDV para expandir suas opções de atendimento e controle.</p>
+          </div>
+
+          <!-- Tab buttons -->
+          <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab(event, 'tab-recursos')">Recursos Gerais</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-promo')">Motor de Promoções</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-fiscal')">Módulo Fiscal</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-self')">Self Checkout</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-app')">App Vendas</button>
+          </div>
+
+          <!-- Tab Contents -->
+          
+          <!-- Tab 1: Recursos Gerais -->
+          <div id="tab-recursos" class="tab-content active">
+            <div class="grid grid-2" style="align-items: center; gap: 40px;">
+              <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary);">Tudo o que seu ponto de venda precisa</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">Um atendimento de qualidade passa pelo sistema de informação, assim contar com um PDV (ponto de venda, frente de loja), robusto e simples de operar no principal ponto de contato com o cliente (ponto de venda) é essencial. Para atender esta necessidade do mercado, o SysPDV conta com diversos recursos que podem ser configurados para que o sistema se adapte a necessidade da organização.</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Sincronização automática com a retaguarda</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Leitura de códigos de barras de alta velocidade</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Controle e gerenciamento por operador</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <img src="https://omegapi.com.br/wp-content/uploads/2019/06/Logo-OmegaPi-certo_transparent-1024x777.png" alt="SysPDV Recursos" style="max-width: 80%; height: auto; opacity: 0.85;" />
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tab 2: Motor de Promoções -->
+          <div id="tab-promo" class="tab-content">
+            <div class="grid grid-2" style="align-items: center; gap: 40px;">
+              <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary);">Combos e promoções dinâmicas no caixa</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">Atraia mais clientes e aumente o ticket médio da sua loja programando promoções avançadas. O motor de promoções do SysPDV calcula descontos especiais instantaneamente no momento da passagem dos itens.</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Promoções do tipo "Leve X Pague Y"</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Campanhas de fidelização e desconto por convênio</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Desconto progressivo baseado na quantidade de produtos</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <div style="background-color: var(--bg-secondary); border-radius: 12px; padding: 40px; border: 1px dashed var(--border-color); display: inline-block;">
+                  <i class="fa-solid fa-tags" style="font-size: 64px; color: var(--brand-primary); margin-bottom: 16px;"></i>
+                  <h4 style="font-size: 1.1rem; color: var(--text-primary); margin: 0;">Motor de Promoções Ativo</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Combos, descontos e taxas automáticas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tab 3: Módulo Fiscal -->
+          <div id="tab-fiscal" class="tab-content">
+            <div class="grid grid-2" style="align-items: center; gap: 40px;">
+              <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary);">Segurança jurídica e facilidade fiscal</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">O SysPDV atende integralmente à legislação fiscal vigente. O módulo foi desenvolvido com foco na estabilidade para garantir que sua empresa opere sem o risco de interrupções por quedas ou erros tributários.</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Transmissão e impressão instantânea de NFC-e</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Integração robusta com equipamentos SAT de São Paulo</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Contingência offline inteligente para faturar sem internet</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <div style="background-color: var(--bg-secondary); border-radius: 12px; padding: 40px; border: 1px dashed var(--border-color); display: inline-block;">
+                  <i class="fa-solid fa-receipt" style="font-size: 64px; color: var(--brand-primary); margin-bottom: 16px;"></i>
+                  <h4 style="font-size: 1.1rem; color: var(--text-primary); margin: 0;">Homologação SP</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Conformidade total com a SEFAZ.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tab 4: Self Checkout -->
+          <div id="tab-self" class="tab-content">
+            <div class="grid grid-2" style="align-items: center; gap: 40px;">
+              <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary);">Terminal de Autoatendimento Intuitivo</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">Reduza filas de forma significativa permitindo que os próprios clientes registrem e paguem por suas compras. O Self Checkout do SysPDV é fácil de usar e possui integração nativa com balanças de segurança contra furtos.</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Operação por áudio e vídeo em português</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Suporte completo a múltiplos meios de pagamento (cartão, Pix)</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Balança de conferência integrada na base de apoio</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <div style="background-color: var(--bg-secondary); border-radius: 12px; padding: 40px; border: 1px dashed var(--border-color); display: inline-block;">
+                  <i class="fa-solid fa-desktop" style="font-size: 64px; color: var(--brand-primary); margin-bottom: 16px;"></i>
+                  <h4 style="font-size: 1.1rem; color: var(--text-primary); margin: 0;">Self Checkout Integrado</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Pronto para acelerar os caixas rápidos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tab 5: App Vendas -->
+          <div id="tab-app" class="tab-content">
+            <div class="grid grid-2" style="align-items: center; gap: 40px;">
+              <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary);">A força de vendas móvel no seu varejo</h3>
+                <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">Deixe que seus vendedores e gerentes consultem estoque, localizem preços e façam pré-atendimentos de vendas diretamente nos corredores da loja utilizando dispositivos iOS ou Android.</p>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Consulta de preços e estoque em tempo real</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Pré-venda rápida para evitar filas no caixa final</li>
+                  <li style="display: flex; align-items: center; gap: 10px; font-size: 0.95rem;"><i class="fa-solid fa-circle-check" style="color: var(--brand-primary);"></i> Relatórios dinâmicos de faturamento da loja</li>
+                </ul>
+              </div>
+              <div style="text-align: center;">
+                <div style="background-color: var(--bg-secondary); border-radius: 12px; padding: 40px; border: 1px dashed var(--border-color); display: inline-block;">
+                  <i class="fa-solid fa-mobile-screen-button" style="font-size: 64px; color: var(--brand-primary); margin-bottom: 16px;"></i>
+                  <h4 style="font-size: 1.1rem; color: var(--text-primary); margin: 0;">Aplicativo Móvel</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Produtividade na palma da mão.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Passo a Passo de Contratação -->
+        <div style="margin-bottom: 80px; text-align: center;">
+          <h2 style="font-size: 2rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 700;">Passo a passo de contratação</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 1.05rem;">Confira as 3 etapas simples de como vamos atender você para implantar o SysPDV:</p>
+          
+          <div class="grid grid-3">
+            
+            <div class="billow-card" style="padding: 40px 32px; text-align: left;">
+              <div class="step-number">01</div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">Agende sua Visita</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Clique em "Solicite Orçamento" e um de nossos especialistas entrará em contato para agendar uma demonstração do sistema presencial ou online.</p>
+            </div>
+            
+            <div class="billow-card" style="padding: 40px 32px; text-align: left;">
+              <div class="step-number">02</div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">Diagnóstico do Negócio</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Faremos uma análise dos seus processos internos de vendas, equipamentos locais e estoque para propor a configuração sob medida para o seu varejo.</p>
+            </div>
+            
+            <div class="billow-card" style="padding: 40px 32px; text-align: left;">
+              <div class="step-number">03</div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">Contrato e Implantação</h3>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">Após a escolha do melhor plano, iniciamos a instalação de banco de dados, homologação dos caixas e treinamento completo para sua equipe de vendas.</p>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Banner Ribbon CTA -->
+        <div style="background: linear-gradient(135deg, var(--brand-primary-dark) 0%, var(--brand-primary) 100%); border-radius: 24px; padding: 48px; text-align: center; color: #ffffff; box-shadow: 0 10px 30px rgba(0, 193, 145, 0.2);">
+          <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 16px; font-weight: 700;">Pronto para transformar a gestão do seu comércio?</h2>
+          <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">Conecte retaguarda, caixas e vendas em uma solução robusta e sem quedas. Fale hoje mesmo com nosso time comercial.</p>
+          <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20um%20demonstrativo%20do%20SysPDV" target="_blank" class="btn btn-white" style="padding: 14px 28px; border: 2px solid #ffffff; border-radius: 8px; font-weight: 700; color: #ffffff;">
+            Solicitar Orçamento via WhatsApp <i class="fa-solid fa-whatsapp" style="margin-left: 8px; font-size: 18px;"></i>
+          </a>
+        </div>
+
       </div>
     </section>
 
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
+    <!-- Scripts -->
     <script src="assets/js/shared.js"></script>
+    <script>
+      function switchTab(evt, tabId) {
+        // Hide all tab contents
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        // Remove active class from all tab buttons
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        // Show current tab content and add active class to button
+        document.getElementById(tabId).classList.add('active');
+        evt.currentTarget.classList.add('active');
+      }
+    </script>
   </body>
 </html>

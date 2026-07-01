@@ -4,60 +4,392 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="https://omegapi.com.br/wp-content/uploads/2019/06/Logo-OmegaPi-certo_transparent-1024x777.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OmegaPi | Empresas de Delivery</title>
+    
+    <!-- SEO Optimization -->
+    <title>OmegaPi | Rastreamento para Empresas de Delivery e Entregas</title>
+    <meta name="description" content="Evite atrasos de entrega, alimentos frios e perdas financeiras no seu delivery. Sistema de rastreamento completo com rotas otimizadas e controle de velocidade." />
+    
+    <!-- Font Awesome & Style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    
+    <style>
+      /* Page specific styles & micro-interactions */
+      .card-item {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 32px 24px;
+        transition: var(--transition-normal);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .card-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 36px rgba(0, 193, 145, 0.08);
+        border-color: var(--brand-primary);
+      }
+      
+      .icon-wrapper {
+        width: 56px;
+        height: 56px;
+        background-color: rgba(0, 193, 145, 0.08);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        transition: var(--transition-normal);
+      }
+      
+      .card-item:hover .icon-wrapper {
+        background-color: var(--brand-primary);
+      }
+      
+      .card-item:hover .icon-wrapper i {
+        color: #ffffff;
+      }
+      
+      .icon-wrapper i {
+        color: var(--brand-primary-dark);
+        font-size: 24px;
+        transition: var(--transition-normal);
+      }
+      
+      .benefit-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--brand-primary-dark);
+        text-transform: uppercase;
+        background-color: rgba(0, 193, 145, 0.1);
+        padding: 6px 16px;
+        border-radius: 50px;
+        letter-spacing: 0.5px;
+        margin-bottom: 16px;
+      }
+
+      /* Hero mockup window styles */
+      .delivery-mockup {
+        box-shadow: 0 24px 48px rgba(15, 23, 42, 0.1);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        background: #ffffff;
+        position: relative;
+        transition: var(--transition-normal);
+      }
+      .delivery-mockup:hover {
+        transform: scale(1.01) translateY(-2px);
+      }
+
+      /* Simulation Map and pulsing elements */
+      .map-container {
+        height: 300px;
+        background-color: #f8fafc;
+        position: relative;
+        overflow: hidden;
+        background-image: 
+          radial-gradient(#e2e8f0 1.5px, transparent 1.5px),
+          linear-gradient(rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+        background-size: 15px 15px, 30px 30px, 30px 30px;
+      }
+
+      .map-path {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      .motoboy-pin {
+        position: absolute;
+        z-index: 10;
+        animation: delivery-drive 12s infinite linear;
+      }
+
+      @keyframes delivery-drive {
+        0% { transform: translate(40px, 180px); }
+        25% { transform: translate(120px, 80px); }
+        50% { transform: translate(220px, 120px); }
+        75% { transform: translate(160px, 200px); }
+        100% { transform: translate(40px, 180px); }
+      }
+
+      .pin-pulse {
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 193, 145, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .pin-pulse::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid var(--brand-primary);
+        border-radius: 50%;
+        animation: pulse-effect 1.8s infinite ease-out;
+      }
+
+      @keyframes pulse-effect {
+        0% { transform: scale(0.5); opacity: 1; }
+        100% { transform: scale(1.6); opacity: 0; }
+      }
+
+      .pin-icon {
+        width: 18px;
+        height: 18px;
+        background: var(--brand-primary-dark);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .pin-label {
+        position: absolute;
+        top: -26px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--text-primary);
+        color: white;
+        font-size: 9px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+
+      .floating-status-card {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        border-radius: 12px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+        z-index: 10;
+      }
+
+      .floating-status-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .floating-status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--brand-primary);
+        animation: flash 1s infinite alternate;
+      }
+
+      @keyframes flash {
+        0% { opacity: 0.3; }
+        100% { opacity: 1; }
+      }
+
+      .delivery-stats {
+        padding: 18px 24px;
+        background: #ffffff;
+        border-top: 1px solid var(--border-color);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .stat-box {
+        text-align: center;
+      }
+
+      .stat-val {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        font-family: var(--font-heading);
+      }
+
+      .stat-lbl {
+        font-size: 9px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 4px;
+        letter-spacing: 0.5px;
+      }
+
+      /* Custom lists styling */
+      .benefit-list {
+        list-style: none;
+        padding: 0;
+        margin: 24px 0 0;
+      }
+      .benefit-list-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+      }
+      .benefit-list-item i {
+        color: var(--brand-primary);
+        font-size: 18px;
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+
+      /* CTA Box layout style */
+      .cta-box {
+        background: linear-gradient(135deg, var(--brand-primary-dark) 0%, var(--brand-primary) 100%);
+        border-radius: 24px;
+        padding: 64px 48px;
+        color: #ffffff;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 193, 145, 0.15);
+        margin-top: 32px;
+      }
+      
+      .cta-box h2 {
+        color: #ffffff;
+        font-size: 2.25rem;
+        margin-bottom: 16px;
+      }
+      .cta-box p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.15rem;
+        max-width: 600px;
+        margin: 0 auto 32px;
+      }
+
+      .btn-white-cta {
+        background-color: #ffffff;
+        color: var(--brand-primary-dark);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      }
+      .btn-white-cta:hover {
+        background-color: #f8fafc;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Reduced Motion Compatibility */
+      @media (prefers-reduced-motion: reduce) {
+        .card-item, .delivery-mockup, .btn-white-cta, .motoboy-pin, .pin-pulse::after {
+          transition: none !important;
+          transform: none !important;
+          animation: none !important;
+        }
+        .card-item:hover, .delivery-mockup:hover, .btn-white-cta:hover {
+          transform: none !important;
+          box-shadow: none !important;
+        }
+      }
+    </style>
   </head>
   <body class="bg-secondary">
     
+    <!-- Dynamically Injected Navigation Header -->
     <div id="header-placeholder"></div>
 
-    <section class="section-padding text-left">
+    <section class="section-padding text-left" style="padding-top: 48px;">
       <div class="container">
-        <a href="index.html" class="btn btn-outline" style="padding: 6px 12px; font-size: 12px; margin-bottom: 32px;"><i class="fa-solid fa-arrow-left"></i> Voltar para Home</a>
         
-        <div class="grid grid-2" style="align-items: center; margin-bottom: 64px;">
+        <!-- Back Button -->
+        <a href="index.html" class="btn btn-outline" style="padding: 8px 16px; font-size: 13px; margin-bottom: 40px; border-radius: 50px;">
+          <i class="fa-solid fa-arrow-left"></i> Voltar para Home
+        </a>
+        
+        <!-- Hero Section -->
+        <div class="grid grid-2" style="align-items: center; margin-bottom: 80px;">
           <div>
-            <span style="font-size: 12px; font-weight: 700; color: var(--brand-primary-dark); text-transform: uppercase; background-color: rgba(0, 193, 145, 0.1); padding: 6px 12px; border-radius: 50px;">Soluções para Empresas de Delivery</span>
-            <h1 style="font-size: 2.75rem; margin-top: 24px; margin-bottom: 24px; line-height: 1.2;">Otimize suas rotas e acelere suas entregas</h1>
-            <p style="margin-bottom: 32px; font-size: 1.1rem;">Desenvolvemos sistemas inteligentes de rastreamento voltados para o setor de delivery. Tenha relatórios completos de tempos de parada, velocidade de tráfego de motoboys e rotas otimizadas.</p>
-            <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20soluções%20de%20rastreamento%20para%20delivery" target="_blank" class="btn btn-primary">Otimizar Minha Frota</a>
+            <span class="benefit-badge">Empresas de Delivery</span>
+            <h1 style="font-size: 2.85rem; margin-top: 8px; margin-bottom: 24px; line-height: 1.2; font-weight: 800; color: var(--text-primary);">
+              Otimize suas rotas e acelere suas entregas
+            </h1>
+            <p style="margin-bottom: 32px; font-size: 1.15rem; color: var(--text-secondary); line-height: 1.6;">
+              Monitore sua equipe de entregadores em tempo real. Evite atrasos prejudiciais, otimize o tempo de deslocamento e garanta a satisfação total de seus clientes com o melhor software de gestão logística.
+            </p>
+            <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20soluções%20de%20rastreamento%20para%20delivery" target="_blank" class="btn btn-primary" style="padding: 14px 28px;">
+              Otimizar Minha Frota <i class="fa-solid fa-chevron-right" style="font-size: 11px;"></i>
+            </a>
           </div>
           <div>
-            <div class="mockup-window" style="box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
-              <div class="mockup-header">
+            <!-- Simulated Delivery Tracking Mockup Window -->
+            <div class="delivery-mockup">
+              <div class="mockup-header" style="background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; height: 36px; padding: 0 16px; display: flex; align-items: center;">
                 <span class="mockup-dot active"></span>
                 <span class="mockup-dot"></span>
                 <span class="mockup-dot"></span>
-                <span style="font-size: 8px; color: var(--text-muted); margin-left: auto; font-weight: 600;">Painel Logístico</span>
+                <span style="font-size: 10px; color: var(--text-muted); margin-left: auto; font-weight: 600;">Monitoramento de Entregas</span>
               </div>
-              <div class="mockup-body" style="background-color: #f8fafc; height: 280px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-location-arrow" style="color: var(--brand-primary); font-size: 18px;"></i>
-                    <div style="text-align: left; line-height: 1.2;">
-                      <div style="font-size: 10px; font-weight: 700; color: var(--text-primary);">Otimização de Rota</div>
-                      <div style="font-size: 8px; color: var(--text-muted);">Evitando engarrafamentos na Avenida Brasil</div>
+              <div class="mockup-body" style="padding: 0; line-height: 0;">
+                <div class="map-container">
+                  <!-- Floating Status overlay -->
+                  <div class="floating-status-card">
+                    <div class="floating-status-info">
+                      <div class="floating-status-dot"></div>
+                      <div style="line-height: 1.2; text-align: left;">
+                        <div style="font-size: 10px; font-weight: 700; color: var(--text-primary);">Motoboy #04 em trânsito</div>
+                        <div style="font-size: 8px; color: var(--text-muted);">Rota otimizada via Roteirizador</div>
+                      </div>
                     </div>
+                    <span style="font-size: 9px; font-weight: 700; color: #10b981; background-color: rgba(16, 185, 129, 0.1); padding: 4px 8px; border-radius: 4px;">Entrega no Prazo</span>
                   </div>
-                  <span style="font-size: 8px; font-weight: 700; color: #10b981; background-color: rgba(16, 185, 129, 0.1); padding: 2px 8px; border-radius: 4px;">-15 min</span>
+                  
+                  <!-- SVG Simulating a map route -->
+                  <svg class="map-path" viewBox="0 0 300 300">
+                    <path d="M 40 180 Q 80 120 120 80 T 220 120 T 160 200 Z" fill="none" stroke="#e2e8f0" stroke-width="6" stroke-linecap="round" />
+                    <path d="M 40 180 Q 80 120 120 80 T 220 120 T 160 200 Z" fill="none" stroke="rgba(0, 193, 145, 0.3)" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 4" />
+                  </svg>
+                  
+                  <!-- Animated Motoboy Pin -->
+                  <div class="motoboy-pin">
+                    <div class="pin-pulse">
+                      <div class="pin-icon">
+                        <i class="fa-solid fa-motorcycle"></i>
+                      </div>
+                    </div>
+                    <div class="pin-label">Franca-SP (Rota 1)</div>
+                  </div>
                 </div>
                 
-                <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-motorcycle" style="color: var(--brand-primary); font-size: 18px;"></i>
-                    <div style="text-align: left; line-height: 1.2;">
-                      <div style="font-size: 10px; font-weight: 700; color: var(--text-primary);">Tempo de Parada Médio</div>
-                      <div style="font-size: 8px; color: var(--text-muted);">Medição de produtividade de entregadores</div>
-                    </div>
+                <!-- Bottom Stats -->
+                <div class="delivery-stats">
+                  <div class="stat-box">
+                    <span class="stat-val">42 km/h</span>
+                    <span class="stat-lbl">Velocidade</span>
                   </div>
-                  <span style="font-size: 9px; font-weight: 700; color: var(--brand-primary-dark);">5 min / entrega</span>
-                </div>
-
-                <div style="background-color: rgba(0, 193, 145, 0.1); border: 1px solid rgba(0, 193, 145, 0.2); border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
-                  <div style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fa-solid fa-shield-halved" style="color: var(--brand-primary-dark); font-size: 18px;"></i>
-                    <span style="font-size: 10px; font-weight: 700; color: var(--brand-primary-dark);">Prevenção contra desvios de carga</span>
+                  <div class="stat-box" style="border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color);">
+                    <span class="stat-val">98.4%</span>
+                    <span class="stat-lbl">Pontualidade</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-val">4 min</span>
+                    <span class="stat-lbl">Tempo de Parada</span>
                   </div>
                 </div>
               </div>
@@ -65,31 +397,115 @@
           </div>
         </div>
 
-        <div class="grid grid-4" style="margin-bottom: 64px;">
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-map-location-dot"></i></div>
-            <h3>Roteirizador</h3>
-            <p>Planeje e distribua sequências lógicas de entregas por proximidade geográfica automaticamente.</p>
+        <!-- Problem & Context Section (CDC & Food Integrity) -->
+        <div class="grid grid-2" style="align-items: flex-start; margin-bottom: 80px; background: #ffffff; border: 1px solid var(--border-color); border-radius: 24px; padding: 56px 48px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);">
+          <div>
+            <h2 style="font-size: 2.00rem; margin-bottom: 20px; line-height: 1.3; font-weight: 700; color: var(--text-primary);">
+              Delivery: uma facilidade que todos amam – e odeiam
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Quem nunca pediu uma comida deliciosa, daquele restaurante ou lanchonete famosa, e recebeu no conforto do lar? A entrega de comida delivery é uma verdadeira mão na roda para aquelas pessoas que têm a rotina corrida e não têm tempo para cozinhar.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6;">
+              Porém, essa facilidade já trouxe muitos desconfortos para os clientes – e continua trazendo, se o dono do estabelecimento não toma uma atitude. Atrasos na entrega, alimentos frios, pratos bagunçados e outras situações irritam o cliente e fazem com que o estabelecimento arque com custos desnecessários. Toda essa ineficiência logística pode ser facilmente solucionada com o rastreamento profissional para empresas de delivery.
+            </p>
           </div>
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-truck-ramp-box"></i></div>
-            <h3>Controle de Frotas</h3>
-            <p>Monitore motos e carros simultaneamente em tempo real na mesma tela administrativa.</p>
-          </div>
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-lock"></i></div>
-            <h3>Segurança da Carga</h3>
-            <p>Saiba quando as portas foram abertas e tenha alertas instantâneos de desvios de rotas.</p>
-          </div>
-          <div class="support-tool-card">
-            <div class="pricing-icon-wrapper" style="margin-bottom: 16px;"><i class="fa-solid fa-clock-rotate-left"></i></div>
-            <h3>Tempo de Chegada</h3>
-            <p>Forneça previsões exatas e reais de entrega ao seu cliente final baseado no tráfego.</p>
+          <div style="border-left: 1px solid var(--border-color); padding-left: 48px;">
+            <h2 style="font-size: 2.00rem; margin-bottom: 20px; line-height: 1.3; font-weight: 700; color: var(--text-primary);">
+              O impacto financeiro no seu negócio
+            </h2>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              <strong>O que diz o Código de Defesa do Consumidor?</strong> Em caso de atraso no prazo estipulado do delivery de alimentos ou outros produtos de consumo imediato, o cliente tem o direito legal de recusar o produto e não pagar pelo pedido, fazendo com que o estabelecimento arque com 100% da perda.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Além disso, alimentos que chegam frios ou "bagunçados" (como pizzas deformadas durante o transporte) também são recusados com frequência. A culpa final recai sempre sobre o seu estabelecimento e não sobre o entregador parceiro.
+            </p>
+            
+            <ul class="benefit-list">
+              <li class="benefit-list-item">
+                <i class="fa-solid fa-circle-xmark" style="color: #ef4444;"></i>
+                <span>Perda imediata do custo de insumos e embalagens</span>
+              </li>
+              <li class="benefit-list-item">
+                <i class="fa-solid fa-circle-xmark" style="color: #ef4444;"></i>
+                <span>Danos irreparáveis à credibilidade e reputação da marca</span>
+              </li>
+              <li class="benefit-list-item">
+                <i class="fa-solid fa-circle-xmark" style="color: #ef4444;"></i>
+                <span>Avaliações negativas em redes sociais e aplicativos</span>
+              </li>
+            </ul>
           </div>
         </div>
+
+        <!-- Strategic Intro for Solutions -->
+        <div style="margin-bottom: 48px; text-align: center;">
+          <h2 style="font-size: 2.25rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 700;">
+            Como o Rastreamento OmegaPi ajuda o seu Delivery
+          </h2>
+          <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">
+            Não oferecemos apenas a localização simples de um veículo no mapa. Nós entregamos um software corporativo que aumenta a produtividade da sua empresa e otimiza toda a sua logística. Economize tempo e dinheiro imediatamente.
+          </p>
+        </div>
+
+        <!-- Solutions Grid (3-Column Layout) -->
+        <div class="grid grid-3" style="margin-bottom: 80px;">
+          <!-- Item 1: Agilidade de Entrega -->
+          <div class="card-item">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--text-primary);">Agilidade de Entrega</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+              Trace e defina rotas inteligentes e exatas que o motorista deve cumprir, cobrindo com eficiência toda a sequência geográfica de entregas de uma região.
+            </p>
+            <p style="font-size: 0.90rem; color: var(--text-muted); line-height: 1.5; margin-top: auto; font-style: italic;">
+              Demarque áreas proibidas ou de alto risco e receba alertas imediatos caso ocorra algum desvio de rota planejado.
+            </p>
+          </div>
+
+          <!-- Item 2: Controle de Velocidade -->
+          <div class="card-item">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--text-primary);">Controle de Velocidade</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+              Monitore a velocidade máxima permitida de tráfego dos motoboys, evitando multas dispendiosas e diminuindo sensivelmente os desgastes do veículo com frenagens e combustível.
+            </p>
+            <p style="font-size: 0.90rem; color: var(--text-muted); line-height: 1.5; margin-top: auto; font-style: italic;">
+              Preserve a qualidade estética e a temperatura do alimento, impedindo ultrapassagens bruscas que bagunçam os produtos.
+            </p>
+          </div>
+
+          <!-- Item 3: Gestão e Mobilidade -->
+          <div class="card-item">
+            <div class="icon-wrapper">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--text-primary);">Gestão e Mobilidade</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;">
+              Acompanhe a sua frota a qualquer instante por meio de acessos otimizados para desktops e smartphones. Tenha o controle gerencial completo na sua tela administrativa.
+            </p>
+            <p style="font-size: 0.90rem; color: var(--text-muted); line-height: 1.5; margin-top: auto; font-style: italic;">
+              Trabalhamos com rastreadores homologados de alta fidelidade para motos ou carros, adaptáveis a qualquer tipo de negócio.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="cta-box">
+          <h2>Pronto para otimizar suas entregas e parar de perder dinheiro?</h2>
+          <p>O Sistema de Rastreamento OmegaPi ajudará o seu negócio a economizar tempo e satisfazer seus clientes mais exigentes. Solicite uma demonstração gratuita.</p>
+          <a href="https://wa.me/551637205384?text=Olá,%20gostaria%20de%20uma%20demonstração%20das%20soluções%20de%20rastreamento%20para%20delivery" target="_blank" class="btn btn-primary btn-white-cta" style="padding: 14px 28px; border-radius: 50px; font-weight: 700;">
+            Falar com um Consultor no WhatsApp <i class="fa-solid fa-whatsapp" style="margin-left: 6px; font-size: 16px;"></i>
+          </a>
+        </div>
+
       </div>
     </section>
 
+    <!-- Dynamically Injected Footer -->
     <div id="footer-placeholder"></div>
 
     <script src="assets/js/shared.js"></script>
