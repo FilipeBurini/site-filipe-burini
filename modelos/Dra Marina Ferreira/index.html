@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Marina Ferreira | Osteopatia & Quiropraxia em Franca e Miguelópolis</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Te ajudo a viver uma vida sem dor e com qualidade. Tratamento especializado de dores na coluna, lombalgia, quiropraxia e osteopatia em Franca e Miguelópolis.">
+    <meta name="keywords" content="Quiropraxia, Osteopatia, Fisioterapia, Tratamento de Dor, Lombalgia, Dor na Coluna, Franca, Miguelópolis, Dra Marina Ferreira">
+    <meta name="author" content="Dra. Marina Ferreira">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dra. Marina Ferreira | Osteopatia & Quiropraxia">
+    <meta property="og:description" content="Te ajudo a viver uma vida sem dor e com qualidade. Especialista em tratamento da dor, coluna, quiropraxia e osteopatia.">
+    <meta property="og:image" content="hero_chiropractor.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- GSAP & ScrollTrigger for premium animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            teal: '#00aa9c',
+                            tealHover: '#008e82',
+                            tealLight: '#e6f7f6',
+                            navy: '#0d2c54',
+                            navyHover: '#0a2240',
+                            bgLight: '#ffffff',
+                            bgSection: '#F1F4F1',
+                            dark: '#1E2A2A',
+                            borderLight: 'rgba(0,170,156,0.1)',
+                        }
+                    },
+                    boxShadow: {
+                        premium: '0 10px 40px -10px rgba(13, 44, 84, 0.05)',
+                        card: '0 20px 50px -15px rgba(0, 170, 156, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1E2A2A;
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FAFBF9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00aa9c;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0d2c54;
+        }
+
+        /* Custom curved shapes and blobs */
+        .hero-blob {
+            border-radius: 260px 260px 40px 40px;
+        }
+
+        .hero-blob-outline {
+            border-radius: 260px 260px 40px 40px;
+        }
+
+        .problem-blob {
+            border-radius: 200px 40px 200px 40px;
+        }
+
+        /* S-shaped curvy bar background */
+        .curved-banner-navy {
+            border-radius: 40px 180px 40px 180px;
+        }
+
+        .curved-banner-teal {
+            border-radius: 80px 40px 80px 40px;
+        }
+
+        /* Testimonials horizontal scrollbar hide */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-brand-teal/20 selection:text-brand-navy">
+
+    <!-- FLOATING MANDALA BACKGROUND WATERMARKS -->
+    <div class="absolute top-[8%] left-[-150px] w-[500px] h-[500px] pointer-events-none opacity-[0.04] z-0">
+        <!-- SVG Mandala 1 -->
+        <svg viewBox="0 0 200 200" class="w-full h-full text-brand-teal stroke-current fill-none" stroke-width="0.5">
+            <circle cx="100" cy="100" r="95" stroke-dasharray="2,2"/>
+            <circle cx="100" cy="100" r="85"/>
+            <circle cx="100" cy="100" r="70" stroke-dasharray="4,4"/>
+            <circle cx="100" cy="100" r="50"/>
+            <circle cx="100" cy="100" r="30"/>
+            <g transform="translate(100,100)">
+                <path d="M0,0 L0,-95 M0,0 L0,95 M0,0 L-95,0 M0,0 L95,0" />
+                <path d="M0,0 L-67,-67 M0,0 L67,67 M0,0 L-67,67 M0,0 L67,-67" />
+                <path d="M0,-50 C10,-40 10,-10 0,0 C-10,-10 -10,-40 0,-50" />
+                <path d="M0,50 C10,40 10,10 0,0 C-10,10 -10,40 0,50" />
+                <path d="M-50,0 C-40,10 -10,10 0,0 C-10,-10 -40,-10 -50,0" />
+                <path d="M50,0 C40,10 10,10 0,0 C10,-10 40,-10 50,0" />
+                <g transform="rotate(45)">
+                    <path d="M0,-50 C10,-40 10,-10 0,0 C-10,-10 -10,-40 0,-50" />
+                    <path d="M0,50 C10,40 10,10 0,0 C-10,10 -10,40 0,50" />
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <div class="absolute top-[28%] right-[-150px] w-[600px] h-[600px] pointer-events-none opacity-[0.03] z-0">
+        <!-- SVG Mandala 2 -->
+        <svg viewBox="0 0 200 200" class="w-full h-full text-brand-teal stroke-current fill-none" stroke-width="0.5">
+            <circle cx="100" cy="100" r="95"/>
+            <circle cx="100" cy="100" r="75" stroke-dasharray="3,3"/>
+            <circle cx="100" cy="100" r="55"/>
+            <circle cx="100" cy="100" r="35"/>
+            <g transform="translate(100,100)">
+                <path d="M0,0 L0,-95 M0,0 L0,95 M0,0 L-95,0 M0,0 L95,0" />
+                <path d="M0,0 L-67,-67 M0,0 L67,67 M0,0 L-67,67 M0,0 L67,-67" />
+                <g transform="rotate(22.5)">
+                    <path d="M0,0 L0,-95 M0,0 L0,95 M0,0 L-95,0 M0,0 L95,0" />
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <div class="absolute top-[62%] left-[-200px] w-[700px] h-[700px] pointer-events-none opacity-[0.03] z-0">
+        <!-- SVG Mandala 3 -->
+        <svg viewBox="0 0 200 200" class="w-full h-full text-brand-teal stroke-current fill-none" stroke-width="0.5">
+            <circle cx="100" cy="100" r="90"/>
+            <circle cx="100" cy="100" r="70"/>
+            <circle cx="100" cy="100" r="45" stroke-dasharray="2,2"/>
+            <g transform="translate(100,100)">
+                <path d="M0,0 L0,-90 M0,0 L0,90 M0,0 L-90,0 M0,0 L90,0" />
+                <g transform="rotate(30)">
+                    <path d="M0,0 L0,-90 M0,0 L0,90 M0,0 L-90,0 M0,0 L90,0" />
+                </g>
+                <g transform="rotate(60)">
+                    <path d="M0,0 L0,-90 M0,0 L0,90 M0,0 L-90,0 M0,0 L90,0" />
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-brand-bgLight/70 backdrop-blur-lg border-b border-brand-teal/10" id="header">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex flex-col">
+                <span class="font-serif font-bold text-xl sm:text-2xl text-brand-navy tracking-tight leading-none">Dra. Marina Ferreira</span>
+                <span class="text-[9px] uppercase tracking-[0.25em] text-brand-teal font-semibold mt-1.5">Osteopatia & Quiropraxia</span>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-brand-navy">
+                <a href="#inicio" class="hover:text-brand-teal transition-colors">Início</a>
+                <a href="#jornada" class="hover:text-brand-teal transition-colors">A Jornada</a>
+                <a href="#beneficios" class="hover:text-brand-teal transition-colors">Benefícios</a>
+                <a href="#sobre" class="hover:text-brand-teal transition-colors">Sobre a Doutora</a>
+                <a href="#depoimentos" class="hover:text-brand-teal transition-colors">Depoimentos</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/5516981777772?text=Olá,%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Quiropraxia/Osteopatia." target="_blank"
+                   class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 bg-brand-teal hover:bg-brand-tealHover text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md">
+                    Agendar Consulta
+                </a>
+                <button class="md:hidden text-brand-navy flex items-center justify-center" id="mobile-menu-btn" aria-label="Menu principal">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div class="hidden md:hidden absolute top-full left-0 w-full bg-brand-bgLight/95 border-b border-brand-teal/10 backdrop-blur-lg flex flex-col p-6 space-y-4 text-center font-medium" id="mobile-menu">
+            <a href="#inicio" class="text-brand-navy hover:text-brand-teal py-2" onclick="toggleMenu()">Início</a>
+            <a href="#jornada" class="text-brand-navy hover:text-brand-teal py-2" onclick="toggleMenu()">A Jornada</a>
+            <a href="#beneficios" class="text-brand-navy hover:text-brand-teal py-2" onclick="toggleMenu()">Benefícios</a>
+            <a href="#sobre" class="text-brand-navy hover:text-brand-teal py-2" onclick="toggleMenu()">Sobre a Doutora</a>
+            <a href="#depoimentos" class="text-brand-navy hover:text-brand-teal py-2" onclick="toggleMenu()">Depoimentos</a>
+            <a href="https://wa.me/5516981777772?text=Olá,%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Quiropraxia/Osteopatia." target="_blank"
+               class="inline-flex items-center justify-center px-6 py-3 bg-brand-teal text-white rounded-full text-sm font-bold uppercase tracking-wider">
+                Falar no WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative pt-32 pb-24 overflow-hidden min-h-[90vh] flex items-center bg-white">
+        <!-- Full-bleed background clinic scene (subtle opacity to add warmth without clutter) -->
+        <div class="absolute inset-0 z-0">
+            <img src="hero_background.png" alt="Consultório Clínico" class="w-full h-full object-cover opacity-[0.12] pointer-events-none">
+            <!-- Subtle gradient to blend it perfectly -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+            <!-- Left Text Box -->
+            <div class="lg:col-span-6 space-y-8 text-left" id="hero-left">
+                <h1 class="font-serif text-5xl sm:text-6xl lg:text-[4.5rem] leading-[1.05] text-brand-teal font-medium tracking-tight">
+                    Viva uma vida <br>
+                    sem dor e com <br>
+                    <span class="text-brand-navy italic font-semibold">qualidade</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-brand-navy/80 max-w-md font-medium leading-relaxed">
+                    Especialista em <strong class="text-brand-teal font-bold underline decoration-brand-teal/30 underline-offset-4">Quiropraxia e Osteopatia</strong>, técnicas avançadas que trabalham além do local da dor, tratando sua origem.
+                </p>
+
+                <div class="pt-2">
+                    <a href="https://wa.me/5516981777772?text=Olá,%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
+                       class="inline-flex items-center justify-between px-7 py-4 bg-brand-teal hover:bg-brand-tealHover text-white rounded-full font-sans text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-lg group">
+                        <span>Agende sua consulta</span>
+                        <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-6 text-brand-teal group-hover:bg-brand-navy group-hover:text-white transition-colors shadow-sm">
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Image Frame with Arched Portrait -->
+            <div class="lg:col-span-6 relative flex items-center justify-center" id="hero-right">
+                <!-- SVG Decorative Element -->
+                <div class="absolute -top-10 -right-10 w-[200px] h-[200px] pointer-events-none opacity-[0.08] z-0">
+                    <svg viewBox="0 0 100 100" class="text-brand-teal stroke-current fill-none" stroke-width="0.5">
+                        <circle cx="50" cy="50" r="45"/>
+                        <circle cx="50" cy="50" r="35" stroke-dasharray="1 1"/>
+                    </svg>
+                </div>
+
+                <!-- Outline teal border offset -->
+                <div class="absolute w-[80%] sm:w-[70%] aspect-[3/4] border-2 border-brand-teal/40 hero-blob-outline transform translate-x-4 -translate-y-4 pointer-events-none z-0"></div>
+
+                <!-- Image container with blob shape -->
+                <div class="relative w-[80%] sm:w-[70%] aspect-[3/4] overflow-hidden hero-blob shadow-premium z-10 bg-brand-bgSection border border-brand-teal/20">
+                    <img src="hero_chiropractor.png" alt="Dra. Marina Ferreira no consultório de Quiropraxia e Osteopatia" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: SUA JORNADA DE TRANSFORMAÇÃO -->
+    <section id="jornada" class="relative py-16 bg-white border-b border-brand-teal/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center space-y-4 mb-16" id="jornada-header">
+                <h2 class="font-serif text-4xl sm:text-5xl leading-tight text-brand-navy font-semibold">
+                    Sua Jornada para uma Vida sem Dor
+                </h2>
+                <div class="w-24 h-1 bg-brand-teal mx-auto rounded-full"></div>
+            </div>
+
+            <!-- 4 Cards Overlapping Navy Banner Container -->
+            <div class="relative mt-8" id="jornada-cards-container">
+                <!-- Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-20">
+                    <!-- Card 1 -->
+                    <div class="jornada-card bg-white rounded-3xl p-8 border border-brand-teal/15 shadow-card hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center space-y-4 group">
+                        <div class="w-14 h-14 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+                            <i class="ph ph-calendar-blank text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-navy font-bold">Consulta & Agendamento</h3>
+                        <p class="text-sm text-brand-navy/70 leading-relaxed font-medium">
+                            Agende seu atendimento de forma rápida pelo WhatsApp escolhendo o melhor horário.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="jornada-card bg-white rounded-3xl p-8 border border-brand-teal/15 shadow-card hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center space-y-4 group">
+                        <div class="w-14 h-14 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+                            <i class="ph ph-stethoscope text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-navy font-bold">Avaliação Detalhada</h3>
+                        <p class="text-sm text-brand-navy/70 leading-relaxed font-medium">
+                            Analisamos suas queixas de dores, postura, amplitude e seu histórico clínico.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="jornada-card bg-white rounded-3xl p-8 border border-brand-teal/15 shadow-card hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center space-y-4 group">
+                        <div class="w-14 h-14 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+                            <i class="ph ph-target text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-navy font-bold">Técnicas Avançadas</h3>
+                        <p class="text-sm text-brand-navy/70 leading-relaxed font-medium">
+                            Aplicação de Quiropraxia e Osteopatia agindo de maneira precisa na origem da dor.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="jornada-card bg-white rounded-3xl p-8 border border-brand-teal/15 shadow-card hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center space-y-4 group">
+                        <div class="w-14 h-14 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+                            <i class="ph ph-chart-line-up text-2xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brand-navy font-bold">Alta e Qualidade de Vida</h3>
+                        <p class="text-sm text-brand-navy/70 leading-relaxed font-medium">
+                            Recuperação completa de movimentos e orientações para manter seu corpo livre de dores.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Curved Navy Banner Underneath (serving as a backdrop accent) -->
+                <div class="w-full bg-brand-navy py-12 px-6 mt-[-100px] pt-[150px] pb-16 curved-banner-navy shadow-lg relative z-10 flex flex-col items-center justify-center text-center">
+                    <div class="mt-4">
+                        <a href="https://wa.me/5516981777772?text=Olá,%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Quiropraxia/Osteopatia." target="_blank"
+                           class="inline-flex items-center justify-between px-7 py-3.5 bg-brand-teal hover:bg-brand-tealHover text-white rounded-full font-sans text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-md group">
+                            <span>Agende sua consulta clínica!</span>
+                            <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-4 text-brand-teal group-hover:bg-brand-navy group-hover:text-white transition-colors">
+                                <i class="ph ph-arrow-up-right text-xs"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PROBLEM VS SOLUTION (DORES E ALÍVIO) -->
+    <section id="problem-section" class="relative py-16 bg-brand-bgSection border-b border-brand-teal/10 overflow-hidden">
+        <!-- Background SVG Decoration -->
+        <div class="absolute bottom-[-100px] left-[-100px] w-[350px] h-[350px] pointer-events-none opacity-[0.05] z-0">
+            <svg viewBox="0 0 100 100" class="text-brand-teal stroke-current fill-none" stroke-width="0.5">
+                <circle cx="50" cy="50" r="48"/>
+                <path d="M50,0 L50,100 M0,50 L100,50" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+            <!-- Left Image with Leaf Shape -->
+            <div class="lg:col-span-5 relative order-2 lg:order-1 flex items-center justify-center" id="problem-left">
+                <!-- Outer outline -->
+                <div class="absolute w-[85%] sm:w-[75%] aspect-[3/4] border-2 border-brand-teal/40 problem-blob transform -translate-x-4 translate-y-4 pointer-events-none z-0"></div>
+
+                <!-- Main organic image -->
+                <div class="relative w-[85%] sm:w-[75%] aspect-[3/4] overflow-hidden problem-blob shadow-premium z-10 bg-brand-bgLight border border-brand-teal/20">
+                    <img src="chiropractic_adjustment.png" alt="Ajuste quiroprático manual da coluna" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Right Text and Bullet Points -->
+            <div class="lg:col-span-7 space-y-8 text-left order-1 lg:order-2" id="problem-right">
+                <h3 class="font-serif text-3xl sm:text-4xl md:text-[2.5rem] leading-[1.2] text-brand-navy font-semibold">
+                    Se você sofre com dores nas costas, coluna ou limitações físicas no dia a dia, a Quiropraxia e a Osteopatia são as soluções ideais para você.
+                </h3>
+                
+                <!-- 2 Column Grid for Checkpoints -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Dores nas Costas e Coluna</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Lombalgia e Ciático</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Recuperação de Movimentos</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Tratamento Músculo-Esquelético</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Problemas de Postura</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Traumatologia</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Dores de Cabeça e Tensão</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Hérnias de Disco</span>
+                    </div>
+                    <div class="flex items-center space-x-3 sm:col-span-2">
+                        <span class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center text-brand-teal">
+                            <i class="ph-fill ph-check-circle text-lg"></i>
+                        </span>
+                        <span class="text-sm font-semibold text-brand-navy/90">Prevenção de crises e melhora da qualidade de vida</span>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <a href="https://wa.me/5516981777772?text=Olá,%20Dra.%20Marina!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20alívio%20de%20dores." target="_blank"
+                       class="inline-flex items-center justify-between px-7 py-4 bg-brand-teal hover:bg-brand-tealHover text-white rounded-full font-sans text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-md group">
+                        <span>Agende seu atendimento</span>
+                        <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-6 text-brand-teal group-hover:bg-brand-navy group-hover:text-white transition-colors shadow-sm">
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: BENEFITS (TRANSFORME SEU CORPO COM CONTADOR CENTRAL) -->
+    <section id="beneficios" class="relative py-16 bg-white border-b border-brand-teal/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Header Navy Banner -->
+            <div class="w-full bg-brand-navy py-10 px-6 sm:px-12 curved-banner-teal shadow-xl text-center mb-16" id="benefits-header">
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white leading-tight font-bold">
+                    Recupere sua qualidade de vida <br class="hidden sm:inline">
+                    com a <span class="text-brand-teal">Quiropraxia & Osteopatia</span>.
+                </h2>
+            </div>
+
+            <!-- Split Benefits Layout with center indicator circles (Desktop) -->
+            <!-- Columns: Left 5 items, Center numbers, Right 5 items -->
+            <div class="relative grid grid-cols-1 lg:grid-cols-11 gap-4 items-center" id="benefits-grid">
+                
+                <!-- Left 5 items (Desktop columns 1-5) -->
+                <div id="benefits-left" class="lg:col-span-5 space-y-8 text-left lg:text-right">
+                    
+                    <!-- Item 1 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row-reverse lg:flex-col items-center lg:items-end text-left lg:text-right w-full">
+                        <div class="w-full pr-4 lg:pr-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Tratamento Além do Local da Dor</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Trabalhamos na origem do problema, eliminando a causa raiz e não apenas sintomas temporários.</p>
+                        </div>
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">01</div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row-reverse lg:flex-col items-center lg:items-end text-left lg:text-right w-full">
+                        <div class="w-full pr-4 lg:pr-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Alívio de Lombalgia e Ciático</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Combate direto a dores na região lombar e compressões nervosas, devolvendo seu conforto.</p>
+                        </div>
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">02</div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row-reverse lg:flex-col items-center lg:items-end text-left lg:text-right w-full">
+                        <div class="w-full pr-4 lg:pr-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Recuperação de Movimentos</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Restauração da amplitude e flexibilidade natural das articulações da coluna e membros.</p>
+                        </div>
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">03</div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row-reverse lg:flex-col items-center lg:items-end text-left lg:text-right w-full">
+                        <div class="w-full pr-4 lg:pr-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Tratamento Músculo-Esquelético</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Cuidado clínico e manual integrado para músculos, tendões, ligamentos e articulações.</p>
+                        </div>
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">04</div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row-reverse lg:flex-col items-center lg:items-end text-left lg:text-right w-full">
+                        <div class="w-full pr-4 lg:pr-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Melhora Postural Completa</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Alinhamento biomecânico para uma postura equilibrada, mais leve e sem esforço excessivo.</p>
+                        </div>
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">05</div>
+                    </div>
+
+                </div>
+
+                <!-- Center column with vertical connecting line and number icons (Desktop only, column 6) -->
+                <div class="hidden lg:flex lg:col-span-1 flex-col items-center h-full relative py-6">
+                    <!-- Vertical Line -->
+                    <div class="absolute w-0.5 h-full bg-brand-teal/20 top-0 z-0"></div>
+
+                    <!-- Number Markers -->
+                    <div class="flex flex-col justify-between items-center h-full space-y-16 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-teal border border-brand-teal/40 flex items-center justify-center font-extrabold text-sm shadow-md">01</div>
+                        <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-teal border border-brand-teal/40 flex items-center justify-center font-extrabold text-sm shadow-md">02</div>
+                        <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-teal border border-brand-teal/40 flex items-center justify-center font-extrabold text-sm shadow-md">03</div>
+                        <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-teal border border-brand-teal/40 flex items-center justify-center font-extrabold text-sm shadow-md">04</div>
+                        <div class="w-12 h-12 rounded-full bg-brand-navy text-brand-teal border border-brand-teal/40 flex items-center justify-center font-extrabold text-sm shadow-md">05</div>
+                    </div>
+                </div>
+
+                <!-- Right 5 items (Desktop columns 7-11) -->
+                <div id="benefits-right" class="lg:col-span-5 space-y-8 text-left">
+                    
+                    <!-- Item 6 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row lg:flex-col items-center lg:items-start w-full">
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">06</div>
+                        <div class="w-full pl-4 lg:pl-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Ajustes Quiropráticos Precisos</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Técnicas manuais e seguras para destravar articulações e otimizar o sistema nervoso.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row lg:flex-col items-center lg:items-start w-full">
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">07</div>
+                        <div class="w-full pl-4 lg:pl-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Osteopatia Integrada</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Abordagem terapêutica que respeita a globalidade do corpo, ativando sua capacidade de autocura.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row lg:flex-col items-center lg:items-start w-full">
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">08</div>
+                        <div class="w-full pl-4 lg:pl-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Alívio de Tensões Cervicais</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Redução de dores no pescoço, rigidez muscular nos ombros e cefaleias tensionais.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row lg:flex-col items-center lg:items-start w-full">
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">09</div>
+                        <div class="w-full pl-4 lg:pl-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Localização no High Business</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Consultório de alto padrão localizado na área nobre e de fácil acesso de Franca-SP.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="bg-white lg:bg-transparent p-6 lg:p-0 rounded-2xl border border-brand-teal/10 lg:border-none shadow-premium lg:shadow-none space-y-2 flex flex-row lg:flex-col items-center lg:items-start w-full">
+                        <div class="lg:hidden flex-shrink-0 w-10 h-10 rounded-full bg-brand-teal text-white flex items-center justify-center font-bold text-sm mr-4">10</div>
+                        <div class="w-full pl-4 lg:pl-0">
+                            <h4 class="font-serif text-2xl text-brand-navy font-bold">Atendimento em Duas Cidades</h4>
+                            <p class="text-xs sm:text-sm text-brand-navy/70 font-semibold mt-1">Cuidado clínico e proximidade com você através de consultas em Franca e Miguelópolis.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CTA Button at bottom of benefits -->
+            <div class="flex justify-center mt-16" id="benefits-cta">
+                <a href="https://wa.me/5516981777772?text=Olá,%20Dra.%20Marina!%20Gostaria%20de%20agendar%20um%20atendimento%20de%20Quiropraxia/Osteopatia." target="_blank"
+                   class="inline-flex items-center justify-between px-8 py-4 bg-brand-teal hover:bg-brand-tealHover text-white rounded-full font-sans text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-md group">
+                    <span>Agende sua consulta de Quiropraxia ou Osteopatia</span>
+                    <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-4 text-brand-teal group-hover:bg-brand-navy group-hover:text-white transition-colors">
+                        <i class="ph ph-arrow-up-right text-xs"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PRA QUEM É A QUIROPRAXIA E OSTEOPATIA? -->
+    <section id="target-section" class="relative py-16 bg-brand-bgSection border-b border-brand-teal/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Info Column -->
+            <div class="lg:col-span-5 space-y-6 text-left" id="target-left">
+                <h3 class="font-serif text-4xl sm:text-5xl leading-tight text-brand-teal font-semibold">
+                    Para quem é a <br class="hidden lg:inline"> Quiropraxia & Osteopatia?
+                </h3>
+                
+                <p class="text-lg sm:text-xl text-brand-navy font-medium leading-relaxed">
+                    Indicado para homens, mulheres, atletas e idosos de todas as idades que sofrem com dores ou buscam mais mobilidade e bem-estar!
+                </p>
+
+                <div class="pt-4">
+                    <a href="https://wa.me/5516981777772?text=Olá,%20Dra.%20Marina!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank"
+                       class="inline-flex items-center justify-between px-7 py-4 bg-brand-teal hover:bg-brand-tealHover text-white rounded-full font-sans text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-md group">
+                        <span>Agende uma consulta</span>
+                        <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-4 text-brand-teal group-hover:bg-brand-navy group-hover:text-white transition-colors">
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Image Frame -->
+            <div class="lg:col-span-7 relative flex items-center justify-center" id="target-right">
+                <!-- SVG Circle outline frame -->
+                <div class="absolute w-[90%] sm:w-[80%] aspect-[4/3] border-2 border-brand-teal/40 rounded-[80px_10px_80px_10px] transform translate-x-4 -translate-y-4 pointer-events-none z-0"></div>
+
+                <!-- Main image -->
+                <div class="relative w-[90%] sm:w-[80%] aspect-[4/3] overflow-hidden rounded-[80px_10px_80px_10px] shadow-premium z-10 bg-brand-bgLight border border-brand-teal/20">
+                    <img src="clinic_interior.png" alt="Consultório moderno de Quiropraxia e Osteopatia da Dra. Marina Ferreira" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: GOOGLE REVIEWS (PROVA SOCIAL) -->
+    <section id="depoimentos" class="relative py-16 bg-white border-b border-brand-teal/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Score Badge -->
+            <div class="lg:col-span-4 space-y-4 text-center lg:text-left flex flex-col items-center lg:items-start" id="reviews-left">
+                <span class="text-brand-navy font-serif text-3xl font-extrabold">Excelente 5.0</span>
+                
+                <!-- Google Stars mockup -->
+                <div class="flex items-center space-x-1.5">
+                    <i class="ph-fill ph-star text-amber-400 text-2xl"></i>
+                    <i class="ph-fill ph-star text-amber-400 text-2xl"></i>
+                    <i class="ph-fill ph-star text-amber-400 text-2xl"></i>
+                    <i class="ph-fill ph-star text-amber-400 text-2xl"></i>
+                    <i class="ph-fill ph-star text-amber-400 text-2xl"></i>
+                </div>
+                
+                <p class="text-xs text-brand-navy/60 font-bold uppercase tracking-wider">30 avaliações no Google</p>
+                
+                <!-- Simple Google Logo placeholder text style -->
+                <div class="flex items-center space-x-1 mt-1">
+                    <span class="font-extrabold text-2xl text-blue-600">G</span>
+                    <span class="font-extrabold text-2xl text-red-500">o</span>
+                    <span class="font-extrabold text-2xl text-yellow-500">o</span>
+                    <span class="font-extrabold text-2xl text-blue-500">g</span>
+                    <span class="font-extrabold text-2xl text-green-500">l</span>
+                    <span class="font-extrabold text-2xl text-red-500">e</span>
+                </div>
+            </div>
+
+            <!-- Right Reviews Cards Scroll -->
+            <div class="lg:col-span-8 overflow-x-auto no-scrollbar flex space-x-6 py-4 px-2" id="reviews-right">
+                
+                <!-- Card 1 -->
+                <div class="min-w-[280px] sm:min-w-[340px] bg-white p-6 rounded-3xl border border-brand-teal/10 shadow-premium flex flex-col justify-between flex-shrink-0">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center font-bold text-sm">AG</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-brand-navy">Ana Rita Gomes</h5>
+                                <span class="text-[10px] text-brand-navy/50 font-bold">Avaliação no Google</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-navy/70 leading-relaxed font-medium italic">
+                            "Fantástica, colocou meu corpo no lugar."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="min-w-[280px] sm:min-w-[340px] bg-white p-6 rounded-3xl border border-brand-teal/10 shadow-premium flex flex-col justify-between flex-shrink-0">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center font-bold text-sm">YC</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-brand-navy">Yuri Carvalho</h5>
+                                <span class="text-[10px] text-brand-navy/50 font-bold">Avaliação no Google</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-navy/70 leading-relaxed font-medium italic">
+                            "Muito obrigado a doutora e equipe!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="min-w-[280px] sm:min-w-[340px] bg-white p-6 rounded-3xl border border-brand-teal/10 shadow-premium flex flex-col justify-between flex-shrink-0">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-teal/20 text-brand-teal flex items-center justify-center font-bold text-sm">FF</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-brand-navy">Fabiana Freitas</h5>
+                                <span class="text-[10px] text-brand-navy/50 font-bold">Avaliação no Google</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                            <i class="ph-fill ph-star text-amber-400 text-sm"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm text-brand-navy/70 leading-relaxed font-medium italic">
+                            "Uma excelente profissional, super recomendo !!!"
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: SOBRE A DRA. MARINA FERREIRA -->
+    <section id="sobre" class="relative py-16 bg-brand-bgSection border-b border-brand-teal/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center space-y-4 mb-16" id="about-header">
+                <h2 class="font-serif text-4xl sm:text-5xl leading-tight text-brand-navy font-semibold">
+                    Sobre a Dra. Marina Ferreira
+                </h2>
+                <div class="w-24 h-1 bg-brand-teal mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Video Simulator -->
+                <div class="lg:col-span-6 relative flex items-center justify-center" id="about-left">
+                    <!-- Decorative back element -->
+                    <div class="absolute w-[95%] h-[95%] border border-brand-teal/20 rounded-3xl transform translate-x-4 translate-y-4 pointer-events-none z-0"></div>
+
+                    <!-- Video Container -->
+                    <div class="relative w-[95%] aspect-video rounded-3xl overflow-hidden shadow-premium bg-slate-900 border border-brand-teal/30 group z-10 cursor-pointer">
+                        <img src="video_thumbnail.png" alt="Dra. Marina Ferreira explicando sobre a coluna e tratamentos" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                        <!-- Play Button Layer -->
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                            <div class="w-16 h-16 rounded-full bg-red-600 group-hover:bg-red-700 flex items-center justify-center text-white text-3xl shadow-lg transition-all duration-300 hover:scale-110 relative">
+                                <i class="ph ph-play-fill ml-1"></i>
+                                <!-- Pulse effect -->
+                                <span class="absolute inset-0 rounded-full bg-red-600 animate-ping opacity-25"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Copy Text -->
+                <div class="lg:col-span-6 space-y-6 text-left" id="about-right">
+                    <div class="bg-white p-8 rounded-3xl border border-brand-teal/15 shadow-premium space-y-6">
+                        <p class="text-sm sm:text-base text-brand-navy/85 font-medium leading-relaxed">
+                            A <strong class="text-brand-teal font-bold">Dra. Marina Ferreira</strong> é Quiropraxista e Osteopata, Bacharel em Fisioterapia pela Universidade de Ribeirão Preto (UNAERP), com formação completa em Osteopatia pelo IDOT e especialização em Quiropraxia. Ela conta com diversos anos de experiência clínica atuando nas cidades de Franca e Miguelópolis.
+                        </p>
+                        <p class="text-sm sm:text-base text-brand-navy/85 font-medium leading-relaxed">
+                            Seu trabalho é altamente focado no tratamento da dor, lombalgia, dores na coluna, recuperação de movimentos, traumatologia e reabilitação de disfunções músculo-esqueléticas.
+                        </p>
+                        <p class="text-sm sm:text-base text-brand-navy/85 font-medium leading-relaxed">
+                            Como especialista em Osteopatia e Quiropraxia, ela aplica técnicas manuais avançadas que trabalham além do local do sintoma, tratando a real origem da dor para ajudar seus pacientes a viverem sem dores e com mais qualidade de vida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FOOTER & DÚVIDAS -->
+    <section class="relative pt-16 pb-8 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- Curved Teal Banner (Footer CTA) -->
+            <div class="w-full bg-brand-teal py-16 px-6 sm:px-12 curved-banner-teal shadow-xl text-center flex flex-col md:flex-row items-center justify-between gap-8 mb-16" id="footer-banner">
+                <div class="space-y-4 text-left">
+                    <h3 class="font-serif text-3xl sm:text-4xl text-white font-bold leading-tight">Dúvidas?</h3>
+                    <p class="text-lg sm:text-xl text-white/90 font-medium">Tem alguma dúvida sobre os tratamentos? Fale conosco.</p>
+                </div>
+
+                <div>
+                    <a href="https://wa.me/5516981777772?text=Olá!%20Gostaria%20de%20esclarecer%20algumas%20dúvidas%20sobre%20o%20tratamento." target="_blank"
+                       class="inline-flex items-center justify-between px-8 py-4 bg-brand-navy hover:bg-brand-navyHover text-white rounded-full font-sans text-sm font-bold tracking-wider uppercase transition-all duration-300 shadow-lg group">
+                        <span>Agendar no WhatsApp</span>
+                        <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-6 text-brand-navy group-hover:bg-brand-teal group-hover:text-white transition-colors">
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Information Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-t border-brand-teal/10 pt-12 text-sm text-brand-navy/80">
+                <div class="space-y-3">
+                    <h5 class="font-serif font-bold text-lg text-brand-navy">Dra. Marina Ferreira</h5>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-brand-teal">Fisioterapeuta | Quiropraxia & Osteopatia</p>
+                    <a href="https://instagram.com/dra.marina.ferreira" target="_blank" class="inline-flex items-center space-x-1.5 hover:text-brand-teal transition-colors text-xs font-bold uppercase tracking-wider">
+                        <i class="ph ph-instagram-logo text-lg text-brand-teal"></i>
+                        <span>@dra.marina.ferreira</span>
+                    </a>
+                </div>
+                <div class="space-y-3">
+                    <h5 class="font-serif font-bold text-lg text-brand-navy">Localização</h5>
+                    <div class="flex items-start space-x-2 text-xs font-medium leading-relaxed">
+                        <i class="ph ph-map-pin text-brand-teal text-lg flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-brand-navy">High Business Franca</p>
+                            <p>R. Cavalheiro Ângelo Presotto, 327 - São José</p>
+                            <p>Franca - SP, 14401-289</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-2 text-xs font-medium leading-relaxed">
+                        <i class="ph ph-map-pin text-brand-teal text-lg flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <p class="font-bold text-brand-navy">Miguelópolis - SP</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <h5 class="font-serif font-bold text-lg text-brand-navy">Contato & Horários</h5>
+                    <div class="flex items-center space-x-2 text-xs font-medium">
+                        <i class="ph ph-phone text-brand-teal text-lg flex-shrink-0"></i>
+                        <p class="font-bold text-brand-navy">(16) 98177-7772</p>
+                    </div>
+                    <div class="flex items-center space-x-2 text-xs font-medium">
+                        <i class="ph ph-clock text-brand-teal text-lg flex-shrink-0"></i>
+                        <p>Segunda a Sexta: Aberto · Fecha às 19:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="border-t border-brand-teal/15 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-bold text-brand-navy/60 uppercase tracking-wider">
+                <p>© 2026 Dra. Marina Ferreira - Quiropraxia & Osteopatia. Todos os direitos reservados.</p>
+                <p>Criado por Filipe Burini</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOBILE MENU TOGGLE SCRIPT -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // GSAP Premium Animations with IntersectionObserver fallback for local and sandbox webviews
+        window.addEventListener('load', () => {
+            // Register ScrollTrigger just in case, but we will use IntersectionObserver for ultimate webview compatibility
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero section fade-in (always plays immediately)
+            gsap.from('#hero-left', {
+                opacity: 0,
+                x: -50,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            gsap.from('#hero-right', {
+                opacity: 0,
+                x: 50,
+                duration: 1,
+                delay: 0.2,
+                ease: 'power3.out'
+            });
+
+            // 1. Initialize animation targets to hidden state (ready for reveal)
+            gsap.set('.jornada-card', { opacity: 0, y: 50 });
+            gsap.set('#problem-left', { opacity: 0, x: -50 });
+            gsap.set('#problem-right', { opacity: 0, x: 50 });
+            gsap.set('#benefits-left > div', { opacity: 0, x: -30 });
+            gsap.set('#benefits-right > div', { opacity: 0, x: 30 });
+            gsap.set('#target-left', { opacity: 0, y: 30 });
+            gsap.set('#target-right', { opacity: 0, scale: 0.95 });
+
+            // 2. High-reliability IntersectionObserver setup
+            const revealOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        
+                        if (id === 'jornada') {
+                            gsap.to('.jornada-card', { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: 'power2.out', overwrite: 'auto' });
+                        } else if (id === 'problem-section') {
+                            gsap.to('#problem-left', { opacity: 1, x: 0, duration: 1, ease: 'power2.out', overwrite: 'auto' });
+                            gsap.to('#problem-right', { opacity: 1, x: 0, duration: 1, ease: 'power2.out', overwrite: 'auto' });
+                        } else if (id === 'beneficios') {
+                            gsap.to('#benefits-left > div', { opacity: 1, x: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out', overwrite: 'auto' });
+                            gsap.to('#benefits-right > div', { opacity: 1, x: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out', overwrite: 'auto' });
+                        } else if (id === 'target-section') {
+                            gsap.to('#target-left', { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', overwrite: 'auto' });
+                            gsap.to('#target-right', { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out', overwrite: 'auto' });
+                        }
+                        
+                        revealOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.1, // Trigger when 10% visible
+                rootMargin: '0px 0px -50px 0px' // Trigger slightly before it enters the screen
+            });
+
+            // Observe all animated sections
+            const observeTargets = ['jornada', 'problem-section', 'beneficios', 'target-section'];
+            observeTargets.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) revealOnScroll.observe(el);
+            });
+
+            // 3. Fallback safety net (ensures content is visible even in restricted webviews or if scripts halt)
+            setTimeout(() => {
+                gsap.to(['.jornada-card', '#problem-left', '#problem-right', '#benefits-left > div', '#benefits-right > div', '#target-left', '#target-right'], {
+                    opacity: 1,
+                    y: 0,
+                    x: 0,
+                    scale: 1,
+                    duration: 0.5,
+                    stagger: 0.05,
+                    overwrite: 'auto' // Prevents overriding animations that already started
+                });
+            }, 1000); // Trigger after 1s as a fallback
+        });
+    </script>
+</body>
+
+</html>
